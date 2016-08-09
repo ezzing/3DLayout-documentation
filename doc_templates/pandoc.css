@@ -116,10 +116,11 @@ h6 {
 }
 
 blockquote {
-  color: #666666;
+  color: #000000;
   margin: 0;
   padding-left: 3em;
   border-left: 0.5em #EEE solid;
+  background-color: lightgreen;
 }
 
 hr {

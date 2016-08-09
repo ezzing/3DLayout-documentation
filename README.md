@@ -59,7 +59,7 @@ Table of contents
 Introduction
 ============
 
-Ezzing 3DLayout is a PV planning tool that allows you to generate a 3d model of a building based on a satellite image. You can model any number of buildings, select between up to five different type of roofs, define keepouts and trees with custom heights.
+Ezzing 3DLayout is a PV planning tool that allows you to generate a 3d model of a building based on a satellite image. You can model any number of buildings, select between up to five different type of roofs, define keepouts and trees with custom heights…
 
 Inside each roof area you can customize different structures, select module models and get automated previews of your setup.
 
@@ -111,7 +111,7 @@ In the buildings index you can see the active building and select another one to
 
 ### Main Options
 
-This are the main options in the canvas area.
+These are the main options in the canvas area.
 
 <img src="./layout-doc-imgs/mainoptions.jpg" alt="mainoptions" class="w100" />
 
@@ -125,17 +125,17 @@ The right aligned buttons are the **main options custom buttons**. You can custo
 
 The default custom buttons are:
 
--   satellite provider selector (only showed if available)
 -   snapshot
 -   sun simulation
 -   perspective view
 -   fullscreen
+-   satellite provider selector (only showed if available)
 
 > Please, visit the section [Custom Buttons](#custom-buttons) to learn how to add your own functions.
 
 ### Control Buttons
 
-This are map related buttons. You can also customize the upper section of this set of buttons by hidding some of them or by adding new buttons
+These are map related buttons. You can also customize the upper section of this set of buttons by hidding some of them or by adding new buttons
 
 <img src="./layout-doc-imgs/controlbuttons.jpg" alt="controlbuttons" class="w100px" />
 
@@ -173,19 +173,28 @@ To embed the 3DLayout app into an html page, you only need to add some lines to 
 
 Add this lines to the header element in your code:
 
-    script(type="text/javascript" src="/path-to-ezzing3d-files/angular_lib.js")
-    script(type="text/javascript" src="/path-to-ezzing3d-files/ezzing3DApp.js")
-    script(type="text/javascript" src="/path-to-ezzing3d-files/ezzing3D.js")
-    script(type="text/javascript" src="/path-to-ezzing3d-files/lib.js")
-    link(rel="stylesheet" href="/path-to-ezzing3d-files/screen.css")
+    <link rel="stylesheet" type="text/css" href="/path-to-ezzing3d-files/screen.css">
 
 ### DOM body
 
-Add this lines to the body element in your code:
+You need an element in the body of your html page, a div with id=“layout” where the 3DLayout will fit inside.
+
+> This div can not be bigger than the view size, and **no scroll** has to be applied to the html page.
+
+You should not change the ezzing3d element size (width or height) but change the size of this container div.
+
+Add this lines inside the body element in your code:
 
     <div id="layout">
         <ezzing3d id='ezzing3d' layoutRules='{"logo": false}'></ezzing3d>
     </div>
+
+and these lines at the end of the body:
+
+    <script type="text/javascript" src="/path-to-ezzing3d-files/angular_lib.js"></script>
+    <script type="text/javascript" src="/path-to-ezzing3d-files/ezzing3DApp.js"></script>
+    <script type="text/javascript" src="/path-to-ezzing3d-files/ezzing3D.js"></script>
+    <script type="text/javascript" src="/path-to-ezzing3d-files/lib.js"></script>
 
 Javascript code
 ---------------
@@ -924,3 +933,5 @@ To customize this buttoms you can comment out the lines of the button you want t
         tooltip: a string with the operator description, to show as a tooltip,
         class: a fontawesome class to define the icon
     }
+
+

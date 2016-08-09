@@ -95,7 +95,7 @@
 </ul>
 </nav>
 <h1 id="introduction">Introduction</h1>
-<p>Ezzing 3DLayout is a PV planning tool that allows you to generate a 3d model of a building based on a satellite image. You can model any number of buildings, select between up to five different type of roofs, define keepouts and trees with custom heights.</p>
+<p>Ezzing 3DLayout is a PV planning tool that allows you to generate a 3d model of a building based on a satellite image. You can model any number of buildings, select between up to five different type of roofs, define keepouts and trees with custom heights…</p>
 <p>Inside each roof area you can customize different structures, select module models and get automated previews of your setup.</p>
 <p>It also provides you with a perspective view and a sun simulator to determine where the shadows will be in your installation.</p>
 <p>Ezzing 3DLayout is an embebible webapp. You can integrate it inside your own system and customize many elements inside, from module models to prefered default settings for each roof type.</p>
@@ -128,7 +128,7 @@
 <p><img class="w200px" src="./layout-doc-imgs/buildings-index.jpg" alt="buildings-index" /></p>
 <p><br></p>
 <h3 id="main-options">Main Options</h3>
-<p>This are the main options in the canvas area.</p>
+<p>These are the main options in the canvas area.</p>
 <p><img class="w100" src="./layout-doc-imgs/mainoptions.jpg" alt="mainoptions" /></p>
 <p>The three left-sided buttons are the <strong>main options fixed buttons</strong>:</p>
 <ul>
@@ -139,17 +139,17 @@
 <p>The right aligned buttons are the <strong>main options custom buttons</strong>. You can customize this set of buttons by hidding some of them or by adding new buttons.</p>
 <p>The default custom buttons are:</p>
 <ul>
-<li>satellite provider selector (only showed if available)</li>
 <li>snapshot</li>
 <li>sun simulation</li>
 <li>perspective view</li>
 <li>fullscreen</li>
+<li>satellite provider selector (only showed if available)</li>
 </ul>
 <blockquote>
 <p>Please, visit the section <a href="#custom-buttons">Custom Buttons</a> to learn how to add your own functions.</p>
 </blockquote>
 <h3 id="control-buttons">Control Buttons</h3>
-<p>This are map related buttons. You can also customize the upper section of this set of buttons by hidding some of them or by adding new buttons</p>
+<p>These are map related buttons. You can also customize the upper section of this set of buttons by hidding some of them or by adding new buttons</p>
 <p><img class="w100px" src="./layout-doc-imgs/controlbuttons.jpg" alt="controlbuttons" /></p>
 <p>Fixed buttons in this area:</p>
 <ul>
@@ -179,16 +179,22 @@
 <p>To embed the 3DLayout app into an html page, you only need to add some lines to the code.</p>
 <h3 id="dom-header">DOM header</h3>
 <p>Add this lines to the header element in your code:</p>
-<pre><code>script(type=&quot;text/javascript&quot; src=&quot;/path-to-ezzing3d-files/angular_lib.js&quot;)
-script(type=&quot;text/javascript&quot; src=&quot;/path-to-ezzing3d-files/ezzing3DApp.js&quot;)
-script(type=&quot;text/javascript&quot; src=&quot;/path-to-ezzing3d-files/ezzing3D.js&quot;)
-script(type=&quot;text/javascript&quot; src=&quot;/path-to-ezzing3d-files/lib.js&quot;)
-link(rel=&quot;stylesheet&quot; href=&quot;/path-to-ezzing3d-files/screen.css&quot;)</code></pre>
+<pre><code>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/path-to-ezzing3d-files/screen.css&quot;&gt;</code></pre>
 <h3 id="dom-body">DOM body</h3>
-<p>Add this lines to the body element in your code:</p>
+<p>You need an element in the body of your html page, a div with id=“layout” where the 3DLayout will fit inside.</p>
+<blockquote>
+<p>This div can not be bigger than the view size, and <strong>no scroll</strong> has to be applied to the html page.</p>
+</blockquote>
+<p>You should not change the ezzing3d element size (width or height) but change the size of this container div.</p>
+<p>Add this lines inside the body element in your code:</p>
 <pre><code>&lt;div id=&quot;layout&quot;&gt;
     &lt;ezzing3d id=&#39;ezzing3d&#39; layoutRules=&#39;{&quot;logo&quot;: false}&#39;&gt;&lt;/ezzing3d&gt;
 &lt;/div&gt;</code></pre>
+<p>and these lines at the end of the body:</p>
+<pre><code>&lt;script type=&quot;text/javascript&quot; src=&quot;/path-to-ezzing3d-files/angular_lib.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;/path-to-ezzing3d-files/ezzing3DApp.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;/path-to-ezzing3d-files/ezzing3D.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;/path-to-ezzing3d-files/lib.js&quot;&gt;&lt;/script&gt;</code></pre>
 <h2 id="javascript-code">Javascript code</h2>
 <p>To instantiate the ezzing3D object and start the app you need to run this lines inside your javascript code:</p>
 <pre><code>var container = window.document.getElementById(&#39;ezzing3d&#39;);
@@ -766,5 +772,6 @@ We use the fontawesome icons collection, so you can use it to define new buttons
     tooltip: a string with the operator description, to show as a tooltip,
     class: a fontawesome class to define the icon
 }</code></pre>
+<div class="page-break"></div>
 </body>
 </html>

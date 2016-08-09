@@ -19,19 +19,28 @@ To embed the 3DLayout app into an html page, you only need to add some lines to 
 
 Add this lines to the header element in your code:
 
-    script(type="text/javascript" src="/path-to-ezzing3d-files/angular_lib.js")
-    script(type="text/javascript" src="/path-to-ezzing3d-files/ezzing3DApp.js")
-    script(type="text/javascript" src="/path-to-ezzing3d-files/ezzing3D.js")
-    script(type="text/javascript" src="/path-to-ezzing3d-files/lib.js")
-    link(rel="stylesheet" href="/path-to-ezzing3d-files/screen.css")
+    <link rel="stylesheet" type="text/css" href="/path-to-ezzing3d-files/screen.css">
 
 ### DOM body
 
-Add this lines to the body element in your code:
+You need an element in the body of your html page, a div with id="layout" where the 3DLayout will fit inside.
+
+> This div can not be bigger than the view size, and **no scroll** has to be applied to the html page.
+
+You should not change the ezzing3d element size (width or height) but change the size of this container div.
+
+Add this lines inside the body element in your code:
 
     <div id="layout">
         <ezzing3d id='ezzing3d' layoutRules='{"logo": false}'></ezzing3d>
     </div>
+
+and these lines at the end of the body:
+
+    <script type="text/javascript" src="/path-to-ezzing3d-files/angular_lib.js"></script>
+    <script type="text/javascript" src="/path-to-ezzing3d-files/ezzing3DApp.js"></script>
+    <script type="text/javascript" src="/path-to-ezzing3d-files/ezzing3D.js"></script>
+    <script type="text/javascript" src="/path-to-ezzing3d-files/lib.js"></script>
 
 ## Javascript code
 

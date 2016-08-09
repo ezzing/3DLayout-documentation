@@ -1,6 +1,6 @@
 # Introduction
 
-Ezzing 3DLayout is a PV planning tool that allows you to generate a 3d model of a building based on a satellite image. You can model any number of buildings, select between up to five different type of roofs, define keepouts and trees with custom heights.
+Ezzing 3DLayout is a PV planning tool that allows you to generate a 3d model of a building based on a satellite image. You can model any number of buildings, select between up to five different type of roofs, define keepouts and trees with custom heights...
 
 Inside each roof area you can customize different structures, select module models and get automated previews of your setup.
 
@@ -61,7 +61,7 @@ In the buildings index you can see the active building and select another one to
 
 ### Main Options
 
-This are the main options in the canvas area. 
+These are the main options in the canvas area. 
 
 <img class="w100" src="./layout-doc-imgs/mainoptions.jpg" alt="mainoptions" />
 
@@ -75,18 +75,18 @@ The right aligned buttons are the **main options custom buttons**. You can custo
 
 The default custom buttons are:
 
-* satellite provider selector (only showed if available)
 * snapshot
 * sun simulation
 * perspective view
 * fullscreen
+* satellite provider selector (only showed if available)
 
 
 > Please, visit the section [Custom Buttons](#custom-buttons) to learn how to add your own functions.
 
 ### Control Buttons
 
-This are map related buttons. You can also customize the upper section of this set of buttons by hidding some of them or by adding new buttons 
+These are map related buttons. You can also customize the upper section of this set of buttons by hidding some of them or by adding new buttons 
 
 <img class="w100px" src="./layout-doc-imgs/controlbuttons.jpg" alt="controlbuttons" />
 
