@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ezzing 3DLayout technical documentation</title>
+
+    <style type="text/css">
+            
+        body {
+            font-size: 2em;
+            width: 200%;
+        }
+        h1 {
+            page-break-before: always;
+        }
+        p {
+            align: justify !important;
+        }
+        a {
+            text-decoration: none;
+            color: black;
+        }
+        code {
+            background-color: lightgray;
+            padding: 2em;
+            display: inline-block;
+            width: 100%;
+        }
+        pre {
+            white-space: pre-wrap; 
+            word-wrap: break-word;
+        }
+        img {
+            padding: 1em;
+        }
+        .w100 {
+            width: 100%;
+        }
+        .w200px {
+            width: 200px;
+        }
+        .w400px {
+            width: 400px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h1 id="introduction">Introduction</h1>
+    <p>Ezzing 3DLayout is a PV planning tool that allows you to generate a 3d model of a building based on a satellite image. You can model any number of buildings, select between up to five different type of roofs, define keepouts and trees with custom heights.</p>
+    <p>Inside each roof area you can customize different structures, select module models and get automated previews of your setup.</p>
+    <p>It also provides you with a perspective view and a sun simulator to determine where the shadows will be in your installation.</p>
+    <p>Ezzing 3DLayout is an embebible webapp. You can integrate it inside your own system and customize many elements inside, from module models to prefered default settings for each roof type.</p>
+    <p>In this document you will find a brief showcase of the different areas of the app, a technical explanation on how to integrate this webapp inside your platform, a full description of the API that will allow you to communicate with the 3DLayout, and finally a description on how to customize different parts of the app.</p>
+    <br><br><br>
+    <img class="w100" src="./layout-doc-imgs/intro-mac.jpg" alt="3DLayout" />
+    <h1 id="screenshots">Screenshots</h1>
+    <img class="w100" src="./layout-doc-imgs/perspective-view-mac.jpg" alt="perspective view" />
+    <br><br><br>
+    <img class="w100" src="./layout-doc-imgs/sun-simulation-mac.jpg" alt="sun simulation" />
+    <h1 id="dlayout-interface">3DLayout Interface</h1>
+    <p>The 3DLayout interface has two diferent parts. The <strong>aside panel</strong> and the <strong>canvas area</strong>.</p>
+    <h2 id="aside-panel">Aside Panel</h2>
+    <p>In the aside panel you can find functionalities related to the current active building and other objects in the scene.</p>
+    
+    <img class="w100" src="./layout-doc-imgs/tab-building-mac.jpg" alt="tab building" />
+    <img class="w100" src="./layout-doc-imgs/tab-areas-1-mac.jpg" alt="tab areas 1" />
+    <img class="w100" src="./layout-doc-imgs/tab-areas-2-mac.jpg" alt="tab areas 2" />
+
+    <img class="w100" src="./layout-doc-imgs/tab-keepouts-mac.jpg" alt="tab keepouts" />
+    <img class="w100" src="./layout-doc-imgs/tab-trees-mac.jpg" alt="tab trees" />
+
+    <h2 id="canvas-area">Canvas Area</h2>
+    <p>In the canvas area you can see the satellite view and three diferent sets of elements, the <strong>buildings index</strong> on the left side, the <strong>main options buttons</strong> on the top, and the <strong>control buttons</strong> on the bottom-right corner.</p>
+    <p><img class="w100" src="./layout-doc-imgs/canvas.jpg" alt="canvas" /></p>
+    <h3 id="buildings-index">Buildings Index</h3>
+    <p>In the buildings index you can see the active building and select another one to become active.</p>
+    <p><img class="w400px" src="./layout-doc-imgs/buildings-index.jpg" alt="buildings-index" /></p>
+    <h3 id="main-options">Main Options</h3>
+    <p>This are the main options in the canvas area.</p>
+    <p><img class="w100" src="./layout-doc-imgs/mainoptions.jpg" alt="mainoptions" /></p>
+    <p>The three left-sided buttons are the <strong>main options fixed buttons</strong>:</p>
+    <ul>
+        <li>redo</li>
+        <li>undo</li>
+        <li>save</li>
+    </ul>
+    <p>The right aligned buttons are the <strong>main options custom buttons</strong>. You can customize this set of buttons by hidding some of them or by adding new buttons.</p>
+    <p>The default custom buttons are:</p>
+    <ul>
+        <li>satellite provider selector (only showed if available)</li>
+        <li>snapshot</li>
+        <li>sun simulation</li>
+        <li>perspective view</li>
+        <li>fullscreen</li>
+    </ul>
+    <blockquote>
+        <p>Please, visit the section <a href="#custom-buttons">Custom Buttons</a> to learn how to add your own functions.</p>
+    </blockquote>
+    <h3 id="control-buttons">Control Buttons</h3>
+    <p>This are map related buttons. You can also customize the upper section of this set of buttons by hidding some of them or by adding new buttons</p>
+    <p><img class="w200px" src="./layout-doc-imgs/controlbuttons.jpg" alt="controlbuttons" /></p>
+    <p>Fixed buttons in this area:</p>
+    <ul>
+        <li>zoom in</li>
+        <li>zoom out</li>
+    </ul>
+    <p>Default control custom buttons</p>
+    <ul>
+        <li>search address</li>
+        <li>geolocation</li>
+    </ul>
+    <blockquote>
+        <p>Please, visit the section <a href="#custom-buttons">Custom Buttons</a> to learn how to add your own functions.</p>
+    </blockquote>
+    <h1 id="integration-in-a-non-angular-platform">Integration in a non-angular platform</h1>
+    <p>To integrate the 3DLayout into your platform, you only need this five files</p>
+    <ul>
+        <li>angular_lib.js - include the angular library</li>
+        <li>ezzing3DApp.js - Integration tools (contains the ezzing3D constructor and API functions)</li>
+        <li>ezzing3D.js - contains the platform code.</li>
+        <li>lib.js - some other useful third party libraries</li>
+        <li>screen.css - contains the 3DLayout css styles</li>
+    </ul>
+    <p>Copy this files into the desired path (i.e: public/ezzing3d/)</p>
+    <h2 id="html-code">HTML code</h2>
+    <p>To embed the 3DLayout app into an html page, you only need to add some lines to the code.</p>
+    <h3 id="dom-header">DOM header</h3>
+    <p>Add this lines to the header element in your code:</p>
+    <pre><code>script(type=&quot;text/javascript&quot; src=&quot;/path-to-ezzing3d-files/angular_lib.js&quot;)
+script(type=&quot;text/javascript&quot; src=&quot;/path-to-ezzing3d-files/ezzing3DApp.js&quot;)
+script(type=&quot;text/javascript&quot; src=&quot;/path-to-ezzing3d-files/ezzing3D.js&quot;)
+script(type=&quot;text/javascript&quot; src=&quot;/path-to-ezzing3d-files/lib.js&quot;)
+link(rel=&quot;stylesheet&quot; href=&quot;/path-to-ezzing3d-files/screen.css&quot;)</code></pre>
+    <h3 id="dom-body">DOM body</h3>
+    <p>Add this lines to the body element in your code:</p>
+    <pre><code>&lt;div id=&quot;layout&quot;&gt;
+    &lt;ezzing3d id=&#39;ezzing3d&#39; layoutRules=&#39;{&quot;logo&quot;: false}&#39;&gt;&lt;/ezzing3d&gt;
+&lt;/div&gt;</code></pre>
+    <h2 id="javascript-code">Javascript code</h2>
+    <p>To instantiate the ezzing3D object and start the app you need to run this lines inside your javascript code:</p>
+    <pre><code>var container = window.document.getElementById(&#39;ezzing3d&#39;);
+var layout = new ezzing3D(container, {
+        token: token,
+        id: id,
+        failURL: &#39;#/fail&#39;,
+        showcase: showcase
+    });</code></pre>
+    <p>The attributes for this constructor are:</p>
+    <ul>
+        <li>
+            <p><strong>container</strong>: the DOM element with id='ezzing3d'</p>
+        </li>
+        <li>
+            <p><strong>token</strong>: the user token from the CRM</p>
+        </li>
+        <li>
+            <p><strong>id</strong>: the CRM project id. This value can also be used to activate special modes in the 3DLayout. Use id=&quot;demo&quot; to run a 3DLayout demo with an empty project. Use id=&quot;tutorial&quot; to run an interactive tutorial. Use id=&quot;landing&quot; to view an special showcase demo project.</p>
+        </li>
+        <li>
+            <p><strong>failURL</strong>: an alternative URL to redirect the user when token or id from CRM fails.</p>
+        </li>
+        <li>
+            <p><strong>showcase</strong>: When this value is true the project is opened in a special showcase mode, without graphic interface and in a nice 3d view. This mode is read-only and the project can not be modified.</p>
+        </li>
+    </ul>
+    <h1 id="dlayout-communication-system">3DLayout Communication System</h1>
+    <h2 id="info-events-sent-by-3dlayout">Info Events sent by 3DLayout</h2>
+    <p>The 3DLayout trigger different events to report actions when they are accomplished or to inform on GUI changes.</p>
+    <ul>
+        <li>load</li>
+        <li>zoomChanged</li>
+        <li>fullscreen</li>
+        <li>tabChanged</li>
+        <li>editArea</li>
+        <li>editKeepout</li>
+        <li>editTree</li>
+        <li>areaChanged</li>
+        <li>buildingChanged</li>
+        <li>editRoof</li>
+        <li>editVertices</li>
+        <li>buildingRemoved</li>
+        <li>buildingSelected</li>
+        <li>buildingCreated</li>
+    </ul>
+    <h3 id="load">load</h3>
+    <p>This event is triggered when the 3DLayout finish to load the project from the CRM</p>
+    <h3 id="zoomchanged">zoomChanged</h3>
+    <p>This event is triggered when the zoom is changed in the canvas. It sends the zoom level value.</p>
+    <h3 id="fullscreen">fullscreen</h3>
+    <p>This event is triggered when the user changes from normal view to fullscreen. It sends <strong>true</strong> when changing to fullscreen and <strong>false</strong> when disabling fullscreen mode</p>
+    <h3 id="tabchanged">tabChanged</h3>
+    <p>This event is triggerd each time the user changes the aside panel navigation tab. It sends a string with the current tab name, the values can be one of this: [ &quot;building&quot;, &quot;areas&quot;, &quot;keepouts&quot;, &quot;trees&quot; ]</p>
+    <h3 id="editarea">editArea</h3>
+    <p>This event is triggerd each time the user enters the edit section of an area. The event sends the <strong>area.id</strong></p>
+    <h3 id="editkeepout">editKeepout</h3>
+    <p>This event is triggerd each time the user enters the edit section of a keepout. The event sends the <strong>keepout.id</strong></p>
+    <h3 id="edittree">editTree</h3>
+    <p>This event is triggerd each time the user enters the edit section of a tree. The event sends the <strong>tree.id</strong></p>
+    <h3 id="areachanged">areaChanged</h3>
+    <p>This event is triggerd each time an area is changed. The event sends the <strong>area.id</strong></p>
+    <h3 id="buildingchanged">buildingChanged</h3>
+    <p>This event is triggerd each time a building is changed. The event sends the <strong>building.id</strong></p>
+    <h3 id="editroof">editRoof</h3>
+    <p>This event is triggerd each time the user enters the roof edit section of a building. The event sends the <strong>building.id</strong></p>
+    <h3 id="editvertices">editVertices</h3>
+    <p>This event is triggerd each time the user enters the vertices edit section of a building. The event sends the <strong>building.id</strong></p>
+    <h3 id="buildingremoved">buildingRemoved</h3>
+    <p>This event is triggerd each time a building is deleted. The event sends the <strong>building.id</strong> (after this operation this building no longer exist in the project)</p>
+    <h3 id="buildingselected">buildingSelected</h3>
+    <p>This event is triggerd each time a new building becomes active. The event sends the <strong>building.id</strong></p>
+    <h3 id="buildingcreated">buildingCreated</h3>
+    <p>This event is triggerd each time a new building is created. The event sends the <strong>building.id</strong></p>
+    <h2 id="functions-to-retrieve-info-from-3dlayout">Functions to retrieve info from 3DLayout</h2>
+    <p>There are a set of functions to retrieve information from the 3DLayout.</p>
+    <p>For all these functions you can pass a callback as an argument to be executed when data is retrieved.</p>
+    <h3 id="generic-functions">Generic Functions</h3>
+    <p>Set of generic functions to retrieve project information from the layout. You just need to pass the <strong>callback</strong>, no other arguments are needed.</p>
+    <ul>
+        <li>getCurrentBuildingId</li>
+        <li>getLayoutData</li>
+        <li>getNumberOfModules</li>
+        <li>getTotalPower</li>
+        <li>getPower</li>
+    </ul>
+    <h4 id="getcurrentbuildingid">getCurrentBuildingId</h4>
+    <pre><code>layout.getCurrentBuildingId(callback);</code></pre>
+    <p>This function returns the id value of the current active building.</p>
+    <h4 id="getlayoutdata">getLayoutData</h4>
+    <pre><code>layout.getLayoutData(callback);</code></pre>
+    <p>This function returns a JSON with an array of buildings.</p>
+    <p>Each building in the array contains:</p>
+    <pre><code>{
+    id: the building id, 
+    name: the building name,
+    areas: an array of areas in the building
+}</code></pre>
+    <p>each area in the areas array contains:</p>
+    <pre><code>{
+    id: the area id,
+    name: the area name
+}</code></pre>
+    <h4 id="getnumberofmodules">getNumberOfModules</h4>
+    <pre><code>layout.getNumberOfModules(callback);</code></pre>
+    <p>This function returns a JSON with an array of buildings.</p>
+    <p>Each building in the array contains:</p>
+    <pre><code>{
+    id: the building id,
+    name: the building name,
+    number of modules: total of modules in the building
+    areas: an array of areas in the building
+}</code></pre>
+    <p>Each area in the areas array contains:</p>
+    <pre><code>{
+    id: the area id,
+    name: the area name,
+    number of modules: total of modules in the area
+}</code></pre>
+    <h4 id="gettotalpower">getTotalPower</h4>
+    <pre><code>layout.getTotalPower(callback);</code></pre>
+    <p>Returns the total power for all the buildings in the project</p>
+    <h4 id="getpower">getPower</h4>
+    <pre><code>layout.getPower(callback);</code></pre>
+    <p>Returns an array of all buildings in the project</p>
+    <p>Each building in the array contains:</p>
+    <pre><code>{
+    id: the building id,
+    name: the building name, 
+    power: the total power for this building,
+    areas: array of areas in this building
+}</code></pre>
+    <p>Each area in the areas array contains:</p>
+    <pre><code>{
+    id: the area id,
+    name: the area name,
+    power: total power in this area
+}</code></pre>
+    <h3 id="building-related-functions">Building related functions</h3>
+    <p>Set of generic functions to retrieve building related information from the layout.In this set of functions you should pass an existing building id, and a callback.</p>
+    <ul>
+        <li>getBuildingInfo</li>
+        <li>getRoofInfo</li>
+        <li>getBuildingPosition</li>
+    </ul>
+    <h4 id="getbuildinginfo">getBuildingInfo</h4>
+    <pre><code>layout.getBuildingInfo(id, callback);</code></pre>
+    <p>Returns some building information for a given building.id</p>
+    <p>The data returned is:</p>
+    <pre><code>{
+    id: the building id, 
+    name: the building name, 
+    height: building height (in meters), 
+    regular: true if building angles are all equal to 90º, false otherwise.
+    buildingArea: building area measure (in square meters), 
+    vertices: building vertices in lat/long coordinates,
+    modules: total of modules in the building
+    power: total power of the building, 
+}
+    </code></pre>
+    <h4 id="getroofinfo">getRoofInfo</h4>
+    <pre><code>layout.getRoofInfo(id, callback);</code></pre>
+    <p>Returns some roof information for a given building.id]</p>
+    <p>The data returned is:</p>
+    <pre><code>{
+    height: roof height (in meters, not including building height), 
+    inclination: roof angle (in degrees), 
+    material: roof material (i.e: tiled/corugated), 
+    orientation: roof orientation (i.e: east/west or nort/south), 
+    type: roof type (i.e: flat, pent, gabled, etc...)
+}</code></pre>
+    <h4 id="getbuildingposition">getBuildingPosition</h4>
+    <pre><code>layout.getBuildingPosition(id, callback);</code></pre>
+    <p>Returns some building position info for a given building.id</p>
+    <p>The data returned is:</p>
+    <pre><code>{
+    center: the building center in lat/long coords
+    vertices: an array of building vertices in lat/long coords
+}</code></pre>
+    <h3 id="area-related-functions">Area related functions</h3>
+    <p>Set of generic functions to retrieve Area related information from the layout.In this set of functions you should pass an existing area id, and a callback.</p>
+    <ul>
+        <li>getAreaInfo</li>
+        <li>getModuleInfoByArea</li>
+        <li>getModulesSructureByArea</li>
+        <li>getAreaOffset</li>
+    </ul>
+    <h4 id="getareainfo">getAreaInfo</h4>
+    <pre><code>layout.getAreaInfo(id, callback);</code></pre>
+    <p>returns some area info for a given area.id]</p>
+    <p>The data returned is:</p>
+    <pre><code>{
+    id: the area id,
+    name: the area name,
+    offset: the area offset,
+    placement: placement (i.e: portrait / landscape),
+    structure: i.e: east-west / standard,
+    inclination: modules inclination (in degrees),
+    azimuth: modules azimuthal inclination (in degrees),
+    areaMCoords: array containing area vertices coordinates in meters (with origin in the building center),
+    areaOffsetMCoords: array containing offseted area vertices coordinates in meters (with origin in the building center) ,
+    wallSizes: size in meters for each area wall,
+    wallAzimuth: azimuthal angle for the external area wall,
+    power: total power of the area.
+}</code></pre>
+    <h4 id="getmoduleinfobyarea">getModuleInfoByArea</h4>
+    <pre><code>layout.getModuleInfoByArea(id, callback);</code></pre>
+    <p>returns some module info for a given area.id]</p>
+    <p>The data returned is:</p>
+    <pre><code>{
+    id: the module id, 
+    name: the module model name, 
+    reference: extra model information, 
+    width: the width of the module (in meters),
+    height: the height of the module (in meters), 
+    length: the lenght of the module (in meters), 
+    power: the power of the module
+} </code></pre>
+    <h4 id="getmodulessructurebyarea">getModulesSructureByArea</h4>
+    <pre><code>layout.getModulesSructureByArea(id, callback);</code></pre>
+    <p>returns a JSON with an array of modules for a given area.id</p>
+    <p>The data for each module in the array is:</p>
+    <pre><code>{
+    x: x position of the module in meters (with origin in the building center),
+    y: y position of the module in meters (with origin in the building center),
+    col: column to which the module belongs,
+    row: row to which the module belongs,,
+    rX: rotation of the module in the X axis (inclination),
+    rZ: rotation of the module in the Z axis (azimuth),
+    color: the color of the module (only exist if color is not default),
+}</code></pre>
+    <h4 id="getareaoffset">getAreaOffset</h4>
+    <pre><code>layout.getAreaOffset(id, offset, callback);</code></pre>
+    <p>Returns an array of vertices containing the offseted area for a given area.id and offset</p>
+    <p>If the offset is a negative value, then the area is reduced by the offset value (in meters)</p>
+    <h1 id="layout-rules">Layout Rules</h1>
+    <p>The user can customize many options in the 3DLayout. By passing a 'layoutRules' attribute to the layout element with a collection of objects you can define the default values, add special behaviours to the 3DLayout and customize the interface.</p>
+    <p>Example of rules object:</p>
+    <pre><code>rules = {
+    &#39;display&#39;: true,
+    &#39;zoom&#39;: 21,
+    &#39;logo&#39;: false,
+    &#39;CustomPalette&#39;: [&#39;#ff0000&#39;, &#39;#00ff00&#39;]
+}</code></pre>
+    <p>Available rule objects expected by the 3DLayout:</p>
+    <ul>
+        <li>Special
+            <ul>
+                <li>display</li>
+                <li>zoom</li>
+                <li>logo</li>
+            </ul>
+        </li>
+        <li>Default Values
+            <ul>
+                <li>modules</li>
+                <li>DefaultRoofs</li>
+                <li>DefaultBuilding</li>
+                <li>CustomPalette</li>
+            </ul>
+        </li>
+        <li>Custom Buttons
+            <ul>
+                <li>MainoptionsCustomButtons</li>
+                <li>ControlCustomButtons</li>
+                <li>AsideCustomButtons</li>
+            </ul>
+        </li>
+    </ul>
+    <h2 id="special-behaviours">Special Behaviours</h2>
+    <h3 id="display">Display</h3>
+    <p>When this options is set to true, the project starts in perspective mode.</p>
+    <pre><code>{&#39;display&#39;: true}</code></pre>
+    <h3 id="zoom">zoom</h3>
+    <p>You can set the starting zoom value. Zoom values use to range between 17 (far) to 24 (near).</p>
+    <pre><code>{&#39;zoom&#39;: 21}</code></pre>
+    <h3 id="logo">logo</h3>
+    <p>You can choose to show (true) or hide (false) the ezzingsolar logo from the top part of the aside panel.</p>
+    <pre><code>{&#39;logo&#39;: true}</code></pre>
+    <h2 id="default-values">Default Values</h2>
+    <p>User can define the default values for modules, buildings, roofs and even the color palete for modules.</p>
+    <h3 id="modules">modules</h3>
+    <p>User can define the solar modules available in the 3DLayout.</p>
+    <p>Sample values to define modules:</p>
+    <pre><code>{
+    &quot;modules&quot;: [
+        {
+            &quot;id&quot;: 4410,
+            &quot;name&quot;: &quot;Canadian Solar&quot;,
+            &quot;reference&quot;: &quot;250Wp Polykristallijn&quot;,
+            &quot;power&quot;: 250,
+            &quot;length&quot;: 1.638,
+            &quot;width&quot;: 0.982,
+            &quot;height&quot;: 0.04
+        }, {
+            &quot;id&quot;: 41403,
+            &quot;name&quot;: &quot;Canadian Solar&quot;,
+            &quot;reference&quot;: &quot;260WP All Black&quot;,
+            &quot;power&quot;: 260,
+            &quot;length&quot;: 1.638,
+            &quot;width&quot;: 0.982,
+            &quot;height&quot;: 0.04
+        }
+    ]
+}</code></pre>
+    <p>The attributes for each module are:</p>
+    <pre><code>{
+    id: a reference number (should be unique for each model)
+    name: brand and model of the module
+    reference: the reference of the model
+    power: power generated by the module (in watts peak)
+    lenght: lenght of the module (in meters)
+    width: width of the module (in meters)
+    height: height of the module (in meters)
+}</code></pre>
+    <p>Note: the <strong>id</strong> value should be diferent for each module in the list.</p>
+    <h3 id="defaultroofs">DefaultRoofs</h3>
+    <p>User can define the default values for each roof type.</p>
+    <p>The 3DLayout currently has five available roof types: <strong>flat</strong>, <strong>pent</strong>, <strong>gabled</strong>, <strong>hipped</strong> and <strong>pyramid</strong>.</p>
+    <blockquote>
+        <p>Only roof types described in this objects are available to the user.</p>
+    </blockquote>
+    <p>Sample values to define Default Roofs:</p>
+    <pre><code>{
+    &quot;DefaultRoofs&quot;: {
+        &#39;gabled&#39;: {
+            //roof related
+            &quot;roofMaterial&quot;: &quot;tiled&quot;,
+            &quot;availableRoofMaterial&quot;: [&quot;tiled&quot;, &quot;corrugated&quot;],
+            &quot;orientation&quot;: &quot;EW&quot;,
+            &quot;availableorientation&quot;: [&quot;EW&quot;, &quot;SN&quot;],
+            &quot;roofInclination&quot;: 30,
+            //area related
+            &quot;structure&quot;: &quot;Standard&quot;,
+            &quot;availableStructures&quot;: [&quot;Standard&quot;, &quot;EW&quot;],
+            &quot;offset&quot;: 0.4,
+            &quot;inset&quot;: {
+                &quot;x&quot;: 0.02,
+                &quot;y&quot;: 0.02
+            },
+            &quot;azimuth&quot;: &quot;&quot;,
+            &quot;moduleInclination&quot;: 0,
+            &quot;moduleType&quot;: &quot;portrait&quot;,
+            &quot;availableModuleType&quot;: [&quot;portrait&quot;, &quot;landscape&quot;],
+            &quot;locked&quot;: [],
+            &quot;hidden&quot;: []
+        },
+        &#39;hipped&#39;: {
+            //roof related
+            &quot;roofMaterial&quot;: &quot;tiled&quot;,
+            &quot;availableRoofMaterial&quot;: [&quot;tiled&quot;, &quot;corrugated&quot;],
+            &quot;orientation&quot;: &quot;EW&quot;,
+            &quot;availableorientation&quot;: [&quot;EW&quot;, &quot;SN&quot;],
+            &quot;roofInclination&quot;: 30,
+            //area related
+            &quot;structure&quot;: &quot;Standard&quot;,
+            &quot;availableStructures&quot;: [&quot;Standard&quot;, &quot;EW&quot;],
+            &quot;offset&quot;: 0.4,
+            &quot;inset&quot;: {
+                &quot;x&quot;: 0.02,
+                &quot;y&quot;: 0.02
+            },
+            &quot;azimuth&quot;: &quot;&quot;,
+            &quot;moduleInclination&quot;: 0,
+            &quot;moduleType&quot;: &quot;portrait&quot;,
+            &quot;availableModuleType&quot;: [&quot;portrait&quot;, &quot;landscape&quot;],
+            &quot;locked&quot;: [],
+            &quot;hidden&quot;: []
+        },
+        &#39;pyramid&#39;: {
+            //roof related
+            &quot;roofMaterial&quot;: &quot;tiled&quot;,
+            &quot;availableRoofMaterial&quot;: [&quot;tiled&quot;, &quot;corrugated&quot;],
+            &quot;orientation&quot;: &quot;&quot;,
+            &quot;availableorientation&quot;: [],
+            &quot;roofInclination&quot;: 30,
+            //area related
+            &quot;structure&quot;: &quot;Standard&quot;,
+            &quot;availableStructures&quot;: [&quot;Standard&quot;, &quot;EW&quot;],
+            &quot;offset&quot;: 0.4,
+            &quot;inset&quot;: {
+                &quot;x&quot;: 0.02,
+                &quot;y&quot;: 0.02
+            },
+            &quot;azimuth&quot;: &quot;&quot;,
+            &quot;moduleInclination&quot;: 0,
+            &quot;moduleType&quot;: &quot;portrait&quot;,
+            &quot;availableModuleType&quot;: [&quot;portrait&quot;, &quot;landscape&quot;],
+            &quot;locked&quot;: [],
+            &quot;hidden&quot;: []
+        },
+        &#39;pent&#39;: {
+            //roof related
+            &quot;roofMaterial&quot;: &quot;tiled&quot;,
+            &quot;availableRoofMaterial&quot;: [&quot;tiled&quot;, &quot;corrugated&quot;],
+            &quot;orientation&quot;: &quot;S&quot;,
+            &quot;availableorientation&quot;: [&quot;E&quot;, &quot;W&quot;, &quot;N&quot;, &quot;S&quot;],
+            &quot;roofInclination&quot;: 30,
+            //area related
+            &quot;structure&quot;: &quot;Standard&quot;,
+            &quot;availableStructures&quot;: [&quot;Standard&quot;, &quot;EW&quot;],
+            &quot;offset&quot;: 0.4,
+            &quot;inset&quot;: {
+                &quot;x&quot;: 0.02,
+                &quot;y&quot;: 0.02
+            },
+            &quot;azimuth&quot;: &quot;&quot;,
+            &quot;moduleInclination&quot;: 0,
+            &quot;moduleType&quot;: &quot;portrait&quot;,
+            &quot;availableModuleType&quot;: [&quot;portrait&quot;, &quot;landscape&quot;],
+            &quot;locked&quot;: [],
+            &quot;hidden&quot;: []
+        },
+        &#39;flat&#39;: {
+            //roof related
+            &quot;roofMaterial&quot;: &quot;Bitum&quot;,
+            &quot;availableRoofMaterial&quot;: [&quot;Bitum&quot;, &quot;Concrete&quot;, &quot;EPDM&quot;, &quot;PVC&quot;],
+            &quot;orientation&quot;: &quot;&quot;,
+            &quot;availableorientation&quot;: [],
+            &quot;roofInclination&quot;: 0,
+            //area related
+            &quot;structure&quot;: &quot;EW&quot;,
+            &quot;availableStructures&quot;: [&quot;EW&quot;, &quot;Standard&quot;],
+            &quot;offset&quot;: 1,
+            &quot;inset&quot;: {
+                &quot;x&quot;: 0.02,
+                &quot;y&quot;: 0.01
+            },
+            &quot;azimuth&quot;: &quot;&quot;,
+            &quot;moduleInclination&quot;: 10,
+            &quot;availableModuleInclination&quot;: [10, 15, 20],
+            &quot;moduleType&quot;: &quot;landscape&quot;,
+            &quot;availableModuleType&quot;: [&quot;portrait&quot;, &quot;landscape&quot;],
+            &quot;locked&quot;: [],
+            &quot;hidden&quot;: []
+        },
+    }
+}</code></pre>
+    <p>Attributes explanation for default roof description</p>
+    <pre><code>{
+    //roof related
+    &quot;roofMaterial&quot;: should be one from the availableRoofMaterial list,
+    &quot;availableRoofMaterial&quot;: array of strings with the roof material names,
+    &quot;orientation&quot;: should be one from the availableorientation list, it can be an empty string for flat types,
+    &quot;availableorientation&quot;: array of strings with the orientation names. [&#39;EW&#39;, &#39;SN&#39;] or [&quot;E&quot;, &quot;W&quot;, &quot;N&quot;, &quot;S&quot;]
+    &quot;roofInclination&quot;: angle for the roof (in degrees),
+    //area related
+    &quot;structure&quot;: should be one from the availableStructures list,
+    &quot;availableStructures&quot;: array of strings with the structure names [&quot;EW&quot;, &quot;Standard&quot;],
+    &quot;offset&quot;: the distance to avoid from area borders (in meters),
+    &quot;inset&quot;: {
+        &quot;x&quot;: the distance between module borders in the x axis (in meters) ,
+        &quot;y&quot;:  the distance between module borders in the x axis (in meters)
+    },
+    &quot;azimuth&quot;: angle between the module and the north pole, it can be set as an empty string to let the 3DLayout to calculate the angle according to the external wall of the area,
+    &quot;moduleInclination&quot;: default module inclination. if availableModuleInclination is an array, this value should match one of the options in the array,
+    &quot;availableModuleInclination&quot;: this value can be an array of integers to restrict the inclination to this values. It can also be defined as an empty string to ignore the restriction,
+    &quot;moduleType&quot;: should be one from the availableModuleType list,
+    &quot;availableModuleType&quot;: array of strings with the available module types (i.e [&quot;landscape&quot;, &quot;portrait&quot;])
+    &quot;locked&quot;: array of strings with the area attributes that should be locked,
+    &quot;hidden&quot;: array of strings with the area attributes that should be hidden
+}</code></pre>
+    <h3 id="defaultbuilding">DefaultBuilding</h3>
+    <p>User can define the default building. This are the default values for each new created building.</p>
+    <p>Sample values to define default building:</p>
+    <pre><code>{
+    &quot;DefaultBuilding&quot;: {
+        data: {
+            height: 10,
+            roof: {
+                type: &#39;gabled&#39;,
+                inclination: 30,
+                orientation: &#39;EW&#39;,
+                material: &#39;tiled&#39;
+            },
+            vertices: [],
+            areas: [],
+            keepouts: []
+        }
+    }
+}</code></pre>
+    <p>The attributes for the default building:</p>
+    <pre><code>{
+    data: {
+        height: default height of the building (in meters),
+        roof: {
+            type: roof type (one of the available types in the defaultRoofs object),
+            inclination: angle for the roof (in degrees),
+            orientation: orientation of the roof ridge (&#39;EW&#39; for east-west or &#39;NS&#39; for  north-south orientation),
+            material: material of the roof (one of the available materials in the defaultRoofs object),
+        },
+        vertices: []
+        areas: [],
+        keepouts: []
+    }
+}</code></pre>
+    <h3 id="custompalette">CustomPalette</h3>
+    <p>User can define a custom set of hexadecimal colors. This colors are used to define module colors.</p>
+    <p>To define your own color palette use this squeme:</p>
+    <pre><code>{
+    &quot;CustomPalette&quot;: [
+        &#39;#242345&#39;,
+        &#39;#000000&#39;,
+        &#39;#ff0000&#39;
+    ]
+}</code></pre>
+    <h2 id="custom-buttons">Custom Buttons</h2>
+    <p>There are several areas in the 3DLayout where the user can add his own functions. This areas are the <strong>main options buttons</strong> and the <strong>control buttons</strong>. Each one are defined in a JSON description that can be added to the layoutRules object.</p>
+    <p>When the user adds a new button, this is defined as a event emitter.
+        <br />We use the fontawesome icons collection, so you can use it to define new buttons.</p>
+    <h3 id="mainoptionscustombuttons">MainoptionsCustomButtons</h3>
+    <p><img src="./layout-doc-imgs/mainoptions.jpg" alt="mainoptions" /></p>
+    <p>The buttons aligned to the right are custom buttons. User can define new custom buttons in this area.</p>
+    <p>Here you can hide some existing buttoms, change the order of them and create new ones with the ability to trigger an event.</p>
+    <p>This is the default MainoptionsCustomButtons:</p>
+    <pre><code>{
+    &quot;MainoptionsCustomButtons&quot;: [
+        {
+            click: &quot;snapshot()&quot;,
+            tooltip: &quot;takeSnapshot&quot;,
+            class: &quot;fa fa-fw fa-camera-retro&quot;
+        }, {
+            click: &quot;widgets.simulation.toggle()&quot;,
+            tooltip: &quot;sunSimulation&quot;,
+            class: &quot;fa fa-fw fa-sun-o&quot;
+        }, {
+            click: &quot;setCamera(&#39;orthographic&#39;)&quot;,
+            hide: &quot;display.camera.name === &#39;orthographic&#39;&quot;,
+            tooltip: &quot;switchTo2D&quot;,
+            class: &quot;fa fa-fw fa-square-o&quot;
+        }, {
+            click: &quot;setCamera(&#39;perspective&#39;)&quot;,
+            hide: &quot;display.camera.name === &#39;perspective&#39;&quot;,
+            tooltip: &quot;switchTo3D&quot;,
+            class: &quot;fa fa-fw fa-cube&quot;
+        },
+        {
+            click: &quot;setScreen(&#39;full&#39;)&quot;,
+            hide: &quot;fullScreen&quot;,
+            tooltip: &quot;switch to full screen&quot;,
+            class: &quot;fa fa-fw fa-arrows-alt&quot;
+        }, {
+            click: &quot;setScreen(&#39;normal&#39;)&quot;,
+            hide: &quot;!fullScreen&quot;,
+            tooltip: &quot;cancel full screen&quot;,
+            class: &quot;fa fa-fw fa-desktop&quot;
+        }
+    ]
+}</code></pre>
+    <p>To customize this buttoms you can comment out the lines of the button you want to hide or extend the list by adding new objects with the same structure</p>
+    <pre><code>{
+    click: a string with the event name you want to trigger,
+    hide: a condition to hide the button (this value is optional),
+    tooltip: a string with the operator description, to show as a tooltip,
+    class: a fontawesome class to define the icon
+}</code></pre>
+    <h3 id="controlcustombuttons">ControlCustomButtons</h3>
+    <p><img src="./layout-doc-imgs/controlbuttons.jpg" alt="controlbuttons" /></p>
+    <p>The buttons over the zoom in and zoom out can be customized the same way the mainoptions custom buttons.</p>
+    <p>This is the default ControlCustomButtons:</p>
+    <pre><code>{    
+    &quot;ControlCustomButtons&quot;: [
+        {
+            click: &#39;widgets.geocoding.toggle()&#39;,
+            tooltip: &#39;searchAddress&#39;,
+            class: &#39;fa fa-fw fa-search&#39;
+        },
+        {
+            click: &#39;!geolocating &amp;&amp; geolocate()&#39;,
+            hide: &#39;geolocating&#39;,
+            tooltip: &#39;geolocation&#39;,
+            class: &#39;fa fa-fw fa-map-marker&#39;
+        },
+        {
+            click: &#39;!geolocating &amp;&amp; geolocate()&#39;,
+            hide: &#39;!geolocating&#39;,
+            tooltip: &#39;geolocation&#39;,
+            class: &#39;fa fa-fw fa-spinner ng-class:{&quot;fa-spin&quot;: geolocating}&#39;
+        }
+    ]
+}</code></pre>
+    <p>To customize this buttoms you can comment out the lines of the button you want to hide or extend the list by adding new objects with the same structure</p>
+    <pre><code>{
+    click: a string with the event name you want to trigger,
+    hide: a condition to hide the button (this value is optional),
+    tooltip: a string with the operator description, to show as a tooltip,
+    class: a fontawesome class to define the icon
+}</code></pre>
+</body>
+
+</html>
