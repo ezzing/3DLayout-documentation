@@ -119,6 +119,7 @@ blockquote {
   color: #000000;
   margin: 0;
   padding-left: 3em;
+  padding-right: 3em;
   border-left: 0.5em #EEE solid;
   background-color: lightgreen;
 }
