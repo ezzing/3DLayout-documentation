@@ -206,7 +206,8 @@ To instantiate the ezzing3D object and start the app you need to run this lines 
             token: token,
             id: id,
             failURL: '#/fail',
-            showcase: showcase
+            showcase: showcase,
+            rules: rules
         });
 
 The attributes for this constructor are:
@@ -220,6 +221,10 @@ The attributes for this constructor are:
 -   **failURL**: an alternative URL to redirect the user when token or id from CRM fails.
 
 -   **showcase**: When this value is true the project is opened in a special showcase mode, without graphic interface and in a nice 3d view. This mode is read-only and the project can not be modified.
+
+-   **rules**: This is the custom rules to customize the 3DLayout, this attribute is optional, if it doesn exist the default values will be used.
+
+> Visit the section [Layout Rules Chapter](#layout-rules) to learn how to customize the 3DLayout.
 
 3DLayout Communication System
 =============================

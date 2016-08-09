@@ -1,11 +1,11 @@
 <div class="page-break"></div>
 # Layout Rules
 
-The user can customize many options in the 3DLayout. By passing a 'layoutRules' attribute to the layout element with a collection of objects you can define the default values, add special behaviours to the 3DLayout and customize the interface.
+The user can customize many options in the 3DLayout. By passing a 'rules' attribute to the 3DLayout instance, with a collection of objects, you can define the default values, add special behaviours to the 3DLayout and customize the interface.
 
 Example of rules object:
 
-    rules = {
+    var rules = {
         'display': true,
         'zoom': 21,
         'logo': false,
