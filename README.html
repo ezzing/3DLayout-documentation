@@ -202,7 +202,8 @@ var layout = new ezzing3D(container, {
         token: token,
         id: id,
         failURL: &#39;#/fail&#39;,
-        showcase: showcase
+        showcase: showcase,
+        rules: rules
     });</code></pre>
 <p>The attributes for this constructor are:</p>
 <ul>
@@ -211,7 +212,11 @@ var layout = new ezzing3D(container, {
 <li><p><strong>id</strong>: the CRM project id. This value can also be used to activate special modes in the 3DLayout. Use id=“demo” to run a 3DLayout demo with an empty project. Use id=“tutorial” to run an interactive tutorial. Use id=“landing” to view an special showcase demo project.</p></li>
 <li><p><strong>failURL</strong>: an alternative URL to redirect the user when token or id from CRM fails.</p></li>
 <li><p><strong>showcase</strong>: When this value is true the project is opened in a special showcase mode, without graphic interface and in a nice 3d view. This mode is read-only and the project can not be modified.</p></li>
+<li><p><strong>rules</strong>: This is the custom rules to customize the 3DLayout, this attribute is optional, if it doesn exist the default values will be used.</p></li>
 </ul>
+<blockquote>
+<p>Visit the section <a href="#layout-rules">Layout Rules Chapter</a> to learn how to customize the 3DLayout.</p>
+</blockquote>
 <div class="page-break"></div>
 <h1 id="dlayout-communication-system">3DLayout Communication System</h1>
 <h2 id="info-events-sent-by-3dlayout">Info Events sent by 3DLayout</h2>
@@ -423,9 +428,9 @@ var layout = new ezzing3D(container, {
 <p>If the offset is a negative value, then the area is reduced by the offset value (in meters)</p>
 <div class="page-break"></div>
 <h1 id="layout-rules">Layout Rules</h1>
-<p>The user can customize many options in the 3DLayout. By passing a ‘layoutRules’ attribute to the layout element with a collection of objects you can define the default values, add special behaviours to the 3DLayout and customize the interface.</p>
+<p>The user can customize many options in the 3DLayout. By passing a ‘rules’ attribute to the 3DLayout instance, with a collection of objects, you can define the default values, add special behaviours to the 3DLayout and customize the interface.</p>
 <p>Example of rules object:</p>
-<pre><code>rules = {
+<pre><code>var rules = {
     &#39;display&#39;: true,
     &#39;zoom&#39;: 21,
     &#39;logo&#39;: false,

@@ -74,6 +74,10 @@ The options for this function are:
 
 * **showcase**: When this value is true the project is opened in a special showcase mode, without graphic interface and in a nice 3d view. This mode is read-only and the project can not be modified.
 
+* **rules**: This is the custom rules to customize the 3DLayout, this attribute is optional, if it doesn exist the default values will be used.
+
+> Visit the section  [Layout Rules Chapter](#layout-rules) to learn how to customize the 3DLayout.
+
 ***
     Integration in a non-angular platform
     - No deberíamos decir que son copiar los archivos ya que los mismos se cargaran con un cdn y no los copiara el usuario en ningun sitio
