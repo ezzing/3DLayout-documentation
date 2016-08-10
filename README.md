@@ -23,6 +23,7 @@ Table of contents
         -   [DOM body](#dom-body)
     -   [Javascript code](#javascript-code)
 -   [3DLayout Communication System](#dlayout-communication-system)
+    -   [Create a new project](#create-a-new-project)
     -   [Info Events sent by 3DLayout](#info-events-sent-by-3dlayout)
         -   [load](#load)
         -   [zoomChanged](#zoomchanged)
@@ -202,15 +203,22 @@ Javascript code
 To instantiate the ezzing3D object and start the app you need to run this lines inside your javascript code:
 
     var container = window.document.getElementById('ezzing3d');
-    var layout = new ezzing3D(container, {
-            token: token,
-            id: id,
-            failURL: '#/fail',
-            showcase: showcase,
-            rules: rules
-        });
 
-The attributes for this constructor are:
+    var layout = new ezzing3D();
+
+    layout.bootstrap(container, {
+        token: token,
+        id: id,
+        failURL: '#/fail',
+        showcase: showcase,
+        rules: rules
+    });
+
+The ezzing3D contructor instantiate the 3DLayout object. In this object we have all the functionality to manage the 3DLayout.
+
+The bootstrap function init the 3DLayout in the defined container with the provided options.
+
+The options for this function are:
 
 -   **container**: the DOM element with id=‘ezzing3d’
 
@@ -229,10 +237,71 @@ The attributes for this constructor are:
 3DLayout Communication System
 =============================
 
+Create a new project
+--------------------
+
+To create a new project use the function createProject()
+
+An example of use this function.
+
+    var projectData = {
+        "title": "Sevilla",
+        "latitude": 37.39388,
+        "longitude": -5.984179999999999,
+        "address": "Calle María Auxiliadora, 13",
+        "zip": "41003",
+        "city": "Sevilla",
+        "province": "Andalucía",
+        "country": "Spain",
+        "token":"token"
+    }
+
+    layout.createProject(projectData, function(data) {
+        layout.bootstrap(container, {
+            token: token,
+            id: data.id,
+            failURL: '#/fail',
+            showcase: showcase,
+            customRules: rules
+        });
+    });
+
+In this example we create a new project and open the 3Dlayout with this project.
+
+The data to create a new project are:
+
+-   **title**: The title of the project
+
+-   **latitude**: The latitude were the project must be created
+
+-   **longitude**: The longitude were the project must be created
+
+-   **address**: The address of the project, this address can be different than the latitude and longitude position.
+
+-   **zip**: The zip code of the project.
+
+-   **city**: The city of the project.
+
+-   **province**: The province of the project.
+
+-   **country**: The country of the project.
+
+> Tenemos que ver la información exacta que devolvemos y ver que podemos filtrar para no darle toda la información.
+
 Info Events sent by 3DLayout
 ----------------------------
 
 The 3DLayout trigger different events to report actions when they are accomplished or to inform on GUI changes.
+
+An example on how to listen this events
+
+    var container = window.document.getElementById('ezzing3d');
+
+    container.addEventListener("buildingSelected", function(event, data){
+        console.log(event.detail);
+    })
+
+The full list of events emmited by the 3DLayout are:
 
 -   load
 -   zoomChanged
@@ -337,7 +406,7 @@ This function returns a JSON with an array of buildings.
 Each building in the array contains:
 
     {
-        id: the building id, 
+        id: the building id,
         name: the building name,
         areas: an array of areas in the building
     }
@@ -388,7 +457,7 @@ Each building in the array contains:
 
     {
         id: the building id,
-        name: the building name, 
+        name: the building name,
         power: the total power for this building,
         areas: array of areas in this building
     }
@@ -418,16 +487,15 @@ Returns some building information for a given building.id
 The data returned is:
 
     {
-        id: the building id, 
-        name: the building name, 
-        height: building height (in meters), 
+        id: the building id,
+        name: the building name,
+        height: building height (in meters),
         regular: true if building angles are all equal to 90º, false otherwise.
-        buildingArea: building area measure (in square meters), 
+        buildingArea: building area measure (in square meters),
         vertices: building vertices in lat/long coordinates,
         modules: total of modules in the building
-        power: total power of the building, 
+        power: total power of the building,
     }
-        
 
 #### getRoofInfo
 
@@ -438,10 +506,10 @@ Returns some roof information for a given building.id\]
 The data returned is:
 
     {
-        height: roof height (in meters, not including building height), 
-        inclination: roof angle (in degrees), 
-        material: roof material (i.e: tiled/corugated), 
-        orientation: roof orientation (i.e: east/west or nort/south), 
+        height: roof height (in meters, not including building height),
+        inclination: roof angle (in degrees),
+        material: roof material (i.e: tiled/corugated),
+        orientation: roof orientation (i.e: east/west or nort/south),
         type: roof type (i.e: flat, pent, gabled, etc...)
     }
 
@@ -499,14 +567,14 @@ returns some module info for a given area.id\]
 The data returned is:
 
     {
-        id: the module id, 
-        name: the module model name, 
-        reference: extra model information, 
+        id: the module id,
+        name: the module model name,
+        reference: extra model information,
         width: the width of the module (in meters),
-        height: the height of the module (in meters), 
-        length: the lenght of the module (in meters), 
+        height: the height of the module (in meters),
+        length: the lenght of the module (in meters),
         power: the power of the module
-    } 
+    }
 
 #### getModulesSructureByArea
 

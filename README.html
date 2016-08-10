@@ -53,6 +53,7 @@
 <li><a href="#javascript-code">Javascript code</a></li>
 </ul></li>
 <li><a href="#dlayout-communication-system">3DLayout Communication System</a><ul>
+<li><a href="#create-a-new-project">Create a new project</a></li>
 <li><a href="#info-events-sent-by-3dlayout">Info Events sent by 3DLayout</a><ul>
 <li><a href="#load">load</a></li>
 <li><a href="#zoomchanged">zoomChanged</a></li>
@@ -198,14 +199,19 @@
 <h2 id="javascript-code">Javascript code</h2>
 <p>To instantiate the ezzing3D object and start the app you need to run this lines inside your javascript code:</p>
 <pre><code>var container = window.document.getElementById(&#39;ezzing3d&#39;);
-var layout = new ezzing3D(container, {
-        token: token,
-        id: id,
-        failURL: &#39;#/fail&#39;,
-        showcase: showcase,
-        rules: rules
-    });</code></pre>
-<p>The attributes for this constructor are:</p>
+
+var layout = new ezzing3D();
+
+layout.bootstrap(container, {
+    token: token,
+    id: id,
+    failURL: &#39;#/fail&#39;,
+    showcase: showcase,
+    rules: rules
+});</code></pre>
+<p>The ezzing3D contructor instantiate the 3DLayout object. In this object we have all the functionality to manage the 3DLayout.</p>
+<p>The bootstrap function init the 3DLayout in the defined container with the provided options.</p>
+<p>The options for this function are:</p>
 <ul>
 <li><p><strong>container</strong>: the DOM element with id=‘ezzing3d’</p></li>
 <li><p><strong>token</strong>: the user token from the CRM</p></li>
@@ -219,8 +225,54 @@ var layout = new ezzing3D(container, {
 </blockquote>
 <div class="page-break"></div>
 <h1 id="dlayout-communication-system">3DLayout Communication System</h1>
+<h2 id="create-a-new-project">Create a new project</h2>
+<p>To create a new project use the function createProject()</p>
+<p>An example of use this function.</p>
+<pre><code>var projectData = {
+    &quot;title&quot;: &quot;Sevilla&quot;,
+    &quot;latitude&quot;: 37.39388,
+    &quot;longitude&quot;: -5.984179999999999,
+    &quot;address&quot;: &quot;Calle María Auxiliadora, 13&quot;,
+    &quot;zip&quot;: &quot;41003&quot;,
+    &quot;city&quot;: &quot;Sevilla&quot;,
+    &quot;province&quot;: &quot;Andalucía&quot;,
+    &quot;country&quot;: &quot;Spain&quot;,
+    &quot;token&quot;:&quot;token&quot;
+}
+
+layout.createProject(projectData, function(data) {
+    layout.bootstrap(container, {
+        token: token,
+        id: data.id,
+        failURL: &#39;#/fail&#39;,
+        showcase: showcase,
+        customRules: rules
+    });
+});</code></pre>
+<p>In this example we create a new project and open the 3Dlayout with this project.</p>
+<p>The data to create a new project are:</p>
+<ul>
+<li><p><strong>title</strong>: The title of the project</p></li>
+<li><p><strong>latitude</strong>: The latitude were the project must be created</p></li>
+<li><p><strong>longitude</strong>: The longitude were the project must be created</p></li>
+<li><p><strong>address</strong>: The address of the project, this address can be different than the latitude and longitude position.</p></li>
+<li><p><strong>zip</strong>: The zip code of the project.</p></li>
+<li><p><strong>city</strong>: The city of the project.</p></li>
+<li><p><strong>province</strong>: The province of the project.</p></li>
+<li><p><strong>country</strong>: The country of the project.</p></li>
+</ul>
+<blockquote>
+<p>Tenemos que ver la información exacta que devolvemos y ver que podemos filtrar para no darle toda la información.</p>
+</blockquote>
 <h2 id="info-events-sent-by-3dlayout">Info Events sent by 3DLayout</h2>
 <p>The 3DLayout trigger different events to report actions when they are accomplished or to inform on GUI changes.</p>
+<p>An example on how to listen this events</p>
+<pre><code>var container = window.document.getElementById(&#39;ezzing3d&#39;);
+
+container.addEventListener(&quot;buildingSelected&quot;, function(event, data){
+    console.log(event.detail);
+})</code></pre>
+<p>The full list of events emmited by the 3DLayout are:</p>
 <ul>
 <li>load</li>
 <li>zoomChanged</li>
@@ -285,7 +337,7 @@ var layout = new ezzing3D(container, {
 <p>This function returns a JSON with an array of buildings.</p>
 <p>Each building in the array contains:</p>
 <pre><code>{
-    id: the building id, 
+    id: the building id,
     name: the building name,
     areas: an array of areas in the building
 }</code></pre>
@@ -319,7 +371,7 @@ var layout = new ezzing3D(container, {
 <p>Each building in the array contains:</p>
 <pre><code>{
     id: the building id,
-    name: the building name, 
+    name: the building name,
     power: the total power for this building,
     areas: array of areas in this building
 }</code></pre>
@@ -341,25 +393,24 @@ var layout = new ezzing3D(container, {
 <p>Returns some building information for a given building.id</p>
 <p>The data returned is:</p>
 <pre><code>{
-    id: the building id, 
-    name: the building name, 
-    height: building height (in meters), 
+    id: the building id,
+    name: the building name,
+    height: building height (in meters),
     regular: true if building angles are all equal to 90º, false otherwise.
-    buildingArea: building area measure (in square meters), 
+    buildingArea: building area measure (in square meters),
     vertices: building vertices in lat/long coordinates,
     modules: total of modules in the building
-    power: total power of the building, 
-}
-    </code></pre>
+    power: total power of the building,
+}</code></pre>
 <h4 id="getroofinfo">getRoofInfo</h4>
 <pre><code>layout.getRoofInfo(id, callback);</code></pre>
 <p>Returns some roof information for a given building.id]</p>
 <p>The data returned is:</p>
 <pre><code>{
-    height: roof height (in meters, not including building height), 
-    inclination: roof angle (in degrees), 
-    material: roof material (i.e: tiled/corugated), 
-    orientation: roof orientation (i.e: east/west or nort/south), 
+    height: roof height (in meters, not including building height),
+    inclination: roof angle (in degrees),
+    material: roof material (i.e: tiled/corugated),
+    orientation: roof orientation (i.e: east/west or nort/south),
     type: roof type (i.e: flat, pent, gabled, etc...)
 }</code></pre>
 <h4 id="getbuildingposition">getBuildingPosition</h4>
@@ -401,14 +452,14 @@ var layout = new ezzing3D(container, {
 <p>returns some module info for a given area.id]</p>
 <p>The data returned is:</p>
 <pre><code>{
-    id: the module id, 
-    name: the module model name, 
-    reference: extra model information, 
+    id: the module id,
+    name: the module model name,
+    reference: extra model information,
     width: the width of the module (in meters),
-    height: the height of the module (in meters), 
-    length: the lenght of the module (in meters), 
+    height: the height of the module (in meters),
+    length: the lenght of the module (in meters),
     power: the power of the module
-} </code></pre>
+}</code></pre>
 <h4 id="getmodulessructurebyarea">getModulesSructureByArea</h4>
 <pre><code>layout.getModulesSructureByArea(id, callback);</code></pre>
 <p>returns a JSON with an array of modules for a given area.id</p>
