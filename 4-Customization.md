@@ -1,4 +1,5 @@
 <div class="page-break"></div>
+
 # Layout Rules
 
 The user can customize many options in the 3DLayout. By passing a 'layoutRules' attribute to the layout element with a collection of objects you can define the default values, add special behaviours to the 3DLayout and customize the interface.
@@ -93,13 +94,13 @@ The attributes for each module are:
     }
 
 
-Note: the **id** value should be diferent for each module in the list. 
+Note: the **id** value should be diferent for each module in the list.
 
 ### DefaultRoofs
 
 User can define the default values for each roof type.
 
-The 3DLayout currently has five available roof types: **flat**, **pent**, **gabled**, **hipped** and **pyramid**. 
+The 3DLayout currently has five available roof types: **flat**, **pent**, **gabled**, **hipped** and **pyramid**.
 
 > Only roof types described in this objects are available to the user.
 
@@ -306,7 +307,7 @@ To define your own color palette use this squeme:
 
 There are several areas in the 3DLayout where the user can add his own functions. This areas are the **main options buttons** and the **control buttons**. Each one are defined in a JSON description that can be added to the layoutRules object.
 
-When the user adds a new button, this is defined as a event emitter. 
+When the user adds a new button, this is defined as a event emitter.
 We use the fontawesome icons collection, so you can use it to define new buttons.
 
 ### MainoptionsCustomButtons

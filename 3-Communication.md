@@ -1,9 +1,67 @@
 <div class="page-break"></div>
+
 # 3DLayout Communication System
+
+## Create a new project
+
+To create a new project use the function createProject()
+
+An example of use this function.
+
+    var projectData = {
+        "title": "Sevilla",
+        "latitude": 37.39388,
+        "longitude": -5.984179999999999,
+        "address": "Calle María Auxiliadora, 13",
+        "zip": "41003",
+        "city": "Sevilla",
+        "province": "Andalucía",
+        "country": "Spain"
+    }
+
+    layout.createProject(projectData, function(data) {
+        layout.bootstrap(container, {
+            token: token,
+            id: data.id,
+            failURL: '#/fail',
+            showcase: showcase,
+            customRules: rules
+        });
+    });
+
+In this example we create a new project and open the 3Dlayout with this project.
+
+The data to create a new project are:
+
+* **title**: The title of the project
+
+* **latitude**: The latitude were the project must be created
+
+* **longitude**: The longitude were the project must be created
+
+* **address**: The address of the project, this address can be diferent at the latitude and longitude position.
+
+* **zip**: The zip code of the project
+
+* **city**: The city of the project
+
+* **province**: The province of the project
+
+* **country**: The country of the project
+
+    Tenemos que ver la información exacta que devolvemos y ver que podemos filtrar para no darle toda la información.
 
 ## Info Events sent by 3DLayout
 
 The 3DLayout trigger different events to report actions when they are accomplished or to inform on GUI changes.
+
+An example of listen this events
+
+    var container = window.document.getElementById('ezzing3d');
+
+    container.addEventListener("buildingSelected", function(event, data){
+        console.log(event.detail);
+    })
 
 * load
 * zoomChanged
@@ -86,7 +144,7 @@ For all these functions you can pass a callback as an argument to be executed wh
 ### Generic Functions
 
 Set of generic functions to retrieve project information from the layout. You just need to pass the **callback**, no other arguments are needed.
- 
+
 * getCurrentBuildingId
 * getLayoutData
 * getNumberOfModules
@@ -103,12 +161,12 @@ This function returns the id value of the current active building.
 
     layout.getLayoutData(callback);
 
-This function returns a JSON with an array of buildings. 
+This function returns a JSON with an array of buildings.
 
 Each building in the array contains:
 
     {
-        id: the building id, 
+        id: the building id,
         name: the building name,
         areas: an array of areas in the building
     }
@@ -126,7 +184,7 @@ each area in the areas array contains:
 
 This function returns a JSON with an array of buildings.
 
-Each building in the array contains: 
+Each building in the array contains:
 
     {
         id: the building id,
@@ -135,7 +193,7 @@ Each building in the array contains:
         areas: an array of areas in the building
     }
 
-Each area in the areas array contains: 
+Each area in the areas array contains:
 
     {
         id: the area id,
@@ -144,7 +202,7 @@ Each area in the areas array contains:
     }
 
 #### getTotalPower
-    
+
     layout.getTotalPower(callback);
 
 Returns the total power for all the buildings in the project
@@ -154,17 +212,17 @@ Returns the total power for all the buildings in the project
     layout.getPower(callback);
 
 Returns an array of all buildings in the project
-         
+
 Each building in the array contains:
 
     {
         id: the building id,
-        name: the building name, 
+        name: the building name,
         power: the total power for this building,
         areas: array of areas in this building
     }
 
-Each area in the areas array contains: 
+Each area in the areas array contains:
 
     {
         id: the area id,
@@ -189,16 +247,16 @@ Returns some building information for a given building.id
 The data returned is:
 
     {
-        id: the building id, 
-        name: the building name, 
-        height: building height (in meters), 
+        id: the building id,
+        name: the building name,
+        height: building height (in meters),
         regular: true if building angles are all equal to 90º, false otherwise.
-        buildingArea: building area measure (in square meters), 
+        buildingArea: building area measure (in square meters),
         vertices: building vertices in lat/long coordinates,
         modules: total of modules in the building
-        power: total power of the building, 
+        power: total power of the building,
     }
-        
+
 #### getRoofInfo
 
     layout.getRoofInfo(id, callback);
@@ -208,10 +266,10 @@ Returns some roof information for a given building.id]
 The data returned is:
 
     {
-        height: roof height (in meters, not including building height), 
-        inclination: roof angle (in degrees), 
-        material: roof material (i.e: tiled/corugated), 
-        orientation: roof orientation (i.e: east/west or nort/south), 
+        height: roof height (in meters, not including building height),
+        inclination: roof angle (in degrees),
+        material: roof material (i.e: tiled/corugated),
+        orientation: roof orientation (i.e: east/west or nort/south),
         type: roof type (i.e: flat, pent, gabled, etc...)
     }
 
@@ -265,18 +323,18 @@ The data returned is:
     layout.getModuleInfoByArea(id, callback);
 
 returns some module info for a given area.id]
-         
+
 The data returned is:
 
     {
-        id: the module id, 
-        name: the module model name, 
-        reference: extra model information, 
+        id: the module id,
+        name: the module model name,
+        reference: extra model information,
         width: the width of the module (in meters),
-        height: the height of the module (in meters), 
-        length: the lenght of the module (in meters), 
+        height: the height of the module (in meters),
+        length: the lenght of the module (in meters),
         power: the power of the module
-    } 
+    }
 
 #### getModulesSructureByArea
 
@@ -304,3 +362,5 @@ Returns an array of vertices containing the offseted area for a given area.id an
 
 If the offset is a negative value, then the area is reduced by the offset value (in meters)
 
+***
+    Recordadme que tengo que automatizar el token de creación de objetos en la api

@@ -1,4 +1,5 @@
 <div class="page-break"></div>
+
 # Integration in a non-angular platform
 
 To integrate the 3DLayout into your platform, you only need this five files
@@ -47,14 +48,21 @@ and these lines at the end of the body:
 To instantiate the ezzing3D object and start the app you need to run this lines inside your javascript code:
 
     var container = window.document.getElementById('ezzing3d');
-    var layout = new ezzing3D(container, {
-            token: token,
-            id: id,
-            failURL: '#/fail',
-            showcase: showcase
-        });
 
-The attributes for this constructor are:
+    var layout = new ezzing3D();
+
+    layout.bootstrap(container, {
+        token: token,
+        id: id,
+        failURL: '#/fail',
+        showcase: showcase
+    });
+
+The ezzing3D contructor instance the object layout, in this object we have all the functionality to init the 3DLayout
+
+The function bootrap init the ezzing 3d in the container defined and with the options provided
+
+The options for this function are:
 
 * **container**: the DOM element with id='ezzing3d'
 
@@ -66,3 +74,9 @@ The attributes for this constructor are:
 
 * **showcase**: When this value is true the project is opened in a special showcase mode, without graphic interface and in a nice 3d view. This mode is read-only and the project can not be modified.
 
+***
+    Integration in a non-angular platform
+    - No deberíamos decir que son copiar los archivos ya que los mismos se cargaran con un cdn y no los copiara el usuario en ningun sitio
+
+    HTML code
+    - En cuanto al html code si decimos antes que lo cargamos con un cdn no debemos mencionar aquí lo de poner esas lineas
