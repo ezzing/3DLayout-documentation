@@ -64,6 +64,7 @@
 <li><a href="#edittree">editTree</a></li>
 <li><a href="#areachanged">areaChanged</a></li>
 <li><a href="#buildingchanged">buildingChanged</a></li>
+<li><a href="#roofchanged">roofChanged</a></li>
 <li><a href="#editroof">editRoof</a></li>
 <li><a href="#editvertices">editVertices</a></li>
 <li><a href="#buildingremoved">buildingRemoved</a></li>
@@ -281,6 +282,7 @@ container.addEventListener(&quot;buildingSelected&quot;, function(event, data){
 <li>editTree</li>
 <li>areaChanged</li>
 <li>buildingChanged</li>
+<li>roofChanged</li>
 <li>editRoof</li>
 <li>editVertices</li>
 <li>buildingRemoved</li>
@@ -302,9 +304,13 @@ container.addEventListener(&quot;buildingSelected&quot;, function(event, data){
 <h3 id="edittree">editTree</h3>
 <p>This event is triggerd each time the user enters the edit section of a tree. The event sends the <strong>tree.id</strong></p>
 <h3 id="areachanged">areaChanged</h3>
-<p>This event is triggerd each time an area is changed. The event sends the <strong>area.id</strong></p>
+<p>This event is triggerd each time an area attribute is changed. The event sends back an array with this info:</p>
+<pre><code>[area.id, attribute, value]</code></pre>
 <h3 id="buildingchanged">buildingChanged</h3>
 <p>This event is triggerd each time a building is changed. The event sends the <strong>building.id</strong></p>
+<h3 id="roofchanged">roofChanged</h3>
+<p>This event is triggerd each time a roof attribute is changed. The event sends back an array with this info:</p>
+<pre><code>[building.id, roof attribute, value]</code></pre>
 <h3 id="editroof">editRoof</h3>
 <p>This event is triggerd each time the user enters the roof edit section of a building. The event sends the <strong>building.id</strong></p>
 <h3 id="editvertices">editVertices</h3>

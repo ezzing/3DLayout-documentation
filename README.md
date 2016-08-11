@@ -34,6 +34,7 @@ Table of contents
         -   [editTree](#edittree)
         -   [areaChanged](#areachanged)
         -   [buildingChanged](#buildingchanged)
+        -   [roofChanged](#roofchanged)
         -   [editRoof](#editroof)
         -   [editVertices](#editvertices)
         -   [buildingRemoved](#buildingremoved)
@@ -310,6 +311,7 @@ The full list of events emmited by the 3DLayout are:
 -   editTree
 -   areaChanged
 -   buildingChanged
+-   roofChanged
 -   editRoof
 -   editVertices
 -   buildingRemoved
@@ -346,11 +348,19 @@ This event is triggerd each time the user enters the edit section of a tree. The
 
 ### areaChanged
 
-This event is triggerd each time an area is changed. The event sends the **area.id**
+This event is triggerd each time an area attribute is changed. The event sends back an array with this info:
+
+    [area.id, attribute, value]
 
 ### buildingChanged
 
 This event is triggerd each time a building is changed. The event sends the **building.id**
+
+### roofChanged
+
+This event is triggerd each time a roof attribute is changed. The event sends back an array with this info:
+
+    [building.id, roof attribute, value]
 
 ### editRoof
 
