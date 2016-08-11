@@ -239,7 +239,7 @@ Create a new project
 
 To create a new project use the function createProject()
 
-An example of use this function.
+An example on how to use this function.
 
     var projectData = {
         "title": "Sevilla",
@@ -263,9 +263,9 @@ An example of use this function.
         });
     });
 
-In this example we create a new project and open the 3Dlayout with this project.
+In this example we create a new project and open the 3DLayout with this project.
 
-The data to create a new project are:
+The attributes to create a new project are:
 
 -   **title**: The title of the project
 
@@ -283,8 +283,6 @@ The data to create a new project are:
 
 -   **country**: The country of the project.
 
-> Tenemos que ver la información exacta que devolvemos y ver que podemos filtrar para no darle toda la información.
->
 3DLayout Communication System
 =============================
 

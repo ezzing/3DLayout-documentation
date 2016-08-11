@@ -225,7 +225,7 @@ layout.bootstrap(container, {
 </blockquote>
 <h2 id="create-a-new-project">Create a new project</h2>
 <p>To create a new project use the function createProject()</p>
-<p>An example of use this function.</p>
+<p>An example on how to use this function.</p>
 <pre><code>var projectData = {
     &quot;title&quot;: &quot;Sevilla&quot;,
     &quot;latitude&quot;: 37.39388,
@@ -247,8 +247,8 @@ layout.createProject(projectData, function(data) {
         customRules: rules
     });
 });</code></pre>
-<p>In this example we create a new project and open the 3Dlayout with this project.</p>
-<p>The data to create a new project are:</p>
+<p>In this example we create a new project and open the 3DLayout with this project.</p>
+<p>The attributes to create a new project are:</p>
 <ul>
 <li><p><strong>title</strong>: The title of the project</p></li>
 <li><p><strong>latitude</strong>: The latitude were the project must be created</p></li>
@@ -259,10 +259,8 @@ layout.createProject(projectData, function(data) {
 <li><p><strong>province</strong>: The province of the project.</p></li>
 <li><p><strong>country</strong>: The country of the project.</p></li>
 </ul>
-<blockquote>
-<p>Tenemos que ver la información exacta que devolvemos y ver que podemos filtrar para no darle toda la información.<br />
-<div class="page-break"></div></p>
-</blockquote>
+<!-- > Tenemos que ver la información exacta que devolvemos y ver que podemos filtrar para no darle toda la información. -->
+<div class="page-break"></div>
 <h1 id="dlayout-communication-system">3DLayout Communication System</h1>
 <h2 id="info-events-sent-by-3dlayout">Info Events sent by 3DLayout</h2>
 <p>The 3DLayout trigger different events to report actions when they are accomplished or to inform on GUI changes.</p>
