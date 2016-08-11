@@ -51,9 +51,9 @@
 <li><a href="#dom-body">DOM body</a></li>
 </ul></li>
 <li><a href="#javascript-code">Javascript code</a></li>
+<li><a href="#create-a-new-project">Create a new project</a></li>
 </ul></li>
 <li><a href="#dlayout-communication-system">3DLayout Communication System</a><ul>
-<li><a href="#create-a-new-project">Create a new project</a></li>
 <li><a href="#info-events-sent-by-3dlayout">Info Events sent by 3DLayout</a><ul>
 <li><a href="#load">load</a></li>
 <li><a href="#zoomchanged">zoomChanged</a></li>
@@ -223,8 +223,6 @@ layout.bootstrap(container, {
 <blockquote>
 <p>Visit the section <a href="#layout-rules">Layout Rules Chapter</a> to learn how to customize the 3DLayout.</p>
 </blockquote>
-<div class="page-break"></div>
-<h1 id="dlayout-communication-system">3DLayout Communication System</h1>
 <h2 id="create-a-new-project">Create a new project</h2>
 <p>To create a new project use the function createProject()</p>
 <p>An example of use this function.</p>
@@ -262,8 +260,10 @@ layout.createProject(projectData, function(data) {
 <li><p><strong>country</strong>: The country of the project.</p></li>
 </ul>
 <blockquote>
-<p>Tenemos que ver la información exacta que devolvemos y ver que podemos filtrar para no darle toda la información.</p>
+<p>Tenemos que ver la información exacta que devolvemos y ver que podemos filtrar para no darle toda la información.<br />
+<div class="page-break"></div></p>
 </blockquote>
+<h1 id="dlayout-communication-system">3DLayout Communication System</h1>
 <h2 id="info-events-sent-by-3dlayout">Info Events sent by 3DLayout</h2>
 <p>The 3DLayout trigger different events to report actions when they are accomplished or to inform on GUI changes.</p>
 <p>An example on how to listen this events</p>
@@ -428,6 +428,7 @@ container.addEventListener(&quot;buildingSelected&quot;, function(event, data){
 <li>getModuleInfoByArea</li>
 <li>getModulesSructureByArea</li>
 <li>getAreaOffset</li>
+<li>setAreaAttribute</li>
 </ul>
 <h4 id="getareainfo">getAreaInfo</h4>
 <pre><code>layout.getAreaInfo(id, callback);</code></pre>
@@ -477,6 +478,59 @@ container.addEventListener(&quot;buildingSelected&quot;, function(event, data){
 <pre><code>layout.getAreaOffset(id, offset, callback);</code></pre>
 <p>Returns an array of vertices containing the offseted area for a given area.id and offset</p>
 <p>If the offset is a negative value, then the area is reduced by the offset value (in meters)</p>
+<!-- 
+## Functions to set values in to the project
+
+Set of functions to change values inside the project. There are two types:
+
+* setAreaAttribute
+* setBuildingAttribute
+
+### setAreaAttribute
+
+With this function you can change this area attributes:
+
+* model
+* placement
+* structure
+* inclination
+* useShadowsCalculation
+* inset.x
+* inset.y
+* totalInset.x
+* totalInset.y
+* offset
+* azimuth
+
+    var id = "aaa060bf-cae0-41b0-9fd2-c234262ea710";
+    var field = "structure";
+    var value = "Standard";
+
+    scope.$emit("setAreaAttribute", [id, field, value]);
+    scope.$emit("setAreaAttribute", [id, 'inclination', 45]);
+    scope.$emit("setAreaAttribute", [id, 'inset.y', 0.0034]);
+    scope.$emit("setAreaAttribute", [id, 'azimuth', 45]);
+
+### setBuildingAttribute
+
+With this function you can change this building fields
+
+* name
+* height
+* roof.inclination
+* roof.material
+
+
+    var id = "64a1f446-a552-4aef-bed3-5268b62610a6";
+
+    var value = 75;
+    var field = "roof.inclination";
+    scope.$emit("setBuildingAttribute", [id, field, value]);
+
+    var value = 20;
+    var field = "height";
+    scope.$emit("setBuildingAttribute", [id, field, value]);
+ -->
 <div class="page-break"></div>
 <h1 id="layout-rules">Layout Rules</h1>
 <p>The user can customize many options in the 3DLayout. By passing a ‘rules’ attribute to the 3DLayout instance, with a collection of objects, you can define the default values, add special behaviours to the 3DLayout and customize the interface.</p>

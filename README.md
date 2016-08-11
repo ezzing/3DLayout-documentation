@@ -22,8 +22,8 @@ Table of contents
         -   [DOM header](#dom-header)
         -   [DOM body](#dom-body)
     -   [Javascript code](#javascript-code)
--   [3DLayout Communication System](#dlayout-communication-system)
     -   [Create a new project](#create-a-new-project)
+-   [3DLayout Communication System](#dlayout-communication-system)
     -   [Info Events sent by 3DLayout](#info-events-sent-by-3dlayout)
         -   [load](#load)
         -   [zoomChanged](#zoomchanged)
@@ -234,9 +234,6 @@ The options for this function are:
 
 > Visit the section [Layout Rules Chapter](#layout-rules) to learn how to customize the 3DLayout.
 
-3DLayout Communication System
-=============================
-
 Create a new project
 --------------------
 
@@ -287,6 +284,9 @@ The data to create a new project are:
 -   **country**: The country of the project.
 
 > Tenemos que ver la información exacta que devolvemos y ver que podemos filtrar para no darle toda la información.
+>
+3DLayout Communication System
+=============================
 
 Info Events sent by 3DLayout
 ----------------------------
@@ -534,6 +534,7 @@ Set of generic functions to retrieve Area related information from the layout.In
 -   getModuleInfoByArea
 -   getModulesSructureByArea
 -   getAreaOffset
+-   setAreaAttribute
 
 #### getAreaInfo
 
