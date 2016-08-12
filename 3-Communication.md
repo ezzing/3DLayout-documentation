@@ -1,66 +1,19 @@
 <div class="page-break"></div>
-
 # 3DLayout Communication System
-
-## Create a new project
-
-To create a new project use the function createProject()
-
-An example of use this function.
-
-    var projectData = {
-        "title": "Sevilla",
-        "latitude": 37.39388,
-        "longitude": -5.984179999999999,
-        "address": "Calle María Auxiliadora, 13",
-        "zip": "41003",
-        "city": "Sevilla",
-        "province": "Andalucía",
-        "country": "Spain"
-    }
-
-    layout.createProject(projectData, function(data) {
-        layout.bootstrap(container, {
-            token: token,
-            id: data.id,
-            failURL: '#/fail',
-            showcase: showcase,
-        }, rules);
-    });
-
-In this example we create a new project and open the 3Dlayout with this project.
-
-The data to create a new project are:
-
-* **title**: The title of the project
-
-* **latitude**: The latitude were the project must be created
-
-* **longitude**: The longitude were the project must be created
-
-* **address**: The address of the project, this address can be diferent at the latitude and longitude position.
-
-* **zip**: The zip code of the project
-
-* **city**: The city of the project
-
-* **province**: The province of the project
-
-* **country**: The country of the project
-
-    Tenemos que ver la información exacta que devolvemos y ver que podemos filtrar para no darle toda la información.
 
 ## Info Events sent by 3DLayout
 
 The 3DLayout trigger different events to report actions when they are accomplished or to inform on GUI changes.
 
-An example of listen this events
+An example on how to listen this events
 
     var container = window.document.getElementById('ezzing3d');
 
     container.addEventListener("buildingSelected", function(event, data){
         console.log(event.detail);
     })
+
+The full list of events emmited by the 3DLayout are:
 
 * load
 * zoomChanged
@@ -71,6 +24,7 @@ An example of listen this events
 * editTree
 * areaChanged
 * buildingChanged
+* roofChanged
 * editRoof
 * editVertices
 * buildingRemoved
@@ -107,12 +61,19 @@ This event is triggerd each time the user enters the edit section of a tree. The
 
 ### areaChanged
 
-This event is triggerd each time an area is changed. The event sends the **area.id**
+This event is triggerd each time an area attribute is changed. The event sends back an array with this info:
 
+    [area.id, attribute, value]
 
 ### buildingChanged
 
 This event is triggerd each time a building is changed. The event sends the **building.id**
+
+### roofChanged
+
+This event is triggerd each time a roof attribute is changed. The event sends back an array with this info:
+
+    [building.id, roof attribute, value]
 
 ### editRoof
 
@@ -361,5 +322,60 @@ Returns an array of vertices containing the offseted area for a given area.id an
 
 If the offset is a negative value, then the area is reduced by the offset value (in meters)
 
-***
+<!-- ***
     Recordadme que tengo que automatizar el token de creación de objetos en la api
+ -->
+
+<!-- 
+## Functions to set values in to the project
+
+Set of functions to change values inside the project. There are two types:
+
+* setAreaAttribute
+* setBuildingAttribute
+
+### setAreaAttribute
+
+With this function you can change this area attributes:
+
+* model
+* placement
+* structure
+* inclination
+* useShadowsCalculation
+* inset.x
+* inset.y
+* totalInset.x
+* totalInset.y
+* offset
+* azimuth
+
+    var id = "aaa060bf-cae0-41b0-9fd2-c234262ea710";
+    var field = "structure";
+    var value = "Standard";
+
+    scope.$emit("setAreaAttribute", [id, field, value]);
+    scope.$emit("setAreaAttribute", [id, 'inclination', 45]);
+    scope.$emit("setAreaAttribute", [id, 'inset.y', 0.0034]);
+    scope.$emit("setAreaAttribute", [id, 'azimuth', 45]);
+
+### setBuildingAttribute
+
+With this function you can change this building fields
+
+* name
+* height
+* roof.inclination
+* roof.material
+
+
+    var id = "64a1f446-a552-4aef-bed3-5268b62610a6";
+
+    var value = 75;
+    var field = "roof.inclination";
+    scope.$emit("setBuildingAttribute", [id, field, value]);
+
+    var value = 20;
+    var field = "height";
+    scope.$emit("setBuildingAttribute", [id, field, value]);
+ -->

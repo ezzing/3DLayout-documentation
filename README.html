@@ -207,10 +207,9 @@ layout.bootstrap(container, {
     token: token,
     id: id,
     failURL: &#39;#/fail&#39;,
-    showcase: showcase,
-    rules: rules
-});</code></pre>
-<p>The ezzing3D contructor instantiate the 3DLayout object. In this object we have all the functionality to manage the 3DLayout.</p>
+    showcase: showcase
+}, rules);</code></pre>
+<p>The ezzing3D contructor instance the object layout, in this object we have all the functionality to to manage the 3DLayout</p>
 <p>The bootstrap function init the 3DLayout in the defined container with the provided options.</p>
 <p>The options for this function are:</p>
 <ul>
@@ -235,8 +234,7 @@ layout.bootstrap(container, {
     &quot;zip&quot;: &quot;41003&quot;,
     &quot;city&quot;: &quot;Sevilla&quot;,
     &quot;province&quot;: &quot;Andalucía&quot;,
-    &quot;country&quot;: &quot;Spain&quot;,
-    &quot;token&quot;:&quot;token&quot;
+    &quot;country&quot;: &quot;Spain&quot;
 }
 
 layout.createProject(projectData, function(data) {
@@ -245,20 +243,19 @@ layout.createProject(projectData, function(data) {
         id: data.id,
         failURL: &#39;#/fail&#39;,
         showcase: showcase,
-        customRules: rules
-    });
+    }, rules);
 });</code></pre>
-<p>In this example we create a new project and open the 3DLayout with this project.</p>
-<p>The attributes to create a new project are:</p>
+<p>In this example we create a new project and open the 3Dlayout with this project.</p>
+<p>The data to create a new project are:</p>
 <ul>
 <li><p><strong>title</strong>: The title of the project</p></li>
 <li><p><strong>latitude</strong>: The latitude were the project must be created</p></li>
 <li><p><strong>longitude</strong>: The longitude were the project must be created</p></li>
 <li><p><strong>address</strong>: The address of the project, this address can be different than the latitude and longitude position.</p></li>
-<li><p><strong>zip</strong>: The zip code of the project.</p></li>
-<li><p><strong>city</strong>: The city of the project.</p></li>
-<li><p><strong>province</strong>: The province of the project.</p></li>
-<li><p><strong>country</strong>: The country of the project.</p></li>
+<li><p><strong>zip</strong>: The zip code of the project</p></li>
+<li><p><strong>city</strong>: The city of the project</p></li>
+<li><p><strong>province</strong>: The province of the project</p></li>
+<li><p><strong>country</strong>: The country of the project</p></li>
 </ul>
 <!-- > Tenemos que ver la información exacta que devolvemos y ver que podemos filtrar para no darle toda la información. -->
 <div class="page-break"></div>
@@ -432,7 +429,6 @@ container.addEventListener(&quot;buildingSelected&quot;, function(event, data){
 <li>getModuleInfoByArea</li>
 <li>getModulesSructureByArea</li>
 <li>getAreaOffset</li>
-<li>setAreaAttribute</li>
 </ul>
 <h4 id="getareainfo">getAreaInfo</h4>
 <pre><code>layout.getAreaInfo(id, callback);</code></pre>
@@ -482,6 +478,9 @@ container.addEventListener(&quot;buildingSelected&quot;, function(event, data){
 <pre><code>layout.getAreaOffset(id, offset, callback);</code></pre>
 <p>Returns an array of vertices containing the offseted area for a given area.id and offset</p>
 <p>If the offset is a negative value, then the area is reduced by the offset value (in meters)</p>
+<!-- ***
+    Recordadme que tengo que automatizar el token de creación de objetos en la api
+ -->
 <!-- 
 ## Functions to set values in to the project
 

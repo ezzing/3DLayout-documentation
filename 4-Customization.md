@@ -116,6 +116,7 @@ Sample values to define Default Roofs:
                 "availableorientation": ["EW", "SN"],
                 "roofInclination": 30,
                 //area related
+                "moduleId": 47113,
                 "structure": "Standard",
                 "availableStructures": ["Standard", "EW"],
                 "offset": 0.4,
@@ -138,6 +139,7 @@ Sample values to define Default Roofs:
                 "availableorientation": ["EW", "SN"],
                 "roofInclination": 30,
                 //area related
+                "moduleId": 47113,
                 "structure": "Standard",
                 "availableStructures": ["Standard", "EW"],
                 "offset": 0.4,
@@ -160,6 +162,7 @@ Sample values to define Default Roofs:
                 "availableorientation": [],
                 "roofInclination": 30,
                 //area related
+                "moduleId": 47113,
                 "structure": "Standard",
                 "availableStructures": ["Standard", "EW"],
                 "offset": 0.4,
@@ -182,6 +185,7 @@ Sample values to define Default Roofs:
                 "availableorientation": ["E", "W", "N", "S"],
                 "roofInclination": 30,
                 //area related
+                "moduleId": 47113,
                 "structure": "Standard",
                 "availableStructures": ["Standard", "EW"],
                 "offset": 0.4,
@@ -204,6 +208,7 @@ Sample values to define Default Roofs:
                 "availableorientation": [],
                 "roofInclination": 0,
                 //area related
+                "moduleId": 47113,
                 "structure": "EW",
                 "availableStructures": ["EW", "Standard"],
                 "offset": 1,
@@ -232,6 +237,7 @@ Attributes explanation for default roof description
         "availableorientation": array of strings with the orientation names. ['EW', 'SN'] or ["E", "W", "N", "S"]
         "roofInclination": angle for the roof (in degrees),
         //area related
+        "moduleId": it is the default module model id, it is an optional attribute, if it doesn't exist the first model in the module list will be used,
         "structure": should be one from the availableStructures list,
         "availableStructures": array of strings with the structure names ["EW", "Standard"],
         "offset": the distance to avoid from area borders (in meters),

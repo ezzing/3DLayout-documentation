@@ -58,9 +58,9 @@ To instantiate the ezzing3D object and start the app you need to run this lines 
         showcase: showcase
     }, rules);
 
-The ezzing3D contructor instance the object layout, in this object we have all the functionality to init the 3DLayout
+The ezzing3D contructor instance the object layout, in this object we have all the functionality to to manage the 3DLayout
 
-The function bootrap init the ezzing 3d in the container defined and with the options provided
+The bootstrap function init the 3DLayout in the defined container with the provided options.
 
 The options for this function are:
 
@@ -79,5 +79,50 @@ The options for this function are:
 > Visit the section  [Layout Rules Chapter](#layout-rules) to learn how to customize the 3DLayout.
 
 
+## Create a new project
 
->>>>>>> 31412421fa69864b43c791ca8fe44265a0d6af29
+To create a new project use the function createProject()
+
+An example on how to use this function.
+
+    var projectData = {
+        "title": "Sevilla",
+        "latitude": 37.39388,
+        "longitude": -5.984179999999999,
+        "address": "Calle María Auxiliadora, 13",
+        "zip": "41003",
+        "city": "Sevilla",
+        "province": "Andalucía",
+        "country": "Spain"
+    }
+
+    layout.createProject(projectData, function(data) {
+        layout.bootstrap(container, {
+            token: token,
+            id: data.id,
+            failURL: '#/fail',
+            showcase: showcase,
+        }, rules);
+    });
+
+In this example we create a new project and open the 3Dlayout with this project.
+
+The data to create a new project are:
+
+* **title**: The title of the project
+
+* **latitude**: The latitude were the project must be created
+
+* **longitude**: The longitude were the project must be created
+
+* **address**: The address of the project, this address can be different than the latitude and longitude position.
+
+* **zip**: The zip code of the project
+
+* **city**: The city of the project
+
+* **province**: The province of the project
+
+* **country**: The country of the project
+
+<!-- > Tenemos que ver la información exacta que devolvemos y ver que podemos filtrar para no darle toda la información. -->

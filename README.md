@@ -211,11 +211,10 @@ To instantiate the ezzing3D object and start the app you need to run this lines 
         token: token,
         id: id,
         failURL: '#/fail',
-        showcase: showcase,
-        rules: rules
-    });
+        showcase: showcase
+    }, rules);
 
-The ezzing3D contructor instantiate the 3DLayout object. In this object we have all the functionality to manage the 3DLayout.
+The ezzing3D contructor instance the object layout, in this object we have all the functionality to to manage the 3DLayout
 
 The bootstrap function init the 3DLayout in the defined container with the provided options.
 
@@ -250,8 +249,7 @@ An example on how to use this function.
         "zip": "41003",
         "city": "Sevilla",
         "province": "Andalucía",
-        "country": "Spain",
-        "token":"token"
+        "country": "Spain"
     }
 
     layout.createProject(projectData, function(data) {
@@ -260,13 +258,12 @@ An example on how to use this function.
             id: data.id,
             failURL: '#/fail',
             showcase: showcase,
-            customRules: rules
-        });
+        }, rules);
     });
 
-In this example we create a new project and open the 3DLayout with this project.
+In this example we create a new project and open the 3Dlayout with this project.
 
-The attributes to create a new project are:
+The data to create a new project are:
 
 -   **title**: The title of the project
 
@@ -276,13 +273,13 @@ The attributes to create a new project are:
 
 -   **address**: The address of the project, this address can be different than the latitude and longitude position.
 
--   **zip**: The zip code of the project.
+-   **zip**: The zip code of the project
 
--   **city**: The city of the project.
+-   **city**: The city of the project
 
--   **province**: The province of the project.
+-   **province**: The province of the project
 
--   **country**: The country of the project.
+-   **country**: The country of the project
 
 3DLayout Communication System
 =============================
@@ -542,7 +539,6 @@ Set of generic functions to retrieve Area related information from the layout.In
 -   getModuleInfoByArea
 -   getModulesSructureByArea
 -   getAreaOffset
--   setAreaAttribute
 
 #### getAreaInfo
 
