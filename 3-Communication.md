@@ -25,8 +25,7 @@ An example of use this function.
             id: data.id,
             failURL: '#/fail',
             showcase: showcase,
-            customRules: rules
-        });
+        }, rules);
     });
 
 In this example we create a new project and open the 3Dlayout with this project.

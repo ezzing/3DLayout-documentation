@@ -56,7 +56,7 @@ To instantiate the ezzing3D object and start the app you need to run this lines 
         id: id,
         failURL: '#/fail',
         showcase: showcase
-    });
+    }, rules);
 
 The ezzing3D contructor instance the object layout, in this object we have all the functionality to init the 3DLayout
 
@@ -78,9 +78,6 @@ The options for this function are:
 
 > Visit the section  [Layout Rules Chapter](#layout-rules) to learn how to customize the 3DLayout.
 
-***
-    Integration in a non-angular platform
-    - No deberíamos decir que son copiar los archivos ya que los mismos se cargaran con un cdn y no los copiara el usuario en ningun sitio
 
-    HTML code
-    - En cuanto al html code si decimos antes que lo cargamos con un cdn no debemos mencionar aquí lo de poner esas lineas
+
+>>>>>>> 31412421fa69864b43c791ca8fe44265a0d6af29
