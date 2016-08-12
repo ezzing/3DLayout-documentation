@@ -11,7 +11,7 @@ An example on how to listen this events
 
     container.addEventListener("buildingSelected", function(event, data){
         console.log(event.detail);
-    })
+    });
 
 The full list of events emmited by the 3DLayout are:
 

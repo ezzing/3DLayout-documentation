@@ -209,7 +209,7 @@ layout.bootstrap(container, {
     failURL: &#39;#/fail&#39;,
     showcase: showcase
 }, rules);</code></pre>
-<p>The ezzing3D contructor instance the object layout, in this object we have all the functionality to to manage the 3DLayout</p>
+<p>The ezzing3D contructor instance the object layout, in this object we have all the functionality to manage the 3DLayout</p>
 <p>The bootstrap function init the 3DLayout in the defined container with the provided options.</p>
 <p>The options for this function are:</p>
 <ul>
@@ -235,7 +235,7 @@ layout.bootstrap(container, {
     &quot;city&quot;: &quot;Sevilla&quot;,
     &quot;province&quot;: &quot;Andalucía&quot;,
     &quot;country&quot;: &quot;Spain&quot;
-}
+};
 
 layout.createProject(projectData, function(data) {
     layout.bootstrap(container, {
@@ -267,7 +267,7 @@ layout.createProject(projectData, function(data) {
 
 container.addEventListener(&quot;buildingSelected&quot;, function(event, data){
     console.log(event.detail);
-})</code></pre>
+});</code></pre>
 <p>The full list of events emmited by the 3DLayout are:</p>
 <ul>
 <li>load</li>

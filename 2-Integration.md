@@ -58,7 +58,7 @@ To instantiate the ezzing3D object and start the app you need to run this lines 
         showcase: showcase
     }, rules);
 
-The ezzing3D contructor instance the object layout, in this object we have all the functionality to to manage the 3DLayout
+The ezzing3D contructor instance the object layout, in this object we have all the functionality to manage the 3DLayout
 
 The bootstrap function init the 3DLayout in the defined container with the provided options.
 
@@ -94,7 +94,7 @@ An example on how to use this function.
         "city": "Sevilla",
         "province": "Andalucía",
         "country": "Spain"
-    }
+    };
 
     layout.createProject(projectData, function(data) {
         layout.bootstrap(container, {
