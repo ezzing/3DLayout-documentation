@@ -838,8 +838,7 @@ We use the fontawesome icons collection, so you can use it to define new buttons
             hide: &quot;display.camera.name === &#39;perspective&#39;&quot;,
             tooltip: &quot;switchTo3D&quot;,
             class: &quot;fa fa-fw fa-cube&quot;
-        },
-        {
+        },{
             click: &quot;setScreen(&#39;full&#39;)&quot;,
             hide: &quot;fullScreen&quot;,
             tooltip: &quot;switch to full screen&quot;,
@@ -849,6 +848,21 @@ We use the fontawesome icons collection, so you can use it to define new buttons
             hide: &quot;!fullScreen&quot;,
             tooltip: &quot;cancel full screen&quot;,
             class: &quot;fa fa-fw fa-desktop&quot;
+        }, {
+            click: &quot;setProvider(0)&quot;,
+            hide: &quot;map.provider === 0 || map.provider === 1&quot;,
+            tooltip: &quot;cyclomedia&quot;,
+            class: &quot;fa fa-fw fa-map&quot;
+        }, {
+            click: &quot;setProvider(1)&quot;,
+            hide: &quot;map.provider === 1 || map.provider === 2&quot;,
+            tooltip: &quot;grid&quot;,
+            class: &quot;fa fa-fw fa-th&quot;
+        }, {
+            click: &quot;setProvider(2)&quot;,
+            hide: &quot;map.provider === 2 || map.provider === 0&quot;,
+            tooltip: &quot;google&quot;,
+            class: &quot;fa fa-fw fa-google&quot;
         }
     ]
 }</code></pre>

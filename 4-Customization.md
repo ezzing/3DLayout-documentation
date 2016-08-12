@@ -346,8 +346,7 @@ This is the default MainoptionsCustomButtons:
                 hide: "display.camera.name === 'perspective'",
                 tooltip: "switchTo3D",
                 class: "fa fa-fw fa-cube"
-            },
-            {
+            },{
                 click: "setScreen('full')",
                 hide: "fullScreen",
                 tooltip: "switch to full screen",
@@ -357,6 +356,21 @@ This is the default MainoptionsCustomButtons:
                 hide: "!fullScreen",
                 tooltip: "cancel full screen",
                 class: "fa fa-fw fa-desktop"
+            }, {
+                click: "setProvider(0)",
+                hide: "map.provider === 0 || map.provider === 1",
+                tooltip: "cyclomedia",
+                class: "fa fa-fw fa-map"
+            }, {
+                click: "setProvider(1)",
+                hide: "map.provider === 1 || map.provider === 2",
+                tooltip: "grid",
+                class: "fa fa-fw fa-th"
+            }, {
+                click: "setProvider(2)",
+                hide: "map.provider === 2 || map.provider === 0",
+                tooltip: "google",
+                class: "fa fa-fw fa-google"
             }
         ]
     }
