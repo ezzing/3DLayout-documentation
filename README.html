@@ -55,7 +55,6 @@
 </ul></li>
 <li><a href="#dlayout-communication-system">3DLayout Communication System</a><ul>
 <li><a href="#info-events-sent-by-3dlayout">Info Events sent by 3DLayout</a><ul>
-<li><a href="#load">load</a></li>
 <li><a href="#zoomchanged">zoomChanged</a></li>
 <li><a href="#fullscreen">fullscreen</a></li>
 <li><a href="#tabchanged">tabChanged</a></li>
@@ -189,7 +188,7 @@
 </blockquote>
 <p>You should not change the ezzing3d element size (width or height) but change the size of this container div.</p>
 <p>Add this lines inside the body element in your code:</p>
-<pre><code>&lt;div id=&quot;layout&quot;&gt;
+<pre><code>&lt;div id=&quot;layout&quot; style=&#39;height:100vh; width: 100vw&#39;&gt;
     &lt;ezzing3d id=&#39;ezzing3d&#39; layoutRules=&#39;{&quot;logo&quot;: false}&#39;&gt;&lt;/ezzing3d&gt;
 &lt;/div&gt;</code></pre>
 <p>and these lines at the end of the body:</p>
@@ -269,8 +268,8 @@ container.addEventListener(&quot;buildingSelected&quot;, function(event, data){
     console.log(event.detail);
 });</code></pre>
 <p>The full list of events emmited by the 3DLayout are:</p>
+<!-- * load -->
 <ul>
-<li>load</li>
 <li>zoomChanged</li>
 <li>fullscreen</li>
 <li>tabChanged</li>
@@ -286,8 +285,11 @@ container.addEventListener(&quot;buildingSelected&quot;, function(event, data){
 <li>buildingSelected</li>
 <li>buildingCreated</li>
 </ul>
-<h3 id="load">load</h3>
-<p>This event is triggered when the 3DLayout finish to load the project from the CRM</p>
+<!--  
+### load
+
+This event is triggered when the 3DLayout finish to load the project from the CRM
+-->
 <h3 id="zoomchanged">zoomChanged</h3>
 <p>This event is triggered when the zoom is changed in the canvas. It sends the zoom level value.</p>
 <h3 id="fullscreen">fullscreen</h3>
@@ -304,7 +306,8 @@ container.addEventListener(&quot;buildingSelected&quot;, function(event, data){
 <p>This event is triggerd each time an area attribute is changed. The event sends back an array with this info:</p>
 <pre><code>[area.id, attribute, value]</code></pre>
 <h3 id="buildingchanged">buildingChanged</h3>
-<p>This event is triggerd each time a building is changed. The event sends the <strong>building.id</strong></p>
+<p>This event is triggerd each time a building is changed. The event sends back an array with this info:</p>
+<pre><code>[building.id, building attribute, value]</code></pre>
 <h3 id="roofchanged">roofChanged</h3>
 <p>This event is triggerd each time a roof attribute is changed. The event sends back an array with this info:</p>
 <pre><code>[building.id, roof attribute, value]</code></pre>
@@ -383,7 +386,7 @@ container.addEventListener(&quot;buildingSelected&quot;, function(event, data){
     power: total power in this area
 }</code></pre>
 <h3 id="building-related-functions">Building related functions</h3>
-<p>Set of generic functions to retrieve building related information from the layout.In this set of functions you should pass an existing building id, and a callback.</p>
+<p>Set of generic functions to retrieve building related information from the layout. In this set of functions you should pass an existing building id, and a callback.</p>
 <ul>
 <li>getBuildingInfo</li>
 <li>getRoofInfo</li>
@@ -391,7 +394,7 @@ container.addEventListener(&quot;buildingSelected&quot;, function(event, data){
 </ul>
 <h4 id="getbuildinginfo">getBuildingInfo</h4>
 <pre><code>layout.getBuildingInfo(id, callback);</code></pre>
-<p>Returns some building information for a given building.id</p>
+<p>Returns building information for a given building.id</p>
 <p>The data returned is:</p>
 <pre><code>{
     id: the building id,
@@ -405,7 +408,7 @@ container.addEventListener(&quot;buildingSelected&quot;, function(event, data){
 }</code></pre>
 <h4 id="getroofinfo">getRoofInfo</h4>
 <pre><code>layout.getRoofInfo(id, callback);</code></pre>
-<p>Returns some roof information for a given building.id]</p>
+<p>Returns roof information for a given building.id]</p>
 <p>The data returned is:</p>
 <pre><code>{
     height: roof height (in meters, not including building height),
@@ -416,14 +419,14 @@ container.addEventListener(&quot;buildingSelected&quot;, function(event, data){
 }</code></pre>
 <h4 id="getbuildingposition">getBuildingPosition</h4>
 <pre><code>layout.getBuildingPosition(id, callback);</code></pre>
-<p>Returns some building position info for a given building.id</p>
+<p>Returns building position info for a given building.id</p>
 <p>The data returned is:</p>
 <pre><code>{
     center: the building center in lat/long coords
     vertices: an array of building vertices in lat/long coords
 }</code></pre>
 <h3 id="area-related-functions">Area related functions</h3>
-<p>Set of generic functions to retrieve Area related information from the layout.In this set of functions you should pass an existing area id, and a callback.</p>
+<p>Set of generic functions to retrieve Area related information from the layout. In this set of functions you should pass an existing area id, and a callback.</p>
 <ul>
 <li>getAreaInfo</li>
 <li>getModuleInfoByArea</li>
@@ -432,7 +435,7 @@ container.addEventListener(&quot;buildingSelected&quot;, function(event, data){
 </ul>
 <h4 id="getareainfo">getAreaInfo</h4>
 <pre><code>layout.getAreaInfo(id, callback);</code></pre>
-<p>returns some area info for a given area.id]</p>
+<p>returns area info for a given area.id]</p>
 <p>The data returned is:</p>
 <pre><code>{
     id: the area id,
@@ -450,7 +453,7 @@ container.addEventListener(&quot;buildingSelected&quot;, function(event, data){
 }</code></pre>
 <h4 id="getmoduleinfobyarea">getModuleInfoByArea</h4>
 <pre><code>layout.getModuleInfoByArea(id, callback);</code></pre>
-<p>returns some module info for a given area.id]</p>
+<p>returns module info for a given area.id]</p>
 <p>The data returned is:</p>
 <pre><code>{
     id: the module id,

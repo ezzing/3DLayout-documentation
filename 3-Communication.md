@@ -15,7 +15,7 @@ An example on how to listen this events
 
 The full list of events emmited by the 3DLayout are:
 
-* load
+<!-- * load -->
 * zoomChanged
 * fullscreen
 * tabChanged
@@ -31,9 +31,11 @@ The full list of events emmited by the 3DLayout are:
 * buildingSelected
 * buildingCreated
 
+<!--  
 ### load
 
 This event is triggered when the 3DLayout finish to load the project from the CRM
+-->
 
 ### zoomChanged
 
@@ -67,7 +69,9 @@ This event is triggerd each time an area attribute is changed. The event sends b
 
 ### buildingChanged
 
-This event is triggerd each time a building is changed. The event sends the **building.id**
+This event is triggerd each time a building is changed. The event sends back an array with this info:
+
+    [building.id, building attribute, value]
 
 ### roofChanged
 
@@ -192,7 +196,7 @@ Each area in the areas array contains:
 
 ### Building related functions
 
-Set of generic functions to retrieve building related information from the layout.In this set of functions you should pass an existing building id, and a callback.
+Set of generic functions to retrieve building related information from the layout. In this set of functions you should pass an existing building id, and a callback.
 
 * getBuildingInfo
 * getRoofInfo
@@ -202,7 +206,7 @@ Set of generic functions to retrieve building related information from the layou
 
     layout.getBuildingInfo(id, callback);
 
-Returns some building information for a given building.id
+Returns building information for a given building.id
 
 The data returned is:
 
@@ -221,7 +225,7 @@ The data returned is:
 
     layout.getRoofInfo(id, callback);
 
-Returns some roof information for a given building.id]
+Returns roof information for a given building.id]
 
 The data returned is:
 
@@ -237,7 +241,7 @@ The data returned is:
 
     layout.getBuildingPosition(id, callback);
 
-Returns some building position info for a given building.id
+Returns building position info for a given building.id
 
 The data returned is:
 
@@ -248,7 +252,7 @@ The data returned is:
 
 ### Area related functions
 
-Set of generic functions to retrieve Area related information from the layout.In this set of functions you should pass an existing area id, and a callback.
+Set of generic functions to retrieve Area related information from the layout. In this set of functions you should pass an existing area id, and a callback.
 
 * getAreaInfo
 * getModuleInfoByArea
@@ -259,7 +263,7 @@ Set of generic functions to retrieve Area related information from the layout.In
 
     layout.getAreaInfo(id, callback);
 
-returns some area info for a given area.id]
+returns area info for a given area.id]
 
 The data returned is:
 
@@ -282,7 +286,7 @@ The data returned is:
 
     layout.getModuleInfoByArea(id, callback);
 
-returns some module info for a given area.id]
+returns module info for a given area.id]
 
 The data returned is:
 

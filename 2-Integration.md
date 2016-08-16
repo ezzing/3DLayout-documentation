@@ -32,7 +32,7 @@ You should not change the ezzing3d element size (width or height) but change the
 
 Add this lines inside the body element in your code:
 
-    <div id="layout">
+    <div id="layout" style='height:100vh; width: 100vw'>
         <ezzing3d id='ezzing3d' layoutRules='{"logo": false}'></ezzing3d>
     </div>
 
