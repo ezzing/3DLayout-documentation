@@ -10,6 +10,7 @@ Ezzing 3DLayout is an embebible webapp. You can integrate it inside your own sys
 
 In this document you will find a brief showcase of the different areas of the app, a technical explanation on how to integrate this webapp inside your platform, a full description of the API that will allow you to communicate with the 3DLayout, and finally a description on how to customize different parts of the app.
 
+<div class="page-break"></div>
 <img class="w100" src="./layout-doc-imgs/intro-mac.jpg" alt="3DLayout" />
 
 You can test the app by visiting this link:
