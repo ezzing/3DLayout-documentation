@@ -287,7 +287,7 @@ loadLayout can receive an `options` argument where you can setup some customizat
         if (err) throw err;
     });
 
-where:
+This method returns two objects, where:
 
 -   layout: Exposes an object with methods to interact with the 3DLayout.
 
