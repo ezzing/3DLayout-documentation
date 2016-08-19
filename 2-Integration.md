@@ -6,9 +6,7 @@
 
 To start using the 3DLayout in your platform, you need to add the following script:
 
-```html
-<script data-key="API_KEY_HERE" src="https://layout.ezzing.com/client.min.js"></script>
-```
+    <script data-key="API_KEY_HERE" src="https://layout.ezzing.com/client.min.js"></script>
 
 where you would replace `API_KEY_HERE` by an API key we provide you for your account.
 
@@ -20,11 +18,10 @@ You need an element in the body of your html page, a div where **the 3DLayout wi
 
 You should not change the ezzing3d element size (width or height) but change the size of this container div.
 
-```html
-<div style='height:100vh; width: 100vw'>
-    <ezzing3d id='ezzing3d'></ezzing3d>
-</div>
-```
+
+    <div style='height:100vh; width: 100vw'>
+        <ezzing3d id='ezzing3d'></ezzing3d>
+    </div>
 
 ## Basic functions
 
@@ -41,106 +38,91 @@ The Ezzing3DApi object has the following functions:
 
 Create a new layout with the specified information.
 
-```js
-var data = {
-    title: "Sevilla",
-    latitude: 37.39388,
-    longitude: -5.984179999999999,
-    address: "Calle María Auxiliadora, 13",
-    zip: "41003",
-    city: "Sevilla",
-    province: "Andalucía",
-    country: "Spain"
-};
+    var data = {
+        title: "Sevilla",
+        latitude: 37.39388,
+        longitude: -5.984179999999999,
+        address: "Calle María Auxiliadora, 13",
+        zip: "41003",
+        city: "Sevilla",
+        province: "Andalucía",
+        country: "Spain"
+    };
 
-Ezzing3DApi.createLayout(data, function(err, layoutData) {
-    if (err) throw err;
-    console.log(layoutData);
-});
-```
+    Ezzing3DApi.createLayout(data, function(err, layoutData) {
+        if (err) throw err;
+        console.log(layoutData);
+    });
+
 
 Which will return the information from the created layout:
 
-```js
-{
-  id: 1093,
-  title: "Test Layout",
-  address: "Calle Luis Montoto, 2",
-  zip: "41003",
-  city: "Sevilla",
-  province: "Andalucia",
-  country: "Spain",
-  latitude: "37.38900730",
-  longitude: "-5.98448510",
-  created_at: "2016-08-18T17:15:15+0000",
-  updated_at: "2016-08-19T10:14:34+0000",
-  url: "http://127.0.0.1:8080/#/GXXlgzDk0rPsrdxWfDsE5Cdi9FwUrBPx7GfuxSf0::1093"
-}
-```
+    {
+      id: 1093,
+      title: "Test Layout",
+      address: "Calle Luis Montoto, 2",
+      zip: "41003",
+      city: "Sevilla",
+      province: "Andalucia",
+      country: "Spain",
+      latitude: "37.38900730",
+      longitude: "-5.98448510",
+      created_at: "2016-08-18T17:15:15+0000",
+      updated_at: "2016-08-19T10:14:34+0000",
+      url: "http://127.0.0.1:8080/#/GXXlgzDk0rPsrdxWfDsE5Cdi9FwUrBPx7GfuxSf0::1093"
+    }
 
-```js
-{
-  id:,
-  title:,
-  address:,
-  zip:,
-  city:,
-  province:,
-  country:,
-  latitude:,
-  longitude:,
-  created_at:,
-  updated_at:,
-  url: 
-}
-```
+    {
+      id: the layout id, you need this id to load the project or retrieve information,
+      title: A title for the project,
+      address: the address,
+      zip: the zip code,
+      city: the city,
+      province: the province,
+      country: the contry,
+      latitude: latitude value in decimal degrees (remember to include the negative sign for south and west coordinates) ,
+      longitude:longitude value in decimal degrees (remember to include the negative sign for south and west coordinates),
+      created_at: creation date,
+      updated_at: modification date,
+      url: an url to visit the project or embed it as an iframe 
+    }
 
 ### getLayout
 
 Returns a layout's information related to the given id
 
-```js
-Ezzing3DApi.getLayout(id, function(err, layoutData) {
-    if (err) throw err;
-    console.log(layoutData);
-});
-```
-
-
+    Ezzing3DApi.getLayout(id, function(err, layoutData) {
+        if (err) throw err;
+        console.log(layoutData);
+    });
 
 ### listLayouts
 
 Returns a list of all your created layouts.
 
-```js
-Ezzing3DApi.listLayouts(function(err, layoutData) {
-    if (err) throw err;
-    console.log(layoutData);
-});
-```
+    Ezzing3DApi.listLayouts(function(err, layoutData) {
+        if (err) throw err;
+        console.log(layoutData);
+    });
 
 ### loadLayout
 
 Sets up the 3DLayout interface into the ezzing3D container and loads the project related to the given id.
 
-```js
-Ezzing3DApi.loadLayout(id, function(err, layout, container) {
-    if (err) throw err;
-});
-```
+    Ezzing3DApi.loadLayout(id, function(err, layout, container) {
+        if (err) throw err;
+    });
 
-loadLayout can receive an `options` argument where you can setup some customizations. You can read a description of this methods in the next episode....
+loadLayout can receive an `options` argument where you can setup some customizations. You can read a description of this methods in the [Layout Rules](#layout-rules) section.
 
-```js
-var rules = {};
+    var rules = {};
 
-Ezzing3DApi.loadLayout(id, rules, function(err, layout, container) {
-    if (err) throw err;
-});
-```
+    Ezzing3DApi.loadLayout(id, rules, function(err, layout, container) {
+        if (err) throw err;
+    });
 
 where: 
 
-* layout: Exposes an object with methods to interact with the 3DLayout. You can read a description of this methods in the next episode....
+* layout: Exposes an object with methods to interact with the 3DLayout. You can read a description of this methods in the [3DLayout Communication System](#dlayout-communication-system) section.
 
-* container: DOM element. 
+* container: the DOM element where the 3DLayot is created. 
