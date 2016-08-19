@@ -17,12 +17,14 @@ Table of contents
         -   [Buildings Index](#buildings-index)
         -   [Main Options](#main-options)
         -   [Control Buttons](#control-buttons)
--   [Integration in a non-angular platform](#integration-in-a-non-angular-platform)
-    -   [HTML code](#html-code)
-        -   [DOM header](#dom-header)
-        -   [DOM body](#dom-body)
-    -   [Javascript code](#javascript-code)
-    -   [Create a new project](#create-a-new-project)
+-   [How to use](#how-to-use)
+    -   [Api key and autentication](#api-key-and-autentication)
+    -   [DOM element](#dom-element)
+    -   [Basic functions](#basic-functions)
+        -   [createLayout](#createlayout)
+        -   [getLayout](#getlayout)
+        -   [listLayouts](#listlayouts)
+        -   [loadLayout](#loadlayout)
 -   [3DLayout Communication System](#dlayout-communication-system)
     -   [Info Events sent by 3DLayout](#info-events-sent-by-3dlayout)
         -   [zoomChanged](#zoomchanged)
@@ -160,133 +162,134 @@ Default control custom buttons
 
 > Please, visit the section [Custom Buttons](#custom-buttons) to learn how to add your own functions.
 
-Integration in a non-angular platform
-=====================================
+How to use
+==========
 
-To integrate the 3DLayout into your platform, you only need this five files
+Api key and autentication
+-------------------------
 
--   angular\_lib.js - include the angular library
--   ezzing3DApp.js - Integration tools (contains the ezzing3D constructor and API functions)
--   ezzing3D.js - contains the platform code.
--   lib.js - some other useful third party libraries
--   screen.css - contains the 3DLayout css styles
+To start using the 3DLayout in your platform, you need to add the following script:
 
-Copy this files into the desired path (i.e: public/ezzing3d/)
+    <script data-key="API_KEY_HERE" src="https://layout.ezzing.com/client.min.js"></script>
 
-HTML code
----------
+where you would replace `API_KEY_HERE` by an API key we provide you for your account.
 
-To embed the 3DLayout app into an html page, you only need to add some lines to the code.
+DOM element
+-----------
 
-### DOM header
+You need an element in the body of your html page, a div where **the 3DLayout will fit inside this element**.
 
-Add this lines to the header element in your code:
-
-    <link rel="stylesheet" type="text/css" href="/path-to-ezzing3d-files/screen.css">
-
-### DOM body
-
-You need an element in the body of your html page, a div with id=“layout” where the 3DLayout will fit inside.
-
-> This div can not be bigger than the view size, and **no scroll** has to be applied to the html page.
+> This div can’t be bigger than the view size, and **no scroll** has to be applied to the html page.
 
 You should not change the ezzing3d element size (width or height) but change the size of this container div.
 
-Add this lines inside the body element in your code:
-
-    <div id="layout" style='height:100vh; width: 100vw'>
-        <ezzing3d id='ezzing3d' layoutRules='{"logo": false}'></ezzing3d>
+    <div style='height:100vh; width: 100vw'>
+        <ezzing3d id='ezzing3d'></ezzing3d>
     </div>
 
-and these lines at the end of the body:
-
-    <script type="text/javascript" src="/path-to-ezzing3d-files/angular_lib.js"></script>
-    <script type="text/javascript" src="/path-to-ezzing3d-files/ezzing3DApp.js"></script>
-    <script type="text/javascript" src="/path-to-ezzing3d-files/ezzing3D.js"></script>
-    <script type="text/javascript" src="/path-to-ezzing3d-files/lib.js"></script>
-
-Javascript code
+Basic functions
 ---------------
 
-To instantiate the ezzing3D object and start the app you need to run this lines inside your javascript code:
+Adding the `client.min.js` script with a valid API Key makes available the `Ezzing3DApi` global object, which we will use to start using the 3DLayout.
 
-    var container = window.document.getElementById('ezzing3d');
+The Ezzing3DApi object has the following functions:
 
-    var layout = new ezzing3D();
+-   createLayout
+-   getLayout
+-   listLayouts
+-   loadLayout
 
-    layout.bootstrap(container, {
-        token: token,
-        id: id,
-        failURL: '#/fail',
-        showcase: showcase
-    }, rules);
+### createLayout
 
-The ezzing3D contructor instance the object layout, in this object we have all the functionality to manage the 3DLayout
+Create a new layout with the specified information.
 
-The bootstrap function init the 3DLayout in the defined container with the provided options.
-
-The options for this function are:
-
--   **container**: the DOM element with id=‘ezzing3d’
-
--   **token**: the user token from the CRM
-
--   **id**: the CRM project id. This value can also be used to activate special modes in the 3DLayout. Use id=“demo” to run a 3DLayout demo with an empty project. Use id=“tutorial” to run an interactive tutorial. Use id=“landing” to view an special showcase demo project.
-
--   **failURL**: an alternative URL to redirect the user when token or id from CRM fails.
-
--   **showcase**: When this value is true the project is opened in a special showcase mode, without graphic interface and in a nice 3d view. This mode is read-only and the project can not be modified.
-
--   **rules**: This is the custom rules to customize the 3DLayout, this attribute is optional, if it doesn exist the default values will be used.
-
-> Visit the section [Layout Rules Chapter](#layout-rules) to learn how to customize the 3DLayout.
-
-Create a new project
---------------------
-
-To create a new project use the function createProject()
-
-An example on how to use this function.
-
-    var projectData = {
-        "title": "Sevilla",
-        "latitude": 37.39388,
-        "longitude": -5.984179999999999,
-        "address": "Calle María Auxiliadora, 13",
-        "zip": "41003",
-        "city": "Sevilla",
-        "province": "Andalucía",
-        "country": "Spain"
+    var data = {
+        title: "Sevilla",
+        latitude: 37.39388,
+        longitude: -5.984179999999999,
+        address: "Calle María Auxiliadora, 13",
+        zip: "41003",
+        city: "Sevilla",
+        province: "Andalucía",
+        country: "Spain"
     };
 
-    layout.createProject(projectData, function(data) {
-        layout.bootstrap(container, {
-            token: token,
-            id: data.id,
-            failURL: '#/fail',
-            showcase: showcase,
-        }, rules);
+    Ezzing3DApi.createLayout(data, function(err, layoutData) {
+        if (err) throw err;
+        console.log(layoutData);
     });
 
-In this example we create a new project and open the 3Dlayout with this project.
+Which will return the information from the created layout:
 
-The data to create a new project are:
+    {
+      id: 1093,
+      title: "Test Layout",
+      address: "Calle Luis Montoto, 2",
+      zip: "41003",
+      city: "Sevilla",
+      province: "Andalucia",
+      country: "Spain",
+      latitude: "37.38900730",
+      longitude: "-5.98448510",
+      created_at: "2016-08-18T17:15:15+0000",
+      updated_at: "2016-08-19T10:14:34+0000",
+      url: "http://127.0.0.1:8080/#/GXXlgzDk0rPsrdxWfDsE5Cdi9FwUrBPx7GfuxSf0::1093"
+    }
 
--   **title**: The title of the project
+    {
+      id:,
+      title:,
+      address:,
+      zip:,
+      city:,
+      province:,
+      country:,
+      latitude:,
+      longitude:,
+      created_at:,
+      updated_at:,
+      url: 
+    }
 
--   **latitude**: The latitude were the project must be created
+### getLayout
 
--   **longitude**: The longitude were the project must be created
+Returns a layout’s information related to the given id
 
--   **address**: The address of the project, this address can be different than the latitude and longitude position.
+    Ezzing3DApi.getLayout(id, function(err, layoutData) {
+        if (err) throw err;
+        console.log(layoutData);
+    });
 
--   **zip**: The zip code of the project
+### listLayouts
 
--   **city**: The city of the project
+Returns a list of all your created layouts.
 
--   **province**: The province of the project
+    Ezzing3DApi.listLayouts(function(err, layoutData) {
+        if (err) throw err;
+        console.log(layoutData);
+    });
 
--   **country**: The country of the project
+### loadLayout
+
+Sets up the 3DLayout interface into the ezzing3D container and loads the project related to the given id.
+
+    Ezzing3DApi.loadLayout(id, function(err, layout, container) {
+        if (err) throw err;
+    });
+
+loadLayout can receive an `options` argument where you can setup some customizations. You can read a description of this methods in the next episode….
+
+    var rules = {};
+
+    Ezzing3DApi.loadLayout(id, rules, function(err, layout, container) {
+        if (err) throw err;
+    });
+
+where:
+
+-   layout: Exposes an object with methods to interact with the 3DLayout. You can read a description of this methods in the next episode….
+
+-   container: DOM element.
 
 3DLayout Communication System
 =============================
