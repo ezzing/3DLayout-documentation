@@ -171,7 +171,7 @@ Api key and autentication
 
 To start using the 3DLayout in your platform, you need to add the following script:
 
-    <script data-key="API_KEY_HERE" src="https://layout.ezzing.com/client.min.js"></script>
+    <script data-key="API_KEY_HERE" src="https://layout.ezzing.com/lib.js"></script>
 
 where you would replace `API_KEY_HERE` by an API key we provide you for your account.
 
@@ -234,7 +234,7 @@ Which will return the information from the created layout:
       longitude: "-3,698695",
       created_at: "2016-08-18T17:15:15+0000",
       updated_at: "2016-08-19T10:14:34+0000",
-      url: "http://127.0.0.1:8080/#/GXXlgzDk0rPsrdxWfDsE5Cdi9FwUrBPx7GfuxSf0::1093"
+      url: "https://layout.ezzing.com/#/GXXlgzDk0rPsrdxWfDsE5Cdi9FwUrBPx7GfuxSf0::1093"
     }
 
     {
@@ -249,7 +249,7 @@ Which will return the information from the created layout:
       longitude:longitude value in decimal degrees (remember to include the negative sign for south and west coordinates),
       created_at: creation date,
       updated_at: modification date,
-      url: an url to visit the project or embed it as an iframe 
+      url: an url to visit the project or embed it as an iframe (append "/true" to start in showcase mode)
     }
 
 ### getLayout

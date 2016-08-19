@@ -177,7 +177,7 @@
 <h1 id="how-to-use">How to use</h1>
 <h2 id="api-key-and-autentication">Api key and autentication</h2>
 <p>To start using the 3DLayout in your platform, you need to add the following script:</p>
-<pre><code>&lt;script data-key=&quot;API_KEY_HERE&quot; src=&quot;https://layout.ezzing.com/client.min.js&quot;&gt;&lt;/script&gt;</code></pre>
+<pre><code>&lt;script data-key=&quot;API_KEY_HERE&quot; src=&quot;https://layout.ezzing.com/lib.js&quot;&gt;&lt;/script&gt;</code></pre>
 <p>where you would replace <code>API_KEY_HERE</code> by an API key we provide you for your account.</p>
 <h2 id="dom-element">DOM element</h2>
 <p>You need an element in the body of your html page, a div where <strong>the 3DLayout will fit inside this element</strong>.</p>
@@ -227,7 +227,7 @@ Ezzing3DApi.createLayout(data, function(err, layoutData) {
   longitude: &quot;-3,698695&quot;,
   created_at: &quot;2016-08-18T17:15:15+0000&quot;,
   updated_at: &quot;2016-08-19T10:14:34+0000&quot;,
-  url: &quot;http://127.0.0.1:8080/#/GXXlgzDk0rPsrdxWfDsE5Cdi9FwUrBPx7GfuxSf0::1093&quot;
+  url: &quot;https://layout.ezzing.com/#/GXXlgzDk0rPsrdxWfDsE5Cdi9FwUrBPx7GfuxSf0::1093&quot;
 }
 
 {
@@ -242,7 +242,7 @@ Ezzing3DApi.createLayout(data, function(err, layoutData) {
   longitude:longitude value in decimal degrees (remember to include the negative sign for south and west coordinates),
   created_at: creation date,
   updated_at: modification date,
-  url: an url to visit the project or embed it as an iframe 
+  url: an url to visit the project or embed it as an iframe (append &quot;/true&quot; to start in showcase mode)
 }</code></pre>
 <h3 id="getlayout">getLayout</h3>
 <p>Returns a layout’s information related to the given id</p>
