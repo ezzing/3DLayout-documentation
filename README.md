@@ -48,6 +48,7 @@ Table of contents
 -   [Layout Rules](#layout-rules)
     -   [Special Behaviours](#special-behaviours)
         -   [Display](#display)
+        -   [Showcase](#showcase)
         -   [zoom](#zoom)
         -   [logo](#logo)
     -   [Default Values](#default-values)
@@ -204,13 +205,13 @@ The Ezzing3DApi object has the following functions:
 Create a new layout with the specified information.
 
     var data = {
-        title: "Sevilla",
-        latitude: 37.39388,
-        longitude: -5.984179999999999,
-        address: "Calle María Auxiliadora, 13",
-        zip: "41003",
-        city: "Sevilla",
-        province: "Andalucía",
+        title: "EzzingSolar",
+        latitude: 40,428121,
+        longitude: -3,698695,
+        address: "Calle de Sagasta, 18",
+        zip: "28004",
+        city: "Madrid",
+        province: "Madrid",
         country: "Spain"
     };
 
@@ -223,14 +224,14 @@ Which will return the information from the created layout:
 
     {
       id: 1093,
-      title: "Test Layout",
-      address: "Calle Luis Montoto, 2",
-      zip: "41003",
-      city: "Sevilla",
-      province: "Andalucia",
+      title: "EzzingSolar",
+      address: "Calle de Sagasta, 18",
+      zip: "28004Madrid",
+      city: "Madrid",
+      province: "Madrid",
       country: "Spain",
-      latitude: "37.38900730",
-      longitude: "-5.98448510",
+      latitude: "40,428121",
+      longitude: "-3,698695",
       created_at: "2016-08-18T17:15:15+0000",
       updated_at: "2016-08-19T10:14:34+0000",
       url: "http://127.0.0.1:8080/#/GXXlgzDk0rPsrdxWfDsE5Cdi9FwUrBPx7GfuxSf0::1093"
@@ -636,6 +637,7 @@ Available rule objects expected by the 3DLayout:
 
 -   Special
     -   display
+    -   showcase
     -   zoom
     -   logo
 -   Default Values
@@ -656,6 +658,12 @@ Special Behaviours
 When this options is set to true, the project starts in perspective mode.
 
     {'display': true}
+
+### Showcase
+
+When this options is set to true, the project starts in perspective and write-only mode. This is an special feature to showcase
+
+    {'showcase': true}
 
 ### zoom
 

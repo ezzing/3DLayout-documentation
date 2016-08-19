@@ -17,6 +17,7 @@ Available rule objects expected by the 3DLayout:
 
 * Special
     * display
+    * showcase
     * zoom
     * logo
 * Default Values
@@ -36,6 +37,12 @@ Available rule objects expected by the 3DLayout:
 When this options is set to true, the project starts in perspective mode.
 
     {'display': true}
+
+### Showcase
+
+When this options is set to true, the project starts in perspective and write-only mode. This is an special feature to showcase
+
+    {'showcase': true}
 
 ### zoom
 

@@ -81,6 +81,7 @@
 <li><a href="#layout-rules">Layout Rules</a><ul>
 <li><a href="#special-behaviours">Special Behaviours</a><ul>
 <li><a href="#display">Display</a></li>
+<li><a href="#showcase">Showcase</a></li>
 <li><a href="#zoom">zoom</a></li>
 <li><a href="#logo">logo</a></li>
 </ul></li>
@@ -199,13 +200,13 @@
 <h3 id="createlayout">createLayout</h3>
 <p>Create a new layout with the specified information.</p>
 <pre><code>var data = {
-    title: &quot;Sevilla&quot;,
-    latitude: 37.39388,
-    longitude: -5.984179999999999,
-    address: &quot;Calle María Auxiliadora, 13&quot;,
-    zip: &quot;41003&quot;,
-    city: &quot;Sevilla&quot;,
-    province: &quot;Andalucía&quot;,
+    title: &quot;EzzingSolar&quot;,
+    latitude: 40,428121,
+    longitude: -3,698695,
+    address: &quot;Calle de Sagasta, 18&quot;,
+    zip: &quot;28004&quot;,
+    city: &quot;Madrid&quot;,
+    province: &quot;Madrid&quot;,
     country: &quot;Spain&quot;
 };
 
@@ -216,14 +217,14 @@ Ezzing3DApi.createLayout(data, function(err, layoutData) {
 <p>Which will return the information from the created layout:</p>
 <pre><code>{
   id: 1093,
-  title: &quot;Test Layout&quot;,
-  address: &quot;Calle Luis Montoto, 2&quot;,
-  zip: &quot;41003&quot;,
-  city: &quot;Sevilla&quot;,
-  province: &quot;Andalucia&quot;,
+  title: &quot;EzzingSolar&quot;,
+  address: &quot;Calle de Sagasta, 18&quot;,
+  zip: &quot;28004Madrid&quot;,
+  city: &quot;Madrid&quot;,
+  province: &quot;Madrid&quot;,
   country: &quot;Spain&quot;,
-  latitude: &quot;37.38900730&quot;,
-  longitude: &quot;-5.98448510&quot;,
+  latitude: &quot;40,428121&quot;,
+  longitude: &quot;-3,698695&quot;,
   created_at: &quot;2016-08-18T17:15:15+0000&quot;,
   updated_at: &quot;2016-08-19T10:14:34+0000&quot;,
   url: &quot;http://127.0.0.1:8080/#/GXXlgzDk0rPsrdxWfDsE5Cdi9FwUrBPx7GfuxSf0::1093&quot;
@@ -574,6 +575,7 @@ With this function you can change this building fields
 <li>Special
 <ul>
 <li>display</li>
+<li>showcase</li>
 <li>zoom</li>
 <li>logo</li>
 </ul></li>
@@ -595,6 +597,9 @@ With this function you can change this building fields
 <h3 id="display">Display</h3>
 <p>When this options is set to true, the project starts in perspective mode.</p>
 <pre><code>{&#39;display&#39;: true}</code></pre>
+<h3 id="showcase">Showcase</h3>
+<p>When this options is set to true, the project starts in perspective and write-only mode. This is an special feature to showcase</p>
+<pre><code>{&#39;showcase&#39;: true}</code></pre>
 <h3 id="zoom">zoom</h3>
 <p>You can set the starting zoom value. Zoom values use to range between 17 (far) to 24 (near).</p>
 <pre><code>{&#39;zoom&#39;: 21}</code></pre>
