@@ -260,7 +260,10 @@ Ezzing3DApi.createLayout(data, function(err, layoutData) {
 <pre><code>Ezzing3DApi.loadLayout(id, function(err, layout, container) {
     if (err) throw err;
 });</code></pre>
-<p>loadLayout can receive an <code>options</code> argument where you can setup some customizations. You can read a description of this methods in the <a href="#layout-rules">Layout Rules</a> section.</p>
+<p>loadLayout can receive an <code>options</code> argument where you can setup some customizations.</p>
+<blockquote>
+<p>You can read a description of this methods in the <a href="#layout-rules">Layout Rules</a> section.</p>
+</blockquote>
 <pre><code>var rules = {};
 
 Ezzing3DApi.loadLayout(id, rules, function(err, layout, container) {
@@ -268,8 +271,13 @@ Ezzing3DApi.loadLayout(id, rules, function(err, layout, container) {
 });</code></pre>
 <p>where:</p>
 <ul>
-<li><p>layout: Exposes an object with methods to interact with the 3DLayout. You can read a description of this methods in the <a href="#dlayout-communication-system">3DLayout Communication System</a> section.</p></li>
-<li><p>container: the DOM element where the 3DLayot is created.</p></li>
+<li>layout: Exposes an object with methods to interact with the 3DLayout.</li>
+</ul>
+<blockquote>
+<p>You can read a description of this methods in the <a href="#dlayout-communication-system">3DLayout Communication System</a> section.</p>
+</blockquote>
+<ul>
+<li>container: the DOM element where the 3DLayot is created.</li>
 </ul>
 <div class="page-break"></div>
 <h1 id="dlayout-communication-system">3DLayout Communication System</h1>

@@ -112,7 +112,9 @@ Sets up the 3DLayout interface into the ezzing3D container and loads the project
         if (err) throw err;
     });
 
-loadLayout can receive an `options` argument where you can setup some customizations. You can read a description of this methods in the [Layout Rules](#layout-rules) section.
+loadLayout can receive an `options` argument where you can setup some customizations. 
+
+> You can read a description of this methods in the [Layout Rules](#layout-rules) section.
 
     var rules = {};
 
@@ -122,6 +124,8 @@ loadLayout can receive an `options` argument where you can setup some customizat
 
 where: 
 
-* layout: Exposes an object with methods to interact with the 3DLayout. You can read a description of this methods in the [3DLayout Communication System](#dlayout-communication-system) section.
+* layout: Exposes an object with methods to interact with the 3DLayout.
+
+> You can read a description of this methods in the [3DLayout Communication System](#dlayout-communication-system) section.
 
 * container: the DOM element where the 3DLayot is created. 
