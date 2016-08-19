@@ -1,5 +1,4 @@
 <div class="page-break"></div>
-
 # How to use
 
 ## Api key and autentication
