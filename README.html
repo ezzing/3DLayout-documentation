@@ -6,6 +6,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title></title>
   <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
   <link rel="stylesheet" href="pandoc.css">
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
@@ -176,7 +213,7 @@
 <h1 id="how-to-use">How to use</h1>
 <h2 id="api-key-and-autentication">Api key and autentication</h2>
 <p>To start using the 3DLayout in your platform, you need to add the following script:</p>
-<pre><code>&lt;script data-key=&quot;API_KEY_HERE&quot; src=&quot;https://layout.ezzing.com/client.min.js&quot;&gt;&lt;/script&gt;</code></pre>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;script</span><span class="ot"> data-key=</span><span class="st">&quot;API_KEY_HERE&quot;</span><span class="ot"> src=</span><span class="st">&quot;https://layout.ezzing.com/client.min.js&quot;</span><span class="kw">&gt;&lt;/script&gt;</span></code></pre></div>
 <p>where you would replace <code>API_KEY_HERE</code> by an API key we provide you for your account.</p>
 <h2 id="dom-element">DOM element</h2>
 <p>You need an element in the body of your html page, a div where <strong>the 3DLayout will fit inside this element</strong>.</p>
@@ -184,9 +221,9 @@
 <p>This div can’t be bigger than the view size, and <strong>no scroll</strong> has to be applied to the html page.</p>
 </blockquote>
 <p>You should not change the ezzing3d element size (width or height) but change the size of this container div.</p>
-<pre><code>&lt;div style=&#39;height:100vh; width: 100vw&#39;&gt;
-    &lt;ezzing3d id=&#39;ezzing3d&#39;&gt;&lt;/ezzing3d&gt;
-&lt;/div&gt;</code></pre>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> style=</span><span class="st">&#39;height:100vh; width: 100vw&#39;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;ezzing3d</span><span class="ot"> id=</span><span class="st">&#39;ezzing3d&#39;</span><span class="kw">&gt;&lt;/ezzing3d&gt;</span>
+<span class="kw">&lt;/div&gt;</span></code></pre></div>
 <h2 id="basic-functions">Basic functions</h2>
 <p>Adding the <code>client.min.js</code> script with a valid API Key makes available the <code>Ezzing3DApi</code> global object, which we will use to start using the 3DLayout.</p>
 <p>The Ezzing3DApi object has the following functions:</p>
@@ -198,7 +235,7 @@
 </ul>
 <h3 id="createlayout">createLayout</h3>
 <p>Create a new layout with the specified information.</p>
-<pre><code>var data = {
+<pre class="js"><code>var data = {
     title: &quot;Sevilla&quot;,
     latitude: 37.39388,
     longitude: -5.984179999999999,
@@ -214,7 +251,7 @@ Ezzing3DApi.createLayout(data, function(err, layoutData) {
     console.log(layoutData);
 });</code></pre>
 <p>Which will return the information from the created layout:</p>
-<pre><code>{
+<pre class="js"><code>{
   id: 1093,
   title: &quot;Test Layout&quot;,
   address: &quot;Calle Luis Montoto, 2&quot;,
@@ -228,7 +265,7 @@ Ezzing3DApi.createLayout(data, function(err, layoutData) {
   updated_at: &quot;2016-08-19T10:14:34+0000&quot;,
   url: &quot;http://127.0.0.1:8080/#/GXXlgzDk0rPsrdxWfDsE5Cdi9FwUrBPx7GfuxSf0::1093&quot;
 }</code></pre>
-<pre><code>{
+<pre class="js"><code>{
   id:,
   title:,
   address:,
@@ -244,23 +281,23 @@ Ezzing3DApi.createLayout(data, function(err, layoutData) {
 }</code></pre>
 <h3 id="getlayout">getLayout</h3>
 <p>Returns a layout’s information related to the given id</p>
-<pre><code>Ezzing3DApi.getLayout(id, function(err, layoutData) {
+<pre class="js"><code>Ezzing3DApi.getLayout(id, function(err, layoutData) {
     if (err) throw err;
     console.log(layoutData);
 });</code></pre>
 <h3 id="listlayouts">listLayouts</h3>
 <p>Returns a list of all your created layouts.</p>
-<pre><code>Ezzing3DApi.listLayouts(function(err, layoutData) {
+<pre class="js"><code>Ezzing3DApi.listLayouts(function(err, layoutData) {
     if (err) throw err;
     console.log(layoutData);
 });</code></pre>
 <h3 id="loadlayout">loadLayout</h3>
 <p>Sets up the 3DLayout interface into the ezzing3D container and loads the project related to the given id.</p>
-<pre><code>Ezzing3DApi.loadLayout(id, function(err, layout, container) {
+<pre class="js"><code>Ezzing3DApi.loadLayout(id, function(err, layout, container) {
     if (err) throw err;
 });</code></pre>
 <p>loadLayout can receive an <code>options</code> argument where you can setup some customizations. You can read a description of this methods in the next episode….</p>
-<pre><code>var rules = {};
+<pre class="js"><code>var rules = {};
 
 Ezzing3DApi.loadLayout(id, rules, function(err, layout, container) {
     if (err) throw err;

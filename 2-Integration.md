@@ -6,7 +6,7 @@
 
 To start using the 3DLayout in your platform, you need to add the following script:
 
-```
+```html
 <script data-key="API_KEY_HERE" src="https://layout.ezzing.com/client.min.js"></script>
 ```
 
@@ -20,7 +20,7 @@ You need an element in the body of your html page, a div where **the 3DLayout wi
 
 You should not change the ezzing3d element size (width or height) but change the size of this container div.
 
-```
+```html
 <div style='height:100vh; width: 100vw'>
     <ezzing3d id='ezzing3d'></ezzing3d>
 </div>
@@ -41,7 +41,7 @@ The Ezzing3DApi object has the following functions:
 
 Create a new layout with the specified information.
 
-```
+```js
 var data = {
     title: "Sevilla",
     latitude: 37.39388,
@@ -61,7 +61,7 @@ Ezzing3DApi.createLayout(data, function(err, layoutData) {
 
 Which will return the information from the created layout:
 
-```
+```js
 {
   id: 1093,
   title: "Test Layout",
@@ -78,7 +78,7 @@ Which will return the information from the created layout:
 }
 ```
 
-```
+```js
 {
   id:,
   title:,
@@ -99,7 +99,7 @@ Which will return the information from the created layout:
 
 Returns a layout's information related to the given id
 
-```
+```js
 Ezzing3DApi.getLayout(id, function(err, layoutData) {
     if (err) throw err;
     console.log(layoutData);
@@ -112,7 +112,7 @@ Ezzing3DApi.getLayout(id, function(err, layoutData) {
 
 Returns a list of all your created layouts.
 
-```
+```js
 Ezzing3DApi.listLayouts(function(err, layoutData) {
     if (err) throw err;
     console.log(layoutData);
@@ -123,7 +123,7 @@ Ezzing3DApi.listLayouts(function(err, layoutData) {
 
 Sets up the 3DLayout interface into the ezzing3D container and loads the project related to the given id.
 
-```
+```js
 Ezzing3DApi.loadLayout(id, function(err, layout, container) {
     if (err) throw err;
 });
@@ -131,7 +131,7 @@ Ezzing3DApi.loadLayout(id, function(err, layout, container) {
 
 loadLayout can receive an `options` argument where you can setup some customizations. You can read a description of this methods in the next episode....
 
-```
+```js
 var rules = {};
 
 Ezzing3DApi.loadLayout(id, rules, function(err, layout, container) {
