@@ -329,7 +329,7 @@ This method returns two objects, where:
 Showcase mode
 -------------
 
-If you want to show the layout to a customer or embed it in read-only mode in another page of your platform (to act as a thumbnail of the project) you can do it by adding an iframe element with a modified version of the url of the layout.
+If you want to show the layout to a customer or embed it in read-only mode in another page of your platform (to act as a thumbnail of the project) you can do it by adding an iframe element to an html page, with a modified version of the url of the layout.
 
 ### Showcase without camera spin
 
@@ -1177,9 +1177,9 @@ Changelog
 
 Some minor GUI changes to clarify the workflow.
 
-Two new showcase options, with and without camera spining. You can read a description of this methods in the [Showcase mode](#showcase-mode) section.
+Two new showcase options, with and without camera spining. You can read a description of this options in the [Showcase mode](#showcase-mode) section.
 
-New **perspective**, **spin** and **readonly** options. You can read a description of this methods in the [Special Behaviours](#special-behaviours) section.
+New **perspective**, **spin** and **readonly** options. You can read a description of this options in the [Special Behaviours](#special-behaviours) section.
 
 Custom Logo. You can read about this new feature in the [Custom Logo](#custom-logo) section.
 

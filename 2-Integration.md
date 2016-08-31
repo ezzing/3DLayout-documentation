@@ -151,7 +151,7 @@ This method returns two objects, where:
 
 ## Showcase mode
 
-If you want to show the layout to a customer or embed it in read-only mode in another page of your platform (to act as a thumbnail of the project) you can do it by adding an iframe element with a modified version of the url of the layout.
+If you want to show the layout to a customer or embed it in read-only mode in another page of your platform (to act as a thumbnail of the project) you can do it by adding an iframe element to an html page, with a modified version of the url of the layout.
 
 ### Showcase without camera spin
 

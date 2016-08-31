@@ -8,9 +8,9 @@
 
 Some minor GUI changes to clarify the workflow.
 
-Two new showcase options, with and without camera spining. You can read a description of this methods in the [Showcase mode](#showcase-mode) section.
+Two new showcase options, with and without camera spining. You can read a description of this options in the [Showcase mode](#showcase-mode) section.
 
-New **perspective**, **spin** and **readonly** options. You can read a description of this methods in the [Special Behaviours](#special-behaviours) section.
+New **perspective**, **spin** and **readonly** options. You can read a description of this options in the [Special Behaviours](#special-behaviours) section.
 
 Custom Logo. You can read about this new feature in the [Custom Logo](#custom-logo) section.
 
@@ -25,7 +25,6 @@ Undo, redo and save buttons in mainoptions becomes custom buttons. You can read 
 A helper message is showed when roof types are restricted due to irregular buildings. Also, restricted roof types are shown disabled.
 
 A dialog window is showed when vertices or roof is edited, to alert the user about the reset of the building.
-
 
 *Area offset* now is called **Edge Zone**
 
