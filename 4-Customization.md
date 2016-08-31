@@ -430,6 +430,7 @@ You can use location: 'left' to align the buttons to the left, and use location:
         location: where to align the button, if not defined, the button goes to the right
     }
 
+<div class="page-break"></div>
 ### ControlCustomButtons
 
 <img class="w100px" src="./layout-doc-imgs/controlbuttons.jpg" alt="controlbuttons" />
