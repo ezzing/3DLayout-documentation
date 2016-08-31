@@ -248,9 +248,9 @@ Which will return the information from the created layout:
     }
 
     {
-      id: the layout id, you need this id to load the project or retrieve information,
+      id: the layout id (integer), you need this id to load the project or retrieve information,
       title: A title for the project,
-      address: the address,
+      address: the address
       zip: the zip code,
       city: the city,
       province: the province,
@@ -262,7 +262,7 @@ Which will return the information from the created layout:
       url: an url to visit the project or embed it as an iframe
     }
 
-> The url can be used to embed a readonly version of the project, please, visit bla bla section to find how to use it…
+> The url can be used to embed a readonly version of the project. You can read a description of this methods in the [Showcase mode](#showcase-mode) section.
 
 ### getLayout
 
@@ -1090,7 +1090,7 @@ Changelog
 
 Some minor GUI changes to clarify the workflow.
 
-Two new showcase options, with and without camera spining.
+Two new showcase options, with and without camera spining. You can read a description of this methods in the [Showcase mode](#showcase-mode) section.
 
 ### changed
 

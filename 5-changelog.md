@@ -8,7 +8,7 @@
 
 Some minor GUI changes to clarify the workflow.
 
-Two new showcase options, with and without camera spining.
+Two new showcase options, with and without camera spining. You can read a description of this methods in the [Showcase mode](#showcase-mode) section.
 
 ### changed
 
@@ -30,7 +30,9 @@ Fix style for loading animation to adjust to window size.
 
 Some errata in the pdf (added measure units for all values)
 
-<!-- ## [2.5.0] - 2016-08-01
+<!--   Template to add a version to the changelog
+
+## [2.5.0] - 2016-08-01
 
 ### added
 
@@ -42,4 +44,6 @@ Some errata in the pdf (added measure units for all values)
 
 ### fixed
 
-### security -->
+### security 
+
+-->
