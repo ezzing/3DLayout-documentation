@@ -252,18 +252,33 @@ Which will return the information from the created layout:
 
 where:
 
--   **id**: the layout id (integer), you need this id to load the project or retrieve information,
+-   **id**: the layout id, you need this id to load the project or retrieve information,
 -   **title**: A title for the project,
 -   **address**: the address
--   **zip**: the zip code,
 -   **city**: the city,
 -   **province**: the province,
 -   **country**: the contry,
+-   **zip**: the zip code,
 -   **latitude**: latitude value in decimal degrees (remember to include the negative sign for south and west coordinates) ,
 -   **longitude**:longitude value in decimal degrees (remember to include the negative sign for south and west coordinates),
--   **created\_at**: creation date (format ISO 8601),
--   **updated\_at**: modification date (format ISO 8601),
+-   **created\_at**: creation date,
+-   **updated\_at**: modification date,
 -   **url**: an url to visit the project or embed it as an iframe
+
+The data types in wich each value is stored is:
+
+-   **id**: integer
+-   **title**: string 255 chars
+-   **address**: string 255 chars
+-   **city**: string 255 chars
+-   **province**: string 255 chars
+-   **country**: string 255 chars
+-   **zip**: string 255 chars
+-   **latitude**: decimal (+/-)xx.yyyyyyyy
+-   **longitude**: decimal (+/-)xxx.yyyyyyyy
+-   **created\_at**: ISO8601
+-   **updated\_at**: ISO8601
+-   **url**: string 2000 chars
 
 > The url can be used to embed a readonly version of the project. You can read a description of this methods in the [Showcase mode](#showcase-mode) section.
 
