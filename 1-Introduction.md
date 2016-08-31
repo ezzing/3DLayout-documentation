@@ -42,7 +42,6 @@ In the aside panel you can find functionalities related to the current active bu
 
 <img class="w100" src="./layout-doc-imgs/tab-building-mac.jpg" alt="tab building" />
 
-
 <img class="w100" src="./layout-doc-imgs/tab-areas-1-mac.jpg" alt="tab areas 1" />
 <br>
 <img class="w100" src="./layout-doc-imgs/tab-areas-2-mac.jpg" alt="tab areas 2" />
@@ -74,15 +73,13 @@ These are the main options in the canvas area.
 
 <img class="w100" src="./layout-doc-imgs/mainoptions.jpg" alt="mainoptions" />
 
-The three left-sided buttons are the **main options fixed buttons**:
+All this buttons are the **main options custom buttons**. You can customize this set of buttons by hidding some of them, by sorting them, or by adding new buttons.
+
+The default custom buttons are:
 
 * redo
 * undo
 * save
-
-The right aligned buttons are the **main options custom buttons**. You can customize this set of buttons by hidding some of them or by adding new buttons.
-
-The default custom buttons are:
 
 * snapshot
 * sun simulation
@@ -90,8 +87,7 @@ The default custom buttons are:
 * fullscreen
 * satellite provider selector (only showed if available)
 
-
-> Please, visit the section [Custom Buttons](#custom-buttons) to learn how to add your own functions.
+> Please, visit the section [Custom Buttons](#custom-buttons) to learn how to add your own buttons.
 
 ### Control Buttons
 

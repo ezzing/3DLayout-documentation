@@ -84,7 +84,9 @@
 </ul></li>
 <li><a href="#layout-rules">Layout Rules</a><ul>
 <li><a href="#special-behaviours">Special Behaviours</a><ul>
-<li><a href="#display">Display</a></li>
+<li><a href="#perspective">Perspective</a></li>
+<li><a href="#spin">Spin</a></li>
+<li><a href="#read-only">Read only</a></li>
 <li><a href="#showcase">Showcase</a></li>
 <li><a href="#zoom">zoom</a></li>
 <li><a href="#logo">logo</a></li>
@@ -99,12 +101,14 @@
 <li><a href="#mainoptionscustombuttons">MainoptionsCustomButtons</a></li>
 <li><a href="#controlcustombuttons">ControlCustomButtons</a></li>
 </ul></li>
+<li><a href="#custom-loading-animation">Custom Loading Animation</a></li>
 </ul></li>
 <li><a href="#changelog">Changelog</a><ul>
 <li><a href="#section">[2.6.0] - 2016-09-1</a><ul>
 <li><a href="#added">added</a></li>
 <li><a href="#changed">changed</a></li>
 <li><a href="#fixed">fixed</a></li>
+<li><a href="#deprecated">deprecated</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -150,23 +154,20 @@
 <h3 id="main-options">Main Options</h3>
 <p>These are the main options in the canvas area.</p>
 <p><img class="w100" src="./layout-doc-imgs/mainoptions.jpg" alt="mainoptions" /></p>
-<p>The three left-sided buttons are the <strong>main options fixed buttons</strong>:</p>
+<p>All this buttons are the <strong>main options custom buttons</strong>. You can customize this set of buttons by hidding some of them, by sorting them, or by adding new buttons.</p>
+<p>The default custom buttons are:</p>
 <ul>
 <li>redo</li>
 <li>undo</li>
-<li>save</li>
-</ul>
-<p>The right aligned buttons are the <strong>main options custom buttons</strong>. You can customize this set of buttons by hidding some of them or by adding new buttons.</p>
-<p>The default custom buttons are:</p>
-<ul>
+<li><p>save</p></li>
 <li>snapshot</li>
 <li>sun simulation</li>
 <li>perspective view</li>
 <li>fullscreen</li>
-<li>satellite provider selector (only showed if available)</li>
+<li><p>satellite provider selector (only showed if available)</p></li>
 </ul>
 <blockquote>
-<p>Please, visit the section <a href="#custom-buttons">Custom Buttons</a> to learn how to add your own functions.</p>
+<p>Please, visit the section <a href="#custom-buttons">Custom Buttons</a> to learn how to add your own buttons.</p>
 </blockquote>
 <h3 id="control-buttons">Control Buttons</h3>
 <p>These are map related buttons. You can also customize the upper section of this set of buttons by hidding some of them or by adding new buttons</p>
@@ -596,7 +597,9 @@ With this function you can change this building fields
 <ul>
 <li>Special
 <ul>
-<li>display</li>
+<li>perspective</li>
+<li>spin</li>
+<li>readonly</li>
 <li>showcase</li>
 <li>zoom</li>
 <li>logo</li>
@@ -616,11 +619,17 @@ With this function you can change this building fields
 </ul></li>
 </ul>
 <h2 id="special-behaviours">Special Behaviours</h2>
-<h3 id="display">Display</h3>
+<h3 id="perspective">Perspective</h3>
 <p>When this options is set to true, the project starts in perspective mode.</p>
-<pre><code>{&#39;display&#39;: true}</code></pre>
+<pre><code>{&#39;perspective&#39;: true}</code></pre>
+<h3 id="spin">Spin</h3>
+<p>It only works in combination with perspective option. When this options is set to true, the project starts in perspective mode and the camera slowly rotate around.</p>
+<pre><code>{&#39;spin&#39;: true}</code></pre>
+<h3 id="read-only">Read only</h3>
+<p>It only works in combination with perspective option. When this options is set to true, the project starts in perspective mode and all the GUI is hidden, avoiding the user to change anything in the layout.</p>
+<pre><code>{&#39;readonly&#39;: true}</code></pre>
 <h3 id="showcase">Showcase</h3>
-<p>When this options is set to true, the project starts in perspective and write-only mode. This is an special feature to showcase</p>
+<p>When this options is set to true, the project starts in perspective and write-only mode. This is an special feature to showcase the layout.</p>
 <pre><code>{&#39;showcase&#39;: true}</code></pre>
 <h3 id="zoom">zoom</h3>
 <p>You can set the starting zoom value. Zoom values use to range between 17 (far) to 24 (near).</p>
@@ -789,7 +798,7 @@ With this function you can change this building fields
             &quot;availableModuleType&quot;: [&quot;portrait&quot;, &quot;landscape&quot;],
             &quot;locked&quot;: [],
             &quot;hidden&quot;: []
-        },
+        }
     }
 }</code></pre>
 <p>Attributes explanation for default roof description</p>
@@ -867,11 +876,29 @@ With this function you can change this building fields
 We use the fontawesome icons collection, so you can use it to define new buttons.</p>
 <h3 id="mainoptionscustombuttons">MainoptionsCustomButtons</h3>
 <p><img class="w100" src="./layout-doc-imgs/mainoptions.jpg" alt="mainoptions" /></p>
-<p>The buttons aligned to the right are custom buttons. User can define new custom buttons in this area.</p>
+<p>The buttons on top of the canvas are custom buttons. User can define new custom buttons in this area.</p>
 <p>Here you can hide some existing buttoms, change the order of them and create new ones with the ability to trigger an event.</p>
 <p>This is the default MainoptionsCustomButtons:</p>
 <pre><code>{
     &quot;MainoptionsCustomButtons&quot;: [
+        {
+            click: &#39;undo.undo()&#39;,
+            tooltip: &#39;undo&#39;,
+            class: &#39;fa fa-fw fa-undo&#39;,
+            location: &#39;left&#39;
+        },
+        {
+            click: &#39;undo.redo()&#39;,
+            tooltip: &#39;redo&#39;,
+            class: &#39;fa fa-fw fa-repeat&#39;,
+            location: &#39;left&#39;
+        },
+        {
+            click: &#39;save(true)&#39;,
+            tooltip: &#39;save&#39;,
+            ngclass: &#39;saveButtonClass()&#39;,
+            location: &#39;left&#39;
+        },
         {
             click: &quot;snapshot()&quot;,
             tooltip: &quot;takeSnapshot&quot;,
@@ -919,11 +946,14 @@ We use the fontawesome icons collection, so you can use it to define new buttons
     ]
 }</code></pre>
 <p>To customize this buttoms you can comment out the lines of the button you want to hide or extend the list by adding new objects with the same structure</p>
+<p>When you add new buttons, an event with the name you define in the click field is sended every time the button is clicked.</p>
+<p>You can use location: ‘left’ to align the buttons to the left, and use location: ‘right’ or nothing to align the buttons to the right side.</p>
 <pre><code>{
     click: a string with the event name you want to trigger,
     hide: a condition to hide the button (this value is optional),
     tooltip: a string with the operator description, to show as a tooltip,
-    class: a fontawesome class to define the icon
+    class: a fontawesome class to define the icon,
+    location: where to align the button, if not defined, the button goes to the right
 }</code></pre>
 <h3 id="controlcustombuttons">ControlCustomButtons</h3>
 <p><img class="w100px" src="./layout-doc-imgs/controlbuttons.jpg" alt="controlbuttons" /></p>
@@ -957,6 +987,11 @@ We use the fontawesome icons collection, so you can use it to define new buttons
     tooltip: a string with the operator description, to show as a tooltip,
     class: a fontawesome class to define the icon
 }</code></pre>
+<h2 id="custom-loading-animation">Custom Loading Animation</h2>
+<p>You can easily customize the loading animation showed when starting the 3DLayout by setting a new CSS style to the loading element. Just add this code to the styles part of your html file:</p>
+<pre><code>#ez3d-loader {
+    background-image: url(path-to-your-animated-gif) !important;
+}</code></pre>
 <div class="page-break"></div>
 <div class="page-break"></div>
 <h1 id="changelog">Changelog</h1>
@@ -964,9 +999,10 @@ We use the fontawesome icons collection, so you can use it to define new buttons
 <h3 id="added">added</h3>
 <p>Some minor GUI changes to clarify the workflow.</p>
 <p>Two new showcase options, with and without camera spining. You can read a description of this methods in the <a href="#showcase-mode">Showcase mode</a> section.</p>
+<p>New <strong>perspective</strong>, <strong>spin</strong> and <strong>readonly</strong> options. You can read a description of this methods in the <a href="#special-behaviours">Special Behaviours</a> section.</p>
 <h3 id="changed">changed</h3>
 <p>Navigation panel, save button and building index now becomes disabled when creating a building.</p>
-<p>Undo, redo and save buttons in mainoptions becomes custom buttons.</p>
+<p>Undo, redo and save buttons in mainoptions becomes custom buttons. You can read a description of this new custom buttons in the <a href="#mainoptionscustombuttons">MainoptionsCustomButtons</a> section.</p>
 <p>A helper message is showed when roof types are restricted due to irregular buildings. Also, restricted roof types are shown disabled.</p>
 <p>A dialog window is showed when vertices or roof is edited, to alert the user about the reset of the building.</p>
 <p>Fix style for loading animation to adjust to window size.</p>
@@ -974,6 +1010,9 @@ We use the fontawesome icons collection, so you can use it to define new buttons
 <p><em>Building height</em> now is called <strong>Gutter height</strong> as it doesn’t count the roof height.</p>
 <h3 id="fixed">fixed</h3>
 <p>Some errata in the pdf (added measure units for all values)</p>
+<h3 id="deprecated">deprecated</h3>
+<p>The <em>display</em> option is deprecated, now it’s called <strong>perspective</strong>. Anyway, it still works with the old naming.</p>
+<p>The layout Url extension “/true” is deprecated. You can read a description of the new extensions in the <a href="#showcase-mode">Showcase mode</a> section. Anyway, it still works with the old naming.</p>
 <!--   Template to add a version to the changelog
 
 ## [2.5.0] - 2016-08-01

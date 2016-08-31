@@ -50,7 +50,9 @@ Table of contents
         -   [Area related functions](#area-related-functions)
 -   [Layout Rules](#layout-rules)
     -   [Special Behaviours](#special-behaviours)
-        -   [Display](#display)
+        -   [Perspective](#perspective)
+        -   [Spin](#spin)
+        -   [Read only](#read-only)
         -   [Showcase](#showcase)
         -   [zoom](#zoom)
         -   [logo](#logo)
@@ -62,11 +64,13 @@ Table of contents
     -   [Custom Buttons](#custom-buttons)
         -   [MainoptionsCustomButtons](#mainoptionscustombuttons)
         -   [ControlCustomButtons](#controlcustombuttons)
+    -   [Custom Loading Animation](#custom-loading-animation)
 -   [Changelog](#changelog)
     -   [\[2.6.0\] - 2016-09-1](#section)
         -   [added](#added)
         -   [changed](#changed)
         -   [fixed](#fixed)
+        -   [deprecated](#deprecated)
 
 Introduction
 ============
@@ -135,15 +139,13 @@ These are the main options in the canvas area.
 
 <img src="./layout-doc-imgs/mainoptions.jpg" alt="mainoptions" class="w100" />
 
-The three left-sided buttons are the **main options fixed buttons**:
+All this buttons are the **main options custom buttons**. You can customize this set of buttons by hidding some of them, by sorting them, or by adding new buttons.
+
+The default custom buttons are:
 
 -   redo
 -   undo
 -   save
-
-The right aligned buttons are the **main options custom buttons**. You can customize this set of buttons by hidding some of them or by adding new buttons.
-
-The default custom buttons are:
 
 -   snapshot
 -   sun simulation
@@ -151,7 +153,7 @@ The default custom buttons are:
 -   fullscreen
 -   satellite provider selector (only showed if available)
 
-> Please, visit the section [Custom Buttons](#custom-buttons) to learn how to add your own functions.
+> Please, visit the section [Custom Buttons](#custom-buttons) to learn how to add your own buttons.
 
 ### Control Buttons
 
@@ -665,7 +667,9 @@ Example of rules object:
 Available rule objects expected by the 3DLayout:
 
 -   Special
-    -   display
+    -   perspective
+    -   spin
+    -   readonly
     -   showcase
     -   zoom
     -   logo
@@ -682,15 +686,27 @@ Available rule objects expected by the 3DLayout:
 Special Behaviours
 ------------------
 
-### Display
+### Perspective
 
 When this options is set to true, the project starts in perspective mode.
 
-    {'display': true}
+    {'perspective': true}
+
+### Spin
+
+It only works in combination with perspective option. When this options is set to true, the project starts in perspective mode and the camera slowly rotate around.
+
+    {'spin': true}
+
+### Read only
+
+It only works in combination with perspective option. When this options is set to true, the project starts in perspective mode and all the GUI is hidden, avoiding the user to change anything in the layout.
+
+    {'readonly': true}
 
 ### Showcase
 
-When this options is set to true, the project starts in perspective and write-only mode. This is an special feature to showcase
+When this options is set to true, the project starts in perspective and write-only mode. This is an special feature to showcase the layout.
 
     {'showcase': true}
 
@@ -880,7 +896,7 @@ Sample values to define Default Roofs:
                 "availableModuleType": ["portrait", "landscape"],
                 "locked": [],
                 "hidden": []
-            },
+            }
         }
     }
 
@@ -977,7 +993,7 @@ We use the fontawesome icons collection, so you can use it to define new buttons
 
 <img src="./layout-doc-imgs/mainoptions.jpg" alt="mainoptions" class="w100" />
 
-The buttons aligned to the right are custom buttons. User can define new custom buttons in this area.
+The buttons on top of the canvas are custom buttons. User can define new custom buttons in this area.
 
 Here you can hide some existing buttoms, change the order of them and create new ones with the ability to trigger an event.
 
@@ -985,6 +1001,24 @@ This is the default MainoptionsCustomButtons:
 
     {
         "MainoptionsCustomButtons": [
+            {
+                click: 'undo.undo()',
+                tooltip: 'undo',
+                class: 'fa fa-fw fa-undo',
+                location: 'left'
+            },
+            {
+                click: 'undo.redo()',
+                tooltip: 'redo',
+                class: 'fa fa-fw fa-repeat',
+                location: 'left'
+            },
+            {
+                click: 'save(true)',
+                tooltip: 'save',
+                ngclass: 'saveButtonClass()',
+                location: 'left'
+            },
             {
                 click: "snapshot()",
                 tooltip: "takeSnapshot",
@@ -1034,11 +1068,16 @@ This is the default MainoptionsCustomButtons:
 
 To customize this buttoms you can comment out the lines of the button you want to hide or extend the list by adding new objects with the same structure
 
+When you add new buttons, an event with the name you define in the click field is sended every time the button is clicked.
+
+You can use location: ‘left’ to align the buttons to the left, and use location: ‘right’ or nothing to align the buttons to the right side.
+
     {
         click: a string with the event name you want to trigger,
         hide: a condition to hide the button (this value is optional),
         tooltip: a string with the operator description, to show as a tooltip,
-        class: a fontawesome class to define the icon
+        class: a fontawesome class to define the icon,
+        location: where to align the button, if not defined, the button goes to the right
     }
 
 ### ControlCustomButtons
@@ -1080,6 +1119,15 @@ To customize this buttoms you can comment out the lines of the button you want t
         class: a fontawesome class to define the icon
     }
 
+Custom Loading Animation
+------------------------
+
+You can easily customize the loading animation showed when starting the 3DLayout by setting a new CSS style to the loading element. Just add this code to the styles part of your html file:
+
+    #ez3d-loader {
+        background-image: url(path-to-your-animated-gif) !important;
+    }
+
 Changelog
 =========
 
@@ -1092,11 +1140,13 @@ Some minor GUI changes to clarify the workflow.
 
 Two new showcase options, with and without camera spining. You can read a description of this methods in the [Showcase mode](#showcase-mode) section.
 
+New **perspective**, **spin** and **readonly** options. You can read a description of this methods in the [Special Behaviours](#special-behaviours) section.
+
 ### changed
 
 Navigation panel, save button and building index now becomes disabled when creating a building.
 
-Undo, redo and save buttons in mainoptions becomes custom buttons.
+Undo, redo and save buttons in mainoptions becomes custom buttons. You can read a description of this new custom buttons in the [MainoptionsCustomButtons](#mainoptionscustombuttons) section.
 
 A helper message is showed when roof types are restricted due to irregular buildings. Also, restricted roof types are shown disabled.
 
@@ -1111,3 +1161,9 @@ Fix style for loading animation to adjust to window size.
 ### fixed
 
 Some errata in the pdf (added measure units for all values)
+
+### deprecated
+
+The *display* option is deprecated, now it’s called **perspective**. Anyway, it still works with the old naming.
+
+The layout Url extension “/true” is deprecated. You can read a description of the new extensions in the [Showcase mode](#showcase-mode) section. Anyway, it still works with the old naming.

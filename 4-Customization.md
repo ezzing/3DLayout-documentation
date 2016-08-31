@@ -16,7 +16,9 @@ Example of rules object:
 Available rule objects expected by the 3DLayout:
 
 * Special
-    * display
+    * perspective
+    * spin
+    * readonly
     * showcase
     * zoom
     * logo
@@ -32,15 +34,28 @@ Available rule objects expected by the 3DLayout:
 
 ## Special Behaviours
 
-### Display
+### Perspective
 
 When this options is set to true, the project starts in perspective mode.
 
-    {'display': true}
+    {'perspective': true}
+
+### Spin
+
+It only works in combination with perspective option. When this options is set to true, the project starts in perspective mode and the camera slowly rotate around.
+
+    {'spin': true}
+
+### Read only
+
+It only works in combination with perspective option. When this options is set to true, the project starts in perspective mode and all the GUI is hidden, avoiding the user to change anything in the layout.
+
+    {'readonly': true}
+
 
 ### Showcase
 
-When this options is set to true, the project starts in perspective and write-only mode. This is an special feature to showcase
+When this options is set to true, the project starts in perspective and write-only mode. This is an special feature to showcase the layout.
 
     {'showcase': true}
 
@@ -230,7 +245,7 @@ Sample values to define Default Roofs:
                 "availableModuleType": ["portrait", "landscape"],
                 "locked": [],
                 "hidden": []
-            },
+            }
         }
     }
 
@@ -327,7 +342,7 @@ We use the fontawesome icons collection, so you can use it to define new buttons
 
 <img class="w100" src="./layout-doc-imgs/mainoptions.jpg" alt="mainoptions" />
 
-The buttons aligned to the right are custom buttons. User can define new custom buttons in this area.
+The buttons on top of the canvas are custom buttons. User can define new custom buttons in this area.
 
 Here you can hide some existing buttoms, change the order of them and create new ones with the ability to trigger an event.
 
@@ -335,6 +350,24 @@ This is the default MainoptionsCustomButtons:
 
     {
         "MainoptionsCustomButtons": [
+            {
+                click: 'undo.undo()',
+                tooltip: 'undo',
+                class: 'fa fa-fw fa-undo',
+                location: 'left'
+            },
+            {
+                click: 'undo.redo()',
+                tooltip: 'redo',
+                class: 'fa fa-fw fa-repeat',
+                location: 'left'
+            },
+            {
+                click: 'save(true)',
+                tooltip: 'save',
+                ngclass: 'saveButtonClass()',
+                location: 'left'
+            },
             {
                 click: "snapshot()",
                 tooltip: "takeSnapshot",
@@ -384,11 +417,17 @@ This is the default MainoptionsCustomButtons:
 
 To customize this buttoms you  can comment out the lines of the button you want to hide or extend the list by adding new objects with the same structure
 
+When you add new buttons, an event with the name you define in the click field is sended every time the button is clicked.
+
+You can use location: 'left' to align the buttons to the left, and use location: 'right' or nothing to align the buttons to the right side.
+
+
     {
         click: a string with the event name you want to trigger,
         hide: a condition to hide the button (this value is optional),
         tooltip: a string with the operator description, to show as a tooltip,
-        class: a fontawesome class to define the icon
+        class: a fontawesome class to define the icon,
+        location: where to align the button, if not defined, the button goes to the right
     }
 
 ### ControlCustomButtons
@@ -428,6 +467,15 @@ To customize this buttoms you  can comment out the lines of the button you want 
         hide: a condition to hide the button (this value is optional),
         tooltip: a string with the operator description, to show as a tooltip,
         class: a fontawesome class to define the icon
+    }
+
+
+## Custom Loading Animation
+
+You can easily customize the loading animation showed when starting the 3DLayout by setting a new CSS style to the loading element. Just add this code to the styles part of your html file:
+
+    #ez3d-loader {
+        background-image: url(path-to-your-animated-gif) !important;
     }
 
 <div class="page-break"></div>
