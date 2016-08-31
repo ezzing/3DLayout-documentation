@@ -101,6 +101,7 @@
 <li><a href="#mainoptionscustombuttons">MainoptionsCustomButtons</a></li>
 <li><a href="#controlcustombuttons">ControlCustomButtons</a></li>
 </ul></li>
+<li><a href="#custom-logo">Custom Logo</a></li>
 <li><a href="#custom-loading-animation">Custom Loading Animation</a></li>
 </ul></li>
 <li><a href="#changelog">Changelog</a><ul>
@@ -987,11 +988,26 @@ We use the fontawesome icons collection, so you can use it to define new buttons
     tooltip: a string with the operator description, to show as a tooltip,
     class: a fontawesome class to define the icon
 }</code></pre>
+<h2 id="custom-logo">Custom Logo</h2>
+<p>You can easily customize the logo showed in the aside by setting a new CSS style to the loading element. Just add this code to the styles part of your html file:</p>
+<pre><code>#ez3d-logo {
+    background-image: url(path-to-your-png-logo&#39;) !important;
+    background-size: 140px !important;
+    background-position: 40px center !important;
+    background-repeat: no-repeat !important;
+}</code></pre>
+<p>Note you should use the <strong>!important</strong> attribute to overwrite the 3DLayout styles.</p>
+<p>Please use a transparent background png for better results.</p>
 <h2 id="custom-loading-animation">Custom Loading Animation</h2>
 <p>You can easily customize the loading animation showed when starting the 3DLayout by setting a new CSS style to the loading element. Just add this code to the styles part of your html file:</p>
 <pre><code>#ez3d-loader {
     background-image: url(path-to-your-animated-gif) !important;
+    background-size: auto 75% !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
 }</code></pre>
+<p>Note you should use the <strong>!important</strong> attribute to overwrite the 3DLayout styles.</p>
+<p>Please use a transparent background animated gif or png for better results.</p>
 <div class="page-break"></div>
 <div class="page-break"></div>
 <h1 id="changelog">Changelog</h1>
@@ -1000,16 +1016,18 @@ We use the fontawesome icons collection, so you can use it to define new buttons
 <p>Some minor GUI changes to clarify the workflow.</p>
 <p>Two new showcase options, with and without camera spining. You can read a description of this methods in the <a href="#showcase-mode">Showcase mode</a> section.</p>
 <p>New <strong>perspective</strong>, <strong>spin</strong> and <strong>readonly</strong> options. You can read a description of this methods in the <a href="#special-behaviours">Special Behaviours</a> section.</p>
+<p>Custom Logo. You can read about this new feature in the <a href="#custom-loading-animation">Custom Loading Animation</a> section.</p>
+<p>Custom Loading Animation. You can read about this new feature in the <a href="#custom-loading-animation">Custom Loading Animation</a> section.</p>
 <h3 id="changed">changed</h3>
 <p>Navigation panel, save button and building index now becomes disabled when creating a building.</p>
 <p>Undo, redo and save buttons in mainoptions becomes custom buttons. You can read a description of this new custom buttons in the <a href="#mainoptionscustombuttons">MainoptionsCustomButtons</a> section.</p>
 <p>A helper message is showed when roof types are restricted due to irregular buildings. Also, restricted roof types are shown disabled.</p>
 <p>A dialog window is showed when vertices or roof is edited, to alert the user about the reset of the building.</p>
-<p>Fix style for loading animation to adjust to window size.</p>
 <p><em>Area offset</em> now is called <strong>Edge Zone</strong></p>
 <p><em>Building height</em> now is called <strong>Gutter height</strong> as it doesn’t count the roof height.</p>
 <h3 id="fixed">fixed</h3>
 <p>Some errata in the pdf (added measure units for all values)</p>
+<p>Fix style for loading animation to adjust to window size.</p>
 <h3 id="deprecated">deprecated</h3>
 <p>The <em>display</em> option is deprecated, now it’s called <strong>perspective</strong>. Anyway, it still works with the old naming.</p>
 <p>The layout Url extension “/true” is deprecated. You can read a description of the new extensions in the <a href="#showcase-mode">Showcase mode</a> section. Anyway, it still works with the old naming.</p>

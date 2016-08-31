@@ -64,6 +64,7 @@ Table of contents
     -   [Custom Buttons](#custom-buttons)
         -   [MainoptionsCustomButtons](#mainoptionscustombuttons)
         -   [ControlCustomButtons](#controlcustombuttons)
+    -   [Custom Logo](#custom-logo)
     -   [Custom Loading Animation](#custom-loading-animation)
 -   [Changelog](#changelog)
     -   [\[2.6.0\] - 2016-09-1](#section)
@@ -1119,6 +1120,22 @@ To customize this buttoms you can comment out the lines of the button you want t
         class: a fontawesome class to define the icon
     }
 
+Custom Logo
+-----------
+
+You can easily customize the logo showed in the aside by setting a new CSS style to the loading element. Just add this code to the styles part of your html file:
+
+    #ez3d-logo {
+        background-image: url(path-to-your-png-logo') !important;
+        background-size: 140px !important;
+        background-position: 40px center !important;
+        background-repeat: no-repeat !important;
+    }
+
+Note you should use the **!important** attribute to overwrite the 3DLayout styles.
+
+Please use a transparent background png for better results.
+
 Custom Loading Animation
 ------------------------
 
@@ -1126,7 +1143,14 @@ You can easily customize the loading animation showed when starting the 3DLayout
 
     #ez3d-loader {
         background-image: url(path-to-your-animated-gif) !important;
+        background-size: auto 75% !important;
+        background-position: center center !important;
+        background-repeat: no-repeat !important;
     }
+
+Note you should use the **!important** attribute to overwrite the 3DLayout styles.
+
+Please use a transparent background animated gif or png for better results.
 
 Changelog
 =========
@@ -1142,6 +1166,10 @@ Two new showcase options, with and without camera spining. You can read a descri
 
 New **perspective**, **spin** and **readonly** options. You can read a description of this methods in the [Special Behaviours](#special-behaviours) section.
 
+Custom Logo. You can read about this new feature in the [Custom Loading Animation](#custom-loading-animation) section.
+
+Custom Loading Animation. You can read about this new feature in the [Custom Loading Animation](#custom-loading-animation) section.
+
 ### changed
 
 Navigation panel, save button and building index now becomes disabled when creating a building.
@@ -1152,8 +1180,6 @@ A helper message is showed when roof types are restricted due to irregular build
 
 A dialog window is showed when vertices or roof is edited, to alert the user about the reset of the building.
 
-Fix style for loading animation to adjust to window size.
-
 *Area offset* now is called **Edge Zone**
 
 *Building height* now is called **Gutter height** as it doesn’t count the roof height.
@@ -1161,6 +1187,8 @@ Fix style for loading animation to adjust to window size.
 ### fixed
 
 Some errata in the pdf (added measure units for all values)
+
+Fix style for loading animation to adjust to window size.
 
 ### deprecated
 

@@ -12,6 +12,10 @@ Two new showcase options, with and without camera spining. You can read a descri
 
 New **perspective**, **spin** and **readonly** options. You can read a description of this methods in the [Special Behaviours](#special-behaviours) section.
 
+Custom Logo. You can read about this new feature in the [Custom Loading Animation](#custom-loading-animation) section.
+
+Custom Loading Animation. You can read about this new feature in the [Custom Loading Animation](#custom-loading-animation) section.
+
 ### changed
 
 Navigation panel, save button and building index now becomes disabled when creating a building.
@@ -22,7 +26,6 @@ A helper message is showed when roof types are restricted due to irregular build
 
 A dialog window is showed when vertices or roof is edited, to alert the user about the reset of the building.
 
-Fix style for loading animation to adjust to window size.
 
 *Area offset* now is called **Edge Zone**
 
@@ -31,6 +34,8 @@ Fix style for loading animation to adjust to window size.
 ### fixed
 
 Some errata in the pdf (added measure units for all values)
+
+Fix style for loading animation to adjust to window size.
 
 ### deprecated
 

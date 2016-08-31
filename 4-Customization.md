@@ -469,6 +469,20 @@ To customize this buttoms you  can comment out the lines of the button you want 
         class: a fontawesome class to define the icon
     }
 
+## Custom Logo
+
+You can easily customize the logo showed in the aside by setting a new CSS style to the loading element. Just add this code to the styles part of your html file:
+
+    #ez3d-logo {
+        background-image: url(path-to-your-png-logo') !important;
+        background-size: 140px !important;
+        background-position: 40px center !important;
+        background-repeat: no-repeat !important;
+    }
+
+Note you should use the **!important** attribute to overwrite the 3DLayout styles. 
+
+Please use a transparent background png for better results.
 
 ## Custom Loading Animation
 
@@ -476,6 +490,13 @@ You can easily customize the loading animation showed when starting the 3DLayout
 
     #ez3d-loader {
         background-image: url(path-to-your-animated-gif) !important;
+        background-size: auto 75% !important;
+        background-position: center center !important;
+        background-repeat: no-repeat !important;
     }
+
+Note you should use the **!important** attribute to overwrite the 3DLayout styles. 
+
+Please use a transparent background animated gif or png for better results.
 
 <div class="page-break"></div>
