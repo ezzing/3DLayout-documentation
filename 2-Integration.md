@@ -39,14 +39,16 @@ Create a new layout with the specified information.
 
     var data = {
         title: "EzzingSolar",
-        latitude: 40,428121,
-        longitude: -3,698695,
+        latitude: 40.428121,
+        longitude: -3.698695,
         address: "Calle de Sagasta, 18",
         zip: "28004",
         city: "Madrid",
         province: "Madrid",
         country: "Spain"
     };
+
+Where all values are optional except latitude and longitude that are required.
 
     Ezzing3DApi.createLayout(data, function(err, layoutData) {
         if (err) throw err;
@@ -64,8 +66,8 @@ Which will return the information from the created layout:
       city: "Madrid",
       province: "Madrid",
       country: "Spain",
-      latitude: "40,428121",
-      longitude: "-3,698695",
+      latitude: "40.428121",
+      longitude: "-3.698695",
       created_at: "2016-08-18T17:15:15+0000",
       updated_at: "2016-08-19T10:14:34+0000",
       url: "https://layout.ezzing.com/#/GXXlgzDk0rPsrdxWfDsE5Cdi9FwUrBPx7GfuxSf0::1093"
@@ -83,8 +85,10 @@ Which will return the information from the created layout:
       longitude:longitude value in decimal degrees (remember to include the negative sign for south and west coordinates),
       created_at: creation date,
       updated_at: modification date,
-      url: an url to visit the project or embed it as an iframe (append "/true" to start in showcase mode)
+      url: an url to visit the project or embed it as an iframe
     }
+
+> The url can be used to embed a readonly version of the project, please, visit bla bla section to find how to use it...
 
 ### getLayout
 
@@ -129,3 +133,19 @@ This method returns two objects, where:
 > You can read a description of this methods in the [3DLayout Communication System](#dlayout-communication-system) section.
 
 * container: the DOM element where the 3DLayot is created. 
+
+## Showcase mode
+
+If you want to show the layout to a customer or embed it in read-only mode in another page of your platform (to act as a thumbnail of the project) you can do it by adding an iframe element with a modified version of the url of the layout.
+
+### Showcase without camera spin
+
+    <iframe src=(url + "/showcase")> </iframe> 
+
+In this mode the 3DLayout will show the project in perspective mode without any gui elements and a quiet 3d view. You can click and drag with the mouse to rotate the view and zoom with the mouse wheel. 
+
+### Showcase with camera spin
+
+    <iframe src=(url + "/spin-showcase")> </iframe> 
+
+In this mode the 3DLayout will show the project in perspective mode without any gui elements and a rotating 3d view. You can click and drag with the mouse to rotate the view and zoom with the mouse wheel. Once clicked the rotation will stop.
