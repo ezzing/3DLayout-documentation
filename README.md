@@ -66,6 +66,7 @@ Table of contents
     -   [\[2.6.0\] - 2016-08-29](#section)
         -   [added](#added)
         -   [changed](#changed)
+        -   [fixed](#fixed)
 
 Introduction
 ============
@@ -1104,3 +1105,7 @@ A dialog window is showed when vertices or roof is edited, to alert the user abo
 Fix style for loading animation to adjust to window size.
 
 *Area offset* now is called **Edge Zone**
+
+### fixed
+
+Some errata in the pdf (added measure units for all values)
