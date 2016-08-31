@@ -2,7 +2,7 @@
 
 # Changelog
 
-## [2.6.0] - 2016-08-29
+## [2.6.0] - 2016-09-1
 
 ### added
 
@@ -23,6 +23,8 @@ A dialog window is showed when vertices or roof is edited, to alert the user abo
 Fix style for loading animation to adjust to window size.
 
 *Area offset* now is called **Edge Zone**
+
+*Building height* now is called **Gutter height** as it doesn't count the roof height.
 
 ### fixed
 
