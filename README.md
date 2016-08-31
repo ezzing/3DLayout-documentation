@@ -239,7 +239,7 @@ Which will return the information from the created layout:
       id: 1093,
       title: "EzzingSolar",
       address: "Calle de Sagasta, 18",
-      zip: "28004Madrid",
+      zip: "28004",
       city: "Madrid",
       province: "Madrid",
       country: "Spain",
@@ -250,20 +250,20 @@ Which will return the information from the created layout:
       url: "https://layout.ezzing.com/#/GXXlgzDk0rPsrdxWfDsE5Cdi9FwUrBPx7GfuxSf0::1093"
     }
 
-    {
-      id: the layout id (integer), you need this id to load the project or retrieve information,
-      title: A title for the project,
-      address: the address
-      zip: the zip code,
-      city: the city,
-      province: the province,
-      country: the contry,
-      latitude: latitude value in decimal degrees (remember to include the negative sign for south and west coordinates) ,
-      longitude:longitude value in decimal degrees (remember to include the negative sign for south and west coordinates),
-      created_at: creation date,
-      updated_at: modification date,
-      url: an url to visit the project or embed it as an iframe
-    }
+where:
+
+**id**: the layout id (integer), you need this id to load the project or retrieve information,
+**title**: A title for the project,
+**address**: the address
+**zip**: the zip code,
+**city**: the city,
+**province**: the province,
+**country**: the contry,
+**latitude**: latitude value in decimal degrees (remember to include the negative sign for south and west coordinates) ,
+**longitude**:longitude value in decimal degrees (remember to include the negative sign for south and west coordinates),
+**created\_at**: creation date (format ISO 8601),
+**updated\_at**: modification date (format ISO 8601),
+**url**: an url to visit the project or embed it as an iframe
 
 > The url can be used to embed a readonly version of the project. You can read a description of this methods in the [Showcase mode](#showcase-mode) section.
 
