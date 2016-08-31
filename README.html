@@ -257,6 +257,9 @@
 <li><strong>updated_at</strong>: modification date,</li>
 <li><strong>url</strong>: an url to visit the project or embed it as an iframe</li>
 </ul>
+<blockquote>
+<p>The url can be used to embed a readonly version of the project. You can read a description of this methods in the <a href="#showcase-mode">Showcase mode</a> section.</p>
+</blockquote>
 <p>The data types in wich each value is stored is:</p>
 <ul>
 <li><strong>id</strong>: integer</li>
@@ -266,15 +269,12 @@
 <li><strong>province</strong>: string 255 chars</li>
 <li><strong>country</strong>: string 255 chars</li>
 <li><strong>zip</strong>: string 255 chars</li>
-<li><strong>latitude</strong>: decimal (+/-)xx.yyyyyyyy</li>
-<li><strong>longitude</strong>: decimal (+/-)xxx.yyyyyyyy</li>
+<li><strong>latitude</strong>: decimal (+/-)xx.yyyyyyyy (max. precision 8 decimal digits)</li>
+<li><strong>longitude</strong>: decimal (+/-)xxx.yyyyyyyy (max. precision 8 decimal digits)</li>
 <li><strong>created_at</strong>: ISO8601</li>
 <li><strong>updated_at</strong>: ISO8601</li>
 <li><strong>url</strong>: string 2000 chars</li>
 </ul>
-<blockquote>
-<p>The url can be used to embed a readonly version of the project. You can read a description of this methods in the <a href="#showcase-mode">Showcase mode</a> section.</p>
-</blockquote>
 <h3 id="getlayout">getLayout</h3>
 <p>Returns a layout’s information related to the given id</p>
 <pre><code>Ezzing3DApi.getLayout(id, function(err, layoutData) {

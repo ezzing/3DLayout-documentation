@@ -88,6 +88,8 @@ where:
 * **updated_at**: modification date,
 * **url**: an url to visit the project or embed it as an iframe
 
+> The url can be used to embed a readonly version of the project. You can read a description of this methods in the [Showcase mode](#showcase-mode) section.
+
 The data types in wich each value is stored is:
 
 * **id**: integer
@@ -97,14 +99,11 @@ The data types in wich each value is stored is:
 * **province**: string 255 chars
 * **country**: string 255 chars
 * **zip**: string 255 chars
-* **latitude**: decimal (+/-)xx.yyyyyyyy
-* **longitude**: decimal (+/-)xxx.yyyyyyyy
+* **latitude**: decimal (+/-)xx.yyyyyyyy (max. precision 8 decimal digits)
+* **longitude**: decimal (+/-)xxx.yyyyyyyy (max. precision 8 decimal digits)
 * **created_at**: ISO8601
 * **updated_at**: ISO8601
 * **url**: string 2000 chars
-
-
-> The url can be used to embed a readonly version of the project. You can read a description of this methods in the [Showcase mode](#showcase-mode) section.
 
 ### getLayout
 
