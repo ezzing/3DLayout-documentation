@@ -1166,7 +1166,7 @@ Two new showcase options, with and without camera spining. You can read a descri
 
 New **perspective**, **spin** and **readonly** options. You can read a description of this methods in the [Special Behaviours](#special-behaviours) section.
 
-Custom Logo. You can read about this new feature in the [Custom Loading Animation](#custom-loading-animation) section.
+Custom Logo. You can read about this new feature in the [Custom Logo](#custom-logo) section.
 
 Custom Loading Animation. You can read about this new feature in the [Custom Loading Animation](#custom-loading-animation) section.
 
