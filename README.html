@@ -419,14 +419,14 @@ This event is triggered when the 3DLayout finish to load the project from the CR
 <pre><code>{
     id: the building id,
     name: the building name,
-    number of modules: total of modules in the building
+    modules: total of modules in the building
     areas: an array of areas in the building
 }</code></pre>
 <p>Each area in the areas array contains:</p>
 <pre><code>{
     id: the area id,
     name: the area name,
-    number of modules: total of modules in the area
+    modules: total of modules in the area
 }</code></pre>
 <h4 id="gettotalpower">getTotalPower</h4>
 <pre><code>layout.getTotalPower(callback);</code></pre>
@@ -467,6 +467,12 @@ This event is triggered when the 3DLayout finish to load the project from the CR
     vertices: building vertices in lat/long coordinates,
     modules: total of modules in the building
     power: total power of the building,
+    areas: array of areas in this building
+}</code></pre>
+<p>Each area in the areas array contains:</p>
+<pre><code>{
+    id: the area id,
+    name: the area name
 }</code></pre>
 <h4 id="getroofinfo">getRoofInfo</h4>
 <pre><code>layout.getRoofInfo(id, callback);</code></pre>

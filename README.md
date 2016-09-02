@@ -493,7 +493,7 @@ Each building in the array contains:
     {
         id: the building id,
         name: the building name,
-        number of modules: total of modules in the building
+        modules: total of modules in the building
         areas: an array of areas in the building
     }
 
@@ -502,7 +502,7 @@ Each area in the areas array contains:
     {
         id: the area id,
         name: the area name,
-        number of modules: total of modules in the area
+        modules: total of modules in the area
     }
 
 #### getTotalPower
@@ -559,6 +559,14 @@ The data returned is:
         vertices: building vertices in lat/long coordinates,
         modules: total of modules in the building
         power: total power of the building,
+        areas: array of areas in this building
+    }
+
+Each area in the areas array contains:
+
+    {
+        id: the area id,
+        name: the area name
     }
 
 #### getRoofInfo
