@@ -28,6 +28,7 @@ Table of contents
     -   [Showcase mode](#showcase-mode)
         -   [Showcase without camera spin](#showcase-without-camera-spin)
         -   [Showcase with camera spin](#showcase-with-camera-spin)
+    -   [Tutorial mode](#tutorial-mode)
 -   [3DLayout Communication System](#dlayout-communication-system)
     -   [Info Events sent by 3DLayout](#info-events-sent-by-3dlayout)
         -   [zoomChanged](#zoomchanged)
@@ -56,6 +57,7 @@ Table of contents
         -   [Showcase](#showcase)
         -   [zoom](#zoom)
         -   [logo](#logo)
+        -   [azimuthOffset](#azimuthoffset)
     -   [Default Values](#default-values)
         -   [modules](#modules)
         -   [DefaultRoofs](#defaultroofs)
@@ -66,9 +68,13 @@ Table of contents
         -   [ControlCustomButtons](#controlcustombuttons)
     -   [Custom Logo](#custom-logo)
     -   [Custom Loading Animation](#custom-loading-animation)
+    -   [Custom Logo in tutorial section](#custom-logo-in-tutorial-section)
+    -   [Customize Go back button in the tutorial menu](#customize-go-back-button-in-the-tutorial-menu)
 -   [Changelog](#changelog)
-    -   [\[2.6.0\] - 2016-09-1](#section)
-        -   [added](#added)
+    -   [\[2.7.0\] - 2016-09-09](#section)
+    -   [added](#added)
+    -   [\[2.6.0\] - 2016-09-01](#section-1)
+        -   [added](#added-1)
         -   [changed](#changed)
         -   [fixed](#fixed)
         -   [deprecated](#deprecated)
@@ -342,6 +348,15 @@ In this mode the 3DLayout will show the project in perspective mode without any 
     <iframe src=(url + "/spin-showcase")> </iframe> 
 
 In this mode the 3DLayout will show the project in perspective mode without any gui elements and a rotating 3d view. You can click and drag with the mouse to rotate the view and zoom with the mouse wheel. Once clicked the rotation will stop.
+
+Tutorial mode
+-------------
+
+If you want to access the interactive tutorial you can just pass the string ‘tutorial’ to the layout id.
+
+    Ezzing3DApi.loadLayout('tutorial', function(err, layout, container) {
+        if (err) throw err;
+    });
 
 3DLayout Communication System
 =============================
@@ -697,6 +712,7 @@ Available rule objects expected by the 3DLayout:
     -   showcase
     -   zoom
     -   logo
+    -   azimuthOffset
 -   Default Values
     -   modules
     -   DefaultRoofs
@@ -745,6 +761,16 @@ You can set the starting zoom value. Zoom values use to range between 17 (far) t
 You can choose to show (true) or hide (false) the ezzingsolar logo from the top part of the aside panel.
 
     {'logo': true}
+
+### azimuthOffset
+
+Add an offset value to define your prefered convention for south faced modules.
+
+Set azimuthOffset to 180 to have modules oriented to south with azimuth value of 180.
+
+Set azimuthOffset to 0 or skip this value to have modules oriented to south with azimuth value of 0.
+
+    {'azimuthOffset': 180}
 
 Default Values
 --------------
@@ -1149,7 +1175,7 @@ Custom Logo
 You can easily customize the logo showed in the aside by setting a new CSS style to the loading element. Just add this code to the styles part of your html file:
 
     #ez3d-logo {
-        background-image: url(path-to-your-png-logo') !important;
+        background-image: url(path-to-your-png-logo) !important;
         background-size: 140px !important;
         background-position: 40px center !important;
         background-repeat: no-repeat !important;
@@ -1175,11 +1201,44 @@ Note you should use the **!important** attribute to overwrite the 3DLayout style
 
 Please use a transparent background animated gif or png for better results.
 
+Custom Logo in tutorial section
+-------------------------------
+
+You can easily customize the logo showed in the tutorial section by setting a new CSS style to the loading element. Just add this code to the styles part of your html file:
+
+    #ez3d-logo-tuto {
+        background: url(path-to-your-png-logo) top center no-repeat !important;
+        background-size: auto 75px !important;
+    }
+
+Customize Go back button in the tutorial menu
+---------------------------------------------
+
+If you want to hide the go-back button you can use this css declaration:
+
+    #ez3d-goback-tuto {
+      display: none;
+    }
+
+Or you can modify more in deep the href of the element via javascript by using the id: ‘ez3d-goback-tuto’
+
 Changelog
 =========
 
-\[2.6.0\] - 2016-09-1
----------------------
+\[2.7.0\] - 2016-09-09
+----------------------
+
+added
+-----
+
+Tutorial mode access information. You can read about this new feature in the [Custom Logo](#custom-logo) section.
+
+Custom Logo in tutorial section. You can read about this new feature in the [Custom Logo](#custom-logo) section.
+
+Customize Go back button in the tutorial menu. You can read about this new feature in the [Custom Logo](#custom-logo) section.
+
+\[2.6.0\] - 2016-09-01
+----------------------
 
 ### added
 

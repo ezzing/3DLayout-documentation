@@ -2,7 +2,17 @@
 
 # Changelog
 
-## [2.6.0] - 2016-09-1
+## [2.7.0] - 2016-09-09
+
+## added
+
+Tutorial mode access information. You can read about this new feature in the [Custom Logo](#custom-logo) section.
+
+Custom Logo in tutorial section. You can read about this new feature in the [Custom Logo](#custom-logo) section.
+
+Customize Go back button in the tutorial menu. You can read about this new feature in the [Custom Logo](#custom-logo) section.
+
+## [2.6.0] - 2016-09-01
 
 ### added
 

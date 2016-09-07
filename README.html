@@ -58,6 +58,7 @@
 <li><a href="#showcase-without-camera-spin">Showcase without camera spin</a></li>
 <li><a href="#showcase-with-camera-spin">Showcase with camera spin</a></li>
 </ul></li>
+<li><a href="#tutorial-mode">Tutorial mode</a></li>
 </ul></li>
 <li><a href="#dlayout-communication-system">3DLayout Communication System</a><ul>
 <li><a href="#info-events-sent-by-3dlayout">Info Events sent by 3DLayout</a><ul>
@@ -90,6 +91,7 @@
 <li><a href="#showcase">Showcase</a></li>
 <li><a href="#zoom">zoom</a></li>
 <li><a href="#logo">logo</a></li>
+<li><a href="#azimuthoffset">azimuthOffset</a></li>
 </ul></li>
 <li><a href="#default-values">Default Values</a><ul>
 <li><a href="#modules">modules</a></li>
@@ -103,10 +105,14 @@
 </ul></li>
 <li><a href="#custom-logo">Custom Logo</a></li>
 <li><a href="#custom-loading-animation">Custom Loading Animation</a></li>
+<li><a href="#custom-logo-in-tutorial-section">Custom Logo in tutorial section</a></li>
+<li><a href="#customize-go-back-button-in-the-tutorial-menu">Customize Go back button in the tutorial menu</a></li>
 </ul></li>
 <li><a href="#changelog">Changelog</a><ul>
-<li><a href="#section">[2.6.0] - 2016-09-1</a><ul>
+<li><a href="#section">[2.7.0] - 2016-09-09</a></li>
 <li><a href="#added">added</a></li>
+<li><a href="#section-1">[2.6.0] - 2016-09-01</a><ul>
+<li><a href="#added-1">added</a></li>
 <li><a href="#changed">changed</a></li>
 <li><a href="#fixed">fixed</a></li>
 <li><a href="#deprecated">deprecated</a></li>
@@ -319,6 +325,11 @@ Ezzing3DApi.loadLayout(id, rules, function(err, layout, container) {
 <h3 id="showcase-with-camera-spin">Showcase with camera spin</h3>
 <pre><code>&lt;iframe src=(url + &quot;/spin-showcase&quot;)&gt; &lt;/iframe&gt; </code></pre>
 <p>In this mode the 3DLayout will show the project in perspective mode without any gui elements and a rotating 3d view. You can click and drag with the mouse to rotate the view and zoom with the mouse wheel. Once clicked the rotation will stop.</p>
+<h2 id="tutorial-mode">Tutorial mode</h2>
+<p>If you want to access the interactive tutorial you can just pass the string ‘tutorial’ to the layout id.</p>
+<pre><code>Ezzing3DApi.loadLayout(&#39;tutorial&#39;, function(err, layout, container) {
+    if (err) throw err;
+});</code></pre>
 <div class="page-break"></div>
 <h1 id="dlayout-communication-system">3DLayout Communication System</h1>
 <h2 id="info-events-sent-by-3dlayout">Info Events sent by 3DLayout</h2>
@@ -625,6 +636,7 @@ With this function you can change this building fields
 <li>showcase</li>
 <li>zoom</li>
 <li>logo</li>
+<li>azimuthOffset</li>
 </ul></li>
 <li>Default Values
 <ul>
@@ -659,6 +671,11 @@ With this function you can change this building fields
 <h3 id="logo">logo</h3>
 <p>You can choose to show (true) or hide (false) the ezzingsolar logo from the top part of the aside panel.</p>
 <pre><code>{&#39;logo&#39;: true}</code></pre>
+<h3 id="azimuthoffset">azimuthOffset</h3>
+<p>Add an offset value to define your prefered convention for south faced modules.</p>
+<p>Set azimuthOffset to 180 to have modules oriented to south with azimuth value of 180.</p>
+<p>Set azimuthOffset to 0 or skip this value to have modules oriented to south with azimuth value of 0.</p>
+<pre><code>{&#39;azimuthOffset&#39;: 180}</code></pre>
 <h2 id="default-values">Default Values</h2>
 <p>User can define the default values for modules, buildings, roofs and even the color palete for modules.</p>
 <h3 id="modules">modules</h3>
@@ -1013,7 +1030,7 @@ We use the fontawesome icons collection, so you can use it to define new buttons
 <h2 id="custom-logo">Custom Logo</h2>
 <p>You can easily customize the logo showed in the aside by setting a new CSS style to the loading element. Just add this code to the styles part of your html file:</p>
 <pre><code>#ez3d-logo {
-    background-image: url(path-to-your-png-logo&#39;) !important;
+    background-image: url(path-to-your-png-logo) !important;
     background-size: 140px !important;
     background-position: 40px center !important;
     background-repeat: no-repeat !important;
@@ -1030,11 +1047,28 @@ We use the fontawesome icons collection, so you can use it to define new buttons
 }</code></pre>
 <p>Note you should use the <strong>!important</strong> attribute to overwrite the 3DLayout styles.</p>
 <p>Please use a transparent background animated gif or png for better results.</p>
+<h2 id="custom-logo-in-tutorial-section">Custom Logo in tutorial section</h2>
+<p>You can easily customize the logo showed in the tutorial section by setting a new CSS style to the loading element. Just add this code to the styles part of your html file:</p>
+<pre><code>#ez3d-logo-tuto {
+    background: url(path-to-your-png-logo) top center no-repeat !important;
+    background-size: auto 75px !important;
+}</code></pre>
+<h2 id="customize-go-back-button-in-the-tutorial-menu">Customize Go back button in the tutorial menu</h2>
+<p>If you want to hide the go-back button you can use this css declaration:</p>
+<pre><code>#ez3d-goback-tuto {
+  display: none;
+}</code></pre>
+<p>Or you can modify more in deep the href of the element via javascript by using the id: ‘ez3d-goback-tuto’</p>
 <div class="page-break"></div>
 <div class="page-break"></div>
 <h1 id="changelog">Changelog</h1>
-<h2 id="section">[2.6.0] - 2016-09-1</h2>
-<h3 id="added">added</h3>
+<h2 id="section">[2.7.0] - 2016-09-09</h2>
+<h2 id="added">added</h2>
+<p>Tutorial mode access information. You can read about this new feature in the <a href="#custom-logo">Custom Logo</a> section.</p>
+<p>Custom Logo in tutorial section. You can read about this new feature in the <a href="#custom-logo">Custom Logo</a> section.</p>
+<p>Customize Go back button in the tutorial menu. You can read about this new feature in the <a href="#custom-logo">Custom Logo</a> section.</p>
+<h2 id="section-1">[2.6.0] - 2016-09-01</h2>
+<h3 id="added-1">added</h3>
 <p>Some minor GUI changes to clarify the workflow.</p>
 <p>Two new showcase options, with and without camera spining. You can read a description of this options in the <a href="#showcase-mode">Showcase mode</a> section.</p>
 <p>New <strong>perspective</strong>, <strong>spin</strong> and <strong>readonly</strong> options. You can read a description of this options in the <a href="#special-behaviours">Special Behaviours</a> section.</p>

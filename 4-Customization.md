@@ -22,6 +22,7 @@ Available rule objects expected by the 3DLayout:
     * showcase
     * zoom
     * logo
+    * azimuthOffset
 * Default Values
     * modules
     * DefaultRoofs
@@ -70,6 +71,16 @@ You can set the starting zoom value. Zoom values use to range between 17 (far) t
 You can choose to show (true) or hide (false) the ezzingsolar logo from the top part of the aside panel.
 
     {'logo': true}
+
+### azimuthOffset
+
+Add an offset value to define your prefered convention for south faced modules. 
+
+Set azimuthOffset to 180 to have modules oriented to south with azimuth value of 180.
+
+Set azimuthOffset to 0 or skip this value to have modules oriented to south with azimuth value of 0.
+
+    {'azimuthOffset': 180}
 
 ## Default Values
 
@@ -475,7 +486,7 @@ To customize this buttoms you  can comment out the lines of the button you want 
 You can easily customize the logo showed in the aside by setting a new CSS style to the loading element. Just add this code to the styles part of your html file:
 
     #ez3d-logo {
-        background-image: url(path-to-your-png-logo') !important;
+        background-image: url(path-to-your-png-logo) !important;
         background-size: 140px !important;
         background-position: 40px center !important;
         background-repeat: no-repeat !important;
@@ -499,5 +510,24 @@ You can easily customize the loading animation showed when starting the 3DLayout
 Note you should use the **!important** attribute to overwrite the 3DLayout styles. 
 
 Please use a transparent background animated gif or png for better results.
+
+## Custom Logo in tutorial section
+
+You can easily customize the logo showed in the tutorial section by setting a new CSS style to the loading element. Just add this code to the styles part of your html file:
+
+    #ez3d-logo-tuto {
+        background: url(path-to-your-png-logo) top center no-repeat !important;
+        background-size: auto 75px !important;
+    }
+
+## Customize Go back button in the tutorial menu
+
+If you want to hide the go-back button you can use this css declaration:
+
+    #ez3d-goback-tuto {
+      display: none;
+    }
+
+Or you can modify more in deep the href of the element via javascript by using the id: 'ez3d-goback-tuto'
 
 <div class="page-break"></div>
