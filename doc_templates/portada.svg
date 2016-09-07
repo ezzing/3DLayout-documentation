@@ -72,10 +72,10 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.867947"
-     inkscape:cx="333.54919"
-     inkscape:cy="765.73046"
+     inkscape:cx="178.29853"
+     inkscape:cy="379.20986"
      inkscape:document-units="px"
-     inkscape:current-layer="g3711"
+     inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="3200"
      inkscape:window-height="1671"
@@ -161,7 +161,7 @@
              width="382.16104"
              id="rect3438"
              style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:26.79081154px;line-height:125%;font-family:'Futura Std';-inkscape-font-specification:'Futura Std, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#ffffff" /></flowRegion><flowPara
-           id="flowPara3440">(v2.6.0)</flowPara></flowRoot>    </g>
+           id="flowPara3440">(v2.7.0)</flowPara></flowRoot>    </g>
     <g
        id="g3670"
        transform="matrix(0.91209756,0,0,0.91209756,39.492756,-386.63593)">
@@ -291,33 +291,33 @@
       <image
          sodipodi:absref="/media/home-gs16/workspace/3DLayout-documentation/doc_templates/../layout-doc-imgs/tab-areas-2.jpg"
          xlink:href="../layout-doc-imgs/tab-areas-2.jpg"
-         y="560.71558"
-         x="206.78128"
-         id="image3759"
-         preserveAspectRatio="none"
+         width="487.04568"
          height="256.62439"
-         width="487.04568" />
+         preserveAspectRatio="none"
+         id="image3759"
+         x="206.78128"
+         y="560.71558" />
       <image
          sodipodi:absref="/media/home-gs16/workspace/3DLayout-documentation/doc_templates/../layout-doc-imgs/MacScreen.png"
          xlink:href="../layout-doc-imgs/MacScreen.png"
-         y="545.41132"
-         x="188.60963"
-         id="image3706"
-         preserveAspectRatio="none"
+         width="522.16382"
          height="363.60611"
-         width="522.16382" />
+         preserveAspectRatio="none"
+         id="image3706"
+         x="188.60963"
+         y="545.41132" />
     </g>
     <image
        sodipodi:absref="/media/home-gs16/workspace/3DLayout-documentation/doc_templates/../layout-doc-imgs/tablet3-min.png"
        xlink:href="../layout-doc-imgs/tablet3-min.png"
-       transform="matrix(0.73757556,0,0,0.73757556,-661.61602,301.37756)"
-       clip-path="url(#clipPath3792)"
-       width="512.07062"
-       height="415.67636"
-       preserveAspectRatio="none"
-       id="image3737"
+       y="475.67062"
        x="853.73962"
-       y="475.67062" />
+       id="image3737"
+       preserveAspectRatio="none"
+       height="415.67636"
+       width="512.07062"
+       clip-path="url(#clipPath3792)"
+       transform="matrix(0.73757556,0,0,0.73757556,-661.61602,301.37756)" />
     <rect
        transform="scale(1,-1)"
        style="fill:#222b5d;fill-opacity:1;stroke:none;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:6, 2;stroke-dashoffset:0;stroke-opacity:1"
@@ -331,7 +331,7 @@
        xml:space="preserve"
        id="flowRoot3352"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:29.1337471px;line-height:125%;font-family:'Futura Std';-inkscape-font-specification:'Futura Std, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       transform="matrix(0.74779391,0,0,0.74779391,238.61603,273.46634)"><flowRegion
+       transform="matrix(0.74779391,0,0,0.74779391,218.61603,273.46634)"><flowRegion
          id="flowRegion3354"><rect
            id="rect3356"
            width="268.7066"
@@ -339,7 +339,7 @@
            x="425.92926"
            y="973.52216"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:29.1337471px;line-height:125%;font-family:'Futura Std';-inkscape-font-specification:'Futura Std, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start" /></flowRegion><flowPara
-         id="flowPara3358">September, 2016</flowPara></flowRoot>    <g
+         id="flowPara3358">September 9, 2016</flowPara></flowRoot>    <g
        transform="matrix(0.53038864,0,0,-0.53038864,11.494267,1047.5636)"
        id="g4607">
       <g
