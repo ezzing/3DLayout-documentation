@@ -74,7 +74,7 @@ You can choose to show (true) or hide (false) the ezzingsolar logo from the top 
 
 ### azimuthOffset
 
-Add an offset value to define your prefered convention for south faced modules. 
+Add an offset value to define your prefered convention for south faced modules.
 
 Set azimuthOffset to 180 to have modules oriented to south with azimuth value of 180.
 

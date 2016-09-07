@@ -1231,11 +1231,13 @@ Changelog
 added
 -----
 
-Tutorial mode access information. You can read about this new feature in the [Custom Logo](#custom-logo) section.
+Tutorial mode access information. You can read about this new feature in the [Tutorial mode](#tutorial-mode) section.
 
-Custom Logo in tutorial section. You can read about this new feature in the [Custom Logo](#custom-logo) section.
+Custom Logo in tutorial section. You can read about this new feature in the [Custom Logo in tutorial section](#custom-logo-in-tutorial-section) section.
 
-Customize Go back button in the tutorial menu. You can read about this new feature in the [Custom Logo](#custom-logo) section.
+Customize Go back button in the tutorial menu. You can read about this new feature in the [Customize Go back button in the tutorial menu](#customize-go-back-button-in-the-tutorial-menu) section.
+
+azimuthOffset option to define your prefered convention for south faced modules. You can read about this new option in the [azimuthOffset](#azimuthoffset)
 
 \[2.6.0\] - 2016-09-01
 ----------------------
