@@ -6,13 +6,23 @@
 
 ## added
 
-Tutorial mode access information. You can read about this new feature in the [Tutorial mode](#tutorial-mode) section.
+**Tutorial mode** access information. You can read about this new feature in the [Tutorial mode](#tutorial-mode) section.
 
-Custom Logo in tutorial section. You can read about this new feature in the [Custom Logo in tutorial section](#custom-logo-in-tutorial-section) section.
+**Custom Logo in tutorial** section. You can read about this new feature in the [Custom Logo in tutorial section](#custom-logo-in-tutorial-section) section.
 
-Customize Go back button in the tutorial menu. You can read about this new feature in the [Customize Go back button in the tutorial menu](#customize-go-back-button-in-the-tutorial-menu) section.
+**Customize Go back button** in the tutorial menu. You can read about this new feature in the [Customize Go back button in the tutorial menu](#customize-go-back-button-in-the-tutorial-menu) section.
 
-azimuthOffset option to define your prefered convention for south faced modules. You can read about this new option in the [azimuthOffset](#azimuthoffset)
+**azimuthOffset** option to define your prefered convention for south faced modules. You can read about this new option in the [azimuthOffset](#azimuthoffset)
+
+Roof inclination in degrees is showed in building information panel.
+
+### Changed
+
+New feature to add vertices on building and keepout creation. Now when 3 points are entered, the fourth one is calculated automatically (drawed in yellow) to help the creation of regular buildings. Just press "next step" when the yellow lines appears to accept the fourth point, or click again in the canvas to enter another point and go ahead with an irregular shape.
+
+### Fixed
+
+Minor problems in the keepout and trees lists has been fixed. Now select and edit objects is easier. 
 
 ## [2.6.0] - 2016-09-01
 
