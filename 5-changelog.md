@@ -2,6 +2,26 @@
 
 # Changelog
 
+## [2.9.1] - 2016-09-19
+
+### Fixed
+
+Fix tutorial to show new features on building creation (auto calculated point)
+
+## [2.9.0] - 2016-09-18
+
+### Fixed
+
+Fixed a bug that prevented all buildings to be removed from a project.
+
+Fixed some minor css issues
+
+## [2.8.0] - 2016-09-14
+
+### Changed
+
+Improved country detection internal functions.
+
 ## [2.7.0] - 2016-09-09
 
 ## added

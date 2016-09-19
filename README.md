@@ -71,14 +71,20 @@ Table of contents
     -   [Custom Logo in tutorial section](#custom-logo-in-tutorial-section)
     -   [Customize Go back button in the tutorial menu](#customize-go-back-button-in-the-tutorial-menu)
 -   [Changelog](#changelog)
-    -   [\[2.7.0\] - 2016-09-09](#section)
-    -   [added](#added)
-        -   [Changed](#changed)
+    -   [\[2.9.1\] - 2016-09-19](#section)
         -   [Fixed](#fixed)
-    -   [\[2.6.0\] - 2016-09-01](#section-1)
+    -   [\[2.9.0\] - 2016-09-18](#section-1)
+        -   [Fixed](#fixed-1)
+    -   [\[2.8.0\] - 2016-09-14](#section-2)
+        -   [Changed](#changed)
+    -   [\[2.7.0\] - 2016-09-09](#section-3)
+    -   [added](#added)
+        -   [Changed](#changed-1)
+        -   [Fixed](#fixed-2)
+    -   [\[2.6.0\] - 2016-09-01](#section-4)
         -   [added](#added-1)
-        -   [changed](#changed-1)
-        -   [fixed](#fixed-1)
+        -   [changed](#changed-2)
+        -   [fixed](#fixed-3)
         -   [deprecated](#deprecated)
 
 Introduction
@@ -1226,6 +1232,29 @@ Or you can modify more in deep the href of the element via javascript by using t
 
 Changelog
 =========
+
+\[2.9.1\] - 2016-09-19
+----------------------
+
+### Fixed
+
+Fix tutorial to show new features on building creation (auto calculated point)
+
+\[2.9.0\] - 2016-09-18
+----------------------
+
+### Fixed
+
+Fixed a bug that prevented all buildings to be removed from a project.
+
+Fixed some minor css issues
+
+\[2.8.0\] - 2016-09-14
+----------------------
+
+### Changed
+
+Improved country detection internal functions.
 
 \[2.7.0\] - 2016-09-09
 ----------------------
