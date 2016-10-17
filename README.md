@@ -398,6 +398,7 @@ The full list of events emmited by the 3DLayout are:
 -   buildingRemoved
 -   buildingSelected
 -   buildingCreated
+-   customAlertOk
 
 ### zoomChanged
 

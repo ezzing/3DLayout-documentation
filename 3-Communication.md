@@ -30,6 +30,7 @@ The full list of events emmited by the 3DLayout are:
 * buildingRemoved
 * buildingSelected
 * buildingCreated
+* customAlertOk
 
 <!--  
 ### load
@@ -98,6 +99,12 @@ This event is triggerd each time a new building becomes active. The event sends 
 ### buildingCreated
 
 This event is triggerd each time a new building is created. The event sends the **building.id**
+
+<!-- ### customAlertOk
+
+This event is triggered when the user confirm a custom alert dialog. 
+
+> You can read a description of this methods in the [Layout Rules](#layout-rules) section. -->
 
 ## Functions to retrieve info from 3DLayout
 
@@ -333,6 +340,18 @@ The data for each module in the array is:
 Returns an array of vertices containing the offseted area for a given area.id and offset
 
 If the offset is a negative value, then the area is reduced by the offset value (in meters)
+
+<!-- ## Functions to send info from 3DLayout
+
+### CustomAlert event
+
+You can send this event to show an alert with some information to the user in any moment.
+
+    layout.customAlert(title_text_string, body_text_string, callback);
+
+
+ -->
+
 
 <!-- ***
     Recordadme que tengo que automatizar el token de creación de objetos en la api

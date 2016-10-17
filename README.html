@@ -369,6 +369,7 @@ container.addEventListener(&quot;buildingSelected&quot;, function(event, data){
 <li>buildingRemoved</li>
 <li>buildingSelected</li>
 <li>buildingCreated</li>
+<li>customAlertOk</li>
 </ul>
 <!--  
 ### load
@@ -406,6 +407,11 @@ This event is triggered when the 3DLayout finish to load the project from the CR
 <p>This event is triggerd each time a new building becomes active. The event sends the <strong>building.id</strong></p>
 <h3 id="buildingcreated">buildingCreated</h3>
 <p>This event is triggerd each time a new building is created. The event sends the <strong>building.id</strong></p>
+<!-- ### customAlertOk
+
+This event is triggered when the user confirm a custom alert dialog. 
+
+> You can read a description of this methods in the [Layout Rules](#layout-rules) section. -->
 <h2 id="functions-to-retrieve-info-from-3dlayout">Functions to retrieve info from 3DLayout</h2>
 <p>There are a set of functions to retrieve information from the 3DLayout.</p>
 <p>For all these functions you can pass a callback as an argument to be executed when data is retrieved.</p>
@@ -572,6 +578,16 @@ This event is triggered when the 3DLayout finish to load the project from the CR
 <pre><code>layout.getAreaOffset(id, offset, callback);</code></pre>
 <p>Returns an array of vertices containing the offseted area for a given area.id and offset</p>
 <p>If the offset is a negative value, then the area is reduced by the offset value (in meters)</p>
+<!-- ## Functions to send info from 3DLayout
+
+### CustomAlert event
+
+You can send this event to show an alert with some information to the user in any moment.
+
+    layout.customAlert(title_text_string, body_text_string, callback);
+
+
+ -->
 <!-- ***
     Recordadme que tengo que automatizar el token de creación de objetos en la api
  -->
