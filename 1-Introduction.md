@@ -110,6 +110,10 @@ Default control custom buttons
 <div class="page-break"></div>
 # Keepouts
 
+## Crop keepout to the building shape
+
+When editing the vertices of a keepout you can check the 'crop to building limits'. This helps you to draw keepouts that extends to the border of the building with more precision.
+
 ## Keepout height calculations
 
 When creating keepouts, please note the height selected for the keepout is not always the final keepout height.
@@ -129,10 +133,6 @@ In keepout 2, A is also the desired height, but the keepout can't be drawn corre
 ## Invisible keepouts
 
 If you want to simulate a skylight or any keepout object without drawing the 3d volume you can check the Invisible keepout option to hide the 3D volume but still taking the obstacle into account.
-
-## Crop keepout to the building shape
-
-When editing the vertices of a keepout you can check the 'crop to building limits'. This helps you to draw keepouts that extends to the border of the building with more precision.
 
 <div class="page-break"></div>
 # Subareas
