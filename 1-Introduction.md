@@ -140,8 +140,6 @@ When editing the vertices of a keepout you can check the 'crop to building limit
 
 <img class="w200px" src="./layout-doc-imgs/imgs-sin-monitor/crop-shape-building-toggle.jpg" alt="crop-shape-building-toggle" />
 
-
-<div class="page-break"></div>
 # Subareas
 
 ## Subarea creation
