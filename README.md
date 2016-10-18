@@ -161,7 +161,6 @@ The default custom buttons are:
 -   redo
 -   undo
 -   save
-
 -   snapshot
 -   sun simulation
 -   perspective view
