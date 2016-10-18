@@ -154,6 +154,9 @@ To create a subarea click on the 'create subareas' button.
 
 Once the subarea button is activated the standard area functions become disabled and two new buttons appears:
 
+* Add subarea
+* Remove subareas
+
 ## Add subarea
 
 By clicking the 'add subarea' button you enter in the subarea creation process.
