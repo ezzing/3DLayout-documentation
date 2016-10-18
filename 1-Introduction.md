@@ -106,3 +106,42 @@ Default control custom buttons
 
 > Please, visit the section [Custom Buttons](#custom-buttons) to learn how to add your own functions.
 
+
+<div class="page-break"></div>
+# Keepouts
+
+## Keepout height calculations
+
+When creating keepouts, please note the height selected for the keepout is not always the final keepout height.
+
+Depending on the roof inclination and the keepout dimensions and positions, there is a minimum keepout height to avoid keepouts under the roof surface.
+
+Let's see an example:
+
+<img class="w100" src="./layout-doc-imgs/imgs-sin-monitor/keeoput-height-scheme.jpg" alt="controlbuttons" />
+
+In keepout 1, A is the desired height, and B is the minimum height for this keepout. As A is bigger than B then the keepout is created with the desired height (A).
+
+In keepout 2, A is also the desired height, but the keepout can't be drawn correctly if the height is less than B measure, as some parts of the keepout will stay below the roof, so keepout 2 will be created with the minimum calculated height (B).
+
+> Note that for flat roofs it is posible to create 0 height keepouts, but for inclinated roofs you need to use the invisible keepouts feature to allow keepouts at roof surface level.
+
+## Invisible keepouts
+
+If you want to simulate a skylight or any keepout object without drawing the 3d volume you can check the Invisible keepout option to hide the 3D volume but still taking the obstacle into account.
+
+## Crop keepout to the building shape
+
+When editing the vertices of a keepout you can check the 'crop to building limits'. This helps you to draw keepouts that extends to the border of the building with more precision.
+
+<div class="page-break"></div>
+# Subareas
+
+## Subarea creation
+
+A subarea is a region inside an area that allows you to define a modules installation just in a section of the area.
+
+To create a subarea 
+
+<img class="w200px" src="./layout-doc-imgs/imgs-sin-monitor/subarea-creation-button.jpg" alt="controlbuttons" />
+
