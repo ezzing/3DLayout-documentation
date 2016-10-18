@@ -157,6 +157,8 @@ Once the subarea button is activated the standard area functions become disabled
 * Add subarea
 * Remove subareas
 
+<img class="w200px" src="./layout-doc-imgs/imgs-sin-monitor/remove-add-subareas.jpg" alt="remove-add-subareas" />
+
 ## Add subarea
 
 By clicking the 'add subarea' button you enter in the subarea creation process.
@@ -174,8 +176,6 @@ Once created the subarea is listed below this buttons. You can then proceed to s
 <img class="w100" src="./layout-doc-imgs/imgs-sin-monitor/subarea-sample.jpg" alt="subarea-sample" />
 
 ## Remove Subareas
-
-<img class="w200px" src="./layout-doc-imgs/imgs-sin-monitor/remove-add-subareas.jpg" alt="remove-add-subareas" />
 
 By clicking the 'remove subareas' button all the subareas are removed and the area come back to its standard behaviour.
 
