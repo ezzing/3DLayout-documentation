@@ -125,7 +125,8 @@ In keepout 1, A is the desired height, and B is the minimum height for this keep
 In keepout 2, A is also the desired height, but the keepout can't be drawn correctly if the height is less than B measure, as some parts of the keepout will stay below the roof, so keepout 2 will be created with the minimum calculated height (B).
 
 > Note that for flat roofs it is posible to create 0 height keepouts, but for inclinated roofs you need to use the invisible keepouts feature to allow keepouts at roof surface level.
-> 
+
+
 <div class="page-break"></div>
 ## Invisible keepouts
 
@@ -139,6 +140,7 @@ When editing the vertices of a keepout you can check the 'crop to building limit
 
 <img class="w200px" src="./layout-doc-imgs/imgs-sin-monitor/crop-shape-building-toggle.jpg" alt="crop-shape-building-toggle" />
 
+
 <div class="page-break"></div>
 # Subareas
 
@@ -146,7 +148,30 @@ When editing the vertices of a keepout you can check the 'crop to building limit
 
 A subarea is a region inside an area that allows you to define a modules installation just in a section of the area.
 
-To create a subarea 
+To create a subarea click on the 'create subareas' button.
 
 <img class="w200px" src="./layout-doc-imgs/imgs-sin-monitor/subarea-creation-button.jpg" alt="subarea-creation-button" />
 
+Once the subarea button is activated the standard area functions become disabled and two new buttons appears:
+
+## Add subarea
+
+By clicking the 'add subarea' button you enter in the subarea creation process.
+
+<img class="w200px" src="./layout-doc-imgs/imgs-sin-monitor/add-subarea.jpg" alt="add-subarea" />
+
+Once created the subarea is listed below this buttons. You can then proceed to setup the subarea in the same way you work with standard areas.
+
+<img class="w200px" src="./layout-doc-imgs/imgs-sin-monitor/subarea-sample.jpg" alt="subarea-sample" />
+
+## Remove Subareas
+
+<img class="w200px" src="./layout-doc-imgs/imgs-sin-monitor/remove-add-subareas.jpg" alt="remove-add-subareas" />
+
+By clicking the 'remove subareas' button all the subareas are removed and the area come back to its standard behaviour.
+
+## Crop subarea to the area shape
+
+When editing the vertices of a subarea you can check the 'crop to building limits'. This helps you to draw keepouts that extends to the border of the building with more precision.
+
+<img class="w200px" src="./layout-doc-imgs/imgs-sin-monitor/crop-shape-building-toggle.jpg" alt="crop-shape-building-toggle" />
