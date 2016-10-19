@@ -151,15 +151,16 @@ A subarea is a region inside an area that allows you to define a modules install
 
 To create a subarea click on the 'create subareas' button.
 
-<img class="w200px" src="./layout-doc-imgs/imgs-sin-monitor/subarea-creation-button.jpg" alt="subarea-creation-button" /> | <img class="w200px" src="./layout-doc-imgs/imgs-sin-monitor/remove-add-subareas.jpg" alt="remove-add-subareas" />
+<img class="w200px" src="./layout-doc-imgs/imgs-sin-monitor/subarea-creation-button.jpg" alt="subarea-creation-button" />
 
 Once the subarea button is activated the standard area functions become disabled and two new buttons appears:
 
-
+<img class="w200px" src="./layout-doc-imgs/imgs-sin-monitor/remove-add-subareas.jpg" alt="remove-add-subareas" />
 
 * Add subarea
 * Remove subareas
 
+<div class="page-break"></div>
 ## Add subarea
 
 By clicking the 'add subarea' button you enter in the subarea creation process.
