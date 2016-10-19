@@ -140,6 +140,8 @@ When editing the vertices of a keepout you can check the 'crop to building limit
 
 <img class="w200px" src="./layout-doc-imgs/imgs-sin-monitor/crop-shape-building-toggle.jpg" alt="crop-shape-building-toggle" />
 
+If you unckeck this option then the keepout can be floating outside the building limits. At least one vertex of the keepout should be inside the building limits to be created.
+
 # Subareas
 
 ## Subarea creation
@@ -163,7 +165,11 @@ By clicking the 'add subarea' button you enter in the subarea creation process.
 
 <img class="w100" src="./layout-doc-imgs/imgs-sin-monitor/add-subarea.jpg" alt="add-subarea" />
 
-### Crop subarea to the area shape
+## Remove Subareas
+
+By clicking the 'remove subareas' button all the subareas are removed and the area come back to its standard behaviour.
+
+## Crop subarea to the area shape
 
 When editing the vertices of a subarea you can check the 'crop to building limits'. This helps you to draw keepouts that extends to the border of the building with more precision.
 
@@ -173,7 +179,5 @@ Once created the subarea is listed below this buttons. You can then proceed to s
 
 <img class="w100" src="./layout-doc-imgs/imgs-sin-monitor/subarea-sample.jpg" alt="subarea-sample" />
 
-## Remove Subareas
-
-By clicking the 'remove subareas' button all the subareas are removed and the area come back to its standard behaviour.
+If you uncheck this option then the subarea can extend outside the area, following the area plane.
 
