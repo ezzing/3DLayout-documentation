@@ -155,10 +155,10 @@ To create a subarea click on the 'create subareas' button.
 
 Once the subarea button is activated the standard area functions become disabled and two new buttons appears:
 
-<img class="w200px" src="./layout-doc-imgs/imgs-sin-monitor/remove-add-subareas.jpg" alt="remove-add-subareas" />
-
 * Remove subareas
 * Add subarea
+
+<img class="w200px" src="./layout-doc-imgs/imgs-sin-monitor/remove-add-subareas.jpg" alt="remove-add-subareas" />
 
 ## Remove Subareas
 
