@@ -142,6 +142,7 @@ When editing the vertices of a keepout you can check the 'crop to building limit
 
 If you unckeck this option then the keepout can be floating outside the building limits. At least one vertex of the keepout should be inside the building limits to be created.
 
+<div class="page-break"></div>
 # Subareas
 
 ## Subarea creation
