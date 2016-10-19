@@ -189,7 +189,7 @@ In the subarea panel you will find two new buttons:
 * Edit subarea vertices
 * remove subarea
 
-<img class="w100" src="./layout-doc-imgs/imgs-sin-monitor/subarea-edit-delete-buttons.jpg" alt="subarea-edit-delete-buttons" />
+<img class="w200px" src="./layout-doc-imgs/imgs-sin-monitor/subarea-edit-delete-buttons.jpg" alt="subarea-edit-delete-buttons" />
 
 ## Edit subarea vertices
 
