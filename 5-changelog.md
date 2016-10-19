@@ -2,6 +2,16 @@
 
 # Changelog
 
+## [2.10.0] - 2016-10-21
+
+### Added
+
+**Subareas feature**. You can read about this new feature in the [Subareas](#subareas) section.
+
+### Fixed
+
+### Changed
+
 ## [2.9.1] - 2016-09-19
 
 ### Fixed

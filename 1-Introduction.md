@@ -157,30 +157,45 @@ Once the subarea button is activated the standard area functions become disabled
 
 <img class="w200px" src="./layout-doc-imgs/imgs-sin-monitor/remove-add-subareas.jpg" alt="remove-add-subareas" />
 
-* Add subarea
 * Remove subareas
+* Add subarea
 
-<div class="page-break"></div>
+## Remove Subareas
+
+By clicking the 'remove subareas' button all the subareas are removed and the area come back to its standard behaviour.
+
 ## Add subarea
 
 By clicking the 'add subarea' button you enter in the subarea creation process.
 
 <img class="w100" src="./layout-doc-imgs/imgs-sin-monitor/add-subarea.jpg" alt="add-subarea" />
 
-## Crop subarea to the area shape
+### Crop subarea to the area shape
 
 When editing the vertices of a subarea you can check the 'crop to building limits'. This helps you to draw keepouts that extends to the border of the building with more precision.
 
 <img class="w200px" src="./layout-doc-imgs/imgs-sin-monitor/crop-shape-building-toggle.jpg" alt="crop-shape-building-toggle" />
 
-Once created the subarea is listed below this buttons. You can then proceed to setup the subarea in the same way you work with standard areas.
-
 If you uncheck this option then the subarea can extend outside the area, following the area plane.
 
 <img class="w100" src="./layout-doc-imgs/imgs-sin-monitor/subarea-sample.jpg" alt="subarea-sample" />
 
-## Remove Subareas
+## Subarea editing
 
-By clicking the 'remove subareas' button all the subareas are removed and the area come back to its standard behaviour.
+Once created the subarea is listed below this buttons. You can then proceed to setup the subarea in the same way you work with standard areas.
 
+In the subarea panel you will find two new buttons:
+
+* Edit subarea vertices
+* remove subarea
+
+<img class="w100" src="./layout-doc-imgs/imgs-sin-monitor/subarea-edit-delete-buttons.jpg" alt="subarea-edit-delete-buttons" />
+
+## Edit subarea vertices
+
+By clicking this button you can modify subarea vertices and the subarea will be recalculated.
+
+## Remove subarea
+
+By clicking this button you can remove a single subarea from the subareas list.
 
