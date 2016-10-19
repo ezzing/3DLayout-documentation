@@ -164,7 +164,7 @@ Once the subarea button is activated the standard area functions become disabled
 
 By clicking the 'add subarea' button you enter in the subarea creation process.
 
-<img class="w100" src="./layout-doc-imgs/imgs-sin-monitor/add-subarea.jpg" alt="add-subarea" />
+| <img class="w100" src="./layout-doc-imgs/imgs-sin-monitor/add-subarea.jpg" alt="add-subarea" /> | <img class="w200px" src="./layout-doc-imgs/imgs-sin-monitor/crop-shape-building-toggle.jpg" alt="crop-shape-building-toggle" /> |
 
 ## Remove Subareas
 
