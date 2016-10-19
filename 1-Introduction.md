@@ -167,10 +167,6 @@ By clicking the 'add subarea' button you enter in the subarea creation process.
 
 <img class="w100" src="./layout-doc-imgs/imgs-sin-monitor/add-subarea.jpg" alt="add-subarea" />
 
-## Remove Subareas
-
-By clicking the 'remove subareas' button all the subareas are removed and the area come back to its standard behaviour.
-
 ## Crop subarea to the area shape
 
 When editing the vertices of a subarea you can check the 'crop to building limits'. This helps you to draw keepouts that extends to the border of the building with more precision.
@@ -179,7 +175,12 @@ When editing the vertices of a subarea you can check the 'crop to building limit
 
 Once created the subarea is listed below this buttons. You can then proceed to setup the subarea in the same way you work with standard areas.
 
+If you uncheck this option then the subarea can extend outside the area, following the area plane.
+
 <img class="w100" src="./layout-doc-imgs/imgs-sin-monitor/subarea-sample.jpg" alt="subarea-sample" />
 
-If you uncheck this option then the subarea can extend outside the area, following the area plane.
+## Remove Subareas
+
+By clicking the 'remove subareas' button all the subareas are removed and the area come back to its standard behaviour.
+
 
