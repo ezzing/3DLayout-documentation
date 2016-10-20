@@ -164,6 +164,7 @@ Once the subarea button is activated the standard area functions become disabled
 
 By clicking the 'remove subareas' button all the subareas are removed and the area come back to its standard behaviour.
 
+<div class="page-break"></div>
 ## Add subarea
 
 By clicking the 'add subarea' button you enter in the subarea creation process.
@@ -191,11 +192,11 @@ In the subarea panel you will find two new buttons:
 
 <img class="w200px" src="./layout-doc-imgs/imgs-sin-monitor/subarea-edit-delete-buttons.jpg" alt="subarea-edit-delete-buttons" />
 
-## Edit subarea vertices
+### Edit subarea vertices
 
 By clicking this button you can modify subarea vertices and the subarea will be recalculated.
 
-## Remove subarea
+### Remove subarea
 
 By clicking this button you can remove a single subarea from the subareas list.
 
