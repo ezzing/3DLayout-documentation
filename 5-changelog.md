@@ -14,6 +14,8 @@ New **Subarea API calls". You can read about this new feature in the [Subareas](
 
 **Invisible keepout feature**. You can read about this new feature in the [Invisible keepouts](#invisible-keepouts) section.
 
+**Custom Alert feature**. You can read about this new feature in the [CustomAlert event](#customalert-event) section.
+
 
 
 ### Fixed

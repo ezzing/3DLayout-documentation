@@ -146,7 +146,15 @@ each area in the areas array contains:
 
     {
         id: the area id,
-        name: the area name
+        name: the area name,
+        subareas: an array of subareas in the area
+    }
+
+each subarea in the subareas array contains:
+
+    {
+        id: the subarea id,
+        name: the subarea name
     }
 
 #### getNumberOfModules
@@ -169,7 +177,16 @@ Each area in the areas array contains:
     {
         id: the area id,
         name: the area name,
-        modules: total of modules in the area
+        modules: total of modules in the area,
+        subareas: an array of subareas in the area
+    }
+
+each subarea in the subareas array contains:
+
+    {
+        id: the subarea id,
+        name: the subarea name,
+        modules: total of modules in the subarea
     }
 
 #### getTotalPower
@@ -198,7 +215,16 @@ Each area in the areas array contains:
     {
         id: the area id,
         name: the area name,
-        power: total power in this area
+        power: total power in this area,
+        subareas: an array of subareas in the area
+    }
+
+each subarea in the subareas array contains:
+
+    {
+        id: the subarea id,
+        name: the subarea name,
+        power: total power in this subarea
     }
 
 ### Building related functions
@@ -233,7 +259,15 @@ Each area in the areas array contains:
 
     {
         id: the area id,
-        name: the area name
+        name: the area name,
+        subareas: an array of subareas in the area
+    }
+
+each subarea in the subareas array contains:
+
+    {
+        id: the subarea id,
+        name: the subarea name
     }
 
 #### getRoofInfo
@@ -294,7 +328,15 @@ The data returned is:
         areaOffsetMCoords: array containing offseted area vertices coordinates in meters (with origin in the building center) ,
         wallSizes: size in meters for each area wall,
         wallAzimuth: azimuthal angle for the external area wall,
-        power: total power of the area.
+        power: total power of the area,
+        subareas: an array of subareas in the area
+    }
+
+each subarea in the subareas array contains:
+
+    {
+        id: the subarea id,
+        name: the subarea name
     }
 
 #### getModuleInfoByArea
@@ -340,6 +382,74 @@ The data for each module in the array is:
 Returns an array of vertices containing the offseted area for a given area.id and offset
 
 If the offset is a negative value, then the area is reduced by the offset value (in meters)
+
+### Subarea related functions
+
+Set of generic functions to retrieve Area related information from the layout. In this set of functions you should pass an existing area id, and a callback.
+
+* getSubareaInfo
+* getModuleInfoBySubarea
+* getModulesStructureBySubarea
+
+#### getSubareaInfo
+
+    layout.getSubareaInfo(id, callback);
+
+returns subarea info for a given subarea.id]
+
+The data returned is:
+
+    {
+        id: the subarea id,
+        name: the subarea name,
+        offset: the subarea offset,
+        placement: placement (i.e: portrait / landscape),
+        structure: i.e: east-west / standard,
+        inclination: modules inclination (in degrees),
+        azimuth: modules azimuthal inclination (in degrees),
+        areaMCoords: array containing subarea vertices coordinates in meters (with origin in the building center),
+        areaOffsetMCoords: array containing offseted subarea vertices coordinates in meters (with origin in the building center) ,
+        wallSizes: size in meters for each subarea wall,
+        wallAzimuth: azimuthal angle for the external area wall,
+        power: total power of the subarea
+    }
+
+#### getModuleInfoBySubarea
+
+    layout.getModuleInfoBySubarea(id, callback);
+
+returns module info for a given subarea.id]
+
+The data returned is:
+
+    {
+        id: the module id,
+        name: the module model name,
+        reference: extra model information,
+        width: the width of the module (in meters),
+        height: the height of the module (in meters),
+        length: the lenght of the module (in meters),
+        power: the power of the module
+    }
+
+#### getModulesStructureBySubarea
+
+    layout.getModulesStructureBySubarea(id, callback);
+
+returns a JSON with an array of modules for a given subarea.id
+
+The data for each module in the array is:
+
+    {
+        x: x position of the module in meters (with origin in the building center),
+        y: y position of the module in meters (with origin in the building center),
+        col: column to which the module belongs,
+        row: row to which the module belongs,,
+        rX: rotation of the module in the X axis (inclination),
+        rZ: rotation of the module in the Z axis (azimuth),
+        color: the color of the module (only exist if color is not default),
+    }
+
 
 ## Functions to send info from 3DLayout
 
