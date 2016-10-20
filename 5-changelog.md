@@ -8,7 +8,7 @@
 
 **Subareas feature**. You can read about this new feature in the [Subareas](#subareas) section.
 
-New **Subarea API calls". You can read about this new feature in the [Subareas](#subareas) section.
+New **Subarea related API calls". You can read about this new feature in the [Subarea related functions](#subarea-related-functions) section.
 
 **Keepout height calculations** explanation. You can read about how keepout heights are calculated in the [Keepout height calculations](#keepout-height-calculations) section.
 
@@ -16,17 +16,21 @@ New **Subarea API calls". You can read about this new feature in the [Subareas](
 
 **Custom Alert feature**. You can read about this new feature in the [CustomAlert event](#customalert-event) section.
 
-
-
 ### Fixed
 
 Fixed an issue preventing to delete first point on building, keepout or subarea creation.
 
 ### Deprecated
 
-getModulesSructureByArea  ->  getModulesStructureByArea
+We find a typo error in the name of a function:
+
+*getModulesSructureByArea*  becomes  *getModulesStructureByArea*
+
+The old name still works but is recommended to update your code to fix it.
 
 ### Changed
+
+Some API calls were updated to reflect subarea feature. *GetLayoutData*, *getNumberOfModules*, *GetPower*, *getBuildingInfo* and *getAreaInfo* were changed to add subarea information.
 
 ## [2.9.1] - 2016-09-19
 
