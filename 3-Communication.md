@@ -451,7 +451,7 @@ The data for each module in the array is:
     }
 
 
-## Functions to send info from 3DLayout
+## Functions to send info to the 3DLayout
 
 ### CustomAlert event
 
@@ -462,10 +462,6 @@ You can send this event to show an alert with some information to the user in an
 
 
 
-
-<!-- ***
-    Recordadme que tengo que automatizar el token de creación de objetos en la api
- -->
 
 <!-- 
 ## Functions to set values in to the project
