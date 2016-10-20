@@ -205,19 +205,19 @@ The 3DLayout works in five different coordinate systems, depending on wich conte
 
 ## World Coordinate System
 
-<img class="w100" src="./layout-doc-imgs/imgs-sin-monitor/world-coords.jpg" alt="world-coords" />
+<img class="w100" src="./layout-doc-imgs/imgs-sin-monitor/world-coords.png" alt="world-coords" />
 
 ## Scene Coordinate System
 
-<img class="w100" src="./layout-doc-imgs/imgs-sin-monitor/scene-coords.jpg" alt="scene-coords" />
+<img class="w100" src="./layout-doc-imgs/imgs-sin-monitor/scene-coords.png" alt="scene-coords" />
 
 ## Building Coordinate System
 
-<img class="w100" src="./layout-doc-imgs/imgs-sin-monitor/building-coords.jpg" alt="building-coords" />
+<img class="w100" src="./layout-doc-imgs/imgs-sin-monitor/building-coords.png" alt="building-coords" />
 
 ## Area Coordinate System
 
-<img class="w100" src="./layout-doc-imgs/imgs-sin-monitor/area-coords.jpg" alt="area-coords" />
+<img class="w100" src="./layout-doc-imgs/imgs-sin-monitor/area-coords.png" alt="area-coords" />
 
 ## Canvas Coordinate System
 
