@@ -271,7 +271,7 @@ Set of generic functions to retrieve Area related information from the layout. I
 
 * getAreaInfo
 * getModuleInfoByArea
-* getModulesSructureByArea
+* getModulesStructureByArea
 * getAreaOffset
 
 #### getAreaInfo
@@ -315,9 +315,9 @@ The data returned is:
         power: the power of the module
     }
 
-#### getModulesSructureByArea
+#### getModulesStructureByArea
 
-    layout.getModulesSructureByArea(id, callback);
+    layout.getModulesStructureByArea(id, callback);
 
 returns a JSON with an array of modules for a given area.id
 
@@ -341,7 +341,7 @@ Returns an array of vertices containing the offseted area for a given area.id an
 
 If the offset is a negative value, then the area is reduced by the offset value (in meters)
 
-<!-- ## Functions to send info from 3DLayout
+## Functions to send info from 3DLayout
 
 ### CustomAlert event
 
@@ -350,7 +350,7 @@ You can send this event to show an alert with some information to the user in an
     layout.customAlert(title_text_string, body_text_string, callback);
 
 
- -->
+
 
 
 <!-- ***

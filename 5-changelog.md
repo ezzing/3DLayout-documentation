@@ -8,7 +8,21 @@
 
 **Subareas feature**. You can read about this new feature in the [Subareas](#subareas) section.
 
+New **Subarea API calls". You can read about this new feature in the [Subareas](#subareas) section.
+
+**Keepout height calculations** explanation. You can read about how keepout heights are calculated in the [Keepout height calculations](#keepout-height-calculations) section.
+
+**Invisible keepout feature**. You can read about this new feature in the [Invisible keepouts](#invisible-keepouts) section.
+
+
+
 ### Fixed
+
+Fixed an issue preventing to delete first point on building, keepout or subarea creation.
+
+### Deprecated
+
+getModulesSructureByArea  ->  getModulesStructureByArea
 
 ### Changed
 
