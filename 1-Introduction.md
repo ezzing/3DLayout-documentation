@@ -169,7 +169,7 @@ By clicking the 'remove subareas' button all the subareas are removed and the ar
 
 By clicking the 'add subarea' button you enter in the subarea creation process.
 
-<img class="w100" src="./layout-doc-imgs/imgs-sin-monitor/add-subarea.jpg" alt="add-subarea" />
+<img class="w75" src="./layout-doc-imgs/imgs-sin-monitor/add-subarea.jpg" alt="add-subarea" />
 
 ### Crop subarea to the area shape
 
@@ -179,7 +179,7 @@ When editing the vertices of a subarea you can check the 'crop to building limit
 
 If you uncheck this option then the subarea can extend outside the area, following the area plane.
 
-<img class="w100" src="./layout-doc-imgs/imgs-sin-monitor/subarea-sample.jpg" alt="subarea-sample" />
+<img class="w75" src="./layout-doc-imgs/imgs-sin-monitor/subarea-sample.jpg" alt="subarea-sample" />
 
 ## Subarea editing
 
@@ -206,19 +206,19 @@ The 3DLayout works in five different coordinate systems, depending on wich conte
 
 ## World Coordinate System
 
-<img class="w100" src="./layout-doc-imgs/imgs-sin-monitor/world-coords.png" alt="world-coords" />
+<img class="w75" src="./layout-doc-imgs/imgs-sin-monitor/world-coords.png" alt="world-coords" />
 
 ## Scene Coordinate System
 
-<img class="w100" src="./layout-doc-imgs/imgs-sin-monitor/scene-coords.png" alt="scene-coords" />
+<img class="w75" src="./layout-doc-imgs/imgs-sin-monitor/scene-coords.png" alt="scene-coords" />
 
 ## Building Coordinate System
 
-<img class="w100" src="./layout-doc-imgs/imgs-sin-monitor/building-coords.png" alt="building-coords" />
+<img class="w75" src="./layout-doc-imgs/imgs-sin-monitor/building-coords.png" alt="building-coords" />
 
 ## Area Coordinate System
 
-<img class="w100" src="./layout-doc-imgs/imgs-sin-monitor/area-coords.png" alt="area-coords" />
+<img class="w75" src="./layout-doc-imgs/imgs-sin-monitor/area-coords.png" alt="area-coords" />
 
 ## Canvas Coordinate System
 
