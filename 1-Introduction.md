@@ -208,17 +208,47 @@ The 3DLayout works in five different coordinate systems, depending on wich conte
 
 <img class="w75" src="./layout-doc-imgs/imgs-sin-monitor/world-coords.png" alt="world-coords" />
 
+World coordinate system works with spherical coordinates, latitude and longitude.
+
+The values stored in this system are:
+
+* Layout project center.
+* Building vertices
+* Building roof points
+* Keepout vertices
+* Area and Subarea vertices  (verticesOrtoDeg)
+
 ## Scene Coordinate System
 
 <img class="w75" src="./layout-doc-imgs/imgs-sin-monitor/scene-coords.png" alt="scene-coords" />
+
+Scene coordinate system works with cartesian coords, with origin in the layout project center and distances measured in meters. It is used to place each building relative to the project center.
+
+* Building data center
 
 ## Building Coordinate System
 
 <img class="w75" src="./layout-doc-imgs/imgs-sin-monitor/building-coords.png" alt="building-coords" />
 
+Building coordinate System works with cartesian coords, with origin in the building center and measured in meters. Al tilted surfaces are represented in ortographic view.
+
+* Building roof points
+* Building vertices (verticesMCoords)
+* Area and Subarea vertices  (verticesOrtoMeters)
+* keepout vertices (verticesOrtoMeters)
+
+
 ## Area Coordinate System
 
 <img class="w75" src="./layout-doc-imgs/imgs-sin-monitor/area-coords.png" alt="area-coords" />
 
+Area Coordinate System works in cartesian coords, with origin in the bottom-left corner of the area, and rotated with the exterior wall azimuth of the area. On flat roofs the first wall drawed is considered the main wall.
+
+* Area and Subarea vertices  (areaMCoords)
+* Area and Subarea offset vertices (areaOffsetMCoords)
+* Area and Subarea modules coords (modulesData (x/y))
+* Area and Subarea keepout coords (keepoutsMCoords)
+
 ## Canvas Coordinate System
 
+This is the same coordinate system as Area Coordinate System but with inverted Y values, ready to draw in an htlm canvas or similar.
