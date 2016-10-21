@@ -301,7 +301,6 @@ The data returned is:
         center: building center in world coord system [DEPRECATED],
         vertices: array of building vertices, world coord system [DEPRECATED],
         centerDeg: building center in World coord system,
-        verticesDeg: building vertices in world coord system,
         centerMCoords: building center in Scene coord system,
         verticesMCoords: building vertices in building coord system,
     }

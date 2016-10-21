@@ -28,19 +28,18 @@ We find a typo error in the name of a function:
 
 *getModulesSructureByArea*  becomes  *getModulesStructureByArea*
 
-The old name still works but is recommended to update your code to fix it.
-
 **getBuildingInfo**
-verticesDeg: building vertices in world coordinate system,
+verticesDeg attribute will be deprecated
 
 **getBuildingPosition**
-center: building center in world coord system [DEPRECATED],
-vertices: array of building vertices, world coord system [DEPRECATED],
+center attribute will be deprecated >  becomes  centerDeg
+vertices attribute will be deprecated 
 
 **getAreaInfo**
-areaMCoords: array with area vertices coordinates in Area system coords [DEPRECATED],
-areaOffsetMCoords: array with offseted area vertices in Area system coords [DEPRECATED],
+areaMCoords will be deprecated  >  becomes  verticesMCoords,
+areaOffsetMCoords will be deprecated  >  becomes  verticesOffsetMCoords
 
+> The old names still works but is recommended to update your code.
 
 ### Changed
 
