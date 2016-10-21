@@ -249,7 +249,10 @@ The data returned is:
         height: building height (in meters),
         regular: true if building angles are all equal to 90º, false otherwise.
         buildingArea: building area measure (in square meters),
-        vertices: building vertices in world coordinate system,
+        centerDeg: building center in World coordinate system,
+        centerMCoords: building center in Scene coordinate system,
+        vertices: building vertices in world coordinate system  [DEPRECATED],
+        verticesMCoords: building vertices in building coordinate system,
         modules: total of modules in the building
         power: total power of the building,
         areas: array of areas in this building
@@ -295,8 +298,12 @@ Returns building position info for a given building.id
 The data returned is:
 
     {
-        center: the building center in lat/long coords
-        vertices: an array of building vertices in lat/long coords
+        center: building center in world coord system [DEPRECATED],
+        vertices: array of building vertices, world coord system [DEPRECATED],
+        centerDeg: building center in World coord system,
+        verticesDeg: building vertices in world coord system,
+        centerMCoords: building center in Scene coord system,
+        verticesMCoords: building vertices in building coord system,
     }
 
 ### Area related functions
@@ -324,8 +331,10 @@ The data returned is:
         structure: i.e: east-west / standard,
         inclination: modules inclination (in degrees),
         azimuth: modules azimuthal inclination (in degrees),
-        areaMCoords: array containing area vertices coordinates in Area system coords,
-        areaOffsetMCoords: array containing offseted area vertices in Area system coords,
+        areaMCoords: array with area vertices coordinates in Area system coords [DEPRECATED],
+        areaOffsetMCoords: array with offseted area vertices in Area system coords [DEPRECATED],
+        verticesMCoords: array with area vertices coordinates in Area system coords,
+        verticesOffsetMCoords: array with offseted area vertices in Area system coords,
         wallSizes: size in meters for each area wall,
         wallAzimuth: azimuthal angle for the external area wall,
         power: total power of the area,
@@ -407,12 +416,14 @@ The data returned is:
         structure: i.e: east-west / standard,
         inclination: modules inclination (in degrees),
         azimuth: modules azimuthal inclination (in degrees),
-        areaMCoords: array with subarea vertices in Area system coords,
-        areaOffsetMCoords: array with offseted subarea vertices in Area system coords,
+        verticesMCoords: array with subarea vertices coordinates in Area system coords,
+        verticesOffsetMCoords: array with offseted subarea vertices in Area system coords,
         wallSizes: size in meters for each subarea wall,
         wallAzimuth: azimuthal angle for the external area wall,
-        power: total power of the subarea
+        power: total power of the subarea,
     }
+
+
 
 #### getModuleInfoBySubarea
 

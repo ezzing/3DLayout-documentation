@@ -30,6 +30,18 @@ We find a typo error in the name of a function:
 
 The old name still works but is recommended to update your code to fix it.
 
+**getBuildingInfo**
+verticesDeg: building vertices in world coordinate system,
+
+**getBuildingPosition**
+center: building center in world coord system [DEPRECATED],
+vertices: array of building vertices, world coord system [DEPRECATED],
+
+**getAreaInfo**
+areaMCoords: array with area vertices coordinates in Area system coords [DEPRECATED],
+areaOffsetMCoords: array with offseted area vertices in Area system coords [DEPRECATED],
+
+
 ### Changed
 
 Some API calls were updated to reflect subarea feature. *GetLayoutData*, *getNumberOfModules*, *GetPower*, *getBuildingInfo* and *getAreaInfo* were changed to add subarea information.
