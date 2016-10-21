@@ -219,6 +219,7 @@ The values stored in this system are:
 * Keepout vertices
 * Area and Subarea vertices  (verticesOrtoDeg)
 
+<div class="page-break"></div>
 ## Scene Coordinate System
 
 <img class="w75" src="./layout-doc-imgs/imgs-sin-monitor/scene-coords.png" alt="scene-coords" />
@@ -227,6 +228,7 @@ Scene coordinate system works with cartesian coords, with origin in the layout p
 
 * Building data center
 
+<div class="page-break"></div>
 ## Building Coordinate System
 
 <img class="w75" src="./layout-doc-imgs/imgs-sin-monitor/building-coords.png" alt="building-coords" />
@@ -238,7 +240,7 @@ Building coordinate System works with cartesian coords, with origin in the build
 * Area and Subarea vertices  (verticesOrtoMeters)
 * keepout vertices (verticesOrtoMeters)
 
-
+<div class="page-break"></div>
 ## Area Coordinate System
 
 <img class="w75" src="./layout-doc-imgs/imgs-sin-monitor/area-coords.png" alt="area-coords" />
