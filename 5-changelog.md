@@ -16,6 +16,8 @@ New **Subarea related API calls". You can read about this new feature in the [Su
 
 **Custom Alert feature**. You can read about this new feature in the [CustomAlert event](#customalert-event) section.
 
+**Coordinate Systems** explained. You can read about this in the [Layout Coordinate Systems](#layout-coordinate-systems) section.
+
 ### Fixed
 
 Fixed an issue preventing to delete first point on building, keepout or subarea creation.
