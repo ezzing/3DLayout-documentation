@@ -200,6 +200,7 @@ By clicking this button you can modify subarea vertices and the subarea will be 
 
 By clicking this button you can remove a single subarea from the subareas list.
 
+<div class="page-break"></div>
 # Layout Coordinate Systems
 
 The 3DLayout works in five different coordinate systems, depending on wich context we are requesting info.
