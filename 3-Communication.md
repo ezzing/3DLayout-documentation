@@ -249,7 +249,7 @@ The data returned is:
         height: building height (in meters),
         regular: true if building angles are all equal to 90º, false otherwise.
         buildingArea: building area measure (in square meters),
-        vertices: building vertices in lat/long coordinates,
+        vertices: building vertices in world coordinate system,
         modules: total of modules in the building
         power: total power of the building,
         areas: array of areas in this building
@@ -324,8 +324,8 @@ The data returned is:
         structure: i.e: east-west / standard,
         inclination: modules inclination (in degrees),
         azimuth: modules azimuthal inclination (in degrees),
-        areaMCoords: array containing area vertices coordinates in meters (with origin in the building center),
-        areaOffsetMCoords: array containing offseted area vertices coordinates in meters (with origin in the building center) ,
+        areaMCoords: array containing area vertices coordinates in Area system coords,
+        areaOffsetMCoords: array containing offseted area vertices in Area system coords,
         wallSizes: size in meters for each area wall,
         wallAzimuth: azimuthal angle for the external area wall,
         power: total power of the area,
@@ -366,8 +366,8 @@ returns a JSON with an array of modules for a given area.id
 The data for each module in the array is:
 
     {
-        x: x position of the module in meters (with origin in the building center),
-        y: y position of the module in meters (with origin in the building center),
+        x: x position of the module in Area system coords,
+        y: y position of the module in Area system coords,
         col: column to which the module belongs,
         row: row to which the module belongs,,
         rX: rotation of the module in the X axis (inclination),
@@ -407,8 +407,8 @@ The data returned is:
         structure: i.e: east-west / standard,
         inclination: modules inclination (in degrees),
         azimuth: modules azimuthal inclination (in degrees),
-        areaMCoords: array containing subarea vertices coordinates in meters (with origin in the building center),
-        areaOffsetMCoords: array containing offseted subarea vertices coordinates in meters (with origin in the building center) ,
+        areaMCoords: array with subarea vertices in Area system coords,
+        areaOffsetMCoords: array with offseted subarea vertices in Area system coords,
         wallSizes: size in meters for each subarea wall,
         wallAzimuth: azimuthal angle for the external area wall,
         power: total power of the subarea
@@ -441,8 +441,8 @@ returns a JSON with an array of modules for a given subarea.id
 The data for each module in the array is:
 
     {
-        x: x position of the module in meters (with origin in the building center),
-        y: y position of the module in meters (with origin in the building center),
+        x: x position of the module in Area system coords,
+        y: y position of the module in Area system coords,
         col: column to which the module belongs,
         row: row to which the module belongs,,
         rX: rotation of the module in the X axis (inclination),
