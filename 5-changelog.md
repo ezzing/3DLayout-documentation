@@ -10,6 +10,10 @@ Added two new imagery provider: Bing and Digital Globe.
 
 Removed one imagery provider: Cyclomedia.
 
+### Fixed
+
+Some minor fixes.
+
 ## [2.10.0] - 2016-10-21
 
 ### Added
