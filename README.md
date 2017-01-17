@@ -315,7 +315,7 @@ By clicking this button you can remove a single subarea from the subareas list.
 Layout Coordinate Systems
 =========================
 
-The 3DLayout works in five different coordinate systems, depending on wich context we are requesting info.
+The 3DLayout works in four different coordinate systems, depending on wich context we are requesting info.
 
 World Coordinate System
 -----------------------
