@@ -17,6 +17,23 @@ Table of contents
         -   [Buildings Index](#buildings-index)
         -   [Main Options](#main-options)
         -   [Control Buttons](#control-buttons)
+-   [Keepouts](#keepouts)
+    -   [Keepout height calculations](#keepout-height-calculations)
+    -   [Invisible keepouts](#invisible-keepouts)
+    -   [Crop keepout to the building shape](#crop-keepout-to-the-building-shape)
+-   [Subareas](#subareas)
+    -   [Subarea creation](#subarea-creation)
+    -   [Remove Subareas](#remove-subareas)
+    -   [Add subarea](#add-subarea)
+        -   [Crop subarea to the area shape](#crop-subarea-to-the-area-shape)
+    -   [Subarea editing](#subarea-editing)
+        -   [Edit subarea vertices](#edit-subarea-vertices)
+        -   [Remove subarea](#remove-subarea)
+-   [Layout Coordinate Systems](#layout-coordinate-systems)
+    -   [World Coordinate System](#world-coordinate-system)
+    -   [Scene Coordinate System](#scene-coordinate-system)
+    -   [Building Coordinate System](#building-coordinate-system)
+    -   [Area Coordinate System](#area-coordinate-system)
 -   [How to use](#how-to-use)
     -   [Api key and autentication](#api-key-and-autentication)
     -   [DOM element](#dom-element)
@@ -49,6 +66,9 @@ Table of contents
         -   [Generic Functions](#generic-functions)
         -   [Building related functions](#building-related-functions)
         -   [Area related functions](#area-related-functions)
+        -   [Subarea related functions](#subarea-related-functions)
+    -   [Functions to send info to the 3DLayout](#functions-to-send-info-to-the-3dlayout)
+        -   [CustomAlert event](#customalert-event)
 -   [Layout Rules](#layout-rules)
     -   [Special Behaviours](#special-behaviours)
         -   [Perspective](#perspective)
@@ -71,21 +91,29 @@ Table of contents
     -   [Custom Logo in tutorial section](#custom-logo-in-tutorial-section)
     -   [Customize Go back button in the tutorial menu](#customize-go-back-button-in-the-tutorial-menu)
 -   [Changelog](#changelog)
-    -   [\[2.9.1\] - 2016-09-19](#section)
-        -   [Fixed](#fixed)
-    -   [\[2.9.0\] - 2016-09-18](#section-1)
-        -   [Fixed](#fixed-1)
-    -   [\[2.8.0\] - 2016-09-14](#section-2)
+    -   [\[2.11.0\] - 2016-11-04](#section)
         -   [Changed](#changed)
-    -   [\[2.7.0\] - 2016-09-09](#section-3)
-    -   [added](#added)
+        -   [Fixed](#fixed)
+    -   [\[2.10.0\] - 2016-10-21](#section-1)
+        -   [Added](#added)
+        -   [Fixed](#fixed-1)
+        -   [Deprecated](#deprecated)
         -   [Changed](#changed-1)
+    -   [\[2.9.1\] - 2016-09-19](#section-2)
         -   [Fixed](#fixed-2)
-    -   [\[2.6.0\] - 2016-09-01](#section-4)
-        -   [added](#added-1)
-        -   [changed](#changed-2)
-        -   [fixed](#fixed-3)
-        -   [deprecated](#deprecated)
+    -   [\[2.9.0\] - 2016-09-18](#section-3)
+        -   [Fixed](#fixed-3)
+    -   [\[2.8.0\] - 2016-09-14](#section-4)
+        -   [Changed](#changed-2)
+    -   [\[2.7.0\] - 2016-09-09](#section-5)
+    -   [added](#added-1)
+        -   [Changed](#changed-3)
+        -   [Fixed](#fixed-4)
+    -   [\[2.6.0\] - 2016-09-01](#section-6)
+        -   [added](#added-2)
+        -   [changed](#changed-4)
+        -   [fixed](#fixed-5)
+        -   [deprecated](#deprecated-1)
 
 Introduction
 ============
@@ -186,6 +214,156 @@ Default control custom buttons
 -   geolocation
 
 > Please, visit the section [Custom Buttons](#custom-buttons) to learn how to add your own functions.
+
+Keepouts
+========
+
+Keepout height calculations
+---------------------------
+
+When creating keepouts, please note the height selected for the keepout is not always the final keepout height.
+
+Depending on the roof inclination and the keepout dimensions and positions, there is a minimum keepout height to avoid keepouts under the roof surface.
+
+Let’s see an example:
+
+<img src="./layout-doc-imgs/imgs-sin-monitor/keeoput-height-scheme.jpg" alt="keeoput-height-scheme" class="w100" />
+
+In keepout 1, A is the desired height, and B is the minimum height for this keepout. As A is bigger than B then the keepout is created with the desired height (A).
+
+In keepout 2, A is also the desired height, but the keepout can’t be drawn correctly if the height is less than B measure, as some parts of the keepout will stay below the roof, so keepout 2 will be created with the minimum calculated height (B).
+
+> Note that for flat roofs it is posible to create 0 height keepouts, but for inclinated roofs you need to use the invisible keepouts feature to allow keepouts at roof surface level.
+
+Invisible keepouts
+------------------
+
+If you want to simulate a skylight or any keepout object without drawing the 3d volume you can check the Invisible keepout option to hide the 3D volume but still taking the obstacle into account.
+
+<img src="./layout-doc-imgs/imgs-sin-monitor/invisible-keepout-toggle.jpg" alt="invisible-keepout-toggle" class="w200px" />
+
+Crop keepout to the building shape
+----------------------------------
+
+When editing the vertices of a keepout you can check the ‘crop to building limits’. This helps you to draw keepouts that extends to the border of the building with more precision.
+
+<img src="./layout-doc-imgs/imgs-sin-monitor/crop-shape-building-toggle.jpg" alt="crop-shape-building-toggle" class="w200px" />
+
+If you unckeck this option then the keepout can be floating outside the building limits. At least one vertex of the keepout should be inside the building limits to be created.
+
+Subareas
+========
+
+Subarea creation
+----------------
+
+A subarea is a region inside an area that allows you to define a modules installation just in a section of the area.
+
+To create a subarea click on the ‘create subareas’ button.
+
+<img src="./layout-doc-imgs/imgs-sin-monitor/subarea-creation-button.jpg" alt="subarea-creation-button" class="w200px" />
+
+Once the subarea button is activated the standard area functions become disabled and two new buttons appears:
+
+-   Remove subareas
+-   Add subarea
+
+<img src="./layout-doc-imgs/imgs-sin-monitor/remove-add-subareas.jpg" alt="remove-add-subareas" class="w200px" />
+
+Remove Subareas
+---------------
+
+By clicking the ‘remove subareas’ button all the subareas are removed and the area come back to its standard behaviour.
+
+Add subarea
+-----------
+
+By clicking the ‘add subarea’ button you enter in the subarea creation process.
+
+<img src="./layout-doc-imgs/imgs-sin-monitor/add-subarea.jpg" alt="add-subarea" class="w75" />
+
+### Crop subarea to the area shape
+
+When editing the vertices of a subarea you can check the ‘crop to building limits’. This helps you to draw keepouts that extends to the border of the building with more precision.
+
+<img src="./layout-doc-imgs/imgs-sin-monitor/crop-shape-building-toggle.jpg" alt="crop-shape-building-toggle" class="w200px" />
+
+If you uncheck this option then the subarea can extend outside the area, following the area plane.
+
+<img src="./layout-doc-imgs/imgs-sin-monitor/subarea-sample.jpg" alt="subarea-sample" class="w75" />
+
+Subarea editing
+---------------
+
+Once created the subarea is listed below this buttons. You can then proceed to setup the subarea in the same way you work with standard areas.
+
+In the subarea panel you will find two new buttons:
+
+-   Edit subarea vertices
+-   remove subarea
+
+<img src="./layout-doc-imgs/imgs-sin-monitor/subarea-edit-delete-buttons.jpg" alt="subarea-edit-delete-buttons" class="w200px" />
+
+### Edit subarea vertices
+
+By clicking this button you can modify subarea vertices and the subarea will be recalculated.
+
+### Remove subarea
+
+By clicking this button you can remove a single subarea from the subareas list.
+
+Layout Coordinate Systems
+=========================
+
+The 3DLayout works in five different coordinate systems, depending on wich context we are requesting info.
+
+World Coordinate System
+-----------------------
+
+<img src="./layout-doc-imgs/imgs-sin-monitor/world-coords.png" alt="world-coords" class="w75" />
+
+World coordinate system works with spherical coordinates, latitude and longitude.
+
+The values stored in this system and the API calls to retrieve this data are:
+
+-   Layout project center &gt; getLayout
+
+Scene Coordinate System
+-----------------------
+
+<img src="./layout-doc-imgs/imgs-sin-monitor/scene-coords.png" alt="scene-coords" class="w75" />
+
+Scene coordinate system works with cartesian coords, with origin in the layout project center and distances measured in meters. It is used to place each building relative to the project center.
+
+The values stored in this system and the API calls to retrieve this data are:
+
+-   Building data center &gt; getBuildingInfo()
+
+Building Coordinate System
+--------------------------
+
+<img src="./layout-doc-imgs/imgs-sin-monitor/building-coords.png" alt="building-coords" class="w75" />
+
+Building coordinate System works with cartesian coords, with origin in the building center and measured in meters. Al tilted surfaces are represented in ortographic view.
+
+The values stored in this system and the API calls to retrieve this data are:
+
+-   Building vertices (verticesMCoords) &gt; getBuildingInfo()
+
+Area Coordinate System
+----------------------
+
+<img src="./layout-doc-imgs/imgs-sin-monitor/area-coords.png" alt="area-coords" class="w75" />
+
+Area Coordinate System works in cartesian coords, with origin in the bottom-left corner of the area, and rotated with the exterior wall azimuth of the area. On flat roofs the first wall drawed is considered the main wall.
+
+The values stored in this system and the API calls to retrieve this data are:
+
+-   Area vertices (verticesMCoords) &gt; getAreaInfo()
+-   Area offset vertices (verticesOffsetMCoords) &gt; getAreaInfo()
+-   Area modules coords (modulesData (x/y)) &gt; getAreaInfo()
+
+This is the same for subareas, just using **getSubareaInfo**
 
 How to use
 ==========
@@ -502,7 +680,15 @@ each area in the areas array contains:
 
     {
         id: the area id,
-        name: the area name
+        name: the area name,
+        subareas: an array of subareas in the area
+    }
+
+each subarea in the subareas array contains:
+
+    {
+        id: the subarea id,
+        name: the subarea name
     }
 
 #### getNumberOfModules
@@ -525,7 +711,16 @@ Each area in the areas array contains:
     {
         id: the area id,
         name: the area name,
-        modules: total of modules in the area
+        modules: total of modules in the area,
+        subareas: an array of subareas in the area
+    }
+
+each subarea in the subareas array contains:
+
+    {
+        id: the subarea id,
+        name: the subarea name,
+        modules: total of modules in the subarea
     }
 
 #### getTotalPower
@@ -554,7 +749,16 @@ Each area in the areas array contains:
     {
         id: the area id,
         name: the area name,
-        power: total power in this area
+        power: total power in this area,
+        subareas: an array of subareas in the area
+    }
+
+each subarea in the subareas array contains:
+
+    {
+        id: the subarea id,
+        name: the subarea name,
+        power: total power in this subarea
     }
 
 ### Building related functions
@@ -579,7 +783,10 @@ The data returned is:
         height: building height (in meters),
         regular: true if building angles are all equal to 90º, false otherwise.
         buildingArea: building area measure (in square meters),
-        vertices: building vertices in lat/long coordinates,
+        centerDeg: building center in World coordinate system,
+        centerMCoords: building center in Scene coordinate system,
+        vertices: building vertices in world coordinate system  [DEPRECATED],
+        verticesMCoords: building vertices in building coordinate system,
         modules: total of modules in the building
         power: total power of the building,
         areas: array of areas in this building
@@ -589,7 +796,15 @@ Each area in the areas array contains:
 
     {
         id: the area id,
-        name: the area name
+        name: the area name,
+        subareas: an array of subareas in the area
+    }
+
+each subarea in the subareas array contains:
+
+    {
+        id: the subarea id,
+        name: the subarea name
     }
 
 #### getRoofInfo
@@ -617,8 +832,11 @@ Returns building position info for a given building.id
 The data returned is:
 
     {
-        center: the building center in lat/long coords
-        vertices: an array of building vertices in lat/long coords
+        center: building center in world coord system [DEPRECATED],
+        vertices: array of building vertices, world coord system [DEPRECATED],
+        centerDeg: building center in World coord system,
+        centerMCoords: building center in Scene coord system,
+        verticesMCoords: building vertices in building coord system,
     }
 
 ### Area related functions
@@ -627,7 +845,7 @@ Set of generic functions to retrieve Area related information from the layout. I
 
 -   getAreaInfo
 -   getModuleInfoByArea
--   getModulesSructureByArea
+-   getModulesStructureByArea
 -   getAreaOffset
 
 #### getAreaInfo
@@ -646,11 +864,21 @@ The data returned is:
         structure: i.e: east-west / standard,
         inclination: modules inclination (in degrees),
         azimuth: modules azimuthal inclination (in degrees),
-        areaMCoords: array containing area vertices coordinates in meters (with origin in the building center),
-        areaOffsetMCoords: array containing offseted area vertices coordinates in meters (with origin in the building center) ,
+        areaMCoords: array with area vertices coordinates in Area system coords [DEPRECATED],
+        areaOffsetMCoords: array with offseted area vertices in Area system coords [DEPRECATED],
+        verticesMCoords: array with area vertices coordinates in Area system coords,
+        verticesOffsetMCoords: array with offseted area vertices in Area system coords,
         wallSizes: size in meters for each area wall,
         wallAzimuth: azimuthal angle for the external area wall,
-        power: total power of the area.
+        power: total power of the area,
+        subareas: an array of subareas in the area
+    }
+
+each subarea in the subareas array contains:
+
+    {
+        id: the subarea id,
+        name: the subarea name
     }
 
 #### getModuleInfoByArea
@@ -671,17 +899,17 @@ The data returned is:
         power: the power of the module
     }
 
-#### getModulesSructureByArea
+#### getModulesStructureByArea
 
-    layout.getModulesSructureByArea(id, callback);
+    layout.getModulesStructureByArea(id, callback);
 
 returns a JSON with an array of modules for a given area.id
 
 The data for each module in the array is:
 
     {
-        x: x position of the module in meters (with origin in the building center),
-        y: y position of the module in meters (with origin in the building center),
+        x: x position of the module in Area system coords,
+        y: y position of the module in Area system coords,
         col: column to which the module belongs,
         row: row to which the module belongs,,
         rX: rotation of the module in the X axis (inclination),
@@ -696,6 +924,82 @@ The data for each module in the array is:
 Returns an array of vertices containing the offseted area for a given area.id and offset
 
 If the offset is a negative value, then the area is reduced by the offset value (in meters)
+
+### Subarea related functions
+
+Set of generic functions to retrieve Area related information from the layout. In this set of functions you should pass an existing area id, and a callback.
+
+-   getSubareaInfo
+-   getModuleInfoBySubarea
+-   getModulesStructureBySubarea
+
+#### getSubareaInfo
+
+    layout.getSubareaInfo(id, callback);
+
+returns subarea info for a given subarea.id\]
+
+The data returned is:
+
+    {
+        id: the subarea id,
+        name: the subarea name,
+        offset: the subarea offset,
+        placement: placement (i.e: portrait / landscape),
+        structure: i.e: east-west / standard,
+        inclination: modules inclination (in degrees),
+        azimuth: modules azimuthal inclination (in degrees),
+        verticesMCoords: array with subarea vertices coordinates in Area system coords,
+        verticesOffsetMCoords: array with offseted subarea vertices in Area system coords,
+        wallSizes: size in meters for each subarea wall,
+        wallAzimuth: azimuthal angle for the external area wall,
+        power: total power of the subarea,
+    }
+
+#### getModuleInfoBySubarea
+
+    layout.getModuleInfoBySubarea(id, callback);
+
+returns module info for a given subarea.id\]
+
+The data returned is:
+
+    {
+        id: the module id,
+        name: the module model name,
+        reference: extra model information,
+        width: the width of the module (in meters),
+        height: the height of the module (in meters),
+        length: the lenght of the module (in meters),
+        power: the power of the module
+    }
+
+#### getModulesStructureBySubarea
+
+    layout.getModulesStructureBySubarea(id, callback);
+
+returns a JSON with an array of modules for a given subarea.id
+
+The data for each module in the array is:
+
+    {
+        x: x position of the module in Area system coords,
+        y: y position of the module in Area system coords,
+        col: column to which the module belongs,
+        row: row to which the module belongs,,
+        rX: rotation of the module in the X axis (inclination),
+        rZ: rotation of the module in the Z axis (azimuth),
+        color: the color of the module (only exist if color is not default),
+    }
+
+Functions to send info to the 3DLayout
+--------------------------------------
+
+### CustomAlert event
+
+You can send this event to show an alert with some information to the user in any moment.
+
+    layout.customAlert(title_text_string, body_text_string, callback);
 
 Layout Rules
 ============
@@ -1232,6 +1536,63 @@ Or you can modify more in deep the href of the element via javascript by using t
 
 Changelog
 =========
+
+\[2.11.0\] - 2016-11-04
+-----------------------
+
+### Changed
+
+Added two new imagery provider: Bing and Digital Globe.
+
+Removed one imagery provider: Cyclomedia.
+
+### Fixed
+
+Some minor fixes.
+
+\[2.10.0\] - 2016-10-21
+-----------------------
+
+### Added
+
+**Subareas feature**. You can read about this new feature in the [Subareas](#subareas) section.
+
+New \*\*Subarea related API calls“. You can read about this new feature in the [Subarea related functions](#subarea-related-functions) section.
+
+**Keepout height calculations** explanation. You can read about how keepout heights are calculated in the [Keepout height calculations](#keepout-height-calculations) section.
+
+**Invisible keepout feature**. You can read about this new feature in the [Invisible keepouts](#invisible-keepouts) section.
+
+**Custom Alert feature**. You can read about this new feature in the [CustomAlert event](#customalert-event) section.
+
+**Coordinate Systems** explained. You can read about this in the [Layout Coordinate Systems](#layout-coordinate-systems) section.
+
+### Fixed
+
+Fixed an issue preventing to delete first point on building, keepout or subarea creation.
+
+### Deprecated
+
+We find a typo error in the name of a function:
+
+*getModulesSructureByArea* becomes *getModulesStructureByArea*
+
+**getBuildingInfo**
+verticesDeg attribute will be deprecated
+
+**getBuildingPosition**
+center attribute will be deprecated &gt; becomes centerDeg
+vertices attribute will be deprecated
+
+**getAreaInfo**
+areaMCoords will be deprecated &gt; becomes verticesMCoords,
+areaOffsetMCoords will be deprecated &gt; becomes verticesOffsetMCoords
+
+> The old names still works but is recommended to update your code.
+
+### Changed
+
+Some API calls were updated to reflect subarea feature. *GetLayoutData*, *getNumberOfModules*, *GetPower*, *getBuildingInfo* and *getAreaInfo* were changed to add subarea information.
 
 \[2.9.1\] - 2016-09-19
 ----------------------

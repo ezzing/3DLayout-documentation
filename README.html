@@ -45,6 +45,28 @@
 <li><a href="#control-buttons">Control Buttons</a></li>
 </ul></li>
 </ul></li>
+<li><a href="#keepouts">Keepouts</a><ul>
+<li><a href="#keepout-height-calculations">Keepout height calculations</a></li>
+<li><a href="#invisible-keepouts">Invisible keepouts</a></li>
+<li><a href="#crop-keepout-to-the-building-shape">Crop keepout to the building shape</a></li>
+</ul></li>
+<li><a href="#subareas">Subareas</a><ul>
+<li><a href="#subarea-creation">Subarea creation</a></li>
+<li><a href="#remove-subareas">Remove Subareas</a></li>
+<li><a href="#add-subarea">Add subarea</a><ul>
+<li><a href="#crop-subarea-to-the-area-shape">Crop subarea to the area shape</a></li>
+</ul></li>
+<li><a href="#subarea-editing">Subarea editing</a><ul>
+<li><a href="#edit-subarea-vertices">Edit subarea vertices</a></li>
+<li><a href="#remove-subarea">Remove subarea</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#layout-coordinate-systems">Layout Coordinate Systems</a><ul>
+<li><a href="#world-coordinate-system">World Coordinate System</a></li>
+<li><a href="#scene-coordinate-system">Scene Coordinate System</a></li>
+<li><a href="#building-coordinate-system">Building Coordinate System</a></li>
+<li><a href="#area-coordinate-system">Area Coordinate System</a></li>
+</ul></li>
 <li><a href="#how-to-use">How to use</a><ul>
 <li><a href="#api-key-and-autentication">Api key and autentication</a></li>
 <li><a href="#dom-element">DOM element</a></li>
@@ -81,6 +103,10 @@
 <li><a href="#generic-functions">Generic Functions</a></li>
 <li><a href="#building-related-functions">Building related functions</a></li>
 <li><a href="#area-related-functions">Area related functions</a></li>
+<li><a href="#subarea-related-functions">Subarea related functions</a></li>
+</ul></li>
+<li><a href="#functions-to-send-info-to-the-3dlayout">Functions to send info to the 3DLayout</a><ul>
+<li><a href="#customalert-event">CustomAlert event</a></li>
 </ul></li>
 </ul></li>
 <li><a href="#layout-rules">Layout Rules</a><ul>
@@ -109,25 +135,35 @@
 <li><a href="#customize-go-back-button-in-the-tutorial-menu">Customize Go back button in the tutorial menu</a></li>
 </ul></li>
 <li><a href="#changelog">Changelog</a><ul>
-<li><a href="#section">[2.9.1] - 2016-09-19</a><ul>
+<li><a href="#section">[2.11.0] - 2016-11-04</a><ul>
+<li><a href="#changed">Changed</a></li>
 <li><a href="#fixed">Fixed</a></li>
 </ul></li>
-<li><a href="#section-1">[2.9.0] - 2016-09-18</a><ul>
+<li><a href="#section-1">[2.10.0] - 2016-10-21</a><ul>
+<li><a href="#added">Added</a></li>
 <li><a href="#fixed-1">Fixed</a></li>
-</ul></li>
-<li><a href="#section-2">[2.8.0] - 2016-09-14</a><ul>
-<li><a href="#changed">Changed</a></li>
-</ul></li>
-<li><a href="#section-3">[2.7.0] - 2016-09-09</a></li>
-<li><a href="#added">added</a><ul>
+<li><a href="#deprecated">Deprecated</a></li>
 <li><a href="#changed-1">Changed</a></li>
+</ul></li>
+<li><a href="#section-2">[2.9.1] - 2016-09-19</a><ul>
 <li><a href="#fixed-2">Fixed</a></li>
 </ul></li>
-<li><a href="#section-4">[2.6.0] - 2016-09-01</a><ul>
-<li><a href="#added-1">added</a></li>
-<li><a href="#changed-2">changed</a></li>
-<li><a href="#fixed-3">fixed</a></li>
-<li><a href="#deprecated">deprecated</a></li>
+<li><a href="#section-3">[2.9.0] - 2016-09-18</a><ul>
+<li><a href="#fixed-3">Fixed</a></li>
+</ul></li>
+<li><a href="#section-4">[2.8.0] - 2016-09-14</a><ul>
+<li><a href="#changed-2">Changed</a></li>
+</ul></li>
+<li><a href="#section-5">[2.7.0] - 2016-09-09</a></li>
+<li><a href="#added-1">added</a><ul>
+<li><a href="#changed-3">Changed</a></li>
+<li><a href="#fixed-4">Fixed</a></li>
+</ul></li>
+<li><a href="#section-6">[2.6.0] - 2016-09-01</a><ul>
+<li><a href="#added-2">added</a></li>
+<li><a href="#changed-4">changed</a></li>
+<li><a href="#fixed-5">fixed</a></li>
+<li><a href="#deprecated-1">deprecated</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -205,6 +241,98 @@
 <p>Please, visit the section <a href="#custom-buttons">Custom Buttons</a> to learn how to add your own functions.</p>
 </blockquote>
 <div class="page-break"></div>
+<h1 id="keepouts">Keepouts</h1>
+<h2 id="keepout-height-calculations">Keepout height calculations</h2>
+<p>When creating keepouts, please note the height selected for the keepout is not always the final keepout height.</p>
+<p>Depending on the roof inclination and the keepout dimensions and positions, there is a minimum keepout height to avoid keepouts under the roof surface.</p>
+<p>Let’s see an example:</p>
+<p><img class="w100" src="./layout-doc-imgs/imgs-sin-monitor/keeoput-height-scheme.jpg" alt="keeoput-height-scheme" /></p>
+<p>In keepout 1, A is the desired height, and B is the minimum height for this keepout. As A is bigger than B then the keepout is created with the desired height (A).</p>
+<p>In keepout 2, A is also the desired height, but the keepout can’t be drawn correctly if the height is less than B measure, as some parts of the keepout will stay below the roof, so keepout 2 will be created with the minimum calculated height (B).</p>
+<blockquote>
+<p>Note that for flat roofs it is posible to create 0 height keepouts, but for inclinated roofs you need to use the invisible keepouts feature to allow keepouts at roof surface level.</p>
+</blockquote>
+<div class="page-break"></div>
+<h2 id="invisible-keepouts">Invisible keepouts</h2>
+<p>If you want to simulate a skylight or any keepout object without drawing the 3d volume you can check the Invisible keepout option to hide the 3D volume but still taking the obstacle into account.</p>
+<p><img class="w200px" src="./layout-doc-imgs/imgs-sin-monitor/invisible-keepout-toggle.jpg" alt="invisible-keepout-toggle" /></p>
+<h2 id="crop-keepout-to-the-building-shape">Crop keepout to the building shape</h2>
+<p>When editing the vertices of a keepout you can check the ‘crop to building limits’. This helps you to draw keepouts that extends to the border of the building with more precision.</p>
+<p><img class="w200px" src="./layout-doc-imgs/imgs-sin-monitor/crop-shape-building-toggle.jpg" alt="crop-shape-building-toggle" /></p>
+<p>If you unckeck this option then the keepout can be floating outside the building limits. At least one vertex of the keepout should be inside the building limits to be created.</p>
+<div class="page-break"></div>
+<h1 id="subareas">Subareas</h1>
+<h2 id="subarea-creation">Subarea creation</h2>
+<p>A subarea is a region inside an area that allows you to define a modules installation just in a section of the area.</p>
+<p>To create a subarea click on the ‘create subareas’ button.</p>
+<p><img class="w200px" src="./layout-doc-imgs/imgs-sin-monitor/subarea-creation-button.jpg" alt="subarea-creation-button" /></p>
+<p>Once the subarea button is activated the standard area functions become disabled and two new buttons appears:</p>
+<ul>
+<li>Remove subareas</li>
+<li>Add subarea</li>
+</ul>
+<p><img class="w200px" src="./layout-doc-imgs/imgs-sin-monitor/remove-add-subareas.jpg" alt="remove-add-subareas" /></p>
+<h2 id="remove-subareas">Remove Subareas</h2>
+<p>By clicking the ‘remove subareas’ button all the subareas are removed and the area come back to its standard behaviour.</p>
+<div class="page-break"></div>
+<h2 id="add-subarea">Add subarea</h2>
+<p>By clicking the ‘add subarea’ button you enter in the subarea creation process.</p>
+<p><img class="w75" src="./layout-doc-imgs/imgs-sin-monitor/add-subarea.jpg" alt="add-subarea" /></p>
+<h3 id="crop-subarea-to-the-area-shape">Crop subarea to the area shape</h3>
+<p>When editing the vertices of a subarea you can check the ‘crop to building limits’. This helps you to draw keepouts that extends to the border of the building with more precision.</p>
+<p><img class="w200px" src="./layout-doc-imgs/imgs-sin-monitor/crop-shape-building-toggle.jpg" alt="crop-shape-building-toggle" /></p>
+<p>If you uncheck this option then the subarea can extend outside the area, following the area plane.</p>
+<p><img class="w75" src="./layout-doc-imgs/imgs-sin-monitor/subarea-sample.jpg" alt="subarea-sample" /></p>
+<h2 id="subarea-editing">Subarea editing</h2>
+<p>Once created the subarea is listed below this buttons. You can then proceed to setup the subarea in the same way you work with standard areas.</p>
+<p>In the subarea panel you will find two new buttons:</p>
+<ul>
+<li>Edit subarea vertices</li>
+<li>remove subarea</li>
+</ul>
+<p><img class="w200px" src="./layout-doc-imgs/imgs-sin-monitor/subarea-edit-delete-buttons.jpg" alt="subarea-edit-delete-buttons" /></p>
+<h3 id="edit-subarea-vertices">Edit subarea vertices</h3>
+<p>By clicking this button you can modify subarea vertices and the subarea will be recalculated.</p>
+<h3 id="remove-subarea">Remove subarea</h3>
+<p>By clicking this button you can remove a single subarea from the subareas list.</p>
+<div class="page-break"></div>
+<h1 id="layout-coordinate-systems">Layout Coordinate Systems</h1>
+<p>The 3DLayout works in five different coordinate systems, depending on wich context we are requesting info.</p>
+<h2 id="world-coordinate-system">World Coordinate System</h2>
+<p><img class="w75" src="./layout-doc-imgs/imgs-sin-monitor/world-coords.png" alt="world-coords" /></p>
+<p>World coordinate system works with spherical coordinates, latitude and longitude.</p>
+<p>The values stored in this system and the API calls to retrieve this data are:</p>
+<ul>
+<li>Layout project center &gt; getLayout</li>
+</ul>
+<div class="page-break"></div>
+<h2 id="scene-coordinate-system">Scene Coordinate System</h2>
+<p><img class="w75" src="./layout-doc-imgs/imgs-sin-monitor/scene-coords.png" alt="scene-coords" /></p>
+<p>Scene coordinate system works with cartesian coords, with origin in the layout project center and distances measured in meters. It is used to place each building relative to the project center.</p>
+<p>The values stored in this system and the API calls to retrieve this data are:</p>
+<ul>
+<li>Building data center &gt; getBuildingInfo()</li>
+</ul>
+<div class="page-break"></div>
+<h2 id="building-coordinate-system">Building Coordinate System</h2>
+<p><img class="w75" src="./layout-doc-imgs/imgs-sin-monitor/building-coords.png" alt="building-coords" /></p>
+<p>Building coordinate System works with cartesian coords, with origin in the building center and measured in meters. Al tilted surfaces are represented in ortographic view.</p>
+<p>The values stored in this system and the API calls to retrieve this data are:</p>
+<ul>
+<li>Building vertices (verticesMCoords) &gt; getBuildingInfo()</li>
+</ul>
+<div class="page-break"></div>
+<h2 id="area-coordinate-system">Area Coordinate System</h2>
+<p><img class="w75" src="./layout-doc-imgs/imgs-sin-monitor/area-coords.png" alt="area-coords" /></p>
+<p>Area Coordinate System works in cartesian coords, with origin in the bottom-left corner of the area, and rotated with the exterior wall azimuth of the area. On flat roofs the first wall drawed is considered the main wall.</p>
+<p>The values stored in this system and the API calls to retrieve this data are:</p>
+<ul>
+<li>Area vertices (verticesMCoords) &gt; getAreaInfo()</li>
+<li>Area offset vertices (verticesOffsetMCoords) &gt; getAreaInfo()</li>
+<li>Area modules coords (modulesData (x/y)) &gt; getAreaInfo()</li>
+</ul>
+<p>This is the same for subareas, just using <strong>getSubareaInfo</strong><br />
+<div class="page-break"></div></p>
 <h1 id="how-to-use">How to use</h1>
 <h2 id="api-key-and-autentication">Api key and autentication</h2>
 <p>To start using the 3DLayout in your platform, you need to add the following script:</p>
@@ -439,7 +567,13 @@ This event is triggered when the user confirm a custom alert dialog.
 <p>each area in the areas array contains:</p>
 <pre><code>{
     id: the area id,
-    name: the area name
+    name: the area name,
+    subareas: an array of subareas in the area
+}</code></pre>
+<p>each subarea in the subareas array contains:</p>
+<pre><code>{
+    id: the subarea id,
+    name: the subarea name
 }</code></pre>
 <h4 id="getnumberofmodules">getNumberOfModules</h4>
 <pre><code>layout.getNumberOfModules(callback);</code></pre>
@@ -455,7 +589,14 @@ This event is triggered when the user confirm a custom alert dialog.
 <pre><code>{
     id: the area id,
     name: the area name,
-    modules: total of modules in the area
+    modules: total of modules in the area,
+    subareas: an array of subareas in the area
+}</code></pre>
+<p>each subarea in the subareas array contains:</p>
+<pre><code>{
+    id: the subarea id,
+    name: the subarea name,
+    modules: total of modules in the subarea
 }</code></pre>
 <h4 id="gettotalpower">getTotalPower</h4>
 <pre><code>layout.getTotalPower(callback);</code></pre>
@@ -474,7 +615,14 @@ This event is triggered when the user confirm a custom alert dialog.
 <pre><code>{
     id: the area id,
     name: the area name,
-    power: total power in this area
+    power: total power in this area,
+    subareas: an array of subareas in the area
+}</code></pre>
+<p>each subarea in the subareas array contains:</p>
+<pre><code>{
+    id: the subarea id,
+    name: the subarea name,
+    power: total power in this subarea
 }</code></pre>
 <h3 id="building-related-functions">Building related functions</h3>
 <p>Set of generic functions to retrieve building related information from the layout. In this set of functions you should pass an existing building id, and a callback.</p>
@@ -493,7 +641,10 @@ This event is triggered when the user confirm a custom alert dialog.
     height: building height (in meters),
     regular: true if building angles are all equal to 90º, false otherwise.
     buildingArea: building area measure (in square meters),
-    vertices: building vertices in lat/long coordinates,
+    centerDeg: building center in World coordinate system,
+    centerMCoords: building center in Scene coordinate system,
+    vertices: building vertices in world coordinate system  [DEPRECATED],
+    verticesMCoords: building vertices in building coordinate system,
     modules: total of modules in the building
     power: total power of the building,
     areas: array of areas in this building
@@ -501,7 +652,13 @@ This event is triggered when the user confirm a custom alert dialog.
 <p>Each area in the areas array contains:</p>
 <pre><code>{
     id: the area id,
-    name: the area name
+    name: the area name,
+    subareas: an array of subareas in the area
+}</code></pre>
+<p>each subarea in the subareas array contains:</p>
+<pre><code>{
+    id: the subarea id,
+    name: the subarea name
 }</code></pre>
 <h4 id="getroofinfo">getRoofInfo</h4>
 <pre><code>layout.getRoofInfo(id, callback);</code></pre>
@@ -519,15 +676,18 @@ This event is triggered when the user confirm a custom alert dialog.
 <p>Returns building position info for a given building.id</p>
 <p>The data returned is:</p>
 <pre><code>{
-    center: the building center in lat/long coords
-    vertices: an array of building vertices in lat/long coords
+    center: building center in world coord system [DEPRECATED],
+    vertices: array of building vertices, world coord system [DEPRECATED],
+    centerDeg: building center in World coord system,
+    centerMCoords: building center in Scene coord system,
+    verticesMCoords: building vertices in building coord system,
 }</code></pre>
 <h3 id="area-related-functions">Area related functions</h3>
 <p>Set of generic functions to retrieve Area related information from the layout. In this set of functions you should pass an existing area id, and a callback.</p>
 <ul>
 <li>getAreaInfo</li>
 <li>getModuleInfoByArea</li>
-<li>getModulesSructureByArea</li>
+<li>getModulesStructureByArea</li>
 <li>getAreaOffset</li>
 </ul>
 <h4 id="getareainfo">getAreaInfo</h4>
@@ -542,11 +702,19 @@ This event is triggered when the user confirm a custom alert dialog.
     structure: i.e: east-west / standard,
     inclination: modules inclination (in degrees),
     azimuth: modules azimuthal inclination (in degrees),
-    areaMCoords: array containing area vertices coordinates in meters (with origin in the building center),
-    areaOffsetMCoords: array containing offseted area vertices coordinates in meters (with origin in the building center) ,
+    areaMCoords: array with area vertices coordinates in Area system coords [DEPRECATED],
+    areaOffsetMCoords: array with offseted area vertices in Area system coords [DEPRECATED],
+    verticesMCoords: array with area vertices coordinates in Area system coords,
+    verticesOffsetMCoords: array with offseted area vertices in Area system coords,
     wallSizes: size in meters for each area wall,
     wallAzimuth: azimuthal angle for the external area wall,
-    power: total power of the area.
+    power: total power of the area,
+    subareas: an array of subareas in the area
+}</code></pre>
+<p>each subarea in the subareas array contains:</p>
+<pre><code>{
+    id: the subarea id,
+    name: the subarea name
 }</code></pre>
 <h4 id="getmoduleinfobyarea">getModuleInfoByArea</h4>
 <pre><code>layout.getModuleInfoByArea(id, callback);</code></pre>
@@ -561,13 +729,13 @@ This event is triggered when the user confirm a custom alert dialog.
     length: the lenght of the module (in meters),
     power: the power of the module
 }</code></pre>
-<h4 id="getmodulessructurebyarea">getModulesSructureByArea</h4>
-<pre><code>layout.getModulesSructureByArea(id, callback);</code></pre>
+<h4 id="getmodulesstructurebyarea">getModulesStructureByArea</h4>
+<pre><code>layout.getModulesStructureByArea(id, callback);</code></pre>
 <p>returns a JSON with an array of modules for a given area.id</p>
 <p>The data for each module in the array is:</p>
 <pre><code>{
-    x: x position of the module in meters (with origin in the building center),
-    y: y position of the module in meters (with origin in the building center),
+    x: x position of the module in Area system coords,
+    y: y position of the module in Area system coords,
     col: column to which the module belongs,
     row: row to which the module belongs,,
     rX: rotation of the module in the X axis (inclination),
@@ -578,19 +746,61 @@ This event is triggered when the user confirm a custom alert dialog.
 <pre><code>layout.getAreaOffset(id, offset, callback);</code></pre>
 <p>Returns an array of vertices containing the offseted area for a given area.id and offset</p>
 <p>If the offset is a negative value, then the area is reduced by the offset value (in meters)</p>
-<!-- ## Functions to send info from 3DLayout
-
-### CustomAlert event
-
-You can send this event to show an alert with some information to the user in any moment.
-
-    layout.customAlert(title_text_string, body_text_string, callback);
-
-
- -->
-<!-- ***
-    Recordadme que tengo que automatizar el token de creación de objetos en la api
- -->
+<h3 id="subarea-related-functions">Subarea related functions</h3>
+<p>Set of generic functions to retrieve Area related information from the layout. In this set of functions you should pass an existing area id, and a callback.</p>
+<ul>
+<li>getSubareaInfo</li>
+<li>getModuleInfoBySubarea</li>
+<li>getModulesStructureBySubarea</li>
+</ul>
+<h4 id="getsubareainfo">getSubareaInfo</h4>
+<pre><code>layout.getSubareaInfo(id, callback);</code></pre>
+<p>returns subarea info for a given subarea.id]</p>
+<p>The data returned is:</p>
+<pre><code>{
+    id: the subarea id,
+    name: the subarea name,
+    offset: the subarea offset,
+    placement: placement (i.e: portrait / landscape),
+    structure: i.e: east-west / standard,
+    inclination: modules inclination (in degrees),
+    azimuth: modules azimuthal inclination (in degrees),
+    verticesMCoords: array with subarea vertices coordinates in Area system coords,
+    verticesOffsetMCoords: array with offseted subarea vertices in Area system coords,
+    wallSizes: size in meters for each subarea wall,
+    wallAzimuth: azimuthal angle for the external area wall,
+    power: total power of the subarea,
+}</code></pre>
+<h4 id="getmoduleinfobysubarea">getModuleInfoBySubarea</h4>
+<pre><code>layout.getModuleInfoBySubarea(id, callback);</code></pre>
+<p>returns module info for a given subarea.id]</p>
+<p>The data returned is:</p>
+<pre><code>{
+    id: the module id,
+    name: the module model name,
+    reference: extra model information,
+    width: the width of the module (in meters),
+    height: the height of the module (in meters),
+    length: the lenght of the module (in meters),
+    power: the power of the module
+}</code></pre>
+<h4 id="getmodulesstructurebysubarea">getModulesStructureBySubarea</h4>
+<pre><code>layout.getModulesStructureBySubarea(id, callback);</code></pre>
+<p>returns a JSON with an array of modules for a given subarea.id</p>
+<p>The data for each module in the array is:</p>
+<pre><code>{
+    x: x position of the module in Area system coords,
+    y: y position of the module in Area system coords,
+    col: column to which the module belongs,
+    row: row to which the module belongs,,
+    rX: rotation of the module in the X axis (inclination),
+    rZ: rotation of the module in the Z axis (azimuth),
+    color: the color of the module (only exist if color is not default),
+}</code></pre>
+<h2 id="functions-to-send-info-to-the-3dlayout">Functions to send info to the 3DLayout</h2>
+<h3 id="customalert-event">CustomAlert event</h3>
+<p>You can send this event to show an alert with some information to the user in any moment.</p>
+<pre><code>layout.customAlert(title_text_string, body_text_string, callback);</code></pre>
 <!-- 
 ## Functions to set values in to the project
 
@@ -1090,45 +1300,77 @@ We use the fontawesome icons collection, so you can use it to define new buttons
 <div class="page-break"></div>
 <div class="page-break"></div>
 <h1 id="changelog">Changelog</h1>
-<h2 id="section">[2.9.1] - 2016-09-19</h2>
+<h2 id="section">[2.11.0] - 2016-11-04</h2>
+<h3 id="changed">Changed</h3>
+<p>Added two new imagery provider: Bing and Digital Globe.</p>
+<p>Removed one imagery provider: Cyclomedia.</p>
 <h3 id="fixed">Fixed</h3>
-<p>Fix tutorial to show new features on building creation (auto calculated point)</p>
-<h2 id="section-1">[2.9.0] - 2016-09-18</h2>
+<p>Some minor fixes.</p>
+<h2 id="section-1">[2.10.0] - 2016-10-21</h2>
+<h3 id="added">Added</h3>
+<p><strong>Subareas feature</strong>. You can read about this new feature in the <a href="#subareas">Subareas</a> section.</p>
+<p>New **Subarea related API calls“. You can read about this new feature in the <a href="#subarea-related-functions">Subarea related functions</a> section.</p>
+<p><strong>Keepout height calculations</strong> explanation. You can read about how keepout heights are calculated in the <a href="#keepout-height-calculations">Keepout height calculations</a> section.</p>
+<p><strong>Invisible keepout feature</strong>. You can read about this new feature in the <a href="#invisible-keepouts">Invisible keepouts</a> section.</p>
+<p><strong>Custom Alert feature</strong>. You can read about this new feature in the <a href="#customalert-event">CustomAlert event</a> section.</p>
+<p><strong>Coordinate Systems</strong> explained. You can read about this in the <a href="#layout-coordinate-systems">Layout Coordinate Systems</a> section.</p>
 <h3 id="fixed-1">Fixed</h3>
+<p>Fixed an issue preventing to delete first point on building, keepout or subarea creation.</p>
+<h3 id="deprecated">Deprecated</h3>
+<p>We find a typo error in the name of a function:</p>
+<p><em>getModulesSructureByArea</em> becomes <em>getModulesStructureByArea</em></p>
+<p><strong>getBuildingInfo</strong><br />
+verticesDeg attribute will be deprecated</p>
+<p><strong>getBuildingPosition</strong><br />
+center attribute will be deprecated &gt; becomes centerDeg<br />
+vertices attribute will be deprecated</p>
+<p><strong>getAreaInfo</strong><br />
+areaMCoords will be deprecated &gt; becomes verticesMCoords,<br />
+areaOffsetMCoords will be deprecated &gt; becomes verticesOffsetMCoords</p>
+<blockquote>
+<p>The old names still works but is recommended to update your code.</p>
+</blockquote>
+<h3 id="changed-1">Changed</h3>
+<p>Some API calls were updated to reflect subarea feature. <em>GetLayoutData</em>, <em>getNumberOfModules</em>, <em>GetPower</em>, <em>getBuildingInfo</em> and <em>getAreaInfo</em> were changed to add subarea information.</p>
+<h2 id="section-2">[2.9.1] - 2016-09-19</h2>
+<h3 id="fixed-2">Fixed</h3>
+<p>Fix tutorial to show new features on building creation (auto calculated point)</p>
+<h2 id="section-3">[2.9.0] - 2016-09-18</h2>
+<h3 id="fixed-3">Fixed</h3>
 <p>Fixed a bug that prevented all buildings to be removed from a project.</p>
 <p>Fixed some minor css issues</p>
-<h2 id="section-2">[2.8.0] - 2016-09-14</h2>
-<h3 id="changed">Changed</h3>
+<h2 id="section-4">[2.8.0] - 2016-09-14</h2>
+<h3 id="changed-2">Changed</h3>
 <p>Improved country detection internal functions.</p>
-<h2 id="section-3">[2.7.0] - 2016-09-09</h2>
-<h2 id="added">added</h2>
+<h2 id="section-5">[2.7.0] - 2016-09-09</h2>
+<h2 id="added-1">added</h2>
 <p><strong>Tutorial mode</strong> access information. You can read about this new feature in the <a href="#tutorial-mode">Tutorial mode</a> section.</p>
 <p><strong>Custom Logo in tutorial</strong> section. You can read about this new feature in the <a href="#custom-logo-in-tutorial-section">Custom Logo in tutorial section</a> section.</p>
 <p><strong>Customize Go back button</strong> in the tutorial menu. You can read about this new feature in the <a href="#customize-go-back-button-in-the-tutorial-menu">Customize Go back button in the tutorial menu</a> section.</p>
 <p><strong>azimuthOffset</strong> option to define your prefered convention for south faced modules. You can read about this new option in the <a href="#azimuthoffset">azimuthOffset</a></p>
 <p>Roof inclination in degrees is showed in building information panel.</p>
-<h3 id="changed-1">Changed</h3>
+<h3 id="changed-3">Changed</h3>
 <p>New feature to add vertices on building and keepout creation. Now when 3 points are entered, the fourth one is calculated automatically (drawed in yellow) to help the creation of regular buildings. Just press “next step” when the yellow lines appears to accept the fourth point, or click again in the canvas to enter another point and go ahead with an irregular shape.</p>
-<h3 id="fixed-2">Fixed</h3>
+<h3 id="fixed-4">Fixed</h3>
 <p>Minor problems in the keepout and trees lists has been fixed. Now select and edit objects is easier.</p>
-<h2 id="section-4">[2.6.0] - 2016-09-01</h2>
-<h3 id="added-1">added</h3>
+<h2 id="section-6">[2.6.0] - 2016-09-01</h2>
+<h3 id="added-2">added</h3>
 <p>Some minor GUI changes to clarify the workflow.</p>
 <p>Two new showcase options, with and without camera spining. You can read a description of this options in the <a href="#showcase-mode">Showcase mode</a> section.</p>
 <p>New <strong>perspective</strong>, <strong>spin</strong> and <strong>readonly</strong> options. You can read a description of this options in the <a href="#special-behaviours">Special Behaviours</a> section.</p>
 <p>Custom Logo. You can read about this new feature in the <a href="#custom-logo">Custom Logo</a> section.</p>
 <p>Custom Loading Animation. You can read about this new feature in the <a href="#custom-loading-animation">Custom Loading Animation</a> section.</p>
-<h3 id="changed-2">changed</h3>
+<h3 id="changed-4">changed</h3>
 <p>Navigation panel, save button and building index now becomes disabled when creating a building.</p>
 <p>Undo, redo and save buttons in mainoptions becomes custom buttons. You can read a description of this new custom buttons in the <a href="#mainoptionscustombuttons">MainoptionsCustomButtons</a> section.</p>
 <p>A helper message is showed when roof types are restricted due to irregular buildings. Also, restricted roof types are shown disabled.</p>
 <p>A dialog window is showed when vertices or roof is edited, to alert the user about the reset of the building.</p>
 <p><em>Area offset</em> now is called <strong>Edge Zone</strong></p>
 <p><em>Building height</em> now is called <strong>Gutter height</strong> as it doesn’t count the roof height.</p>
-<h3 id="fixed-3">fixed</h3>
+<h3 id="fixed-5">fixed</h3>
 <p>Some errata in the pdf (added measure units for all values)</p>
 <p>Fix style for loading animation to adjust to window size.</p>
-<h3 id="deprecated">deprecated</h3>
+<h3 id="deprecated-1">deprecated</h3>
 <p>The <em>display</em> option is deprecated, now it’s called <strong>perspective</strong>. Anyway, it still works with the old naming.</p>
 <p>The layout Url extension “/true” is deprecated. You can read a description of the new extensions in the <a href="#showcase-mode">Showcase mode</a> section. Anyway, it still works with the old naming.</p>
 <!--   Template to add a version to the changelog
