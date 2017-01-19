@@ -1554,7 +1554,7 @@ Changelog
 
 ### Added
 
-Added a layout rule to limit maximum building height.
+Added a layout rule to limit maximum building height.You can read about this new feature in the [maxBuildingHeight](#maxbuildingheight) section.
 
 !!!!! FALTAN DATOS !!!!!!!
 
