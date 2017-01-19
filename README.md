@@ -83,6 +83,7 @@ Table of contents
         -   [DefaultRoofs](#defaultroofs)
         -   [DefaultBuilding](#defaultbuilding)
         -   [CustomPalette](#custompalette)
+        -   [maxBuildingHeight](#maxbuildingheight)
     -   [Custom Buttons](#custom-buttons)
         -   [MainoptionsCustomButtons](#mainoptionscustombuttons)
         -   [ControlCustomButtons](#controlcustombuttons)
@@ -91,26 +92,28 @@ Table of contents
     -   [Custom Logo in tutorial section](#custom-logo-in-tutorial-section)
     -   [Customize Go back button in the tutorial menu](#customize-go-back-button-in-the-tutorial-menu)
 -   [Changelog](#changelog)
-    -   [\[2.11.0\] - 2016-11-04](#section)
+    -   [\[2.15.0\] - 2017-02-01 - ?????????????????????????](#section)
+        -   [Added](#added)
+    -   [\[2.11.0\] - 2016-11-04](#section-1)
         -   [Changed](#changed)
         -   [Fixed](#fixed)
-    -   [\[2.10.0\] - 2016-10-21](#section-1)
-        -   [Added](#added)
+    -   [\[2.10.0\] - 2016-10-21](#section-2)
+        -   [Added](#added-1)
         -   [Fixed](#fixed-1)
         -   [Deprecated](#deprecated)
         -   [Changed](#changed-1)
-    -   [\[2.9.1\] - 2016-09-19](#section-2)
+    -   [\[2.9.1\] - 2016-09-19](#section-3)
         -   [Fixed](#fixed-2)
-    -   [\[2.9.0\] - 2016-09-18](#section-3)
+    -   [\[2.9.0\] - 2016-09-18](#section-4)
         -   [Fixed](#fixed-3)
-    -   [\[2.8.0\] - 2016-09-14](#section-4)
+    -   [\[2.8.0\] - 2016-09-14](#section-5)
         -   [Changed](#changed-2)
-    -   [\[2.7.0\] - 2016-09-09](#section-5)
-    -   [added](#added-1)
+    -   [\[2.7.0\] - 2016-09-09](#section-6)
+    -   [added](#added-2)
         -   [Changed](#changed-3)
         -   [Fixed](#fixed-4)
-    -   [\[2.6.0\] - 2016-09-01](#section-6)
-        -   [added](#added-2)
+    -   [\[2.6.0\] - 2016-09-01](#section-7)
+        -   [added](#added-3)
         -   [changed](#changed-4)
         -   [fixed](#fixed-5)
         -   [deprecated](#deprecated-1)
@@ -1030,6 +1033,7 @@ Available rule objects expected by the 3DLayout:
     -   DefaultRoofs
     -   DefaultBuilding
     -   CustomPalette
+    -   maxBuildingHeight
 -   Custom Buttons
     -   MainoptionsCustomButtons
     -   ControlCustomButtons
@@ -1343,6 +1347,14 @@ To define your own color palette use this squeme:
         ]
     }
 
+### maxBuildingHeight
+
+User can limit the maximum height of buildings in the layout by defining this value.
+
+    {
+        "maxBuildingHeight": 25    (value in meters)
+    }
+
 Custom Buttons
 --------------
 
@@ -1536,6 +1548,15 @@ Or you can modify more in deep the href of the element via javascript by using t
 
 Changelog
 =========
+
+\[2.15.0\] - 2017-02-01 - ?????????????????????????
+---------------------------------------------------
+
+### Added
+
+Added a layout rule to limit maximum building height.
+
+!!!!! FALTAN DATOS !!!!!!!
 
 \[2.11.0\] - 2016-11-04
 -----------------------

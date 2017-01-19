@@ -28,6 +28,7 @@ Available rule objects expected by the 3DLayout:
     * DefaultRoofs
     * DefaultBuilding
     * CustomPalette
+    * maxBuildingHeight
 * Custom Buttons
     * MainoptionsCustomButtons
     * ControlCustomButtons
@@ -340,6 +341,14 @@ To define your own color palette use this squeme:
             '#000000',
             '#ff0000'
         ]
+    }
+
+### maxBuildingHeight
+
+User can limit the maximum height of buildings in the layout by defining this value.
+
+    {
+        "maxBuildingHeight": 25    (value in meters)
     }
 
 ## Custom Buttons
