@@ -36,6 +36,7 @@
 <nav id="TOC">
 <ul>
 <li><a href="#introduction">Introduction</a></li>
+<li><a href="#introduction-1">Introduction</a></li>
 <li><a href="#screenshots">Screenshots</a></li>
 <li><a href="#dlayout-interface">3DLayout Interface</a><ul>
 <li><a href="#aside-panel">Aside Panel</a></li>
@@ -67,6 +68,7 @@
 <li><a href="#building-coordinate-system">Building Coordinate System</a></li>
 <li><a href="#area-coordinate-system">Area Coordinate System</a></li>
 </ul></li>
+<li><a href="#integration">Integration</a></li>
 <li><a href="#how-to-use">How to use</a><ul>
 <li><a href="#api-key-and-autentication">Api key and autentication</a></li>
 <li><a href="#dom-element">DOM element</a></li>
@@ -82,6 +84,7 @@
 </ul></li>
 <li><a href="#tutorial-mode">Tutorial mode</a></li>
 </ul></li>
+<li><a href="#communication">Communication</a></li>
 <li><a href="#dlayout-communication-system">3DLayout Communication System</a><ul>
 <li><a href="#info-events-sent-by-3dlayout">Info Events sent by 3DLayout</a><ul>
 <li><a href="#zoomchanged">zoomChanged</a></li>
@@ -109,6 +112,7 @@
 <li><a href="#customalert-event">CustomAlert event</a></li>
 </ul></li>
 </ul></li>
+<li><a href="#customization">Customization</a></li>
 <li><a href="#layout-rules">Layout Rules</a><ul>
 <li><a href="#special-behaviours">Special Behaviours</a><ul>
 <li><a href="#perspective">Perspective</a></li>
@@ -172,47 +176,84 @@
 </ul></li>
 </ul>
 </nav>
+<div class="page-break"></div>
 <h1 id="introduction">Introduction</h1>
+<p>Ezzing 3DLayout is a PV planning tool that allows you to generate a 3d model of a building based on a satellite image. You can model any number of buildings, select between up to five different type of roofs, define keepouts and trees with custom heights…<br />
+Section - Table of contents<br />
+===========================</p>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#screenshots">Screenshots</a></li>
+<li><a href="#dlayout-interface">3DLayout Interface</a>
+<ul>
+<li><a href="#aside-panel">Aside Panel</a></li>
+<li><a href="#canvas-area">Canvas Area</a>
+<ul>
+<li><a href="#buildings-index">Buildings Index</a></li>
+<li><a href="#main-options">Main Options</a></li>
+<li><a href="#control-buttons">Control Buttons</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#keepouts">Keepouts</a>
+<ul>
+<li><a href="#keepout-height-calculations">Keepout height calculations</a></li>
+<li><a href="#invisible-keepouts">Invisible keepouts</a></li>
+<li><a href="#crop-keepout-to-the-building-shape">Crop keepout to the building shape</a></li>
+</ul></li>
+<li><a href="#subareas">Subareas</a>
+<ul>
+<li><a href="#subarea-creation">Subarea creation</a></li>
+<li><a href="#remove-subareas">Remove Subareas</a></li>
+<li><a href="#add-subarea">Add subarea</a>
+<ul>
+<li><a href="#crop-subarea-to-the-area-shape">Crop subarea to the area shape</a></li>
+</ul></li>
+<li><a href="#subarea-editing">Subarea editing</a>
+<ul>
+<li><a href="#edit-subarea-vertices">Edit subarea vertices</a></li>
+<li><a href="#remove-subarea">Remove subarea</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#layout-coordinate-systems">Layout Coordinate Systems</a>
+<ul>
+<li><a href="#world-coordinate-system">World Coordinate System</a></li>
+<li><a href="#scene-coordinate-system">Scene Coordinate System</a></li>
+<li><a href="#building-coordinate-system">Building Coordinate System</a></li>
+<li><a href="#area-coordinate-system">Area Coordinate System</a></li>
+</ul></li>
+</ul>
+<h1 id="introduction-1">Introduction</h1>
 <p>Ezzing 3DLayout is a PV planning tool that allows you to generate a 3d model of a building based on a satellite image. You can model any number of buildings, select between up to five different type of roofs, define keepouts and trees with custom heights…</p>
 <p>Inside each roof area you can customize different structures, select module models and get automated previews of your setup.</p>
 <p>It also provides you with a perspective view and a sun simulator to determine where the shadows will be in your installation.</p>
 <p>Ezzing 3DLayout is an embebible webapp. You can integrate it inside your own system and customize many elements inside, from module models to prefered default settings for each roof type.</p>
 <p>In this document you will find a brief showcase of the different areas of the app, a technical explanation on how to integrate this webapp inside your platform, a full description of the API that will allow you to communicate with the 3DLayout, and finally a description on how to customize different parts of the app.</p>
-<div class="page-break"></div>
-<p><img class="w100" src="./layout-doc-imgs/intro-mac.jpg" alt="3DLayout" /></p>
+<p><img src="./layout-doc-imgs/intro-mac.jpg" alt="3DLayout" class="w100" /></p>
 <p>You can test the app by visiting this link:</p>
-<p><a href="https://layout.ezzing.com/#/demo">https://layout.ezzing.com/#/demo</a></li></p>
+<p><a href="https://layout.ezzing.com/#/demo" class="uri">https://layout.ezzing.com/#/demo</a></p>
 <p>Also you can follow a tutorial to learn the basics of the 3DLayout in this link:</p>
-<p><a href="https://layout.ezzing.com/#/tutorial">https://layout.ezzing.com/#/tutorial</a></li></p>
-<div class="page-break"></div>
+<p><a href="https://layout.ezzing.com/#/tutorial" class="uri">https://layout.ezzing.com/#/tutorial</a></p>
 <h1 id="screenshots">Screenshots</h1>
-<p><img class="w100" src="./layout-doc-imgs/perspective-view-mac.jpg" alt="perspective view" /></p>
-<p><img class="w100" src="./layout-doc-imgs/sun-simulation-mac.jpg" alt="sun simulation" /></p>
-<div class="page-break"></div>
+<p><img src="./layout-doc-imgs/perspective-view-mac.jpg" alt="perspective view" class="w100" /></p>
+<p><img src="./layout-doc-imgs/sun-simulation-mac.jpg" alt="sun simulation" class="w100" /></p>
 <h1 id="dlayout-interface">3DLayout Interface</h1>
 <p>The 3DLayout interface has two diferent parts. The <strong>aside panel</strong> and the <strong>canvas area</strong>.</p>
 <h2 id="aside-panel">Aside Panel</h2>
 <p>In the aside panel you can find functionalities related to the current active building and other objects in the scene.</p>
-<p><br></p>
-<p><img class="w100" src="./layout-doc-imgs/tab-building-mac.jpg" alt="tab building" /></p>
-<p><img class="w100" src="./layout-doc-imgs/tab-areas-1-mac.jpg" alt="tab areas 1" /><br />
-<br><br />
-<img class="w100" src="./layout-doc-imgs/tab-areas-2-mac.jpg" alt="tab areas 2" /></p>
-<p><img class="w100" src="./layout-doc-imgs/tab-keepouts-mac.jpg" alt="tab keepouts" /><br />
-<br><br />
-<img class="w100" src="./layout-doc-imgs/tab-trees-mac.jpg" alt="tab trees" /></p>
-<div class="page-break"></div>
+<p><img src="./layout-doc-imgs/tab-building-mac.jpg" alt="tab building" class="w100" /></p>
+<p><img src="./layout-doc-imgs/tab-areas-1-mac.jpg" alt="tab areas 1" class="w100" /><br />
+<img src="./layout-doc-imgs/tab-areas-2-mac.jpg" alt="tab areas 2" class="w100" /></p>
+<p><img src="./layout-doc-imgs/tab-keepouts-mac.jpg" alt="tab keepouts" class="w100" /><br />
+<img src="./layout-doc-imgs/tab-trees-mac.jpg" alt="tab trees" class="w100" /></p>
 <h2 id="canvas-area">Canvas Area</h2>
 <p>In the canvas area you can see the satellite view and three diferent sets of elements, the <strong>buildings index</strong> on the left side, the <strong>main options buttons</strong> on the top, and the <strong>control buttons</strong> on the bottom-right corner.</p>
-<p><img class="w100" src="./layout-doc-imgs/canvas.jpg" alt="canvas" /></p>
-<div class="page-break"></div>
+<p><img src="./layout-doc-imgs/canvas.jpg" alt="canvas" class="w100" /></p>
 <h3 id="buildings-index">Buildings Index</h3>
 <p>In the buildings index you can see the active building and select another one to become active.</p>
-<p><img class="w200px" src="./layout-doc-imgs/buildings-index.jpg" alt="buildings-index" /></p>
-<p><br></p>
+<p><img src="./layout-doc-imgs/buildings-index.jpg" alt="buildings-index" class="w200px" /></p>
 <h3 id="main-options">Main Options</h3>
 <p>These are the main options in the canvas area.</p>
-<p><img class="w100" src="./layout-doc-imgs/mainoptions.jpg" alt="mainoptions" /></p>
+<p><img src="./layout-doc-imgs/mainoptions.jpg" alt="mainoptions" class="w100" /></p>
 <p>All this buttons are the <strong>main options custom buttons</strong>. You can customize this set of buttons by hidding some of them, by sorting them, or by adding new buttons.</p>
 <p>The default custom buttons are:</p>
 <ul>
@@ -230,7 +271,7 @@
 </blockquote>
 <h3 id="control-buttons">Control Buttons</h3>
 <p>These are map related buttons. You can also customize the upper section of this set of buttons by hidding some of them or by adding new buttons</p>
-<p><img class="w100px" src="./layout-doc-imgs/controlbuttons.jpg" alt="controlbuttons" /></p>
+<p><img src="./layout-doc-imgs/controlbuttons.jpg" alt="controlbuttons" class="w100px" /></p>
 <p>Fixed buttons in this area:</p>
 <ul>
 <li>zoom in</li>
@@ -244,49 +285,45 @@
 <blockquote>
 <p>Please, visit the section <a href="#custom-buttons">Custom Buttons</a> to learn how to add your own functions.</p>
 </blockquote>
-<div class="page-break"></div>
 <h1 id="keepouts">Keepouts</h1>
 <h2 id="keepout-height-calculations">Keepout height calculations</h2>
 <p>When creating keepouts, please note the height selected for the keepout is not always the final keepout height.</p>
 <p>Depending on the roof inclination and the keepout dimensions and positions, there is a minimum keepout height to avoid keepouts under the roof surface.</p>
 <p>Let’s see an example:</p>
-<p><img class="w100" src="./layout-doc-imgs/imgs-sin-monitor/keeoput-height-scheme.jpg" alt="keeoput-height-scheme" /></p>
+<p><img src="./layout-doc-imgs/imgs-sin-monitor/keeoput-height-scheme.jpg" alt="keeoput-height-scheme" class="w100" /></p>
 <p>In keepout 1, A is the desired height, and B is the minimum height for this keepout. As A is bigger than B then the keepout is created with the desired height (A).</p>
 <p>In keepout 2, A is also the desired height, but the keepout can’t be drawn correctly if the height is less than B measure, as some parts of the keepout will stay below the roof, so keepout 2 will be created with the minimum calculated height (B).</p>
 <blockquote>
 <p>Note that for flat roofs it is posible to create 0 height keepouts, but for inclinated roofs you need to use the invisible keepouts feature to allow keepouts at roof surface level.</p>
 </blockquote>
-<div class="page-break"></div>
 <h2 id="invisible-keepouts">Invisible keepouts</h2>
 <p>If you want to simulate a skylight or any keepout object without drawing the 3d volume you can check the Invisible keepout option to hide the 3D volume but still taking the obstacle into account.</p>
-<p><img class="w200px" src="./layout-doc-imgs/imgs-sin-monitor/invisible-keepout-toggle.jpg" alt="invisible-keepout-toggle" /></p>
+<p><img src="./layout-doc-imgs/imgs-sin-monitor/invisible-keepout-toggle.jpg" alt="invisible-keepout-toggle" class="w200px" /></p>
 <h2 id="crop-keepout-to-the-building-shape">Crop keepout to the building shape</h2>
 <p>When editing the vertices of a keepout you can check the ‘crop to building limits’. This helps you to draw keepouts that extends to the border of the building with more precision.</p>
-<p><img class="w200px" src="./layout-doc-imgs/imgs-sin-monitor/crop-shape-building-toggle.jpg" alt="crop-shape-building-toggle" /></p>
+<p><img src="./layout-doc-imgs/imgs-sin-monitor/crop-shape-building-toggle.jpg" alt="crop-shape-building-toggle" class="w200px" /></p>
 <p>If you unckeck this option then the keepout can be floating outside the building limits. At least one vertex of the keepout should be inside the building limits to be created.</p>
-<div class="page-break"></div>
 <h1 id="subareas">Subareas</h1>
 <h2 id="subarea-creation">Subarea creation</h2>
 <p>A subarea is a region inside an area that allows you to define a modules installation just in a section of the area.</p>
 <p>To create a subarea click on the ‘create subareas’ button.</p>
-<p><img class="w200px" src="./layout-doc-imgs/imgs-sin-monitor/subarea-creation-button.jpg" alt="subarea-creation-button" /></p>
+<p><img src="./layout-doc-imgs/imgs-sin-monitor/subarea-creation-button.jpg" alt="subarea-creation-button" class="w200px" /></p>
 <p>Once the subarea button is activated the standard area functions become disabled and two new buttons appears:</p>
 <ul>
 <li>Remove subareas</li>
 <li>Add subarea</li>
 </ul>
-<p><img class="w200px" src="./layout-doc-imgs/imgs-sin-monitor/remove-add-subareas.jpg" alt="remove-add-subareas" /></p>
+<p><img src="./layout-doc-imgs/imgs-sin-monitor/remove-add-subareas.jpg" alt="remove-add-subareas" class="w200px" /></p>
 <h2 id="remove-subareas">Remove Subareas</h2>
 <p>By clicking the ‘remove subareas’ button all the subareas are removed and the area come back to its standard behaviour.</p>
-<div class="page-break"></div>
 <h2 id="add-subarea">Add subarea</h2>
 <p>By clicking the ‘add subarea’ button you enter in the subarea creation process.</p>
-<p><img class="w75" src="./layout-doc-imgs/imgs-sin-monitor/add-subarea.jpg" alt="add-subarea" /></p>
+<p><img src="./layout-doc-imgs/imgs-sin-monitor/add-subarea.jpg" alt="add-subarea" class="w75" /></p>
 <h3 id="crop-subarea-to-the-area-shape">Crop subarea to the area shape</h3>
 <p>When editing the vertices of a subarea you can check the ‘crop to building limits’. This helps you to draw keepouts that extends to the border of the building with more precision.</p>
-<p><img class="w200px" src="./layout-doc-imgs/imgs-sin-monitor/crop-shape-building-toggle.jpg" alt="crop-shape-building-toggle" /></p>
+<p><img src="./layout-doc-imgs/imgs-sin-monitor/crop-shape-building-toggle.jpg" alt="crop-shape-building-toggle" class="w200px" /></p>
 <p>If you uncheck this option then the subarea can extend outside the area, following the area plane.</p>
-<p><img class="w75" src="./layout-doc-imgs/imgs-sin-monitor/subarea-sample.jpg" alt="subarea-sample" /></p>
+<p><img src="./layout-doc-imgs/imgs-sin-monitor/subarea-sample.jpg" alt="subarea-sample" class="w75" /></p>
 <h2 id="subarea-editing">Subarea editing</h2>
 <p>Once created the subarea is listed below this buttons. You can then proceed to setup the subarea in the same way you work with standard areas.</p>
 <p>In the subarea panel you will find two new buttons:</p>
@@ -294,40 +331,36 @@
 <li>Edit subarea vertices</li>
 <li>remove subarea</li>
 </ul>
-<p><img class="w200px" src="./layout-doc-imgs/imgs-sin-monitor/subarea-edit-delete-buttons.jpg" alt="subarea-edit-delete-buttons" /></p>
+<p><img src="./layout-doc-imgs/imgs-sin-monitor/subarea-edit-delete-buttons.jpg" alt="subarea-edit-delete-buttons" class="w200px" /></p>
 <h3 id="edit-subarea-vertices">Edit subarea vertices</h3>
 <p>By clicking this button you can modify subarea vertices and the subarea will be recalculated.</p>
 <h3 id="remove-subarea">Remove subarea</h3>
 <p>By clicking this button you can remove a single subarea from the subareas list.</p>
-<div class="page-break"></div>
 <h1 id="layout-coordinate-systems">Layout Coordinate Systems</h1>
 <p>The 3DLayout works in four different coordinate systems, depending on wich context we are requesting info.</p>
 <h2 id="world-coordinate-system">World Coordinate System</h2>
-<p><img class="w75" src="./layout-doc-imgs/imgs-sin-monitor/world-coords.png" alt="world-coords" /></p>
+<p><img src="./layout-doc-imgs/imgs-sin-monitor/world-coords.png" alt="world-coords" class="w75" /></p>
 <p>World coordinate system works with spherical coordinates, latitude and longitude.</p>
 <p>The values stored in this system and the API calls to retrieve this data are:</p>
 <ul>
 <li>Layout project center &gt; getLayout</li>
 </ul>
-<div class="page-break"></div>
 <h2 id="scene-coordinate-system">Scene Coordinate System</h2>
-<p><img class="w75" src="./layout-doc-imgs/imgs-sin-monitor/scene-coords.png" alt="scene-coords" /></p>
+<p><img src="./layout-doc-imgs/imgs-sin-monitor/scene-coords.png" alt="scene-coords" class="w75" /></p>
 <p>Scene coordinate system works with cartesian coords, with origin in the layout project center and distances measured in meters. It is used to place each building relative to the project center.</p>
 <p>The values stored in this system and the API calls to retrieve this data are:</p>
 <ul>
 <li>Building data center &gt; getBuildingInfo()</li>
 </ul>
-<div class="page-break"></div>
 <h2 id="building-coordinate-system">Building Coordinate System</h2>
-<p><img class="w75" src="./layout-doc-imgs/imgs-sin-monitor/building-coords.png" alt="building-coords" /></p>
+<p><img src="./layout-doc-imgs/imgs-sin-monitor/building-coords.png" alt="building-coords" class="w75" /></p>
 <p>Building coordinate System works with cartesian coords, with origin in the building center and measured in meters. Al tilted surfaces are represented in ortographic view.</p>
 <p>The values stored in this system and the API calls to retrieve this data are:</p>
 <ul>
 <li>Building vertices (verticesMCoords) &gt; getBuildingInfo()</li>
 </ul>
-<div class="page-break"></div>
 <h2 id="area-coordinate-system">Area Coordinate System</h2>
-<p><img class="w75" src="./layout-doc-imgs/imgs-sin-monitor/area-coords.png" alt="area-coords" /></p>
+<p><img src="./layout-doc-imgs/imgs-sin-monitor/area-coords.png" alt="area-coords" class="w75" /></p>
 <p>Area Coordinate System works in cartesian coords, with origin in the bottom-left corner of the area, and rotated with the exterior wall azimuth of the area. On flat roofs the first wall drawed is considered the main wall.</p>
 <p>The values stored in this system and the API calls to retrieve this data are:</p>
 <ul>
@@ -335,8 +368,32 @@
 <li>Area offset vertices (verticesOffsetMCoords) &gt; getAreaInfo()</li>
 <li>Area modules coords (modulesData (x/y)) &gt; getAreaInfo()</li>
 </ul>
-<p>This is the same for subareas, just using <strong>getSubareaInfo</strong><br />
-<div class="page-break"></div></p>
+<p>This is the same for subareas, just using <strong>getSubareaInfo</strong></p>
+<div class="page-break"></div>
+<h1 id="integration">Integration</h1>
+<p>Brief charpet description, Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br />
+Section - Table of contents<br />
+===========================</p>
+<ul>
+<li><a href="#how-to-use">How to use</a>
+<ul>
+<li><a href="#api-key-and-autentication">Api key and autentication</a></li>
+<li><a href="#dom-element">DOM element</a></li>
+<li><a href="#basic-functions">Basic functions</a>
+<ul>
+<li><a href="#createlayout">createLayout</a></li>
+<li><a href="#getlayout">getLayout</a></li>
+<li><a href="#listlayouts">listLayouts</a></li>
+<li><a href="#loadlayout">loadLayout</a></li>
+</ul></li>
+<li><a href="#showcase-mode">Showcase mode</a>
+<ul>
+<li><a href="#showcase-without-camera-spin">Showcase without camera spin</a></li>
+<li><a href="#showcase-with-camera-spin">Showcase with camera spin</a></li>
+</ul></li>
+<li><a href="#tutorial-mode">Tutorial mode</a></li>
+</ul></li>
+</ul>
 <h1 id="how-to-use">How to use</h1>
 <h2 id="api-key-and-autentication">Api key and autentication</h2>
 <p>To start using the 3DLayout in your platform, you need to add the following script:</p>
@@ -464,10 +521,10 @@ Ezzing3DApi.loadLayout(id, rules, function(err, layout, container) {
 <h2 id="showcase-mode">Showcase mode</h2>
 <p>If you want to show the layout to a customer or embed it in read-only mode in another page of your platform (to act as a thumbnail of the project) you can do it by adding an iframe element to an html page, with a modified version of the url of the layout.</p>
 <h3 id="showcase-without-camera-spin">Showcase without camera spin</h3>
-<pre><code>&lt;iframe src=(url + &quot;/showcase&quot;)&gt; &lt;/iframe&gt; </code></pre>
+<pre><code>&lt;iframe src=(url + &quot;/showcase&quot;)&gt; &lt;/iframe&gt;</code></pre>
 <p>In this mode the 3DLayout will show the project in perspective mode without any gui elements and a quiet 3d view. You can click and drag with the mouse to rotate the view and zoom with the mouse wheel.</p>
 <h3 id="showcase-with-camera-spin">Showcase with camera spin</h3>
-<pre><code>&lt;iframe src=(url + &quot;/spin-showcase&quot;)&gt; &lt;/iframe&gt; </code></pre>
+<pre><code>&lt;iframe src=(url + &quot;/spin-showcase&quot;)&gt; &lt;/iframe&gt;</code></pre>
 <p>In this mode the 3DLayout will show the project in perspective mode without any gui elements and a rotating 3d view. You can click and drag with the mouse to rotate the view and zoom with the mouse wheel. Once clicked the rotation will stop.</p>
 <h2 id="tutorial-mode">Tutorial mode</h2>
 <p>If you want to access the interactive tutorial you can just pass the string ‘tutorial’ to the layout id.</p>
@@ -475,6 +532,43 @@ Ezzing3DApi.loadLayout(id, rules, function(err, layout, container) {
     if (err) throw err;
 });</code></pre>
 <div class="page-break"></div>
+<h1 id="communication">Communication</h1>
+<p>Brief charpet description, Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br />
+Section - Table of contents<br />
+===========================</p>
+<ul>
+<li><a href="#dlayout-communication-system">3DLayout Communication System</a>
+<ul>
+<li><a href="#info-events-sent-by-3dlayout">Info Events sent by 3DLayout</a>
+<ul>
+<li><a href="#zoomchanged">zoomChanged</a></li>
+<li><a href="#fullscreen">fullscreen</a></li>
+<li><a href="#tabchanged">tabChanged</a></li>
+<li><a href="#editarea">editArea</a></li>
+<li><a href="#editkeepout">editKeepout</a></li>
+<li><a href="#edittree">editTree</a></li>
+<li><a href="#areachanged">areaChanged</a></li>
+<li><a href="#buildingchanged">buildingChanged</a></li>
+<li><a href="#roofchanged">roofChanged</a></li>
+<li><a href="#editroof">editRoof</a></li>
+<li><a href="#editvertices">editVertices</a></li>
+<li><a href="#buildingremoved">buildingRemoved</a></li>
+<li><a href="#buildingselected">buildingSelected</a></li>
+<li><a href="#buildingcreated">buildingCreated</a></li>
+</ul></li>
+<li><a href="#functions-to-retrieve-info-from-3dlayout">Functions to retrieve info from 3DLayout</a>
+<ul>
+<li><a href="#generic-functions">Generic Functions</a></li>
+<li><a href="#building-related-functions">Building related functions</a></li>
+<li><a href="#area-related-functions">Area related functions</a></li>
+<li><a href="#subarea-related-functions">Subarea related functions</a></li>
+</ul></li>
+<li><a href="#functions-to-send-info-to-the-3dlayout">Functions to send info to the 3DLayout</a>
+<ul>
+<li><a href="#customalert-event">CustomAlert event</a></li>
+</ul></li>
+</ul></li>
+</ul>
 <h1 id="dlayout-communication-system">3DLayout Communication System</h1>
 <h2 id="info-events-sent-by-3dlayout">Info Events sent by 3DLayout</h2>
 <p>The 3DLayout trigger different events to report actions when they are accomplished or to inform on GUI changes.</p>
@@ -485,7 +579,6 @@ container.addEventListener(&quot;buildingSelected&quot;, function(event, data){
     console.log(event.detail);
 });</code></pre>
 <p>The full list of events emmited by the 3DLayout are:</p>
-<!-- * load -->
 <ul>
 <li>zoomChanged</li>
 <li>fullscreen</li>
@@ -503,17 +596,12 @@ container.addEventListener(&quot;buildingSelected&quot;, function(event, data){
 <li>buildingCreated</li>
 <li>customAlertOk</li>
 </ul>
-<!--  
-### load
-
-This event is triggered when the 3DLayout finish to load the project from the CRM
--->
 <h3 id="zoomchanged">zoomChanged</h3>
 <p>This event is triggered when the zoom is changed in the canvas. It sends the zoom level value.</p>
 <h3 id="fullscreen">fullscreen</h3>
 <p>This event is triggered when the user changes from normal view to fullscreen. It sends <strong>true</strong> when changing to fullscreen and <strong>false</strong> when disabling fullscreen mode</p>
 <h3 id="tabchanged">tabChanged</h3>
-<p>This event is triggerd each time the user changes the aside panel navigation tab. It sends a string with the current tab name, the values can be one of this: [ “building”, “areas”, “keepouts”, “trees” ]</p>
+<p>This event is triggerd each time the user changes the aside panel navigation tab. It sends a string with the current tab name, the values can be one of this: <br /><span class="math display">$$ &quot;building&quot;, &quot;areas&quot;, &quot;keepouts&quot;, &quot;trees&quot; $$</span><br /></p>
 <h3 id="editarea">editArea</h3>
 <p>This event is triggerd each time the user enters the edit section of an area. The event sends the <strong>area.id</strong></p>
 <h3 id="editkeepout">editKeepout</h3>
@@ -539,11 +627,6 @@ This event is triggered when the 3DLayout finish to load the project from the CR
 <p>This event is triggerd each time a new building becomes active. The event sends the <strong>building.id</strong></p>
 <h3 id="buildingcreated">buildingCreated</h3>
 <p>This event is triggerd each time a new building is created. The event sends the <strong>building.id</strong></p>
-<!-- ### customAlertOk
-
-This event is triggered when the user confirm a custom alert dialog. 
-
-> You can read a description of this methods in the [Layout Rules](#layout-rules) section. -->
 <h2 id="functions-to-retrieve-info-from-3dlayout">Functions to retrieve info from 3DLayout</h2>
 <p>There are a set of functions to retrieve information from the 3DLayout.</p>
 <p>For all these functions you can pass a callback as an argument to be executed when data is retrieved.</p>
@@ -805,60 +888,43 @@ This event is triggered when the user confirm a custom alert dialog.
 <h3 id="customalert-event">CustomAlert event</h3>
 <p>You can send this event to show an alert with some information to the user in any moment.</p>
 <pre><code>layout.customAlert(title_text_string, body_text_string, callback);</code></pre>
-<!-- 
-## Functions to set values in to the project
-
-Set of functions to change values inside the project. There are two types:
-
-* setAreaAttribute
-* setBuildingAttribute
-
-### setAreaAttribute
-
-With this function you can change this area attributes:
-
-* model
-* placement
-* structure
-* inclination
-* useShadowsCalculation
-* inset.x
-* inset.y
-* totalInset.x
-* totalInset.y
-* offset
-* azimuth
-
-    var id = "aaa060bf-cae0-41b0-9fd2-c234262ea710";
-    var field = "structure";
-    var value = "Standard";
-
-    scope.$emit("setAreaAttribute", [id, field, value]);
-    scope.$emit("setAreaAttribute", [id, 'inclination', 45]);
-    scope.$emit("setAreaAttribute", [id, 'inset.y', 0.0034]);
-    scope.$emit("setAreaAttribute", [id, 'azimuth', 45]);
-
-### setBuildingAttribute
-
-With this function you can change this building fields
-
-* name
-* height
-* roof.inclination
-* roof.material
-
-
-    var id = "64a1f446-a552-4aef-bed3-5268b62610a6";
-
-    var value = 75;
-    var field = "roof.inclination";
-    scope.$emit("setBuildingAttribute", [id, field, value]);
-
-    var value = 20;
-    var field = "height";
-    scope.$emit("setBuildingAttribute", [id, field, value]);
- -->
 <div class="page-break"></div>
+<h1 id="customization">Customization</h1>
+<p>Brief charpet description, Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br />
+Section - Table of contents<br />
+===========================</p>
+<ul>
+<li><a href="#layout-rules">Layout Rules</a>
+<ul>
+<li><a href="#special-behaviours">Special Behaviours</a>
+<ul>
+<li><a href="#perspective">Perspective</a></li>
+<li><a href="#spin">Spin</a></li>
+<li><a href="#read-only">Read only</a></li>
+<li><a href="#showcase">Showcase</a></li>
+<li><a href="#zoom">zoom</a></li>
+<li><a href="#logo">logo</a></li>
+<li><a href="#azimuthoffset">azimuthOffset</a></li>
+</ul></li>
+<li><a href="#default-values">Default Values</a>
+<ul>
+<li><a href="#modules">modules</a></li>
+<li><a href="#defaultroofs">DefaultRoofs</a></li>
+<li><a href="#defaultbuilding">DefaultBuilding</a></li>
+<li><a href="#custompalette">CustomPalette</a></li>
+<li><a href="#maxbuildingheight">maxBuildingHeight</a></li>
+</ul></li>
+<li><a href="#custom-buttons">Custom Buttons</a>
+<ul>
+<li><a href="#mainoptionscustombuttons">MainoptionsCustomButtons</a></li>
+<li><a href="#controlcustombuttons">ControlCustomButtons</a></li>
+</ul></li>
+<li><a href="#custom-logo">Custom Logo</a></li>
+<li><a href="#custom-loading-animation">Custom Loading Animation</a></li>
+<li><a href="#custom-logo-in-tutorial-section">Custom Logo in tutorial section</a></li>
+<li><a href="#customize-go-back-button-in-the-tutorial-menu">Customize Go back button in the tutorial menu</a></li>
+</ul></li>
+</ul>
 <h1 id="layout-rules">Layout Rules</h1>
 <p>The user can customize many options in the 3DLayout. By passing a ‘rules’ attribute to the 3DLayout instance, with a collection of objects, you can define the default values, add special behaviours to the 3DLayout and customize the interface.</p>
 <p>Example of rules object:</p>
@@ -1162,7 +1228,7 @@ With this function you can change this building fields
 <p>When the user adds a new button, this is defined as a event emitter.<br />
 We use the fontawesome icons collection, so you can use it to define new buttons.</p>
 <h3 id="mainoptionscustombuttons">MainoptionsCustomButtons</h3>
-<p><img class="w100" src="./layout-doc-imgs/mainoptions.jpg" alt="mainoptions" /></p>
+<p><img src="./layout-doc-imgs/mainoptions.jpg" alt="mainoptions" class="w100" /></p>
 <p>The buttons on top of the canvas are custom buttons. User can define new custom buttons in this area.</p>
 <p>Here you can hide some existing buttoms, change the order of them and create new ones with the ability to trigger an event.</p>
 <p>This is the default MainoptionsCustomButtons:</p>
@@ -1242,9 +1308,8 @@ We use the fontawesome icons collection, so you can use it to define new buttons
     class: a fontawesome class to define the icon,
     location: where to align the button, if not defined, the button goes to the right
 }</code></pre>
-<div class="page-break"></div>
 <h3 id="controlcustombuttons">ControlCustomButtons</h3>
-<p><img class="w100px" src="./layout-doc-imgs/controlbuttons.jpg" alt="controlbuttons" /></p>
+<p><img src="./layout-doc-imgs/controlbuttons.jpg" alt="controlbuttons" class="w100px" /></p>
 <p>The buttons over the zoom in and zoom out can be customized the same way the mainoptions custom buttons.</p>
 <p>This is the default ControlCustomButtons:</p>
 <pre><code>{    
@@ -1307,7 +1372,6 @@ We use the fontawesome icons collection, so you can use it to define new buttons
   display: none;
 }</code></pre>
 <p>Or you can modify more in deep the href of the element via javascript by using the id: ‘ez3d-goback-tuto’</p>
-<div class="page-break"></div>
 <div class="page-break"></div>
 <h1 id="changelog">Changelog</h1>
 <h2 id="section">[2.15.0] - 2017-02-01 - ?????????????????????????</h2>
@@ -1401,7 +1465,7 @@ areaOffsetMCoords will be deprecated &gt; becomes verticesOffsetMCoords</p>
 
 ### fixed
 
-### security 
+### security
 
 -->
 </body>

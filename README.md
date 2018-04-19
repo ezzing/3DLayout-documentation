@@ -10,6 +10,7 @@ Table of contents
 =================
 
 -   [Introduction](#introduction)
+-   [Introduction](#introduction-1)
 -   [Screenshots](#screenshots)
 -   [3DLayout Interface](#dlayout-interface)
     -   [Aside Panel](#aside-panel)
@@ -34,6 +35,7 @@ Table of contents
     -   [Scene Coordinate System](#scene-coordinate-system)
     -   [Building Coordinate System](#building-coordinate-system)
     -   [Area Coordinate System](#area-coordinate-system)
+-   [Integration](#integration)
 -   [How to use](#how-to-use)
     -   [Api key and autentication](#api-key-and-autentication)
     -   [DOM element](#dom-element)
@@ -46,6 +48,7 @@ Table of contents
         -   [Showcase without camera spin](#showcase-without-camera-spin)
         -   [Showcase with camera spin](#showcase-with-camera-spin)
     -   [Tutorial mode](#tutorial-mode)
+-   [Communication](#communication)
 -   [3DLayout Communication System](#dlayout-communication-system)
     -   [Info Events sent by 3DLayout](#info-events-sent-by-3dlayout)
         -   [zoomChanged](#zoomchanged)
@@ -69,6 +72,7 @@ Table of contents
         -   [Subarea related functions](#subarea-related-functions)
     -   [Functions to send info to the 3DLayout](#functions-to-send-info-to-the-3dlayout)
         -   [CustomAlert event](#customalert-event)
+-   [Customization](#customization)
 -   [Layout Rules](#layout-rules)
     -   [Special Behaviours](#special-behaviours)
         -   [Perspective](#perspective)
@@ -122,6 +126,39 @@ Introduction
 ============
 
 Ezzing 3DLayout is a PV planning tool that allows you to generate a 3d model of a building based on a satellite image. You can model any number of buildings, select between up to five different type of roofs, define keepouts and trees with custom heights…
+Section - Table of contents
+===========================
+
+-   [Introduction](#introduction)
+-   [Screenshots](#screenshots)
+-   [3DLayout Interface](#dlayout-interface)
+    -   [Aside Panel](#aside-panel)
+    -   [Canvas Area](#canvas-area)
+        -   [Buildings Index](#buildings-index)
+        -   [Main Options](#main-options)
+        -   [Control Buttons](#control-buttons)
+-   [Keepouts](#keepouts)
+    -   [Keepout height calculations](#keepout-height-calculations)
+    -   [Invisible keepouts](#invisible-keepouts)
+    -   [Crop keepout to the building shape](#crop-keepout-to-the-building-shape)
+-   [Subareas](#subareas)
+    -   [Subarea creation](#subarea-creation)
+    -   [Remove Subareas](#remove-subareas)
+    -   [Add subarea](#add-subarea)
+        -   [Crop subarea to the area shape](#crop-subarea-to-the-area-shape)
+    -   [Subarea editing](#subarea-editing)
+        -   [Edit subarea vertices](#edit-subarea-vertices)
+        -   [Remove subarea](#remove-subarea)
+-   [Layout Coordinate Systems](#layout-coordinate-systems)
+    -   [World Coordinate System](#world-coordinate-system)
+    -   [Scene Coordinate System](#scene-coordinate-system)
+    -   [Building Coordinate System](#building-coordinate-system)
+    -   [Area Coordinate System](#area-coordinate-system)
+
+Introduction
+============
+
+Ezzing 3DLayout is a PV planning tool that allows you to generate a 3d model of a building based on a satellite image. You can model any number of buildings, select between up to five different type of roofs, define keepouts and trees with custom heights…
 
 Inside each roof area you can customize different structures, select module models and get automated previews of your setup.
 
@@ -135,11 +172,11 @@ In this document you will find a brief showcase of the different areas of the ap
 
 You can test the app by visiting this link:
 
-<https://layout.ezzing.com/#/demo>
+<a href="https://layout.ezzing.com/#/demo" class="uri" class="uri">https://layout.ezzing.com/#/demo</a>
 
 Also you can follow a tutorial to learn the basics of the 3DLayout in this link:
 
-<https://layout.ezzing.com/#/tutorial>
+<a href="https://layout.ezzing.com/#/tutorial" class="uri" class="uri">https://layout.ezzing.com/#/tutorial</a>
 
 Screenshots
 ===========
@@ -368,6 +405,26 @@ The values stored in this system and the API calls to retrieve this data are:
 
 This is the same for subareas, just using **getSubareaInfo**
 
+Integration
+===========
+
+Brief charpet description, Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Section - Table of contents
+===========================
+
+-   [How to use](#how-to-use)
+    -   [Api key and autentication](#api-key-and-autentication)
+    -   [DOM element](#dom-element)
+    -   [Basic functions](#basic-functions)
+        -   [createLayout](#createlayout)
+        -   [getLayout](#getlayout)
+        -   [listLayouts](#listlayouts)
+        -   [loadLayout](#loadlayout)
+    -   [Showcase mode](#showcase-mode)
+        -   [Showcase without camera spin](#showcase-without-camera-spin)
+        -   [Showcase with camera spin](#showcase-with-camera-spin)
+    -   [Tutorial mode](#tutorial-mode)
+
 How to use
 ==========
 
@@ -527,13 +584,13 @@ If you want to show the layout to a customer or embed it in read-only mode in an
 
 ### Showcase without camera spin
 
-    <iframe src=(url + "/showcase")> </iframe> 
+    <iframe src=(url + "/showcase")> </iframe>
 
 In this mode the 3DLayout will show the project in perspective mode without any gui elements and a quiet 3d view. You can click and drag with the mouse to rotate the view and zoom with the mouse wheel.
 
 ### Showcase with camera spin
 
-    <iframe src=(url + "/spin-showcase")> </iframe> 
+    <iframe src=(url + "/spin-showcase")> </iframe>
 
 In this mode the 3DLayout will show the project in perspective mode without any gui elements and a rotating 3d view. You can click and drag with the mouse to rotate the view and zoom with the mouse wheel. Once clicked the rotation will stop.
 
@@ -545,6 +602,37 @@ If you want to access the interactive tutorial you can just pass the string ‘t
     Ezzing3DApi.loadLayout('tutorial', function(err, layout, container) {
         if (err) throw err;
     });
+
+Communication
+=============
+
+Brief charpet description, Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Section - Table of contents
+===========================
+
+-   [3DLayout Communication System](#dlayout-communication-system)
+    -   [Info Events sent by 3DLayout](#info-events-sent-by-3dlayout)
+        -   [zoomChanged](#zoomchanged)
+        -   [fullscreen](#fullscreen)
+        -   [tabChanged](#tabchanged)
+        -   [editArea](#editarea)
+        -   [editKeepout](#editkeepout)
+        -   [editTree](#edittree)
+        -   [areaChanged](#areachanged)
+        -   [buildingChanged](#buildingchanged)
+        -   [roofChanged](#roofchanged)
+        -   [editRoof](#editroof)
+        -   [editVertices](#editvertices)
+        -   [buildingRemoved](#buildingremoved)
+        -   [buildingSelected](#buildingselected)
+        -   [buildingCreated](#buildingcreated)
+    -   [Functions to retrieve info from 3DLayout](#functions-to-retrieve-info-from-3dlayout)
+        -   [Generic Functions](#generic-functions)
+        -   [Building related functions](#building-related-functions)
+        -   [Area related functions](#area-related-functions)
+        -   [Subarea related functions](#subarea-related-functions)
+    -   [Functions to send info to the 3DLayout](#functions-to-send-info-to-the-3dlayout)
+        -   [CustomAlert event](#customalert-event)
 
 3DLayout Communication System
 =============================
@@ -590,7 +678,8 @@ This event is triggered when the user changes from normal view to fullscreen. It
 
 ### tabChanged
 
-This event is triggerd each time the user changes the aside panel navigation tab. It sends a string with the current tab name, the values can be one of this: \[ “building”, “areas”, “keepouts”, “trees” \]
+This event is triggerd each time the user changes the aside panel navigation tab. It sends a string with the current tab name, the values can be one of this:
+<span class="math display">$$ "building", "areas", "keepouts", "trees" $$</span>
 
 ### editArea
 
@@ -1003,6 +1092,36 @@ Functions to send info to the 3DLayout
 You can send this event to show an alert with some information to the user in any moment.
 
     layout.customAlert(title_text_string, body_text_string, callback);
+
+Customization
+=============
+
+Brief charpet description, Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Section - Table of contents
+===========================
+
+-   [Layout Rules](#layout-rules)
+    -   [Special Behaviours](#special-behaviours)
+        -   [Perspective](#perspective)
+        -   [Spin](#spin)
+        -   [Read only](#read-only)
+        -   [Showcase](#showcase)
+        -   [zoom](#zoom)
+        -   [logo](#logo)
+        -   [azimuthOffset](#azimuthoffset)
+    -   [Default Values](#default-values)
+        -   [modules](#modules)
+        -   [DefaultRoofs](#defaultroofs)
+        -   [DefaultBuilding](#defaultbuilding)
+        -   [CustomPalette](#custompalette)
+        -   [maxBuildingHeight](#maxbuildingheight)
+    -   [Custom Buttons](#custom-buttons)
+        -   [MainoptionsCustomButtons](#mainoptionscustombuttons)
+        -   [ControlCustomButtons](#controlcustombuttons)
+    -   [Custom Logo](#custom-logo)
+    -   [Custom Loading Animation](#custom-loading-animation)
+    -   [Custom Logo in tutorial section](#custom-logo-in-tutorial-section)
+    -   [Customize Go back button in the tutorial menu](#customize-go-back-button-in-the-tutorial-menu)
 
 Layout Rules
 ============
