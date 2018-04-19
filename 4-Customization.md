@@ -1,5 +1,3 @@
-<div class="page-break"></div>
-
 # Layout Rules
 
 The user can customize many options in the 3DLayout. By passing a 'rules' attribute to the 3DLayout instance, with a collection of objects, you can define the default values, add special behaviours to the 3DLayout and customize the interface.
@@ -501,7 +499,7 @@ You can easily customize the logo showed in the aside by setting a new CSS style
         background-repeat: no-repeat !important;
     }
 
-Note you should use the **!important** attribute to overwrite the 3DLayout styles. 
+Note you should use the **!important** attribute to overwrite the 3DLayout styles.
 
 Please use a transparent background png for better results.
 
@@ -516,7 +514,7 @@ You can easily customize the loading animation showed when starting the 3DLayout
         background-repeat: no-repeat !important;
     }
 
-Note you should use the **!important** attribute to overwrite the 3DLayout styles. 
+Note you should use the **!important** attribute to overwrite the 3DLayout styles.
 
 Please use a transparent background animated gif or png for better results.
 

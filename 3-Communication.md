@@ -1,4 +1,3 @@
-<div class="page-break"></div>
 # 3DLayout Communication System
 
 ## Info Events sent by 3DLayout
@@ -102,7 +101,7 @@ This event is triggerd each time a new building is created. The event sends the 
 
 <!-- ### customAlertOk
 
-This event is triggered when the user confirm a custom alert dialog. 
+This event is triggered when the user confirm a custom alert dialog.
 
 > You can read a description of this methods in the [Layout Rules](#layout-rules) section. -->
 
@@ -473,7 +472,7 @@ You can send this event to show an alert with some information to the user in an
 
 
 
-<!-- 
+<!--
 ## Functions to set values in to the project
 
 Set of functions to change values inside the project. There are two types:

@@ -58,7 +58,7 @@ verticesDeg attribute will be deprecated
 
 **getBuildingPosition**
 center attribute will be deprecated >  becomes  centerDeg
-vertices attribute will be deprecated 
+vertices attribute will be deprecated
 
 **getAreaInfo**
 areaMCoords will be deprecated  >  becomes  verticesMCoords,
@@ -110,7 +110,7 @@ New feature to add vertices on building and keepout creation. Now when 3 points 
 
 ### Fixed
 
-Minor problems in the keepout and trees lists has been fixed. Now select and edit objects is easier. 
+Minor problems in the keepout and trees lists has been fixed. Now select and edit objects is easier.
 
 ## [2.6.0] - 2016-09-01
 
@@ -166,6 +166,6 @@ The layout Url extension "/true" is deprecated. You can read a description of th
 
 ### fixed
 
-### security 
+### security
 
 -->
