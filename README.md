@@ -10,6 +10,7 @@ Table of contents
 =================
 
 -   [Introduction](#introduction)
+-   [Section - Table of contents](#section---table-of-contents)
 -   [Introduction](#introduction-1)
 -   [Screenshots](#screenshots)
 -   [3DLayout Interface](#dlayout-interface)
@@ -36,6 +37,7 @@ Table of contents
     -   [Building Coordinate System](#building-coordinate-system)
     -   [Area Coordinate System](#area-coordinate-system)
 -   [Integration](#integration)
+-   [Section - Table of contents](#section---table-of-contents-1)
 -   [How to use](#how-to-use)
     -   [Api key and autentication](#api-key-and-autentication)
     -   [DOM element](#dom-element)
@@ -49,6 +51,7 @@ Table of contents
         -   [Showcase with camera spin](#showcase-with-camera-spin)
     -   [Tutorial mode](#tutorial-mode)
 -   [Communication](#communication)
+-   [Section - Table of contents](#section---table-of-contents-2)
 -   [3DLayout Communication System](#dlayout-communication-system)
     -   [Info Events sent by 3DLayout](#info-events-sent-by-3dlayout)
         -   [zoomChanged](#zoomchanged)
@@ -73,6 +76,7 @@ Table of contents
     -   [Functions to send info to the 3DLayout](#functions-to-send-info-to-the-3dlayout)
         -   [CustomAlert event](#customalert-event)
 -   [Customization](#customization)
+-   [Section - Table of contents](#section---table-of-contents-3)
 -   [Layout Rules](#layout-rules)
     -   [Special Behaviours](#special-behaviours)
         -   [Perspective](#perspective)
@@ -126,6 +130,7 @@ Introduction
 ============
 
 Ezzing 3DLayout is a PV planning tool that allows you to generate a 3d model of a building based on a satellite image. You can model any number of buildings, select between up to five different type of roofs, define keepouts and trees with custom heights…
+
 Section - Table of contents
 ===========================
 
@@ -409,6 +414,7 @@ Integration
 ===========
 
 Brief charpet description, Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
 Section - Table of contents
 ===========================
 
@@ -607,6 +613,7 @@ Communication
 =============
 
 Brief charpet description, Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
 Section - Table of contents
 ===========================
 
@@ -1097,6 +1104,7 @@ Customization
 =============
 
 Brief charpet description, Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
 Section - Table of contents
 ===========================
 
