@@ -31,6 +31,7 @@ The Ezzing3DApi object has the following functions:
 * getLayout
 * listLayouts
 * loadLayout
+* destroyLayout
 
 ### createLayout
 
@@ -164,10 +165,3 @@ In this mode the 3DLayout will show the project in perspective mode without any 
 
 In this mode the 3DLayout will show the project in perspective mode without any gui elements and a rotating 3d view. You can click and drag with the mouse to rotate the view and zoom with the mouse wheel. Once clicked the rotation will stop.
 
-## Tutorial mode
-
-If you want to access the interactive tutorial you can just pass the string 'tutorial' to the layout id.
-
-    Ezzing3DApi.loadLayout('tutorial', function(err, layout, container) {
-        if (err) throw err;
-    });
