@@ -1,4 +1,3 @@
-<div class="page-break"></div>
 # How to use
 
 ## Api key and autentication
@@ -32,6 +31,7 @@ The Ezzing3DApi object has the following functions:
 * getLayout
 * listLayouts
 * loadLayout
+* destroyLayout
 
 ### createLayout
 
@@ -131,7 +131,7 @@ Sets up the 3DLayout interface into the ezzing3D container and loads the project
         if (err) throw err;
     });
 
-loadLayout can receive an `options` argument where you can setup some customizations. 
+loadLayout can receive an `options` argument where you can setup some customizations.
 
 > You can read a description of this methods in the [Layout Rules](#layout-rules) section.
 
@@ -141,13 +141,13 @@ loadLayout can receive an `options` argument where you can setup some customizat
         if (err) throw err;
     });
 
-This method returns two objects, where: 
+This method returns two objects, where:
 
 * layout: Exposes an object with methods to interact with the 3DLayout.
 
 > You can read a description of this methods in the [3DLayout Communication System](#dlayout-communication-system) section.
 
-* container: the DOM element where the 3DLayot is created. 
+* container: the DOM element where the 3DLayot is created.
 
 ## Showcase mode
 
@@ -155,20 +155,13 @@ If you want to show the layout to a customer or embed it in read-only mode in an
 
 ### Showcase without camera spin
 
-    <iframe src=(url + "/showcase")> </iframe> 
+    <iframe src=(url + "/showcase")> </iframe>
 
-In this mode the 3DLayout will show the project in perspective mode without any gui elements and a quiet 3d view. You can click and drag with the mouse to rotate the view and zoom with the mouse wheel. 
+In this mode the 3DLayout will show the project in perspective mode without any gui elements and a quiet 3d view. You can click and drag with the mouse to rotate the view and zoom with the mouse wheel.
 
 ### Showcase with camera spin
 
-    <iframe src=(url + "/spin-showcase")> </iframe> 
+    <iframe src=(url + "/spin-showcase")> </iframe>
 
 In this mode the 3DLayout will show the project in perspective mode without any gui elements and a rotating 3d view. You can click and drag with the mouse to rotate the view and zoom with the mouse wheel. Once clicked the rotation will stop.
 
-## Tutorial mode
-
-If you want to access the interactive tutorial you can just pass the string 'tutorial' to the layout id.
-
-    Ezzing3DApi.loadLayout('tutorial', function(err, layout, container) {
-        if (err) throw err;
-    });

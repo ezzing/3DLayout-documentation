@@ -77,13 +77,13 @@ All this buttons are the **main options custom buttons**. You can customize this
 
 The default custom buttons are:
 
-* redo
-* undo
 * save
+* search address
 * snapshot
+* fullscreen
 * sun simulation
 * perspective view
-* fullscreen
+* renderer
 * satellite provider selector (only showed if available)
 
 > Please, visit the section [Custom Buttons](#custom-buttons) to learn how to add your own buttons.
@@ -99,10 +99,13 @@ Fixed buttons in this area:
 * zoom in
 * zoom out
 
-Default control custom buttons
+3D control custom buttons
 
-* search address
+* compass
 * geolocation
+* zoom in
+* zoom out
+
 
 > Please, visit the section [Custom Buttons](#custom-buttons) to learn how to add your own functions.
 
@@ -149,25 +152,25 @@ If you unckeck this option then the keepout can be floating outside the building
 
 A subarea is a region inside an area that allows you to define a modules installation just in a section of the area.
 
-To create a subarea click on the 'create subareas' button.
+To create a subarea click on the 'create subarea' button.
 
 <img class="w200px" src="./layout-doc-imgs/imgs-sin-monitor/subarea-creation-button.jpg" alt="subarea-creation-button" />
 
-Once the subarea button is activated the standard area functions become disabled and two new buttons appears:
+Once the subarea is created it can be:
 
-* Remove subareas
-* Add subarea
+* Edit 
+* Move
+* Refresh  
+* Clone
+* Remove (Only if the area has more than one subarea)
 
 <img class="w200px" src="./layout-doc-imgs/imgs-sin-monitor/remove-add-subareas.jpg" alt="remove-add-subareas" />
 
-## Remove Subareas
-
-By clicking the 'remove subareas' button all the subareas are removed and the area come back to its standard behaviour.
-
 <div class="page-break"></div>
+
 ## Add subarea
 
-By clicking the 'add subarea' button you enter in the subarea creation process.
+By clicking the 'create subarea' button you enter in the subarea creation process.
 
 <img class="w75" src="./layout-doc-imgs/imgs-sin-monitor/add-subarea.jpg" alt="add-subarea" />
 
@@ -181,17 +184,6 @@ If you uncheck this option then the subarea can extend outside the area, followi
 
 <img class="w75" src="./layout-doc-imgs/imgs-sin-monitor/subarea-sample.jpg" alt="subarea-sample" />
 
-## Subarea editing
-
-Once created the subarea is listed below this buttons. You can then proceed to setup the subarea in the same way you work with standard areas.
-
-In the subarea panel you will find two new buttons:
-
-* Edit subarea vertices
-* remove subarea
-
-<img class="w200px" src="./layout-doc-imgs/imgs-sin-monitor/subarea-edit-delete-buttons.jpg" alt="subarea-edit-delete-buttons" />
-
 ### Edit subarea vertices
 
 By clicking this button you can modify subarea vertices and the subarea will be recalculated.
@@ -201,6 +193,7 @@ By clicking this button you can modify subarea vertices and the subarea will be 
 By clicking this button you can remove a single subarea from the subareas list.
 
 <div class="page-break"></div>
+
 # Layout Coordinate Systems
 
 The 3DLayout works in four different coordinate systems, depending on wich context we are requesting info.
@@ -216,6 +209,7 @@ The values stored in this system and the API calls to retrieve this data are:
 * Layout project center     >     getLayout
 
 <div class="page-break"></div>
+
 ## Scene Coordinate System
 
 <img class="w75" src="./layout-doc-imgs/imgs-sin-monitor/scene-coords.png" alt="scene-coords" />
@@ -227,6 +221,7 @@ The values stored in this system and the API calls to retrieve this data are:
 * Building data center     >      getBuildingInfo()
 
 <div class="page-break"></div>
+
 ## Building Coordinate System
 
 <img class="w75" src="./layout-doc-imgs/imgs-sin-monitor/building-coords.png" alt="building-coords" />
@@ -238,6 +233,7 @@ The values stored in this system and the API calls to retrieve this data are:
 * Building vertices (verticesMCoords)    >    getBuildingInfo()
 
 <div class="page-break"></div>
+
 ## Area Coordinate System
 
 <img class="w75" src="./layout-doc-imgs/imgs-sin-monitor/area-coords.png" alt="area-coords" />
