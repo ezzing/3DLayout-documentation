@@ -90,7 +90,7 @@ where:
 
 > The url can be used to embed a readonly version of the project. You can read a description of this methods in the [Showcase mode](#showcase-mode) section.
 
-The data types in wich each value is stored is:
+The data types in which each value is stored are:
 
 * **id**: integer
 * **title**: string 255 chars
@@ -107,7 +107,7 @@ The data types in wich each value is stored is:
 
 ### getLayout
 
-Returns a layout's information related to the given id
+Returns the information of a layout related to the given id
 
     Ezzing3DApi.getLayout(id, function(err, layoutData) {
         if (err) throw err;
@@ -164,4 +164,3 @@ In this mode the 3DLayout will show the project in perspective mode without any 
     <iframe src=(url + "/spin-showcase")> </iframe>
 
 In this mode the 3DLayout will show the project in perspective mode without any gui elements and a rotating 3d view. You can click and drag with the mouse to rotate the view and zoom with the mouse wheel. Once clicked the rotation will stop.
-

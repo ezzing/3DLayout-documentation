@@ -32,7 +32,7 @@ Also you can follow a tutorial to learn the basics of the 3DLayout in this link:
 # 3DLayout Interface
 
 
-The 3DLayout interface has two diferent parts. The **aside panel** and the **canvas area**.
+The 3DLayout interface has two diferent parts: the **aside panel** and the **canvas area**.
 
 ## Aside Panel
 
@@ -54,7 +54,7 @@ In the aside panel you can find functionalities related to the current active bu
 <div class="page-break"></div>
 ## Canvas Area
 
-In the canvas area you can see the satellite view and three diferent sets of elements, the **buildings index** on the left side, the **main options buttons** on the top, and the **control buttons** on the bottom-right corner.
+In the canvas area you can see the satellite view and three different sets of elements: the **buildings index** on the left side, the **main options buttons** on the top, and the **control buttons** on the bottom-right corner.
 
 <img class="w100" src="./layout-doc-imgs/canvas.jpg" alt="canvas" />
 
@@ -69,7 +69,7 @@ In the buildings index you can see the active building and select another one to
 
 ### Main Options
 
-These are the main options in the canvas area. 
+These are the main options in the canvas area.
 
 <img class="w100" src="./layout-doc-imgs/mainoptions.jpg" alt="mainoptions" />
 
@@ -77,34 +77,34 @@ All this buttons are the **main options custom buttons**. You can customize this
 
 The default custom buttons are:
 
-* save
-* search address
-* snapshot
-* fullscreen
-* sun simulation
-* perspective view
-* renderer
-* satellite provider selector (only showed if available)
+* Save
+* Search address
+* Snapshot
+* Fullscreen
+* Sun simulation
+* Perspective view
+* Renderer
+* Satellite provider selector (only showed if available)
 
 > Please, visit the section [Custom Buttons](#custom-buttons) to learn how to add your own buttons.
 
 ### Control Buttons
 
-These are map related buttons. You can also customize the upper section of this set of buttons by hidding some of them or by adding new buttons 
+These are map related buttons. You can also customize the upper section of this set of buttons by hidding some of them or by adding new buttons.
 
 <img class="w100px" src="./layout-doc-imgs/controlbuttons.jpg" alt="controlbuttons" />
 
 Fixed buttons in this area:
 
-* zoom in
-* zoom out
+* Zoom in
+* Zoom out
 
-3D control custom buttons
+3D control custom buttons:
 
-* compass
-* geolocation
-* zoom in
-* zoom out
+* Compass
+* Geolocation
+* Zoom in
+* Zoom out
 
 
 > Please, visit the section [Custom Buttons](#custom-buttons) to learn how to add your own functions.
@@ -143,7 +143,7 @@ When editing the vertices of a keepout you can check the 'crop to building limit
 
 <img class="w200px" src="./layout-doc-imgs/imgs-sin-monitor/crop-shape-building-toggle.jpg" alt="crop-shape-building-toggle" />
 
-If you unckeck this option then the keepout can be floating outside the building limits. At least one vertex of the keepout should be inside the building limits to be created.
+If you uncheck this option then the keepout can be floating outside the building limits. At least one vertex of the keepout should be inside the building limits to be created.
 
 <div class="page-break"></div>
 # Subareas
@@ -152,17 +152,17 @@ If you unckeck this option then the keepout can be floating outside the building
 
 A subarea is a region inside an area that allows you to define a modules installation just in a section of the area.
 
-To create a subarea click on the 'create subarea' button.
+To create a subarea click on the 'Create subareas' button.
 
 <img class="w200px" src="./layout-doc-imgs/imgs-sin-monitor/subarea-creation-button.jpg" alt="subarea-creation-button" />
 
-Once the subarea is created it can be:
+Once the subarea is created, you will be able to:
 
-* Edit 
+* Edit
 * Move
-* Refresh  
+* Refresh
 * Clone
-* Remove (Only if the area has more than one subarea)
+* Remove (only if the area has more than one subarea)
 
 <img class="w200px" src="./layout-doc-imgs/imgs-sin-monitor/remove-add-subareas.jpg" alt="remove-add-subareas" />
 
@@ -170,13 +170,13 @@ Once the subarea is created it can be:
 
 ## Add subarea
 
-By clicking the 'create subarea' button you enter in the subarea creation process.
+By clicking the 'Create subarea' button you enter in the subarea creation process.
 
 <img class="w75" src="./layout-doc-imgs/imgs-sin-monitor/add-subarea.jpg" alt="add-subarea" />
 
 ### Crop subarea to the area shape
 
-When editing the vertices of a subarea you can check the 'crop to building limits'. This helps you to draw keepouts that extends to the border of the building with more precision.
+When editing the vertices of a subarea you can check the 'Crop to building limits'. This helps you to draw keepouts that extends to the border of the building with more precision.
 
 <img class="w200px" src="./layout-doc-imgs/imgs-sin-monitor/crop-shape-building-toggle.jpg" alt="crop-shape-building-toggle" />
 
@@ -196,7 +196,7 @@ By clicking this button you can remove a single subarea from the subareas list.
 
 # Layout Coordinate Systems
 
-The 3DLayout works in four different coordinate systems, depending on wich context we are requesting info.
+The 3DLayout works in four different coordinate systems, depending on which context we are requesting info.
 
 ## World Coordinate System
 

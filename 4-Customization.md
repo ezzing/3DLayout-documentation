@@ -1,6 +1,6 @@
 # Layout Rules
 
-The user can customize many options in the 3DLayout. By passing a 'rules' attribute to the 3DLayout instance, with a collection of objects, you can define the default values, add special behaviours to the 3DLayout and customize the interface.
+The user can customize many options in the 3DLayout. By passing a 'rules' attribute to the 3DLayout instance with a collection of objects, you can define the default values, add special behaviours to the 3DLayout and customize the interface.
 
 Example of rules object:
 
@@ -55,7 +55,7 @@ It only works in combination with perspective option. When this options is set t
 
 ### Showcase
 
-When this options is set to true, the project starts in perspective and write-only mode. This is an special feature to showcase the layout.
+When this option is set to true, the project starts in perspective and write-only mode. This is an special feature to showcase the layout.
 
     {'showcase': true}
 
@@ -126,7 +126,7 @@ The attributes for each module are:
     }
 
 
-Note: the **id** value should be diferent for each module in the list.
+Note: the **id** value should be different for each module in the list.
 
 ### DefaultRoofs
 
@@ -259,7 +259,7 @@ Sample values to define Default Roofs:
         }
     }
 
-Attributes explanation for default roof description
+Attributes explanation for default roof description:
 
     {
         //roof related
@@ -289,7 +289,7 @@ Attributes explanation for default roof description
 
 ### DefaultBuilding
 
-User can define the default building. This are the default values for each new created building.
+User can define the default building. These are the default values for each new created building.
 
 Sample values to define default building:
 
@@ -329,7 +329,7 @@ The attributes for the default building:
 
 ### CustomPalette
 
-User can define a custom set of hexadecimal colors. This colors are used to define module colors.
+User can define a custom set of hexadecimal colors. These colors are used to define module colors.
 
 To define your own color palette use this squeme:
 
@@ -362,7 +362,7 @@ We use the fontawesome icons collection, so you can use it to define new buttons
 
 The buttons on top of the canvas are custom buttons. User can define new custom buttons in this area.
 
-Here you can hide some existing buttoms, change the order of them and create new ones with the ability to trigger an event.
+Here you can hide some existing buttons, change the order of them and create new ones with the ability to trigger an event.
 
 This is the default MainoptionsCustomButtons:
 
@@ -433,9 +433,9 @@ This is the default MainoptionsCustomButtons:
         ]
     }
 
-To customize this buttoms you  can comment out the lines of the button you want to hide or extend the list by adding new objects with the same structure
+To customize these buttons you can comment out the lines of the button you want to hide or extend the list by adding new objects with the same structure.
 
-When you add new buttons, an event with the name you define in the click field is sended every time the button is clicked.
+When you add new buttons, an event with the name you define in the click field is sent every time the button is clicked.
 
 You can use location: 'left' to align the buttons to the left, and use location: 'right' or nothing to align the buttons to the right side.
 
@@ -479,7 +479,7 @@ This is the default ControlCustomButtons:
         ]
     }
 
-To customize this buttoms you  can comment out the lines of the button you want to hide or extend the list by adding new objects with the same structure
+To customize this buttons you can comment out the lines of the button you want to hide or extend the list by adding new objects with the same structure.
 
     {
         click: a string with the event name you want to trigger,
