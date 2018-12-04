@@ -88,32 +88,6 @@ Table of contents
     -   [Custom Loading Animation](#custom-loading-animation)
     -   [Custom Logo in tutorial section](#custom-logo-in-tutorial-section)
     -   [Customize Go back button in the tutorial menu](#customize-go-back-button-in-the-tutorial-menu)
--   [Changelog](#changelog)
-    -   [\[2.15.0\] - 2017-02-01 - ?????????????????????????](#section)
-        -   [Added](#added)
-    -   [\[2.11.0\] - 2016-11-04](#section-1)
-        -   [Changed](#changed)
-        -   [Fixed](#fixed)
-    -   [\[2.10.0\] - 2016-10-21](#section-2)
-        -   [Added](#added-1)
-        -   [Fixed](#fixed-1)
-        -   [Deprecated](#deprecated)
-        -   [Changed](#changed-1)
-    -   [\[2.9.1\] - 2016-09-19](#section-3)
-        -   [Fixed](#fixed-2)
-    -   [\[2.9.0\] - 2016-09-18](#section-4)
-        -   [Fixed](#fixed-3)
-    -   [\[2.8.0\] - 2016-09-14](#section-5)
-        -   [Changed](#changed-2)
-    -   [\[2.7.0\] - 2016-09-09](#section-6)
-    -   [added](#added-2)
-        -   [Changed](#changed-3)
-        -   [Fixed](#fixed-4)
-    -   [\[2.6.0\] - 2016-09-01](#section-7)
-        -   [added](#added-3)
-        -   [changed](#changed-4)
-        -   [fixed](#fixed-5)
-        -   [deprecated](#deprecated-1)
 
 Introduction
 ============
@@ -126,7 +100,7 @@ It also provides you with a perspective view and a sun simulator to determine wh
 
 Ezzing 3DLayout is an embebible webapp. You can integrate it inside your own system and customize many elements inside, from module models to prefered default settings for each roof type.
 
-In this document you will find a brief showcase of the different areas of the app, a technical explanation on how to integrate this webapp inside your platform, a full description of the API that will allow you to communicate with the 3DLayout, and finally a description on how to customize different parts of the app.
+In this document you will find a brief showcase of the different areas of the app, a technical explanation on how to integrate this webapp inside your platform, a full description of the API that will allow you to communicate with the 3DLayout, and finally a description of how to customize different parts of the app.
 
 <img src="./layout-doc-imgs/new-img/intro.png" alt="3DLayout" class="w100" />
 
@@ -180,11 +154,11 @@ In the buildings index you can see the active building and select another one to
 
 ### Main Options
 
-These are the main options in the canvas area.
+These are the main options in the canvas area:
 
 <img src="./layout-doc-imgs/new-img/mainoptions.png" alt="mainoptions" class="w100" />
 
-All this buttons are the **main options custom buttons**. You can customize this set of buttons by hidding some of them, by sorting them, or by adding new buttons.
+All these buttons are the **main options custom buttons**. You can customize this set of buttons by hidding some of them, by sorting them, or by adding new buttons.
 
 The default custom buttons are:
 
@@ -213,8 +187,8 @@ Fixed buttons in this area:
 <img src="./layout-doc-imgs/new-img/controlbuttons2.png" alt="controlbuttons2" class="w75px" />
 3D control custom buttons:
 
--   Compass
--   Geolocation
+-   Compass (centers 3D view to north)
+-   Geolocation (centers 3D view to the project)
 -   Zoom in
 -   Zoom out
 
@@ -235,14 +209,14 @@ Depending on the roof inclination and the keepout dimensions and positions, ther
 Invisible keepouts
 ------------------
 
-If you want to simulate a skylight or any keepout object without drawing the 3d volume you can check the Invisible keepout option to hide the 3D volume but still taking the obstacle into account.
+If you want to simulate a skylight or any keepout object without drawing the 3d volume you can check the ‘Invisible keepout’ option to hide the 3D volume but still taking the obstacle into account.
 
 <img src="./layout-doc-imgs/imgs-sin-monitor/invisible-keepout-toggle.jpg" alt="invisible-keepout-toggle" class="w400px" />
 
 Crop keepout to the building shape
 ----------------------------------
 
-When editing the vertices of a keepout you can check the ‘crop to building limits’. This helps you to draw keepouts that extends to the border of the building with more precision.
+When editing the vertices of a keepout you can check the ‘Crop shape to building limits’ option. This helps you to draw keepouts that extends to the border of the building with more precision.
 
 <img src="./layout-doc-imgs/imgs-sin-monitor/crop-shape-building-toggle.jpg" alt="crop-shape-building-toggle" class="w400px" />
 
@@ -279,7 +253,7 @@ By clicking the ‘Create subarea’ button you enter in the subarea creation pr
 
 ### Crop subarea to the area shape
 
-When editing the vertices of a subarea you can check the ‘Crop’. This helps you to draw keepouts that extends to the border of the building with more precision.
+When editing the vertices of a subarea you can check the ‘Crop’ option. This helps you to draw subareas that extends to the border of the building with more precision.
 
 <img src="./layout-doc-imgs/new-img/crop-shape-building-toggle.png" alt="crop-shape-building-toggle" class="w200px" />
 
@@ -1518,159 +1492,4 @@ If you want to hide the go-back button you can use this css declaration:
 
 Or you can modify more in deep the href of the element via javascript by using the id: ‘ez3d-goback-tuto’
 
-Changelog
-=========
 
-\[2.15.0\] - 2017-02-01 - ?????????????????????????
----------------------------------------------------
-
-### Added
-
-Added a layout rule to limit maximum building height.You can read about this new feature in the [maxBuildingHeight](#maxbuildingheight) section.
-
-!!!!! FALTAN DATOS !!!!!!!
-
-\[2.11.0\] - 2016-11-04
------------------------
-
-### Changed
-
-Added two new imagery provider: Bing and Digital Globe.
-
-Removed one imagery provider: Cyclomedia.
-
-### Fixed
-
-Some minor fixes.
-
-\[2.10.0\] - 2016-10-21
------------------------
-
-### Added
-
-**Subareas feature**. You can read about this new feature in the [Subareas](#subareas) section.
-
-New \*\*Subarea related API calls“. You can read about this new feature in the [Subarea related functions](#subarea-related-functions) section.
-
-**Keepout height calculations** explanation. You can read about how keepout heights are calculated in the [Keepout height calculations](#keepout-height-calculations) section.
-
-**Invisible keepout feature**. You can read about this new feature in the [Invisible keepouts](#invisible-keepouts) section.
-
-**Custom Alert feature**. You can read about this new feature in the [CustomAlert event](#customalert-event) section.
-
-**Coordinate Systems** explained. You can read about this in the [Layout Coordinate Systems](#layout-coordinate-systems) section.
-
-### Fixed
-
-Fixed an issue preventing to delete first point on building, keepout or subarea creation.
-
-### Deprecated
-
-We find a typo error in the name of a function:
-
-*getModulesSructureByArea* becomes *getModulesStructureByArea*
-
-**getBuildingInfo**
-verticesDeg attribute will be deprecated
-
-**getBuildingPosition**
-center attribute will be deprecated &gt; becomes centerDeg
-vertices attribute will be deprecated
-
-**getAreaInfo**
-areaMCoords will be deprecated &gt; becomes verticesMCoords,
-areaOffsetMCoords will be deprecated &gt; becomes verticesOffsetMCoords
-
-> The old names still works but is recommended to update your code.
-
-### Changed
-
-Some API calls were updated to reflect subarea feature. *GetLayoutData*, *getNumberOfModules*, *GetPower*, *getBuildingInfo* and *getAreaInfo* were changed to add subarea information.
-
-\[2.9.1\] - 2016-09-19
-----------------------
-
-### Fixed
-
-Fix tutorial to show new features on building creation (auto calculated point)
-
-\[2.9.0\] - 2016-09-18
-----------------------
-
-### Fixed
-
-Fixed a bug that prevented all buildings to be removed from a project.
-
-Fixed some minor css issues
-
-\[2.8.0\] - 2016-09-14
-----------------------
-
-### Changed
-
-Improved country detection internal functions.
-
-\[2.7.0\] - 2016-09-09
-----------------------
-
-added
------
-
-**Tutorial mode** access information. You can read about this new feature in the [Tutorial mode](#tutorial-mode) section.
-
-**Custom Logo in tutorial** section. You can read about this new feature in the [Custom Logo in tutorial section](#custom-logo-in-tutorial-section) section.
-
-**Customize Go back button** in the tutorial menu. You can read about this new feature in the [Customize Go back button in the tutorial menu](#customize-go-back-button-in-the-tutorial-menu) section.
-
-**azimuthOffset** option to define your prefered convention for south faced modules. You can read about this new option in the [azimuthOffset](#azimuthoffset)
-
-Roof inclination in degrees is showed in building information panel.
-
-### Changed
-
-New feature to add vertices on building and keepout creation. Now when 3 points are entered, the fourth one is calculated automatically (drawed in yellow) to help the creation of regular buildings. Just press “next step” when the yellow lines appears to accept the fourth point, or click again in the canvas to enter another point and go ahead with an irregular shape.
-
-### Fixed
-
-Minor problems in the keepout and trees lists has been fixed. Now select and edit objects is easier.
-
-\[2.6.0\] - 2016-09-01
-----------------------
-
-### added
-
-Some minor GUI changes to clarify the workflow.
-
-Two new showcase options, with and without camera spining. You can read a description of this options in the [Showcase mode](#showcase-mode) section.
-
-New **perspective**, **spin** and **readonly** options. You can read a description of this options in the [Special Behaviours](#special-behaviours) section.
-
-Custom Logo. You can read about this new feature in the [Custom Logo](#custom-logo) section.
-
-Custom Loading Animation. You can read about this new feature in the [Custom Loading Animation](#custom-loading-animation) section.
-
-### changed
-
-Navigation panel, save button and building index now becomes disabled when creating a building.
-
-Undo, redo and save buttons in mainoptions becomes custom buttons. You can read a description of this new custom buttons in the [MainoptionsCustomButtons](#mainoptionscustombuttons) section.
-
-A helper message is showed when roof types are restricted due to irregular buildings. Also, restricted roof types are shown disabled.
-
-A dialog window is showed when vertices or roof is edited, to alert the user about the reset of the building.
-
-*Area offset* now is called **Edge Zone**
-
-*Building height* now is called **Gutter height** as it doesn’t count the roof height.
-
-### fixed
-
-Some errata in the pdf (added measure units for all values)
-
-Fix style for loading animation to adjust to window size.
-
-### deprecated
-
-The *display* option is deprecated, now it’s called **perspective**. Anyway, it still works with the old naming.
-
-The layout Url extension “/true” is deprecated. You can read a description of the new extensions in the [Showcase mode](#showcase-mode) section. Anyway, it still works with the old naming.

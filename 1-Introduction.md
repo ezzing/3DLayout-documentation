@@ -8,7 +8,7 @@ It also provides you with a perspective view and a sun simulator to determine wh
 
 Ezzing 3DLayout is an embebible webapp. You can integrate it inside your own system and customize many elements inside, from module models to prefered default settings for each roof type.
 
-In this document you will find a brief showcase of the different areas of the app, a technical explanation on how to integrate this webapp inside your platform, a full description of the API that will allow you to communicate with the 3DLayout, and finally a description on how to customize different parts of the app.
+In this document you will find a brief showcase of the different areas of the app, a technical explanation on how to integrate this webapp inside your platform, a full description of the API that will allow you to communicate with the 3DLayout, and finally a description of how to customize different parts of the app.
 
 <img class="w100" src="./layout-doc-imgs/new-img/intro.png" alt="3DLayout" />
 <br>
@@ -68,11 +68,11 @@ In the buildings index you can see the active building and select another one to
 
 ### Main Options
 
-These are the main options in the canvas area.
+These are the main options in the canvas area:
 
 <img class="w100" src="./layout-doc-imgs/new-img/mainoptions.png" alt="mainoptions" />
 
-All this buttons are the **main options custom buttons**. You can customize this set of buttons by hidding some of them, by sorting them, or by adding new buttons.
+All these buttons are the **main options custom buttons**. You can customize this set of buttons by hidding some of them, by sorting them, or by adding new buttons.
 
 The default custom buttons are:
 
@@ -101,8 +101,8 @@ Fixed buttons in this area:
 <img class="w75px" src="./layout-doc-imgs/new-img/controlbuttons2.png" alt="controlbuttons2" />
 3D control custom buttons:
 
-* Compass
-* Geolocation
+* Compass (centers 3D view to north)
+* Geolocation (centers 3D view to the project)
 * Zoom in
 * Zoom out
 
@@ -132,13 +132,13 @@ In keepout 2, A is also the desired height, but the keepout can't be drawn corre
 
 ## Invisible keepouts
 
-If you want to simulate a skylight or any keepout object without drawing the 3d volume you can check the Invisible keepout option to hide the 3D volume but still taking the obstacle into account.
+If you want to simulate a skylight or any keepout object without drawing the 3d volume you can check the 'Invisible keepout' option to hide the 3D volume but still taking the obstacle into account.
 
 <img class="w400px" src="./layout-doc-imgs/imgs-sin-monitor/invisible-keepout-toggle.jpg" alt="invisible-keepout-toggle" />
 
 ## Crop keepout to the building shape
 
-When editing the vertices of a keepout you can check the 'crop to building limits'. This helps you to draw keepouts that extends to the border of the building with more precision.
+When editing the vertices of a keepout you can check the 'Crop shape to building limits' option. This helps you to draw keepouts that extends to the border of the building with more precision.
 
 <img class="w400px" src="./layout-doc-imgs/imgs-sin-monitor/crop-shape-building-toggle.jpg" alt="crop-shape-building-toggle" />
 
@@ -175,7 +175,7 @@ By clicking the 'Create subarea' button you enter in the subarea creation proces
 
 ### Crop subarea to the area shape
 
-When editing the vertices of a subarea you can check the 'Crop'. This helps you to draw keepouts that extends to the border of the building with more precision.
+When editing the vertices of a subarea you can check the 'Crop' option. This helps you to draw subareas that extends to the border of the building with more precision.
 
 <img class="w200px" src="./layout-doc-imgs/new-img/crop-shape-building-toggle.png" alt="crop-shape-building-toggle" />
 
