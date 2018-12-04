@@ -63,6 +63,58 @@
          id="path3794"
          inkscape:connector-curvature="0" />
     </clipPath>
+    <clipPath
+       id="clipPath20-8"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         inkscape:connector-curvature="0"
+         id="path22-9"
+         d="M 0,0 560,0 560,155 0,155 0,0 Z" />
+    </clipPath>
+    <clipPath
+       id="clipPath20-0-7"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         inkscape:connector-curvature="0"
+         id="path22-6-3"
+         d="M 0,0 560,0 560,155 0,155 0,0 Z" />
+    </clipPath>
+    <clipPath
+       id="clipPath68-6"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         inkscape:connector-curvature="0"
+         id="path70-1"
+         d="M 0,0 560,0 560,155 0,155 0,0 Z" />
+    </clipPath>
+    <clipPath
+       id="clipPath86-2"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         inkscape:connector-curvature="0"
+         id="path88-9"
+         d="M 0,0 560,0 560,155 0,155 0,0 Z" />
+    </clipPath>
+    <clipPath
+       id="clipPath3792-3"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         inkscape:connector-curvature="0"
+         id="path3794-1"
+         d="m 942.39453,603.02539 c 0,0 -9.27435,2.0835 -12.30273,7.76172 -3.02838,5.67821 -22.14453,43.7207 -22.14453,43.7207 l -28.20313,65.11133 -14.95312,59.24219 -7.19141,52.24023 -0.18945,15.51953 10.59961,42.01953 397.09573,-0.75781 87.6347,-2.83789 c 0,0 -1.5138,-31.79854 0.3789,-39.74804 1.8928,-7.9495 6.4346,-17.98042 5.2989,-30.28321 -1.1356,-12.3028 -5.1096,-19.8754 -5.2989,-24.41797 -0.1892,-4.54257 0.7569,-17.60109 -2.2714,-25.36132 -3.0284,-7.76023 -9.8424,-21.76732 -10.4102,-31.79883 -0.5678,-10.03151 -5.3008,-21.57617 -5.3008,-21.57617 0,0 0.5689,-7.19271 -0.9453,-12.68165 -1.5142,-5.48894 -5.3008,-10.59961 -5.3008,-10.59961 0,0 -7.1914,-9.65368 -9.2734,-19.30664 -2.082,-9.65297 -7.0038,-13.81682 -9.086,-20.4414 -2.082,-6.62459 -7.1916,-15.71025 -11.5449,-17.03516 -4.3532,-1.32492 -8.1386,1.89453 -8.1386,1.89453 0,0 -0.7577,-1.89427 -0.5684,-11.92578 0.1892,-10.03151 -6.2453,-16.2777 -15.709,-16.65625 -9.4637,-0.37854 -332.17577,-2.08203 -332.17577,-2.08203 z m 348.19337,63.35156 c 0,0 0.6702,2.67771 2.6777,5.48828 2.0076,2.81057 1.6055,4.95118 1.6055,4.95118 0,0 0.1337,6.55825 3.0781,12.98242 2.9444,6.42416 3.8807,11.3758 4.416,14.58789 0.5354,3.21208 -0.6689,7.09248 -0.5351,13.38281 0.1338,6.29033 1.0705,6.82677 0.5351,13.38477 -0.5353,6.558 -5.3535,8.43164 -5.3535,8.43164 l -7.7617,-9.36914 0.8027,-59.15625 0.5352,-4.6836 z"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath4577">
+      <rect
+         style="opacity:1;fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:12;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect4579"
+         width="222.41646"
+         height="168.50537"
+         x="47.006226"
+         y="766.34125" />
+    </clipPath>
   </defs>
   <sodipodi:namedview
      id="base"
@@ -71,14 +123,14 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.867947"
-     inkscape:cx="138.28159"
-     inkscape:cy="718.61991"
+     inkscape:zoom="1.3312907"
+     inkscape:cx="372.04724"
+     inkscape:cy="526.1811"
      inkscape:document-units="px"
-     inkscape:current-layer="g3711"
+     inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="3200"
-     inkscape:window-height="1671"
+     inkscape:window-height="1673"
      inkscape:window-x="0"
      inkscape:window-y="55"
      inkscape:window-maximized="1" />
@@ -105,6 +157,15 @@
        height="1052.3622"
        x="2.8835507e-06"
        y="1.1053611e-05" />
+    <image
+       sodipodi:absref="/media/home-gs16/workspace/3DLayout-documentation/layout-doc-imgs/new-img/cover-2D.jpg"
+       xlink:href="../layout-doc-imgs/new-img/cover-2D.jpg"
+       width="482.90143"
+       height="271.63205"
+       preserveAspectRatio="none"
+       id="image4572"
+       x="218.08356"
+       y="557.86243" />
     <rect
        style="fill:#222b5d;fill-opacity:1;stroke:none;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:6, 2;stroke-dashoffset:0;stroke-opacity:1"
        id="rect3495"
@@ -161,7 +222,7 @@
              width="382.16104"
              id="rect3438"
              style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:26.79081154px;line-height:125%;font-family:'Futura Std';-inkscape-font-specification:'Futura Std, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#ffffff" /></flowRegion><flowPara
-           id="flowPara3440">(v2.11.0)</flowPara></flowRoot>    </g>
+           id="flowPara3440">(v3.7.2)</flowPara></flowRoot>    </g>
     <g
        id="g3670"
        transform="matrix(0.91209756,0,0,0.91209756,39.492756,-386.63593)">
@@ -289,35 +350,26 @@
        id="g3796"
        transform="translate(10,-6)">
       <image
-         sodipodi:absref="/media/home-gs16/workspace/3DLayout-documentation/doc_templates/../layout-doc-imgs/tab-areas-2.jpg"
-         xlink:href="../layout-doc-imgs/tab-areas-2.jpg"
-         y="560.71558"
-         x="206.78128"
-         id="image3759"
-         preserveAspectRatio="none"
-         height="256.62439"
-         width="487.04568" />
-      <image
-         sodipodi:absref="/media/home-gs16/workspace/3DLayout-documentation/doc_templates/../layout-doc-imgs/MacScreen.png"
-         xlink:href="../layout-doc-imgs/MacScreen.png"
-         y="545.41132"
-         x="188.60963"
-         id="image3706"
-         preserveAspectRatio="none"
+         sodipodi:absref="/home/carlos/Descargas/Telegram Desktop/portada/../../../workspace/3DLayout-documentation/layout-doc-imgs/./../layout-doc-imgs/MacScreen.png"
+         xlink:href="../../../workspace/3DLayout-documentation/layout-doc-imgs/./../layout-doc-imgs/MacScreen.png"
+         width="522.16382"
          height="363.60611"
-         width="522.16382" />
+         preserveAspectRatio="none"
+         id="image3706"
+         x="188.60963"
+         y="545.41132" />
     </g>
     <image
-       sodipodi:absref="/media/home-gs16/workspace/3DLayout-documentation/doc_templates/../layout-doc-imgs/tablet3-min.png"
-       xlink:href="../layout-doc-imgs/tablet3-min.png"
-       transform="matrix(0.73757556,0,0,0.73757556,-661.61602,301.37756)"
-       clip-path="url(#clipPath3792)"
-       width="512.07062"
-       height="415.67636"
-       preserveAspectRatio="none"
-       id="image3737"
+       y="475.67062"
        x="853.73962"
-       y="475.67062" />
+       id="image4455"
+       preserveAspectRatio="none"
+       height="415.67636"
+       width="512.07062"
+       clip-path="url(#clipPath3792-3)"
+       transform="matrix(0.73757556,0,0,0.73757556,-660.23967,301.92879)"
+       xlink:href="file:///home/carlos/workspace/3DLayout-documentation/doc_templates/../layout-doc-imgs/tablet3-min.png"
+       sodipodi:absref="/home/carlos/workspace/3DLayout-documentation/doc_templates/../layout-doc-imgs/tablet3-min.png" />
     <rect
        transform="scale(1,-1)"
        style="fill:#222b5d;fill-opacity:1;stroke:none;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:6, 2;stroke-dashoffset:0;stroke-opacity:1"
@@ -339,7 +391,7 @@
            x="425.92926"
            y="973.52216"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:29.1337471px;line-height:125%;font-family:'Futura Std';-inkscape-font-specification:'Futura Std, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start" /></flowRegion><flowPara
-         id="flowPara3358">November 4, 2016</flowPara></flowRoot>    <g
+         id="flowPara3358">December 2018</flowPara></flowRoot>    <g
        transform="matrix(0.53038864,0,0,-0.53038864,11.494267,1047.5636)"
        id="g4607">
       <g
@@ -530,5 +582,16 @@
        id="rect3819"
        style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:6, 2;stroke-dashoffset:0;stroke-opacity:1"
        transform="scale(-1,1)" />
+    <image
+       sodipodi:absref="/media/home-gs16/workspace/3DLayout-documentation/layout-doc-imgs/new-img/cover-3D.jpg"
+       xlink:href="../layout-doc-imgs/new-img/cover-3D.jpg"
+       transform="translate(-0.28168153,-0.14084077)"
+       clip-path="url(#clipPath4577)"
+       width="314.81055"
+       height="177.08095"
+       preserveAspectRatio="none"
+       id="image4561"
+       x="18.930332"
+       y="760.30054" />
   </g>
 </svg>
