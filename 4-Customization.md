@@ -358,7 +358,7 @@ We use the fontawesome icons collection, so you can use it to define new buttons
 
 ### MainoptionsCustomButtons
 
-<img class="w100" src="./layout-doc-imgs/mainoptions.jpg" alt="mainoptions" />
+<img class="w100" src="./layout-doc-imgs/new-img/mainoptions.png" alt="mainoptions" />
 
 The buttons on top of the canvas are custom buttons. User can define new custom buttons in this area.
 
@@ -451,7 +451,7 @@ You can use location: 'left' to align the buttons to the left, and use location:
 <div class="page-break"></div>
 ### ControlCustomButtons
 
-<img class="w100px" src="./layout-doc-imgs/controlbuttons.jpg" alt="controlbuttons" />
+<img class="w80px" src="./layout-doc-imgs/new-img/controlbuttons2.png" alt="controlbuttons2" />
 
 The buttons over the zoom in and zoom out can be customized the same way the mainoptions custom buttons.
 

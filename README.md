@@ -128,7 +128,7 @@ Ezzing 3DLayout is an embebible webapp. You can integrate it inside your own sys
 
 In this document you will find a brief showcase of the different areas of the app, a technical explanation on how to integrate this webapp inside your platform, a full description of the API that will allow you to communicate with the 3DLayout, and finally a description on how to customize different parts of the app.
 
-<img src="./layout-doc-imgs/intro-mac.jpg" alt="3DLayout" class="w100" />
+<img src="./layout-doc-imgs/new-img/intro.png" alt="3DLayout" class="w100" />
 
 You can test the app by visiting this link:
 
@@ -141,9 +141,9 @@ Also you can follow a tutorial to learn the basics of the 3DLayout in this link:
 Screenshots
 ===========
 
-<img src="./layout-doc-imgs/perspective-view-mac.jpg" alt="perspective view" class="w100" />
+<img src="./layout-doc-imgs/new-img/perspective-view.png" alt="perspective view" class="w100" />
 
-<img src="./layout-doc-imgs/sun-simulation-mac.jpg" alt="sun simulation" class="w100" />
+<img src="./layout-doc-imgs/new-img/sun-simulation.png" alt="sun simulation" class="w100" />
 
 3DLayout Interface
 ==================
@@ -155,32 +155,34 @@ Aside Panel
 
 In the aside panel you can find functionalities related to the current active building and other objects in the scene.
 
-<img src="./layout-doc-imgs/tab-building-mac.jpg" alt="tab building" class="w100" />
+<img src="./layout-doc-imgs/new-img/tab-building.png" alt="tab building" class="w100" />
 
-<img src="./layout-doc-imgs/tab-areas-1-mac.jpg" alt="tab areas 1" class="w100" />
-<img src="./layout-doc-imgs/tab-areas-2-mac.jpg" alt="tab areas 2" class="w100" />
+<img src="./layout-doc-imgs/new-img/tab-areas-1.png" alt="tab areas 1" class="w100" />
 
-<img src="./layout-doc-imgs/tab-keepouts-mac.jpg" alt="tab keepouts" class="w100" />
-<img src="./layout-doc-imgs/tab-trees-mac.jpg" alt="tab trees" class="w100" />
+<img src="./layout-doc-imgs/new-img/tab-areas-2.png" alt="tab areas 2" class="w100" />
+
+<img src="./layout-doc-imgs/new-img/tab-keepouts.png" alt="tab keepouts" class="w100" />
+
+<img src="./layout-doc-imgs/new-img/tab-trees.png" alt="tab trees" class="w100" />
 
 Canvas Area
 -----------
 
 In the canvas area you can see the satellite view and three different sets of elements: the **buildings index** on the left side, the **main options buttons** on the top, and the **control buttons** on the bottom-right corner.
 
-<img src="./layout-doc-imgs/canvas.jpg" alt="canvas" class="w100" />
+<img src="./layout-doc-imgs/new-img/canvas.png" alt="canvas" class="w100" />
 
 ### Buildings Index
 
 In the buildings index you can see the active building and select another one to become active.
 
-<img src="./layout-doc-imgs/buildings-index.jpg" alt="buildings-index" class="w200px" />
+<img src="./layout-doc-imgs/new-img/buildings-index.png" alt="buildings-index" class="w200px" />
 
 ### Main Options
 
 These are the main options in the canvas area.
 
-<img src="./layout-doc-imgs/mainoptions.jpg" alt="mainoptions" class="w100" />
+<img src="./layout-doc-imgs/new-img/mainoptions.png" alt="mainoptions" class="w100" />
 
 All this buttons are the **main options custom buttons**. You can customize this set of buttons by hidding some of them, by sorting them, or by adding new buttons.
 
@@ -201,13 +203,14 @@ The default custom buttons are:
 
 These are map related buttons. You can also customize the upper section of this set of buttons by hidding some of them or by adding new buttons.
 
-<img src="./layout-doc-imgs/controlbuttons.jpg" alt="controlbuttons" class="w100px" />
+<img src="./layout-doc-imgs/new-img/controlbuttons1.png" alt="controlbuttons1" class="w75px" />
 
 Fixed buttons in this area:
 
 -   Zoom in
 -   Zoom out
 
+<img src="./layout-doc-imgs/new-img/controlbuttons2.png" alt="controlbuttons2" class="w75px" />
 3D control custom buttons:
 
 -   Compass
@@ -227,14 +230,6 @@ When creating keepouts, please note the height selected for the keepout is not a
 
 Depending on the roof inclination and the keepout dimensions and positions, there is a minimum keepout height to avoid keepouts under the roof surface.
 
-Let’s see an example:
-
-<img src="./layout-doc-imgs/imgs-sin-monitor/keeoput-height-scheme.jpg" alt="keeoput-height-scheme" class="w100" />
-
-In keepout 1, A is the desired height, and B is the minimum height for this keepout. As A is bigger than B then the keepout is created with the desired height (A).
-
-In keepout 2, A is also the desired height, but the keepout can’t be drawn correctly if the height is less than B measure, as some parts of the keepout will stay below the roof, so keepout 2 will be created with the minimum calculated height (B).
-
 > Note that for flat roofs it is posible to create 0 height keepouts, but for inclinated roofs you need to use the invisible keepouts feature to allow keepouts at roof surface level.
 
 Invisible keepouts
@@ -242,14 +237,14 @@ Invisible keepouts
 
 If you want to simulate a skylight or any keepout object without drawing the 3d volume you can check the Invisible keepout option to hide the 3D volume but still taking the obstacle into account.
 
-<img src="./layout-doc-imgs/imgs-sin-monitor/invisible-keepout-toggle.jpg" alt="invisible-keepout-toggle" class="w200px" />
+<img src="./layout-doc-imgs/imgs-sin-monitor/invisible-keepout-toggle.jpg" alt="invisible-keepout-toggle" class="w400px" />
 
 Crop keepout to the building shape
 ----------------------------------
 
 When editing the vertices of a keepout you can check the ‘crop to building limits’. This helps you to draw keepouts that extends to the border of the building with more precision.
 
-<img src="./layout-doc-imgs/imgs-sin-monitor/crop-shape-building-toggle.jpg" alt="crop-shape-building-toggle" class="w200px" />
+<img src="./layout-doc-imgs/imgs-sin-monitor/crop-shape-building-toggle.jpg" alt="crop-shape-building-toggle" class="w400px" />
 
 If you uncheck this option then the keepout can be floating outside the building limits. At least one vertex of the keepout should be inside the building limits to be created.
 
@@ -261,36 +256,36 @@ Subarea creation
 
 A subarea is a region inside an area that allows you to define a modules installation just in a section of the area.
 
-To create a subarea click on the ‘Create subareas’ button.
+To create a subarea click on the ‘Create subarea’ button.
 
-<img src="./layout-doc-imgs/imgs-sin-monitor/subarea-creation-button.jpg" alt="subarea-creation-button" class="w200px" />
+<img src="./layout-doc-imgs/new-img/subarea-creation-button.png" alt="subarea-creation-button" class="w200px" />
 
 Once the subarea is created, you will be able to:
 
 -   Edit
 -   Move
--   Refresh
--   Clone
+-   Refresh (only if the area has one subarea)
 -   Remove (only if the area has more than one subarea)
+-   Clone
 
-<img src="./layout-doc-imgs/imgs-sin-monitor/remove-add-subareas.jpg" alt="remove-add-subareas" class="w200px" />
+<img src="./layout-doc-imgs/new-img/remove-add-subareas.png" alt="remove-add-subareas" class="w200px" />
 
 Add subarea
 -----------
 
 By clicking the ‘Create subarea’ button you enter in the subarea creation process.
 
-<img src="./layout-doc-imgs/imgs-sin-monitor/add-subarea.jpg" alt="add-subarea" class="w75" />
+<img src="./layout-doc-imgs/new-img/add-subarea.png" alt="add-subarea" class="w75" />
 
 ### Crop subarea to the area shape
 
-When editing the vertices of a subarea you can check the ‘Crop to building limits’. This helps you to draw keepouts that extends to the border of the building with more precision.
+When editing the vertices of a subarea you can check the ‘Crop’. This helps you to draw keepouts that extends to the border of the building with more precision.
 
-<img src="./layout-doc-imgs/imgs-sin-monitor/crop-shape-building-toggle.jpg" alt="crop-shape-building-toggle" class="w200px" />
+<img src="./layout-doc-imgs/new-img/crop-shape-building-toggle.png" alt="crop-shape-building-toggle" class="w200px" />
 
 If you uncheck this option then the subarea can extend outside the area, following the area plane.
 
-<img src="./layout-doc-imgs/imgs-sin-monitor/subarea-sample.jpg" alt="subarea-sample" class="w75" />
+<img src="./layout-doc-imgs/new-img/subarea-sample.png" alt="subarea-sample" class="w75" />
 
 ### Edit subarea vertices
 
@@ -1342,7 +1337,7 @@ We use the fontawesome icons collection, so you can use it to define new buttons
 
 ### MainoptionsCustomButtons
 
-<img src="./layout-doc-imgs/mainoptions.jpg" alt="mainoptions" class="w100" />
+<img src="./layout-doc-imgs/new-img/mainoptions.png" alt="mainoptions" class="w100" />
 
 The buttons on top of the canvas are custom buttons. User can define new custom buttons in this area.
 
@@ -1433,7 +1428,7 @@ You can use location: ‘left’ to align the buttons to the left, and use locat
 
 ### ControlCustomButtons
 
-<img src="./layout-doc-imgs/controlbuttons.jpg" alt="controlbuttons" class="w100px" />
+<img src="./layout-doc-imgs/new-img/controlbuttons2.png" alt="controlbuttons2" class="w80px" />
 
 The buttons over the zoom in and zoom out can be customized the same way the mainoptions custom buttons.
 

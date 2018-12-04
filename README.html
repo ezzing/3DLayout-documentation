@@ -174,41 +174,39 @@
 <p>It also provides you with a perspective view and a sun simulator to determine where the shadows will be in your installation.</p>
 <p>Ezzing 3DLayout is an embebible webapp. You can integrate it inside your own system and customize many elements inside, from module models to prefered default settings for each roof type.</p>
 <p>In this document you will find a brief showcase of the different areas of the app, a technical explanation on how to integrate this webapp inside your platform, a full description of the API that will allow you to communicate with the 3DLayout, and finally a description on how to customize different parts of the app.</p>
-<div class="page-break"></div>
-<p><img class="w100" src="./layout-doc-imgs/intro-mac.jpg" alt="3DLayout" /></p>
+<p><img class="w100" src="./layout-doc-imgs/new-img/intro.png" alt="3DLayout" /><br />
+<br></p>
 <p>You can test the app by visiting this link:</p>
 <p><a href="https://layout.ezzing.com/#/demo">https://layout.ezzing.com/#/demo</a></li></p>
 <p>Also you can follow a tutorial to learn the basics of the 3DLayout in this link:</p>
 <p><a href="https://layout.ezzing.com/#/tutorial">https://layout.ezzing.com/#/tutorial</a></li></p>
 <div class="page-break"></div>
 <h1 id="screenshots">Screenshots</h1>
-<p><img class="w100" src="./layout-doc-imgs/perspective-view-mac.jpg" alt="perspective view" /></p>
-<p><img class="w100" src="./layout-doc-imgs/sun-simulation-mac.jpg" alt="sun simulation" /></p>
+<p><img class="w100" src="./layout-doc-imgs/new-img/perspective-view.png" alt="perspective view" /></p>
+<p><img class="w100" src="./layout-doc-imgs/new-img/sun-simulation.png" alt="sun simulation" /></p>
 <div class="page-break"></div>
 <h1 id="dlayout-interface">3DLayout Interface</h1>
 <p>The 3DLayout interface has two diferent parts: the <strong>aside panel</strong> and the <strong>canvas area</strong>.</p>
 <h2 id="aside-panel">Aside Panel</h2>
 <p>In the aside panel you can find functionalities related to the current active building and other objects in the scene.</p>
 <p><br></p>
-<p><img class="w100" src="./layout-doc-imgs/tab-building-mac.jpg" alt="tab building" /></p>
-<p><img class="w100" src="./layout-doc-imgs/tab-areas-1-mac.jpg" alt="tab areas 1" /><br />
-<br><br />
-<img class="w100" src="./layout-doc-imgs/tab-areas-2-mac.jpg" alt="tab areas 2" /></p>
-<p><img class="w100" src="./layout-doc-imgs/tab-keepouts-mac.jpg" alt="tab keepouts" /><br />
-<br><br />
-<img class="w100" src="./layout-doc-imgs/tab-trees-mac.jpg" alt="tab trees" /></p>
+<p><img class="w100" src="./layout-doc-imgs/new-img/tab-building.png" alt="tab building" /></p>
+<p><img class="w100" src="./layout-doc-imgs/new-img/tab-areas-1.png" alt="tab areas 1" /></p>
+<p><img class="w100" src="./layout-doc-imgs/new-img/tab-areas-2.png" alt="tab areas 2" /></p>
+<p><img class="w100" src="./layout-doc-imgs/new-img/tab-keepouts.png" alt="tab keepouts" /></p>
+<p><img class="w100" src="./layout-doc-imgs/new-img/tab-trees.png" alt="tab trees" /></p>
 <div class="page-break"></div>
 <h2 id="canvas-area">Canvas Area</h2>
 <p>In the canvas area you can see the satellite view and three different sets of elements: the <strong>buildings index</strong> on the left side, the <strong>main options buttons</strong> on the top, and the <strong>control buttons</strong> on the bottom-right corner.</p>
-<p><img class="w100" src="./layout-doc-imgs/canvas.jpg" alt="canvas" /></p>
+<p><img class="w100" src="./layout-doc-imgs/new-img/canvas.png" alt="canvas" /></p>
 <div class="page-break"></div>
 <h3 id="buildings-index">Buildings Index</h3>
 <p>In the buildings index you can see the active building and select another one to become active.</p>
-<p><img class="w200px" src="./layout-doc-imgs/buildings-index.jpg" alt="buildings-index" /></p>
+<p><img class="w200px" src="./layout-doc-imgs/new-img/buildings-index.png" alt="buildings-index" /></p>
 <p><br></p>
 <h3 id="main-options">Main Options</h3>
 <p>These are the main options in the canvas area.</p>
-<p><img class="w100" src="./layout-doc-imgs/mainoptions.jpg" alt="mainoptions" /></p>
+<p><img class="w100" src="./layout-doc-imgs/new-img/mainoptions.png" alt="mainoptions" /></p>
 <p>All this buttons are the <strong>main options custom buttons</strong>. You can customize this set of buttons by hidding some of them, by sorting them, or by adding new buttons.</p>
 <p>The default custom buttons are:</p>
 <ul>
@@ -226,13 +224,14 @@
 </blockquote>
 <h3 id="control-buttons">Control Buttons</h3>
 <p>These are map related buttons. You can also customize the upper section of this set of buttons by hidding some of them or by adding new buttons.</p>
-<p><img class="w100px" src="./layout-doc-imgs/controlbuttons.jpg" alt="controlbuttons" /></p>
+<p><img class="w75px" src="./layout-doc-imgs/new-img/controlbuttons1.png" alt="controlbuttons1" /></p>
 <p>Fixed buttons in this area:</p>
 <ul>
 <li>Zoom in</li>
 <li>Zoom out</li>
 </ul>
-<p>3D control custom buttons:</p>
+<p><img class="w75px" src="./layout-doc-imgs/new-img/controlbuttons2.png" alt="controlbuttons2" /><br />
+3D control custom buttons:</p>
 <ul>
 <li>Compass</li>
 <li>Geolocation</li>
@@ -246,46 +245,50 @@
 <h1 id="keepouts">Keepouts</h1>
 <h2 id="keepout-height-calculations">Keepout height calculations</h2>
 <p>When creating keepouts, please note the height selected for the keepout is not always the final keepout height.</p>
-<p>Depending on the roof inclination and the keepout dimensions and positions, there is a minimum keepout height to avoid keepouts under the roof surface.</p>
-<p>Let’s see an example:</p>
-<p><img class="w100" src="./layout-doc-imgs/imgs-sin-monitor/keeoput-height-scheme.jpg" alt="keeoput-height-scheme" /></p>
-<p>In keepout 1, A is the desired height, and B is the minimum height for this keepout. As A is bigger than B then the keepout is created with the desired height (A).</p>
-<p>In keepout 2, A is also the desired height, but the keepout can’t be drawn correctly if the height is less than B measure, as some parts of the keepout will stay below the roof, so keepout 2 will be created with the minimum calculated height (B).</p>
+<p>Depending on the roof inclination and the keepout dimensions and positions, there is a minimum keepout height to avoid keepouts under the roof surface.<br />
+<!-- FIX
+Let's see an example:
+
+<img class="w100" src="./layout-doc-imgs/imgs-sin-monitor/keeoput-height-scheme.jpg" alt="keeoput-height-scheme" />
+
+In keepout 1, A is the desired height, and B is the minimum height for this keepout. As A is bigger than B then the keepout is created with the desired height (A).
+
+In keepout 2, A is also the desired height, but the keepout can't be drawn correctly if the height is less than B measure, as some parts of the keepout will stay below the roof, so keepout 2 will be created with the minimum calculated height (B).
+--></p>
 <blockquote>
 <p>Note that for flat roofs it is posible to create 0 height keepouts, but for inclinated roofs you need to use the invisible keepouts feature to allow keepouts at roof surface level.</p>
 </blockquote>
-<div class="page-break"></div>
 <h2 id="invisible-keepouts">Invisible keepouts</h2>
 <p>If you want to simulate a skylight or any keepout object without drawing the 3d volume you can check the Invisible keepout option to hide the 3D volume but still taking the obstacle into account.</p>
-<p><img class="w200px" src="./layout-doc-imgs/imgs-sin-monitor/invisible-keepout-toggle.jpg" alt="invisible-keepout-toggle" /></p>
+<p><img class="w400px" src="./layout-doc-imgs/imgs-sin-monitor/invisible-keepout-toggle.jpg" alt="invisible-keepout-toggle" /></p>
 <h2 id="crop-keepout-to-the-building-shape">Crop keepout to the building shape</h2>
 <p>When editing the vertices of a keepout you can check the ‘crop to building limits’. This helps you to draw keepouts that extends to the border of the building with more precision.</p>
-<p><img class="w200px" src="./layout-doc-imgs/imgs-sin-monitor/crop-shape-building-toggle.jpg" alt="crop-shape-building-toggle" /></p>
+<p><img class="w400px" src="./layout-doc-imgs/imgs-sin-monitor/crop-shape-building-toggle.jpg" alt="crop-shape-building-toggle" /></p>
 <p>If you uncheck this option then the keepout can be floating outside the building limits. At least one vertex of the keepout should be inside the building limits to be created.</p>
 <div class="page-break"></div>
 <h1 id="subareas">Subareas</h1>
 <h2 id="subarea-creation">Subarea creation</h2>
 <p>A subarea is a region inside an area that allows you to define a modules installation just in a section of the area.</p>
-<p>To create a subarea click on the ‘Create subareas’ button.</p>
-<p><img class="w200px" src="./layout-doc-imgs/imgs-sin-monitor/subarea-creation-button.jpg" alt="subarea-creation-button" /></p>
+<p>To create a subarea click on the ‘Create subarea’ button.</p>
+<p><img class="w200px" src="./layout-doc-imgs/new-img/subarea-creation-button.png" alt="subarea-creation-button" /></p>
 <p>Once the subarea is created, you will be able to:</p>
 <ul>
 <li>Edit</li>
 <li>Move</li>
-<li>Refresh</li>
-<li>Clone</li>
+<li>Refresh (only if the area has one subarea)</li>
 <li>Remove (only if the area has more than one subarea)</li>
+<li>Clone</li>
 </ul>
-<p><img class="w200px" src="./layout-doc-imgs/imgs-sin-monitor/remove-add-subareas.jpg" alt="remove-add-subareas" /></p>
+<p><img class="w200px" src="./layout-doc-imgs/new-img/remove-add-subareas.png" alt="remove-add-subareas" /></p>
 <div class="page-break"></div>
 <h2 id="add-subarea">Add subarea</h2>
 <p>By clicking the ‘Create subarea’ button you enter in the subarea creation process.</p>
-<p><img class="w75" src="./layout-doc-imgs/imgs-sin-monitor/add-subarea.jpg" alt="add-subarea" /></p>
+<p><img class="w75" src="./layout-doc-imgs/new-img/add-subarea.png" alt="add-subarea" /></p>
 <h3 id="crop-subarea-to-the-area-shape">Crop subarea to the area shape</h3>
-<p>When editing the vertices of a subarea you can check the ‘Crop to building limits’. This helps you to draw keepouts that extends to the border of the building with more precision.</p>
-<p><img class="w200px" src="./layout-doc-imgs/imgs-sin-monitor/crop-shape-building-toggle.jpg" alt="crop-shape-building-toggle" /></p>
+<p>When editing the vertices of a subarea you can check the ‘Crop’. This helps you to draw keepouts that extends to the border of the building with more precision.</p>
+<p><img class="w200px" src="./layout-doc-imgs/new-img/crop-shape-building-toggle.png" alt="crop-shape-building-toggle" /></p>
 <p>If you uncheck this option then the subarea can extend outside the area, following the area plane.</p>
-<p><img class="w75" src="./layout-doc-imgs/imgs-sin-monitor/subarea-sample.jpg" alt="subarea-sample" /></p>
+<p><img class="w75" src="./layout-doc-imgs/new-img/subarea-sample.png" alt="subarea-sample" /></p>
 <h3 id="edit-subarea-vertices">Edit subarea vertices</h3>
 <p>By clicking this button you can modify subarea vertices and the subarea will be recalculated.</p>
 <h3 id="remove-subarea">Remove subarea</h3>
@@ -1146,7 +1149,7 @@ With this function you can change this building fields
 <p>When the user adds a new button, this is defined as a event emitter.<br />
 We use the fontawesome icons collection, so you can use it to define new buttons.</p>
 <h3 id="mainoptionscustombuttons">MainoptionsCustomButtons</h3>
-<p><img class="w100" src="./layout-doc-imgs/mainoptions.jpg" alt="mainoptions" /></p>
+<p><img class="w100" src="./layout-doc-imgs/new-img/mainoptions.png" alt="mainoptions" /></p>
 <p>The buttons on top of the canvas are custom buttons. User can define new custom buttons in this area.</p>
 <p>Here you can hide some existing buttons, change the order of them and create new ones with the ability to trigger an event.</p>
 <p>This is the default MainoptionsCustomButtons:</p>
@@ -1228,7 +1231,7 @@ We use the fontawesome icons collection, so you can use it to define new buttons
 }</code></pre>
 <div class="page-break"></div>
 <h3 id="controlcustombuttons">ControlCustomButtons</h3>
-<p><img class="w100px" src="./layout-doc-imgs/controlbuttons.jpg" alt="controlbuttons" /></p>
+<p><img class="w80px" src="./layout-doc-imgs/new-img/controlbuttons2.png" alt="controlbuttons2" /></p>
 <p>The buttons over the zoom in and zoom out can be customized the same way the mainoptions custom buttons.</p>
 <p>This is the default ControlCustomButtons:</p>
 <pre><code>{    
