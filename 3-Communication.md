@@ -525,3 +525,5 @@ With this function you can change this building fields
     var field = "height";
     scope.$emit("setBuildingAttribute", [id, field, value]);
  -->
+
+<div class="page-break"></div>

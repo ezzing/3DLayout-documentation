@@ -3,4 +3,4 @@ gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=./3DLayout-doc-temp.pdf .
 gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=./3DLayout-doc.pdf ./3DLayout-doc-temp.pdf ./doc_templates/contraportada.pdf
 rm ./3DLayout-doc_.pdf
 rm ./3DLayout-doc-temp.pdf
-rm ./doc.htmlrm R
+rm ./doc.html

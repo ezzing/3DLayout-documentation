@@ -158,8 +158,8 @@
        x="2.8835507e-06"
        y="1.1053611e-05" />
     <image
-       sodipodi:absref="/media/home-gs16/workspace/3DLayout-documentation/layout-doc-imgs/new-img/cover-2D.jpg"
-       xlink:href="../layout-doc-imgs/new-img/cover-2D.jpg"
+       sodipodi:absref="/media/home-gs16/workspace/3DLayout-documentation/layout-doc-imgs/cover/cover-2D.jpg"
+       xlink:href="../layout-doc-imgs/cover/cover-2D.jpg"
        width="482.90143"
        height="271.63205"
        preserveAspectRatio="none"
@@ -583,8 +583,8 @@
        style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:6, 2;stroke-dashoffset:0;stroke-opacity:1"
        transform="scale(-1,1)" />
     <image
-       sodipodi:absref="/media/home-gs16/workspace/3DLayout-documentation/layout-doc-imgs/new-img/cover-3D.jpg"
-       xlink:href="../layout-doc-imgs/new-img/cover-3D.jpg"
+       sodipodi:absref="/media/home-gs16/workspace/3DLayout-documentation/layout-doc-imgs/cover/cover-3D.jpg"
+       xlink:href="../layout-doc-imgs/cover/cover-3D.jpg"
        transform="translate(-0.28168153,-0.14084077)"
        clip-path="url(#clipPath4577)"
        width="314.81055"
