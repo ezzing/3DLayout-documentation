@@ -1,12 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
-  <meta charset="utf-8">
-  <meta name="generator" content="pandoc">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title></title>
-  <style type="text/css">code{white-space: pre;}</style>
-  <link rel="stylesheet" href="pandoc.css">
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>3DLayout Documentation</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="pandoc.css" />
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
@@ -33,11 +38,14 @@
   </html>
 </head>
 <body>
+<header>
+<h1 class="title">3DLayout Documentation</h1>
+</header>
 <nav id="TOC">
 <ul>
 <li><a href="#introduction">Introduction</a></li>
 <li><a href="#screenshots">Screenshots</a></li>
-<li><a href="#dlayout-interface">3DLayout Interface</a><ul>
+<li><a href="#3dlayout-interface">3DLayout Interface</a><ul>
 <li><a href="#aside-panel">Aside Panel</a></li>
 <li><a href="#canvas-area">Canvas Area</a><ul>
 <li><a href="#buildings-index">Buildings Index</a></li>
@@ -45,19 +53,36 @@
 <li><a href="#control-buttons">Control Buttons</a></li>
 </ul></li>
 </ul></li>
-<li><a href="#keepouts">Keepouts</a><ul>
-<li><a href="#keepout-height-calculations">Keepout height calculations</a></li>
-<li><a href="#invisible-keepouts">Invisible keepouts</a></li>
-<li><a href="#crop-keepout-to-the-building-shape">Crop keepout to the building shape</a></li>
+<li><a href="#buildings">Buildings</a><ul>
+<li><a href="#building-creation">Building creation</a></li>
+<li><a href="#add-building">Add building</a></li>
+<li><a href="#edit-building">Edit building</a></li>
+</ul></li>
+<li><a href="#areas">Areas</a><ul>
+<li><a href="#edit-area">Edit area</a></li>
 </ul></li>
 <li><a href="#subareas">Subareas</a><ul>
 <li><a href="#subarea-creation">Subarea creation</a></li>
 <li><a href="#add-subarea">Add subarea</a><ul>
 <li><a href="#crop-subarea-to-the-area-shape">Crop subarea to the area shape</a></li>
 <li><a href="#edit-subarea-vertices">Edit subarea vertices</a></li>
+</ul></li>
+<li><a href="#edit-subarea">Edit subarea</a></li>
 <li><a href="#remove-subarea">Remove subarea</a></li>
 </ul></li>
+<li><a href="#keepouts">Keepouts</a><ul>
+<li><a href="#invisible-keepouts">Invisible keepouts</a></li>
+<li><a href="#crop-keepout-to-the-building-shape">Crop keepout to the building shape</a></li>
+<li><a href="#vertical-and-inclined-keepouts">Vertical and inclined keepouts</a></li>
 </ul></li>
+<li><a href="#trees">Trees</a></li>
+<li><a href="#drawing-with-snaps">Drawing with Snaps</a><ul>
+<li><a href="#guide-lines">Guide lines</a></li>
+<li><a href="#grid">Grid</a></li>
+<li><a href="#context-panel">Context panel</a></li>
+</ul></li>
+<li><a href="#textures">Textures</a></li>
+<li><a href="#shortcuts">Shortcuts</a></li>
 <li><a href="#layout-coordinate-systems">Layout Coordinate Systems</a><ul>
 <li><a href="#world-coordinate-system">World Coordinate System</a></li>
 <li><a href="#scene-coordinate-system">Scene Coordinate System</a></li>
@@ -78,7 +103,7 @@
 <li><a href="#showcase-with-camera-spin">Showcase with camera spin</a></li>
 </ul></li>
 </ul></li>
-<li><a href="#dlayout-communication-system">3DLayout Communication System</a><ul>
+<li><a href="#3dlayout-communication-system">3DLayout Communication System</a><ul>
 <li><a href="#info-events-sent-by-3dlayout">Info Events sent by 3DLayout</a><ul>
 <li><a href="#zoomchanged">zoomChanged</a></li>
 <li><a href="#fullscreen">fullscreen</a></li>
@@ -106,100 +131,128 @@
 </ul></li>
 </ul></li>
 <li><a href="#layout-rules">Layout Rules</a><ul>
-<li><a href="#special-behaviours">Special Behaviours</a><ul>
-<li><a href="#perspective">Perspective</a></li>
-<li><a href="#spin">Spin</a></li>
-<li><a href="#read-only">Read only</a></li>
-<li><a href="#showcase">Showcase</a></li>
-<li><a href="#zoom">zoom</a></li>
-<li><a href="#logo">logo</a></li>
-<li><a href="#azimuthoffset">azimuthOffset</a></li>
+<li><a href="#scene-preferences">Scene preferences</a><ul>
+<li><a href="#project">Project</a></li>
+<li><a href="#development">Development</a></li>
+<li><a href="#3d-canvas">3D canvas</a></li>
+<li><a href="#model">Model</a></li>
+<li><a href="#gui">GUI</a></li>
 </ul></li>
-<li><a href="#default-values">Default Values</a><ul>
-<li><a href="#modules">modules</a></li>
-<li><a href="#defaultroofs">DefaultRoofs</a></li>
-<li><a href="#defaultbuilding">DefaultBuilding</a></li>
-<li><a href="#custompalette">CustomPalette</a></li>
-<li><a href="#maxbuildingheight">maxBuildingHeight</a></li>
+<li><a href="#default-buttons">Default buttons</a></li>
+<li><a href="#default-languages">Default languages</a></li>
+<li><a href="#default-colors">Default colors</a><ul>
+<li><a href="#css-colors">Css colors</a></li>
+<li><a href="#building-and-roof-colors">Building and roof colors</a></li>
+<li><a href="#keepout-colors">Keepout colors</a></li>
+<li><a href="#area-colors">Area colors</a></li>
+<li><a href="#dilatation-lines-colors">Dilatation lines colors</a></li>
+<li><a href="#module-colors">Module colors</a></li>
+<li><a href="#tree-colors">Tree colors</a></li>
+<li><a href="#custom-colors">Custom colors</a></li>
 </ul></li>
-<li><a href="#custom-buttons">Custom Buttons</a><ul>
-<li><a href="#mainoptionscustombuttons">MainoptionsCustomButtons</a></li>
-<li><a href="#controlcustombuttons">ControlCustomButtons</a></li>
+<li><a href="#default-modules">Default modules</a></li>
+<li><a href="#default-providers">Default providers</a></li>
+<li><a href="#default-model-values">Default model values</a><ul>
+<li><a href="#default-model-area-values">Default model area values</a></li>
+<li><a href="#default-model-building-values">Default model building values</a></li>
+<li><a href="#default-model-keepout-values">Default model keepout values</a></li>
+<li><a href="#default-model-roof-by-type-values">Default model roof by type values</a></li>
+<li><a href="#default-model-roof-values">Default model roof values</a></li>
+<li><a href="#default-model-subarea-by-roof-type-values">Default model subarea by roof type values</a></li>
+<li><a href="#default-model-subarea-values">Default model subarea values</a></li>
+<li><a href="#default-model-tree-values">Default model tree values</a></li>
 </ul></li>
-<li><a href="#custom-logo">Custom Logo</a></li>
-<li><a href="#custom-loading-animation">Custom Loading Animation</a></li>
-<li><a href="#custom-logo-in-tutorial-section">Custom Logo in tutorial section</a></li>
-<li><a href="#customize-go-back-button-in-the-tutorial-menu">Customize Go back button in the tutorial menu</a></li>
 </ul></li>
 </ul>
 </nav>
 <h1 id="introduction">Introduction</h1>
-<p>Ezzing 3DLayout is a PV planning tool that allows you to generate a 3d model of a building based on a satellite image. You can model any number of buildings, select between up to five different type of roofs, define keepouts and trees with custom heights…</p>
+<p>Ezzing 3DLayout is a PV planning tool that allows you to generate a 3d model of a building based on a satellite image. You can model any number of buildings, select between up to five different type of roofs, define keepouts and trees with custom heights...</p>
 <p>Inside each roof area you can customize different structures, select module models and get automated previews of your setup.</p>
 <p>It also provides you with a perspective view and a sun simulator to determine where the shadows will be in your installation.</p>
 <p>Ezzing 3DLayout is an embebible webapp. You can integrate it inside your own system and customize many elements inside, from module models to prefered default settings for each roof type.</p>
 <p>In this document you will find a brief showcase of the different areas of the app, a technical explanation on how to integrate this webapp inside your platform, a full description of the API that will allow you to communicate with the 3DLayout, and finally a description of how to customize different parts of the app.</p>
-<p><img class="w100" src="./layout-doc-imgs/new-img/intro.png" alt="3DLayout" /><br />
-<br></p>
+<img class="w100" src="./layout-doc-imgs/general/intro.png" alt="3DLayout" />
+<br>
+
 <p>You can test the app by visiting this link:</p>
-<p><a href="https://layout.ezzing.com/#/demo">https://layout.ezzing.com/#/demo</a></li></p>
-<p>Also you can follow a tutorial to learn the basics of the 3DLayout in this link:</p>
-<p><a href="https://layout.ezzing.com/#/tutorial">https://layout.ezzing.com/#/tutorial</a></li></p>
+<p><a href="https://layout.ezzing.com/#/demo"><a href="https://layout.ezzing.com/#/demo" class="uri">https://layout.ezzing.com/#/demo</a></a></li></p>
 <div class="page-break"></div>
+
 <h1 id="screenshots">Screenshots</h1>
-<p><img class="w100" src="./layout-doc-imgs/new-img/perspective-view.png" alt="perspective view" /></p>
-<p><img class="w100" src="./layout-doc-imgs/new-img/sun-simulation.png" alt="sun simulation" /></p>
+<img class="w100" src="./layout-doc-imgs/general/perspective-view.png" alt="Perspective view" />
+
+<img class="w100" src="./layout-doc-imgs/general/sun-simulation.png" alt="Sun simulation" />
+
 <div class="page-break"></div>
-<h1 id="dlayout-interface">3DLayout Interface</h1>
+
+<h1 id="3dlayout-interface">3DLayout Interface</h1>
 <p>The 3DLayout interface has two diferent parts: the <strong>aside panel</strong> and the <strong>canvas area</strong>.</p>
 <h2 id="aside-panel">Aside Panel</h2>
 <p>In the aside panel you can find functionalities related to the current active building and other objects in the scene.</p>
-<p><br></p>
-<p><img class="w100" src="./layout-doc-imgs/new-img/tab-building.png" alt="tab building" /></p>
-<p><img class="w100" src="./layout-doc-imgs/new-img/tab-areas-1.png" alt="tab areas 1" /></p>
-<p><img class="w100" src="./layout-doc-imgs/new-img/tab-areas-2.png" alt="tab areas 2" /></p>
-<p><img class="w100" src="./layout-doc-imgs/new-img/tab-keepouts.png" alt="tab keepouts" /></p>
-<p><img class="w100" src="./layout-doc-imgs/new-img/tab-trees.png" alt="tab trees" /></p>
+<br>
+
+<img class="w100" src="./layout-doc-imgs/tabs/tab-building.png" alt="Tab building" />
+
+<img class="w100" src="./layout-doc-imgs/tabs/tab-areas-1.png" alt="Tab areas 1" />
+
+<img class="w100" src="./layout-doc-imgs/tabs/tab-areas-2.png" alt="Tab areas 2" />
+
+<img class="w100" src="./layout-doc-imgs/tabs/tab-keepouts.png" alt="Tab keepouts" />
+
+<img class="w100" src="./layout-doc-imgs/tabs/tab-trees.png" alt="Tab trees" />
+
+<img class="w100" src="./layout-doc-imgs/tabs/tab-preferences.png" alt="Tab preferences" />
+
 <div class="page-break"></div>
+
 <h2 id="canvas-area">Canvas Area</h2>
 <p>In the canvas area you can see the satellite view and three different sets of elements: the <strong>buildings index</strong> on the left side, the <strong>main options buttons</strong> on the top, and the <strong>control buttons</strong> on the bottom-right corner.</p>
-<p><img class="w100" src="./layout-doc-imgs/new-img/canvas.png" alt="canvas" /></p>
+<img class="w100" src="./layout-doc-imgs/canvas/canvas.png" alt="Canvas" />
+
 <div class="page-break"></div>
+
 <h3 id="buildings-index">Buildings Index</h3>
-<p>In the buildings index you can see the active building and select another one to become active.</p>
-<p><img class="w200px" src="./layout-doc-imgs/new-img/buildings-index.png" alt="buildings-index" /></p>
-<p><br></p>
+<p>In the buildings index you can see the active building and select another one to become active. The color represented on each index is the color of the building.</p>
+<img class="w200px" src="./layout-doc-imgs/canvas/buildings-index.png" alt="Buildings index" />
+
 <h3 id="main-options">Main Options</h3>
 <p>These are the main options in the canvas area:</p>
-<p><img class="w100" src="./layout-doc-imgs/new-img/mainoptions.png" alt="mainoptions" /></p>
+<img class="w100" src="./layout-doc-imgs/canvas/main-options.png" alt="Main options" />
+
 <p>All these buttons are the <strong>main options custom buttons</strong>. You can customize this set of buttons by hidding some of them, by sorting them, or by adding new buttons.</p>
 <p>The default custom buttons are:</p>
 <ul>
-<li>Save</li>
-<li>Search address</li>
-<li>Snapshot</li>
+<li>Save: saves the layout in crm</li>
+<li>Search address: moves the project center to the address specified</li>
+<li>Snapshot: takes a photograph of the project (with or without modules in jpg format, or in svg format)</li>
 <li>Fullscreen</li>
-<li>Sun simulation</li>
-<li>Perspective view</li>
+<li>Sun simulation: sun and shadow simulation</li>
+<li>Perspective view: switches to 2D/3D view</li>
 <li>Renderer</li>
 <li>Satellite provider selector (only showed if available)</li>
 </ul>
 <blockquote>
 <p>Please, visit the section <a href="#custom-buttons">Custom Buttons</a> to learn how to add your own buttons.</p>
 </blockquote>
+<div class="page-break"></div>
+
 <h3 id="control-buttons">Control Buttons</h3>
 <p>These are map related buttons. You can also customize the upper section of this set of buttons by hidding some of them or by adding new buttons.</p>
-<p><img class="w75px" src="./layout-doc-imgs/new-img/controlbuttons1.png" alt="controlbuttons1" /></p>
+<img class="w75px" src="./layout-doc-imgs/canvas/control-buttons-1.png" alt="Control buttons 1" />
+
 <p>Fixed buttons in this area:</p>
 <ul>
 <li>Zoom in</li>
 <li>Zoom out</li>
 </ul>
-<p><img class="w75px" src="./layout-doc-imgs/new-img/controlbuttons2.png" alt="controlbuttons2" /><br />
-3D control custom buttons:</p>
+<br>
+
+<img class="w75px" src="./layout-doc-imgs/canvas/control-buttons-2.png" alt="Control buttons 2" />
+
+<p>3D control custom buttons:</p>
 <ul>
-<li>Compass (centers 3D view to north)</li>
-<li>Geolocation (centers 3D view to the project)</li>
+<li>Compass: centers 3D view to north</li>
+<li>Geolocation: centers 3D view to the project</li>
 <li>Zoom in</li>
 <li>Zoom out</li>
 </ul>
@@ -207,86 +260,282 @@
 <p>Please, visit the section <a href="#custom-buttons">Custom Buttons</a> to learn how to add your own functions.</p>
 </blockquote>
 <div class="page-break"></div>
-<h1 id="keepouts">Keepouts</h1>
-<h2 id="keepout-height-calculations">Keepout height calculations</h2>
-<p>When creating keepouts, please note the height selected for the keepout is not always the final keepout height.</p>
-<p>Depending on the roof inclination and the keepout dimensions and positions, there is a minimum keepout height to avoid keepouts under the roof surface.<br />
-<!-- FIX
-Let's see an example:
 
-<img class="w100" src="./layout-doc-imgs/imgs-sin-monitor/keeoput-height-scheme.jpg" alt="keeoput-height-scheme" />
+<h1 id="buildings">Buildings</h1>
+<h2 id="building-creation">Building creation</h2>
+<p>To start using the tool you need to create your first building. You will be able to customize its shape, name or height (from gutter or ridge).</p>
+<p>The 'Populated with modules' option determines if the building will be created with or without modules. It is useful to deactivate it for simulating the shadows of the buildings.</p>
+<p>You can activate the modules in the building edition (this configuration will be shown everytime the layout is loaded) or enabling the corresponding area in the area section.</p>
+<img class="w200px" src="./layout-doc-imgs/building/populated-with-modules-toggle.png" alt="Populated with modules toggle" />
 
-In keepout 1, A is the desired height, and B is the minimum height for this keepout. As A is bigger than B then the keepout is created with the desired height (A).
-
-In keepout 2, A is also the desired height, but the keepout can't be drawn correctly if the height is less than B measure, as some parts of the keepout will stay below the roof, so keepout 2 will be created with the minimum calculated height (B).
---></p>
 <blockquote>
-<p>Note that for flat roofs it is posible to create 0 height keepouts, but for inclinated roofs you need to use the invisible keepouts feature to allow keepouts at roof surface level.</p>
+<p>Please, visit the section <a href="#drawing-with-snaps">Drawing with Snaps</a> to learn how to draw.</p>
 </blockquote>
-<h2 id="invisible-keepouts">Invisible keepouts</h2>
-<p>If you want to simulate a skylight or any keepout object without drawing the 3d volume you can check the ‘Invisible keepout’ option to hide the 3D volume but still taking the obstacle into account.</p>
-<p><img class="w400px" src="./layout-doc-imgs/imgs-sin-monitor/invisible-keepout-toggle.jpg" alt="invisible-keepout-toggle" /></p>
-<h2 id="crop-keepout-to-the-building-shape">Crop keepout to the building shape</h2>
-<p>When editing the vertices of a keepout you can check the ‘Crop shape to building limits’ option. This helps you to draw keepouts that extends to the border of the building with more precision.</p>
-<p><img class="w400px" src="./layout-doc-imgs/imgs-sin-monitor/crop-shape-building-toggle.jpg" alt="crop-shape-building-toggle" /></p>
-<p>If you uncheck this option then the keepout can be floating outside the building limits. At least one vertex of the keepout should be inside the building limits to be created.</p>
+<p>The next step once you have drawn the building is configurating the roof. There are different types of roofs depending on the shape of the building (if the building is irregular, the roof can only be flat or pent).</p>
+<p>These are all the types of roof (available on regular buildings):</p>
+<img class="w200px" src="./layout-doc-imgs/building/roof-types.png" alt="Roof types" />
+
+<p>Each roof is composed of a determined number of areas that are automatically created.</p>
+<p>You can also choose a roof material despite it is only informative. The material options are common for all roof types (tiled, trapezoidal, and corrugated) except for the flat ones (gravel, bitumen, membrane, and concrete):</p>
+<img class="w200px" src="./layout-doc-imgs/building/roof-materials.png" alt="Roof materials" />
+
+<p>When the operation is finished, the textures of the building are generated using the mapper tool and the modules appear in a default subarea.</p>
+<blockquote>
+<p>Please, visit the section <a href="#textures">Textures</a> to learn how they are generated.</p>
+</blockquote>
+<p>Once the building is created, you will be able to:</p>
+<ul>
+<li>Edit</li>
+<li>Move</li>
+<li>Remove</li>
+<li>Clone (it will be cloned with the same settings)</li>
+<li>Paint</li>
+</ul>
+<h2 id="add-building">Add building</h2>
+<p>By clicking the '+' button at the top-left of the canvas you enter in the building creation process. There is no limit on buildings to create.</p>
+<h2 id="edit-building">Edit building</h2>
+<p>You can select between editing the building or editing the roof.</p>
+<p>In the first option you can modify the building vertices following the steps of the building creation. If you edit the roof you can select any type of roof and it will be recalculated.</p>
+<!-- Fiorella - Imagen distinguiendo de algunas maneras las dos opciones -->
+
+<img class="w200px" src="./layout-doc-imgs/building/building-edit.png" alt="Building edit" />
+
 <div class="page-break"></div>
+
+<h1 id="areas">Areas</h1>
+<p>The areas are sections on the roof that are automatically created when selecting the type of roof.</p>
+<p>Each area is composed of at least one subarea and has the information of the number of modules it contains and the power that generates.</p>
+<p>If you want to disable one area, you can click on the eye button next to its name. By doing this, its module count and power generated will be set to 0.</p>
+<img class="w75" src="./layout-doc-imgs/general/area-disabled.png" alt="Area disabled" />
+
+<h2 id="edit-area">Edit area</h2>
+<p>To edit an area you can modify the edge zone value. It is a numeric value that specifies the distance between the building limits and the subareas that exist within that area.</p>
+<div class="page-break"></div>
+
 <h1 id="subareas">Subareas</h1>
 <h2 id="subarea-creation">Subarea creation</h2>
 <p>A subarea is a region inside an area that allows you to define a modules installation just in a section of the area.</p>
-<p>To create a subarea click on the ‘Create subarea’ button.</p>
-<p><img class="w200px" src="./layout-doc-imgs/new-img/subarea-creation-button.png" alt="subarea-creation-button" /></p>
+<p>To create a subarea click on the 'Create subarea' button.</p>
+<img class="w200px" src="./layout-doc-imgs/subarea/subarea-creation-button.png" alt="Subarea creation button" />
+
 <p>Once the subarea is created, you will be able to:</p>
 <ul>
 <li>Edit</li>
 <li>Move</li>
-<li>Refresh (only if the area has one subarea)</li>
+<li>Refresh</li>
 <li>Remove (only if the area has more than one subarea)</li>
-<li>Clone</li>
+<li>Clone (it will be cloned with the same settings)</li>
 </ul>
-<p><img class="w200px" src="./layout-doc-imgs/new-img/remove-add-subareas.png" alt="remove-add-subareas" /></p>
+<img class="w200px" src="./layout-doc-imgs/subarea/remove-add-subareas.png" alt="Remove add subareas" />
+
+<p>If you want to disable one subarea, you can click on the eye button next to its name. By doing this, its module count and power generated will be set to 0.</p>
 <div class="page-break"></div>
+
 <h2 id="add-subarea">Add subarea</h2>
-<p>By clicking the ‘Create subarea’ button you enter in the subarea creation process.</p>
-<p><img class="w75" src="./layout-doc-imgs/new-img/add-subarea.png" alt="add-subarea" /></p>
+<p>By clicking the 'Create subarea' button you enter in the subarea creation process.</p>
+<p>If you create the first subarea it will replace the default one.</p>
+<img class="w75" src="./layout-doc-imgs/subarea/add-subarea.png" alt="Add subarea" />
+
 <h3 id="crop-subarea-to-the-area-shape">Crop subarea to the area shape</h3>
-<p>When editing the vertices of a subarea you can check the ‘Crop’ option. This helps you to draw subareas that extends to the border of the building with more precision.</p>
-<p><img class="w200px" src="./layout-doc-imgs/new-img/crop-shape-building-toggle.png" alt="crop-shape-building-toggle" /></p>
+<p>When editing the vertices of a subarea you can check the 'Crop' option. This helps you to draw subareas that extends to the border of the building with more precision.</p>
+<img class="w200px" src="./layout-doc-imgs/subarea/crop-shape-building-toggle.png" alt="Crop shape building toggle" />
+
 <p>If you uncheck this option then the subarea can extend outside the area, following the area plane.</p>
-<p><img class="w75" src="./layout-doc-imgs/new-img/subarea-sample.png" alt="subarea-sample" /></p>
+<img class="w75" src="./layout-doc-imgs/subarea/subarea-sample.png" alt="Subarea sample" />
+
 <h3 id="edit-subarea-vertices">Edit subarea vertices</h3>
 <p>By clicking this button you can modify subarea vertices and the subarea will be recalculated.</p>
-<h3 id="remove-subarea">Remove subarea</h3>
-<p>By clicking this button you can remove a single subarea from the subareas list.</p>
 <div class="page-break"></div>
+
+<h2 id="edit-subarea">Edit subarea</h2>
+<p>By clicking on a subarea you enter in the subarea edition process.</p>
+<img class="w75" src="./layout-doc-imgs/subarea/edit-subarea.png" alt="Edit subarea" />
+
+<p>You will be able to refresh, paint or move all the modules.</p>
+<p>These are all the subarea edition options:</p>
+<ul>
+<li>Module model: there are different module models available that have different size, weight and watt peak capacity</li>
+<li>Module orientation: you can choose between 'landscape' and 'portrait'</li>
+<li>Panels orientation: you can choose between 'south' and 'east/west'</li>
+<li>Module inclination</li>
+<li>Distance between modules</li>
+<li>Distance between rows</li>
+<li>Distance between centers</li>
+<li>Use max. shadow calculation: calculates the distance between rows and centers depending on the module inclination</li>
+<li>Azimuth: modules rotation</li>
+<li>Staggered enabled</li>
+<li>Dilatation lines enabled</li>
+</ul>
+<p>Here, you can click on any module to enable/disable it. If you right click on a module it will be displayed its position (row and column).</p>
+<h2 id="remove-subarea">Remove subarea</h2>
+<p>By clicking this button you can remove a single subarea from the subareas list. It is only available if there exists more than one subarea.</p>
+<div class="page-break"></div>
+
+<h1 id="keepouts">Keepouts</h1>
+<p>Keepouts are created for simulating any obstacle that might interrupt the installation of modules.</p>
+<p>When a keepout is created, there can't be any module that occupies the same position.</p>
+<p>You can customize them by changing their height, offset and type (vertical or inclined).</p>
+<!-- FIX
+
+## Keepout height calculations
+
+When creating keepouts, please note the height selected for the keepout is not always the final keepout height.
+
+Depending on the roof inclination and the keepout dimensions and positions, there is a minimum keepout height to avoid keepouts under the roof surface.
+Let's see an example:
+
+<img class="w100" src="./layout-doc-imgs/keepout/keeoput-height-scheme.jpg" alt="keeoput-height-scheme" />
+
+In keepout 1, A is the desired height, and B is the minimum height for this keepout. As A is bigger than B then the keepout is created with the desired height (A).
+
+In keepout 2, A is also the desired height, but the keepout can't be drawn correctly if the height is less than B measure, as some parts of the keepout will stay below the roof, so keepout 2 will be created with the minimum calculated height (B).
+-->
+
+<blockquote>
+<p>Note that for flat roofs it is posible to create 0 height keepouts, but for inclinated roofs you need to use the invisible keepouts feature to allow keepouts at roof surface level.</p>
+</blockquote>
+<h2 id="invisible-keepouts">Invisible keepouts</h2>
+<p>If you want to simulate a skylight or any keepout object without drawing the 3D volume you can check the 'Invisible keepout' option to hide the 3D volume but still taking the obstacle into account.</p>
+<img class="w200px" src="./layout-doc-imgs/keepout/invisible-keepout-toggle.png" alt="Invisible keepout toggle" />
+
+<h2 id="crop-keepout-to-the-building-shape">Crop keepout to the building shape</h2>
+<p>When editing the vertices of a keepout you can check the 'Crop shape to building limits' option. This helps you to draw keepouts that extends to the border of the building with more precision.</p>
+<img class="w200px" src="./layout-doc-imgs/keepout/crop-shape-keepout-toggle.png" alt="Crop shape keepout toggle" />
+
+<p>If you uncheck this option then the keepout can be floating outside the building limits. At least one vertex of the keepout should be inside the building limits to be created.</p>
+<h2 id="vertical-and-inclined-keepouts">Vertical and inclined keepouts</h2>
+<p>You can create a keepout as vertical or inclined. If the keepout is inclined, it will be created starting from the inclination of the building.</p>
+<div class="page-break"></div>
+
+<h1 id="trees">Trees</h1>
+<p>Trees belong to the scene, not to a building.</p>
+<p>It is important to create trees for simulating the shadows on the roofs. Therefore, you will be able to move them and modify their height and radius. The shape of the tree is calculated according to the proportion of these values.</p>
+<img class="w75" src="./layout-doc-imgs/general/tree.png" alt="Tree" />
+
+<div class="page-break"></div>
+
+<h1 id="drawing-with-snaps">Drawing with Snaps</h1>
+<p>The snap is a helpful tool for drawing buildings, subareas and keepouts.</p>
+<p>There are two ways for drawing points: using <strong>guide lines</strong> or a <strong>grid</strong>.</p>
+<h2 id="guide-lines">Guide lines</h2>
+<p>'Guide lines' is the default option when drawing. There are two ways for drawing points that can be combined to make the process easier: lines and vertices.</p>
+<img class="w100px" src="./layout-doc-imgs/snaps/snap-guide-lines.png" alt="Snap guide lines" />
+
+<p>To use them, you need first to draw two points. Once you have drawn them, there will appear parallel and perpendicular guide lines to the last drawn point. This way you can create regular shapes with right angles (it is also possible to move points along these guide lines).</p>
+<p>Switching to the 'Vertices' option allows you to draw points at the intersections of the guide lines and the vertices of the buildings.</p>
+<blockquote>
+<p>Please, visit the section <a href="#context-panel">Context panel</a> to see more drawing features.</p>
+</blockquote>
+<h2 id="grid">Grid</h2>
+<p>When selecting this option appears a grid that occupies the entire canvas area.</p>
+<img class="w100px" src="./layout-doc-imgs/snaps/snap-grid.png" alt="Snap grid" />
+
+<p>You can customize it by specifying a number for the grid size (size of each square) and an offset in the x and y coordinates for moving the grid.</p>
+<blockquote>
+<p>Please, visit the section <a href="#context-panel">Context panel</a> to see more drawing features.</p>
+</blockquote>
+<div class="page-break"></div>
+
+<h2 id="context-panel">Context panel</h2>
+<p>This menu is available in both options, guide lines and grid, by right clicking on a point or edge.</p>
+<img class="w100px" src="./layout-doc-imgs/snaps/context-panel.png" alt="Context panel" />
+
+<p>When right clicking a point, you can:</p>
+<ul>
+<li>Draw guides here (only in 'Guide lines' option): draws parallel and perpendicular guide lines to this point in relation to the selected edge</li>
+<li>Remove all guides (only in 'Guide lines' option): removes all guide lines except the ones to the selected point</li>
+<li>Select/deselect point: this is useful for moving many points along a guide line at once</li>
+<li>Deselect all points: deselects all points except the last selected one</li>
+<li>Delete point</li>
+</ul>
+<p>When right clicking an edge (only in 'Guide lines' option), you can:</p>
+<ul>
+<li>Select/deselect edge as guide: redraws the parallel and its perpendicular guide lines to the selected edge</li>
+<li>Select/deselect all edges as guide</li>
+</ul>
+<div class="page-break"></div>
+
+<h1 id="textures">Textures</h1>
+<p>The textures are images obtained from the satellite displayed on the roof, with the same size and position.</p>
+<p>They are generated by default when a building is created. You can disable their automatic creation in the Preferences panel.</p>
+<img class="w200px" src="./layout-doc-imgs/general/building-textures-toggle.png" alt="Building textures toggle" />
+
+<blockquote>
+<p>Please, visit the section <a href="#layout-rules">Layout Rules</a> to learn how to customize this property.</p>
+</blockquote>
+<img class="w200px" src="./layout-doc-imgs/general/textures.png" alt="Textures" />
+
+<p>In the building panel you can see the different options for the satellite image textures:</p>
+<ul>
+<li>'+' : adds satellite texture for the active building</li>
+<li>Refresh (available when the active building has textures)</li>
+<li>Remove (available when the active building has textures)</li>
+<li>Generate for all buildings</li>
+<li>Remove all satellite textures</li>
+</ul>
+<blockquote>
+<p>Note that the textures generation might fail because of the speed of the internet connection or the speed of response of the satellite image provider. For preventing the failure you can select each building and wait for the satellite images to load or refresh the textures individually.</p>
+</blockquote>
+<h1 id="shortcuts">Shortcuts</h1>
+<p>The shortcuts can be used in three cases:</p>
+<ul>
+<li>When drawing:
+<ul>
+<li>To enable/disable snap to guides, press 'S'</li>
+<li>To toggle between guide lines and vertices you can hold 'Ctrl'</li>
+<li>To select/deselect vertices, click on them while pressing 'Shift'</li>
+</ul></li>
+<li>Editing a subarea:
+<ul>
+<li>Hold 'Shift' for selecting the hole row</li>
+<li>Hold 'Ctrl' for selecting the hole column</li>
+</ul></li>
+<li>Moving a subarea:
+<ul>
+<li>Down: Numpad 1, 2, 3 | 'End' | 'Down arrow' | 'Page down'</li>
+<li>Left: Numpad 1, 4, 7 | 'End' | 'Left arrow' | 'Home'</li>
+<li>Right: Numpad 3, 6, 9 | 'Page down' | 'Right arrow' | 'Page up'</li>
+<li>Center: Numpad 5 | 'Clear'</li>
+</ul></li>
+<li>Save: for saving the project in crm you can press 'Ctrl + Shift + S'</li>
+</ul>
+<div class="page-break"></div>
+
 <h1 id="layout-coordinate-systems">Layout Coordinate Systems</h1>
 <p>The 3DLayout works in four different coordinate systems, depending on which context we are requesting info.</p>
 <h2 id="world-coordinate-system">World Coordinate System</h2>
-<p><img class="w75" src="./layout-doc-imgs/imgs-sin-monitor/world-coords.png" alt="world-coords" /></p>
+<img class="w75" src="./layout-doc-imgs/coords/world-coords.png" alt="world-coords" />
+
 <p>World coordinate system works with spherical coordinates, latitude and longitude.</p>
 <p>The values stored in this system and the API calls to retrieve this data are:</p>
 <ul>
 <li>Layout project center &gt; getLayout</li>
 </ul>
 <div class="page-break"></div>
+
 <h2 id="scene-coordinate-system">Scene Coordinate System</h2>
-<p><img class="w75" src="./layout-doc-imgs/imgs-sin-monitor/scene-coords.png" alt="scene-coords" /></p>
+<img class="w75" src="./layout-doc-imgs/coords/scene-coords.png" alt="scene-coords" />
+
 <p>Scene coordinate system works with cartesian coords, with origin in the layout project center and distances measured in meters. It is used to place each building relative to the project center.</p>
 <p>The values stored in this system and the API calls to retrieve this data are:</p>
 <ul>
 <li>Building data center &gt; getBuildingInfo()</li>
 </ul>
 <div class="page-break"></div>
+
 <h2 id="building-coordinate-system">Building Coordinate System</h2>
-<p><img class="w75" src="./layout-doc-imgs/imgs-sin-monitor/building-coords.png" alt="building-coords" /></p>
+<img class="w75" src="./layout-doc-imgs/coords/building-coords.png" alt="building-coords" />
+
 <p>Building coordinate System works with cartesian coords, with origin in the building center and measured in meters. Al tilted surfaces are represented in ortographic view.</p>
 <p>The values stored in this system and the API calls to retrieve this data are:</p>
 <ul>
 <li>Building vertices (verticesMCoords) &gt; getBuildingInfo()</li>
 </ul>
 <div class="page-break"></div>
+
 <h2 id="area-coordinate-system">Area Coordinate System</h2>
-<p><img class="w75" src="./layout-doc-imgs/imgs-sin-monitor/area-coords.png" alt="area-coords" /></p>
+<img class="w75" src="./layout-doc-imgs/coords/area-coords.png" alt="area-coords" />
+
 <p>Area Coordinate System works in cartesian coords, with origin in the bottom-left corner of the area, and rotated with the exterior wall azimuth of the area. On flat roofs the first wall drawed is considered the main wall.</p>
 <p>The values stored in this system and the API calls to retrieve this data are:</p>
 <ul>
@@ -298,17 +547,19 @@ In keepout 2, A is also the desired height, but the keepout can't be drawn corre
 <h1 id="how-to-use">How to use</h1>
 <h2 id="api-key-and-autentication">Api key and autentication</h2>
 <p>To start using the 3DLayout in your platform, you need to add the following script:</p>
-<pre><code>&lt;script data-key=&quot;API_KEY_HERE&quot; src=&quot;https://layout.ezzing.com/lib.js&quot;&gt;&lt;/script&gt;</code></pre>
+<pre><code>&lt;script data-key=&quot;API_KEY_HERE&quot; src=&quot;https://layout.ezzing.com/lib.js&quot;&gt;&lt;/script&gt;
+</code></pre>
 <p>where you would replace <code>API_KEY_HERE</code> by an API key we provide you for your account.</p>
 <h2 id="dom-element">DOM element</h2>
 <p>You need an element in the body of your html page, a div where <strong>the 3DLayout will fit inside this element</strong>.</p>
 <blockquote>
-<p>This div can’t be bigger than the view size, and <strong>no scroll</strong> has to be applied to the html page.</p>
+<p>This div can't be bigger than the view size, and <strong>no scroll</strong> has to be applied to the html page.</p>
 </blockquote>
 <p>You should not change the ezzing3d element size (width or height) but change the size of this container div.</p>
 <pre><code>&lt;div style=&#39;height:100vh; width: 100vw&#39;&gt;
     &lt;ezzing3d id=&#39;ezzing3d&#39;&gt;&lt;/ezzing3d&gt;
-&lt;/div&gt;</code></pre>
+&lt;/div&gt;
+</code></pre>
 <h2 id="basic-functions">Basic functions</h2>
 <p>Adding the <code>client.min.js</code> script with a valid API Key makes available the <code>Ezzing3DApi</code> global object, which we will use to start using the 3DLayout.</p>
 <p>The Ezzing3DApi object has the following functions:</p>
@@ -330,12 +581,14 @@ In keepout 2, A is also the desired height, but the keepout can't be drawn corre
     city: &quot;Madrid&quot;,
     province: &quot;Madrid&quot;,
     country: &quot;Spain&quot;
-};</code></pre>
+};
+</code></pre>
 <p>Where all values are optional except latitude and longitude that are required.</p>
 <pre><code>Ezzing3DApi.createLayout(data, function(err, layoutData) {
     if (err) throw err;
     console.log(layoutData);
-});</code></pre>
+});
+</code></pre>
 <p>Which will return the information from the created layout:</p>
 <pre><code>{
   id: 1093,
@@ -350,7 +603,8 @@ In keepout 2, A is also the desired height, but the keepout can't be drawn corre
   created_at: &quot;2016-08-18T17:15:15+0000&quot;,
   updated_at: &quot;2016-08-19T10:14:34+0000&quot;,
   url: &quot;https://layout.ezzing.com/#/GXXlgzDk0rPsrdxWfDsE5Cdi9FwUrBPx7GfuxSf0::1093&quot;
-}</code></pre>
+}
+</code></pre>
 <p>where:</p>
 <ul>
 <li><strong>id</strong>: the layout id, you need this id to load the project or retrieve information,</li>
@@ -389,18 +643,21 @@ In keepout 2, A is also the desired height, but the keepout can't be drawn corre
 <pre><code>Ezzing3DApi.getLayout(id, function(err, layoutData) {
     if (err) throw err;
     console.log(layoutData);
-});</code></pre>
+});
+</code></pre>
 <h3 id="listlayouts">listLayouts</h3>
 <p>Returns a list of all your created layouts.</p>
 <pre><code>Ezzing3DApi.listLayouts(function(err, layoutData) {
     if (err) throw err;
     console.log(layoutData);
-});</code></pre>
+});
+</code></pre>
 <h3 id="loadlayout">loadLayout</h3>
 <p>Sets up the 3DLayout interface into the ezzing3D container and loads the project related to the given id.</p>
 <pre><code>Ezzing3DApi.loadLayout(id, function(err, layout, container) {
     if (err) throw err;
-});</code></pre>
+});
+</code></pre>
 <p>loadLayout can receive an <code>options</code> argument where you can setup some customizations.</p>
 <blockquote>
 <p>You can read a description of this methods in the <a href="#layout-rules">Layout Rules</a> section.</p>
@@ -409,7 +666,8 @@ In keepout 2, A is also the desired height, but the keepout can't be drawn corre
 
 Ezzing3DApi.loadLayout(id, rules, function(err, layout, container) {
     if (err) throw err;
-});</code></pre>
+});
+</code></pre>
 <p>This method returns two objects, where:</p>
 <ul>
 <li>layout: Exposes an object with methods to interact with the 3DLayout.</li>
@@ -423,12 +681,14 @@ Ezzing3DApi.loadLayout(id, rules, function(err, layout, container) {
 <h2 id="showcase-mode">Showcase mode</h2>
 <p>If you want to show the layout to a customer or embed it in read-only mode in another page of your platform (to act as a thumbnail of the project) you can do it by adding an iframe element to an html page, with a modified version of the url of the layout.</p>
 <h3 id="showcase-without-camera-spin">Showcase without camera spin</h3>
-<pre><code>&lt;iframe src=(url + &quot;/showcase&quot;)&gt; &lt;/iframe&gt;</code></pre>
+<pre><code>&lt;iframe src=(url + &quot;/showcase&quot;)&gt; &lt;/iframe&gt;
+</code></pre>
 <p>In this mode the 3DLayout will show the project in perspective mode without any gui elements and a quiet 3d view. You can click and drag with the mouse to rotate the view and zoom with the mouse wheel.</p>
 <h3 id="showcase-with-camera-spin">Showcase with camera spin</h3>
-<pre><code>&lt;iframe src=(url + &quot;/spin-showcase&quot;)&gt; &lt;/iframe&gt;</code></pre>
+<pre><code>&lt;iframe src=(url + &quot;/spin-showcase&quot;)&gt; &lt;/iframe&gt;
+</code></pre>
 <p>In this mode the 3DLayout will show the project in perspective mode without any gui elements and a rotating 3d view. You can click and drag with the mouse to rotate the view and zoom with the mouse wheel. Once clicked the rotation will stop.</p>
-<h1 id="dlayout-communication-system">3DLayout Communication System</h1>
+<h1 id="3dlayout-communication-system">3DLayout Communication System</h1>
 <h2 id="info-events-sent-by-3dlayout">Info Events sent by 3DLayout</h2>
 <p>The 3DLayout triggers different events to report actions when they are accomplished or to inform on GUI changes.</p>
 <p>An example on how to listen this events:</p>
@@ -436,9 +696,11 @@ Ezzing3DApi.loadLayout(id, rules, function(err, layout, container) {
 
 container.addEventListener(&quot;buildingSelected&quot;, function(event, data){
     console.log(event.detail);
-});</code></pre>
+});
+</code></pre>
 <p>The full list of events emmited by the 3DLayout are:</p>
 <!-- * load -->
+
 <ul>
 <li>zoomChanged</li>
 <li>fullscreen</li>
@@ -461,12 +723,13 @@ container.addEventListener(&quot;buildingSelected&quot;, function(event, data){
 
 This event is triggered when the 3DLayout finish to load the project from the CRM
 -->
+
 <h3 id="zoomchanged">zoomChanged</h3>
 <p>This event is triggered when the zoom is changed in the canvas. It sends the zoom level value.</p>
 <h3 id="fullscreen">fullscreen</h3>
 <p>This event is triggered when the user changes from normal view to fullscreen. It sends <strong>true</strong> when changing to fullscreen and <strong>false</strong> when disabling fullscreen mode.</p>
 <h3 id="tabchanged">tabChanged</h3>
-<p>This event is triggered every time the user changes the aside panel navigation tab. It sends a string with the current tab name, the values can be one of this: [ “building”, “areas”, “keepouts”, “trees” ].</p>
+<p>This event is triggered every time the user changes the aside panel navigation tab. It sends a string with the current tab name, the values can be one of this: [ &quot;building&quot;, &quot;areas&quot;, &quot;keepouts&quot;, &quot;trees&quot; ].</p>
 <h3 id="editarea">editArea</h3>
 <p>This event is triggered every time the user enters the edit section of an area. The event sends the <strong>area.id</strong>.</p>
 <h3 id="editkeepout">editKeepout</h3>
@@ -475,19 +738,22 @@ This event is triggered when the 3DLayout finish to load the project from the CR
 <p>This event is triggered every time the user enters the edit section of a tree. The event sends the <strong>tree.id</strong>.</p>
 <h3 id="areachanged">areaChanged</h3>
 <p>This event is triggerd every time an area attribute is changed. The event sends back an array with this info:</p>
-<pre><code>[area.id, attribute, value]</code></pre>
+<pre><code>[area.id, attribute, value]
+</code></pre>
 <h3 id="buildingchanged">buildingChanged</h3>
 <p>This event is triggered every time a building is changed. The event sends back an array with this info:</p>
-<pre><code>[building.id, building attribute, value]</code></pre>
+<pre><code>[building.id, building attribute, value]
+</code></pre>
 <h3 id="roofchanged">roofChanged</h3>
 <p>This event is triggered every time a roof attribute is changed. The event sends back an array with this info:</p>
-<pre><code>[building.id, roof attribute, value]</code></pre>
+<pre><code>[building.id, roof attribute, value]
+</code></pre>
 <h3 id="editroof">editRoof</h3>
 <p>This event is triggered every time the user enters the roof edit section of a building. The event sends the <strong>building.id</strong></p>
 <h3 id="editvertices">editVertices</h3>
 <p>This event is triggered every time the user enters the vertices edit section of a building. The event sends the <strong>building.id</strong></p>
 <h3 id="buildingremoved">buildingRemoved</h3>
-<p>This event is triggered every time a building is deleted. The event sends the <strong>building.id</strong> (after this operation this building won’t longer exist in the project)</p>
+<p>This event is triggered every time a building is deleted. The event sends the <strong>building.id</strong> (after this operation this building won't longer exist in the project)</p>
 <h3 id="buildingselected">buildingSelected</h3>
 <p>This event is triggered every time a new building becomes active. The event sends the <strong>building.id</strong></p>
 <h3 id="buildingcreated">buildingCreated</h3>
@@ -497,6 +763,7 @@ This event is triggered when the 3DLayout finish to load the project from the CR
 This event is triggered when the user confirm a custom alert dialog.
 
 > You can read a description of this methods in the [Layout Rules](#layout-rules) section. -->
+
 <h2 id="functions-to-retrieve-info-from-3dlayout">Functions to retrieve info from 3DLayout</h2>
 <p>There is a set of functions to retrieve information from the 3DLayout.</p>
 <p>For all these functions you can pass a callback as an argument to be executed when data is retrieved.</p>
@@ -510,30 +777,36 @@ This event is triggered when the user confirm a custom alert dialog.
 <li>getPower</li>
 </ul>
 <h4 id="getcurrentbuildingid">getCurrentBuildingId</h4>
-<pre><code>layout.getCurrentBuildingId(callback);</code></pre>
+<pre><code>layout.getCurrentBuildingId(callback);
+</code></pre>
 <p>This function returns the id value of the current active building.</p>
 <h4 id="getlayoutdata">getLayoutData</h4>
-<pre><code>layout.getLayoutData(callback);</code></pre>
+<pre><code>layout.getLayoutData(callback);
+</code></pre>
 <p>This function returns a JSON with an array of buildings.</p>
 <p>Each building in the array contains:</p>
 <pre><code>{
     id: the building id,
     name: the building name,
     areas: an array of areas in the building
-}</code></pre>
+}
+</code></pre>
 <p>Each area in the areas array contains:</p>
 <pre><code>{
     id: the area id,
     name: the area name,
     subareas: an array of subareas in the area
-}</code></pre>
+}
+</code></pre>
 <p>Each subarea in the subareas array contains:</p>
 <pre><code>{
     id: the subarea id,
     name: the subarea name
-}</code></pre>
+}
+</code></pre>
 <h4 id="getnumberofmodules">getNumberOfModules</h4>
-<pre><code>layout.getNumberOfModules(callback);</code></pre>
+<pre><code>layout.getNumberOfModules(callback);
+</code></pre>
 <p>This function returns a JSON with an array of buildings.</p>
 <p>Each building in the array contains:</p>
 <pre><code>{
@@ -541,25 +814,30 @@ This event is triggered when the user confirm a custom alert dialog.
     name: the building name,
     modules: total of modules in the building
     areas: an array of areas in the building
-}</code></pre>
+}
+</code></pre>
 <p>Each area in the areas array contains:</p>
 <pre><code>{
     id: the area id,
     name: the area name,
     modules: total of modules in the area,
     subareas: an array of subareas in the area
-}</code></pre>
+}
+</code></pre>
 <p>Each subarea in the subareas array contains:</p>
 <pre><code>{
     id: the subarea id,
     name: the subarea name,
     modules: total of modules in the subarea
-}</code></pre>
+}
+</code></pre>
 <h4 id="gettotalpower">getTotalPower</h4>
-<pre><code>layout.getTotalPower(callback);</code></pre>
+<pre><code>layout.getTotalPower(callback);
+</code></pre>
 <p>Returns the total power for all the buildings in the project.</p>
 <h4 id="getpower">getPower</h4>
-<pre><code>layout.getPower(callback);</code></pre>
+<pre><code>layout.getPower(callback);
+</code></pre>
 <p>Returns an array of all buildings in the project.</p>
 <p>Each building in the array contains:</p>
 <pre><code>{
@@ -567,20 +845,23 @@ This event is triggered when the user confirm a custom alert dialog.
     name: the building name,
     power: the total power for this building,
     areas: array of areas in this building
-}</code></pre>
+}
+</code></pre>
 <p>Each area in the areas array contains:</p>
 <pre><code>{
     id: the area id,
     name: the area name,
     power: total power in this area,
     subareas: an array of subareas in the area
-}</code></pre>
+}
+</code></pre>
 <p>Each subarea in the subareas array contains:</p>
 <pre><code>{
     id: the subarea id,
     name: the subarea name,
     power: total power in this subarea
-}</code></pre>
+}
+</code></pre>
 <h3 id="building-related-functions">Building related functions</h3>
 <p>Set of generic functions to retrieve building related information from the layout. In this set of functions you should pass an existing building id and a callback.</p>
 <ul>
@@ -589,7 +870,8 @@ This event is triggered when the user confirm a custom alert dialog.
 <li>getBuildingPosition</li>
 </ul>
 <h4 id="getbuildinginfo">getBuildingInfo</h4>
-<pre><code>layout.getBuildingInfo(id, callback);</code></pre>
+<pre><code>layout.getBuildingInfo(id, callback);
+</code></pre>
 <p>Returns building information for a given building.id</p>
 <p>The data returned is:</p>
 <pre><code>{
@@ -605,20 +887,24 @@ This event is triggered when the user confirm a custom alert dialog.
     modules: total of modules in the building
     power: total power of the building,
     areas: array of areas in this building
-}</code></pre>
+}
+</code></pre>
 <p>Each area in the areas array contains:</p>
 <pre><code>{
     id: the area id,
     name: the area name,
     subareas: an array of subareas in the area
-}</code></pre>
+}
+</code></pre>
 <p>Each subarea in the subareas array contains:</p>
 <pre><code>{
     id: the subarea id,
     name: the subarea name
-}</code></pre>
+}
+</code></pre>
 <h4 id="getroofinfo">getRoofInfo</h4>
-<pre><code>layout.getRoofInfo(id, callback);</code></pre>
+<pre><code>layout.getRoofInfo(id, callback);
+</code></pre>
 <p>Returns roof information for a given building.id]</p>
 <p>The data returned is:</p>
 <pre><code>{
@@ -627,9 +913,11 @@ This event is triggered when the user confirm a custom alert dialog.
     material: roof material (i.e: tiled/corugated),
     orientation: roof orientation (i.e: east/west or nort/south),
     type: roof type (i.e: flat, pent, gabled, etc...)
-}</code></pre>
+}
+</code></pre>
 <h4 id="getbuildingposition">getBuildingPosition</h4>
-<pre><code>layout.getBuildingPosition(id, callback);</code></pre>
+<pre><code>layout.getBuildingPosition(id, callback);
+</code></pre>
 <p>Returns building position info for a given building.id.</p>
 <p>The data returned is:</p>
 <pre><code>{
@@ -638,7 +926,8 @@ This event is triggered when the user confirm a custom alert dialog.
     centerDeg: building center in World coord system,
     centerMCoords: building center in Scene coord system,
     verticesMCoords: building vertices in building coord system,
-}</code></pre>
+}
+</code></pre>
 <h3 id="area-related-functions">Area related functions</h3>
 <p>Set of generic functions to retrieve Area related information from the layout. In this set of functions you should pass an existing area id and a callback.</p>
 <ul>
@@ -648,7 +937,8 @@ This event is triggered when the user confirm a custom alert dialog.
 <li>getAreaOffset</li>
 </ul>
 <h4 id="getareainfo">getAreaInfo</h4>
-<pre><code>layout.getAreaInfo(id, callback);</code></pre>
+<pre><code>layout.getAreaInfo(id, callback);
+</code></pre>
 <p>Returns area info for a given area.id.</p>
 <p>The data returned is:</p>
 <pre><code>{
@@ -667,14 +957,17 @@ This event is triggered when the user confirm a custom alert dialog.
     wallAzimuth: azimuthal angle for the external area wall,
     power: total power of the area,
     subareas: an array of subareas in the area
-}</code></pre>
+}
+</code></pre>
 <p>Each subarea in the subareas array contains:</p>
 <pre><code>{
     id: the subarea id,
     name: the subarea name
-}</code></pre>
+}
+</code></pre>
 <h4 id="getmoduleinfobyarea">getModuleInfoByArea</h4>
-<pre><code>layout.getModuleInfoByArea(id, callback);</code></pre>
+<pre><code>layout.getModuleInfoByArea(id, callback);
+</code></pre>
 <p>Returns module info for a given area.id.</p>
 <p>The data returned is:</p>
 <pre><code>{
@@ -685,9 +978,11 @@ This event is triggered when the user confirm a custom alert dialog.
     height: the height of the module (in meters),
     length: the lenght of the module (in meters),
     power: the power of the module
-}</code></pre>
+}
+</code></pre>
 <h4 id="getmodulesstructurebyarea">getModulesStructureByArea</h4>
-<pre><code>layout.getModulesStructureByArea(id, callback);</code></pre>
+<pre><code>layout.getModulesStructureByArea(id, callback);
+</code></pre>
 <p>Returns a JSON with an array of modules for a given area.id.</p>
 <p>The data for each module in the array is:</p>
 <pre><code>{
@@ -698,9 +993,11 @@ This event is triggered when the user confirm a custom alert dialog.
     rX: rotation of the module in the X axis (inclination),
     rZ: rotation of the module in the Z axis (azimuth),
     color: the color of the module (only exist if color is not default),
-}</code></pre>
+}
+</code></pre>
 <h4 id="getareaoffset">getAreaOffset</h4>
-<pre><code>layout.getAreaOffset(id, offset, callback);</code></pre>
+<pre><code>layout.getAreaOffset(id, offset, callback);
+</code></pre>
 <p>Returns an array of vertices containing the offseted area for a given area.id and offset.</p>
 <p>If the offset is a negative value, then the area is reduced by the offset value (in meters).</p>
 <h3 id="subarea-related-functions">Subarea related functions</h3>
@@ -711,7 +1008,8 @@ This event is triggered when the user confirm a custom alert dialog.
 <li>getModulesStructureBySubarea</li>
 </ul>
 <h4 id="getsubareainfo">getSubareaInfo</h4>
-<pre><code>layout.getSubareaInfo(id, callback);</code></pre>
+<pre><code>layout.getSubareaInfo(id, callback);
+</code></pre>
 <p>Returns subarea info for a given subarea.id.</p>
 <p>The data returned is:</p>
 <pre><code>{
@@ -727,9 +1025,11 @@ This event is triggered when the user confirm a custom alert dialog.
     wallSizes: size in meters for each subarea wall,
     wallAzimuth: azimuthal angle for the external area wall,
     power: total power of the subarea,
-}</code></pre>
+}
+</code></pre>
 <h4 id="getmoduleinfobysubarea">getModuleInfoBySubarea</h4>
-<pre><code>layout.getModuleInfoBySubarea(id, callback);</code></pre>
+<pre><code>layout.getModuleInfoBySubarea(id, callback);
+</code></pre>
 <p>Returns module info for a given subarea.id.</p>
 <p>The data returned is:</p>
 <pre><code>{
@@ -740,9 +1040,11 @@ This event is triggered when the user confirm a custom alert dialog.
     height: the height of the module (in meters),
     length: the lenght of the module (in meters),
     power: the power of the module
-}</code></pre>
+}
+</code></pre>
 <h4 id="getmodulesstructurebysubarea">getModulesStructureBySubarea</h4>
-<pre><code>layout.getModulesStructureBySubarea(id, callback);</code></pre>
+<pre><code>layout.getModulesStructureBySubarea(id, callback);
+</code></pre>
 <p>Returns a JSON with an array of modules for a given subarea.id.</p>
 <p>The data for each module in the array is:</p>
 <pre><code>{
@@ -753,11 +1055,13 @@ This event is triggered when the user confirm a custom alert dialog.
     rX: rotation of the module in the X axis (inclination),
     rZ: rotation of the module in the Z axis (azimuth),
     color: the color of the module (only exist if color is not default),
-}</code></pre>
+}
+</code></pre>
 <h2 id="functions-to-send-info-to-the-3dlayout">Functions to send info to the 3DLayout</h2>
 <h3 id="customalert-event">CustomAlert event</h3>
 <p>You can send this event to show an alert with some information to the user at any time.</p>
-<pre><code>layout.customAlert(title_text_string, body_text_string, callback);</code></pre>
+<pre><code>layout.customAlert(title_text_string, body_text_string, callback);
+</code></pre>
 <!--
 ## Functions to set values in to the project
 
@@ -811,454 +1115,627 @@ With this function you can change this building fields
     var field = "height";
     scope.$emit("setBuildingAttribute", [id, field, value]);
  -->
+
+<div class="page-break"></div>
+
 <h1 id="layout-rules">Layout Rules</h1>
-<p>The user can customize many options in the 3DLayout. By passing a ‘rules’ attribute to the 3DLayout instance with a collection of objects, you can define the default values, add special behaviours to the 3DLayout and customize the interface.</p>
+<p>The user can customize many options in the 3DLayout. By passing a 'rules' attribute to the 3DLayout instance with a collection of objects, you can define the default values, add special behaviours to the 3DLayout and customize the interface.</p>
 <p>Example of rules object:</p>
 <pre><code>var rules = {
     &#39;display&#39;: true,
     &#39;zoom&#39;: 21,
     &#39;logo&#39;: false,
     &#39;CustomPalette&#39;: [&#39;#ff0000&#39;, &#39;#00ff00&#39;]
-}</code></pre>
+}
+</code></pre>
 <p>Available rule objects expected by the 3DLayout:</p>
 <ul>
-<li>Special
+<li>Scene preferences
 <ul>
-<li>perspective</li>
-<li>spin</li>
-<li>readonly</li>
-<li>showcase</li>
-<li>zoom</li>
-<li>logo</li>
-<li>azimuthOffset</li>
+<li>Project</li>
+<li>Development</li>
+<li>3D canvas</li>
+<li>Model</li>
+<li>GUI</li>
 </ul></li>
-<li>Default Values
+<li>Default buttons</li>
+<li>Default languages</li>
+<li>Default colors
 <ul>
-<li>modules</li>
-<li>DefaultRoofs</li>
-<li>DefaultBuilding</li>
-<li>CustomPalette</li>
-<li>maxBuildingHeight</li>
+<li>Css colors</li>
+<li>Building and roof colors</li>
+<li>Keepout colors</li>
+<li>Area colors</li>
+<li>Dilatation lines colors</li>
+<li>Module colors</li>
+<li>Tree colors</li>
+<li>Custom colors</li>
 </ul></li>
-<li>Custom Buttons
+<li>Default modules</li>
+<li>Default providers</li>
+<li>Default model values
 <ul>
-<li>MainoptionsCustomButtons</li>
-<li>ControlCustomButtons</li>
-<li>AsideCustomButtons</li>
+<li>Default model area values</li>
+<li>Default model building values</li>
+<li>Default model keepout values</li>
+<li>Default model roof by type values</li>
+<li>Default model roof values</li>
+<li>Default model subarea by roof type values</li>
+<li>Default model subarea values</li>
+<li>Default model tree values</li>
 </ul></li>
 </ul>
-<h2 id="special-behaviours">Special Behaviours</h2>
-<h3 id="perspective">Perspective</h3>
-<p>When this options is set to true, the project starts in perspective mode.</p>
-<pre><code>{&#39;perspective&#39;: true}</code></pre>
-<h3 id="spin">Spin</h3>
-<p>It only works in combination with perspective option. When this options is set to true, the project starts in perspective mode and the camera slowly rotate around.</p>
-<pre><code>{&#39;spin&#39;: true}</code></pre>
-<h3 id="read-only">Read only</h3>
-<p>It only works in combination with perspective option. When this options is set to true, the project starts in perspective mode and all the GUI is hidden, avoiding the user to change anything in the layout.</p>
-<pre><code>{&#39;readonly&#39;: true}</code></pre>
-<h3 id="showcase">Showcase</h3>
-<p>When this option is set to true, the project starts in perspective and write-only mode. This is an special feature to showcase the layout.</p>
-<pre><code>{&#39;showcase&#39;: true}</code></pre>
-<h3 id="zoom">zoom</h3>
-<p>You can set the starting zoom value. Zoom values use to range between 17 (far) to 24 (near).</p>
-<pre><code>{&#39;zoom&#39;: 21}</code></pre>
-<h3 id="logo">logo</h3>
-<p>You can choose to show (true) or hide (false) the ezzingsolar logo from the top part of the aside panel.</p>
-<pre><code>{&#39;logo&#39;: true}</code></pre>
-<h3 id="azimuthoffset">azimuthOffset</h3>
-<p>Add an offset value to define your prefered convention for south faced modules.</p>
-<p>Set azimuthOffset to 180 to have modules oriented to south with azimuth value of 180.</p>
-<p>Set azimuthOffset to 0 or skip this value to have modules oriented to south with azimuth value of 0.</p>
-<pre><code>{&#39;azimuthOffset&#39;: 180}</code></pre>
-<h2 id="default-values">Default Values</h2>
-<p>User can define the default values for modules, buildings, roofs and even the color palete for modules.</p>
-<h3 id="modules">modules</h3>
-<p>User can define the solar modules available in the 3DLayout.</p>
-<p>Sample values to define modules:</p>
+<div class="page-break"></div>
+
+<h2 id="scene-preferences">Scene preferences</h2>
+<h3 id="project">Project</h3>
+<p>The attributes are:</p>
 <pre><code>{
-    &quot;modules&quot;: [
-        {
-            &quot;id&quot;: 4410,
-            &quot;name&quot;: &quot;Canadian Solar&quot;,
-            &quot;reference&quot;: &quot;250Wp Polykristallijn&quot;,
-            &quot;power&quot;: 250,
-            &quot;length&quot;: 1.638,
-            &quot;width&quot;: 0.982,
-            &quot;height&quot;: 0.04
-        }, {
-            &quot;id&quot;: 41403,
-            &quot;name&quot;: &quot;Canadian Solar&quot;,
-            &quot;reference&quot;: &quot;260WP All Black&quot;,
-            &quot;power&quot;: 260,
-            &quot;length&quot;: 1.638,
-            &quot;width&quot;: 0.982,
-            &quot;height&quot;: 0.04
-        }
-    ]
-}</code></pre>
-<p>The attributes for each module are:</p>
+    defaultProjectId: crm project to load if there&#39;s no hash (set to 0 to load the demo version),
+    loadMockup: if true it loads a mockup
+}
+</code></pre>
+<h3 id="development">Development</h3>
+<p>All the attributes are boolean:</p>
 <pre><code>{
-    id: a reference number (should be unique for each model)
-    name: brand and model of the module
-    reference: the reference of the model
-    power: power generated by the module (in watts peak)
-    lenght: lenght of the module (in meters)
-    width: width of the module (in meters)
-    height: height of the module (in meters)
-}</code></pre>
-<p>Note: the <strong>id</strong> value should be different for each module in the list.</p>
-<h3 id="defaultroofs">DefaultRoofs</h3>
-<p>User can define the default values for each roof type.</p>
-<p>The 3DLayout currently has five available roof types: <strong>flat</strong>, <strong>pent</strong>, <strong>gabled</strong>, <strong>hipped</strong> and <strong>pyramid</strong>.</p>
-<blockquote>
-<p>Only roof types described in this objects are available to the user.</p>
-</blockquote>
-<p>Sample values to define Default Roofs:</p>
+    debugPromises: debug promises (console log),
+    disableUndoRedo: disable undo/redo feature (WIP),
+    enableApi: enable Api feature,
+    snapShotCrm: allow snapshots to be sent to crm
+}
+</code></pre>
+<h3 id="3d-canvas">3D canvas</h3>
+<p>Sample values:</p>
 <pre><code>{
-    &quot;DefaultRoofs&quot;: {
-        &#39;gabled&#39;: {
-            //roof related
-            &quot;roofMaterial&quot;: &quot;tiled&quot;,
-            &quot;availableRoofMaterial&quot;: [&quot;tiled&quot;, &quot;corrugated&quot;],
-            &quot;orientation&quot;: &quot;EW&quot;,
-            &quot;availableorientation&quot;: [&quot;EW&quot;, &quot;SN&quot;],
-            &quot;roofInclination&quot;: 30,
-            //area related
-            &quot;moduleId&quot;: 47113,
-            &quot;structure&quot;: &quot;Standard&quot;,
-            &quot;availableStructures&quot;: [&quot;Standard&quot;, &quot;EW&quot;],
-            &quot;offset&quot;: 0.4,
-            &quot;inset&quot;: {
-                &quot;x&quot;: 0.02,
-                &quot;y&quot;: 0.02
-            },
-            &quot;azimuth&quot;: &quot;&quot;,
-            &quot;moduleInclination&quot;: 0,
-            &quot;moduleType&quot;: &quot;portrait&quot;,
-            &quot;availableModuleType&quot;: [&quot;portrait&quot;, &quot;landscape&quot;],
-            &quot;locked&quot;: [],
-            &quot;hidden&quot;: []
-        },
-        &#39;hipped&#39;: {
-            //roof related
-            &quot;roofMaterial&quot;: &quot;tiled&quot;,
-            &quot;availableRoofMaterial&quot;: [&quot;tiled&quot;, &quot;corrugated&quot;],
-            &quot;orientation&quot;: &quot;EW&quot;,
-            &quot;availableorientation&quot;: [&quot;EW&quot;, &quot;SN&quot;],
-            &quot;roofInclination&quot;: 30,
-            //area related
-            &quot;moduleId&quot;: 47113,
-            &quot;structure&quot;: &quot;Standard&quot;,
-            &quot;availableStructures&quot;: [&quot;Standard&quot;, &quot;EW&quot;],
-            &quot;offset&quot;: 0.4,
-            &quot;inset&quot;: {
-                &quot;x&quot;: 0.02,
-                &quot;y&quot;: 0.02
-            },
-            &quot;azimuth&quot;: &quot;&quot;,
-            &quot;moduleInclination&quot;: 0,
-            &quot;moduleType&quot;: &quot;portrait&quot;,
-            &quot;availableModuleType&quot;: [&quot;portrait&quot;, &quot;landscape&quot;],
-            &quot;locked&quot;: [],
-            &quot;hidden&quot;: []
-        },
-        &#39;pyramid&#39;: {
-            //roof related
-            &quot;roofMaterial&quot;: &quot;tiled&quot;,
-            &quot;availableRoofMaterial&quot;: [&quot;tiled&quot;, &quot;corrugated&quot;],
-            &quot;orientation&quot;: &quot;&quot;,
-            &quot;availableorientation&quot;: [],
-            &quot;roofInclination&quot;: 30,
-            //area related
-            &quot;moduleId&quot;: 47113,
-            &quot;structure&quot;: &quot;Standard&quot;,
-            &quot;availableStructures&quot;: [&quot;Standard&quot;, &quot;EW&quot;],
-            &quot;offset&quot;: 0.4,
-            &quot;inset&quot;: {
-                &quot;x&quot;: 0.02,
-                &quot;y&quot;: 0.02
-            },
-            &quot;azimuth&quot;: &quot;&quot;,
-            &quot;moduleInclination&quot;: 0,
-            &quot;moduleType&quot;: &quot;portrait&quot;,
-            &quot;availableModuleType&quot;: [&quot;portrait&quot;, &quot;landscape&quot;],
-            &quot;locked&quot;: [],
-            &quot;hidden&quot;: []
-        },
-        &#39;pent&#39;: {
-            //roof related
-            &quot;roofMaterial&quot;: &quot;tiled&quot;,
-            &quot;availableRoofMaterial&quot;: [&quot;tiled&quot;, &quot;corrugated&quot;],
-            &quot;orientation&quot;: &quot;S&quot;,
-            &quot;availableorientation&quot;: [&quot;E&quot;, &quot;W&quot;, &quot;N&quot;, &quot;S&quot;],
-            &quot;roofInclination&quot;: 30,
-            //area related
-            &quot;moduleId&quot;: 47113,
-            &quot;structure&quot;: &quot;Standard&quot;,
-            &quot;availableStructures&quot;: [&quot;Standard&quot;, &quot;EW&quot;],
-            &quot;offset&quot;: 0.4,
-            &quot;inset&quot;: {
-                &quot;x&quot;: 0.02,
-                &quot;y&quot;: 0.02
-            },
-            &quot;azimuth&quot;: &quot;&quot;,
-            &quot;moduleInclination&quot;: 0,
-            &quot;moduleType&quot;: &quot;portrait&quot;,
-            &quot;availableModuleType&quot;: [&quot;portrait&quot;, &quot;landscape&quot;],
-            &quot;locked&quot;: [],
-            &quot;hidden&quot;: []
-        },
-        &#39;flat&#39;: {
-            //roof related
-            &quot;roofMaterial&quot;: &quot;Bitum&quot;,
-            &quot;availableRoofMaterial&quot;: [&quot;Bitum&quot;, &quot;Concrete&quot;, &quot;EPDM&quot;, &quot;PVC&quot;],
-            &quot;orientation&quot;: &quot;&quot;,
-            &quot;availableorientation&quot;: [],
-            &quot;roofInclination&quot;: 0,
-            //area related
-            &quot;moduleId&quot;: 47113,
-            &quot;structure&quot;: &quot;EW&quot;,
-            &quot;availableStructures&quot;: [&quot;EW&quot;, &quot;Standard&quot;],
-            &quot;offset&quot;: 1,
-            &quot;inset&quot;: {
-                &quot;x&quot;: 0.02,
-                &quot;y&quot;: 0.01
-            },
-            &quot;azimuth&quot;: &quot;&quot;,
-            &quot;moduleInclination&quot;: 10,
-            &quot;availableModuleInclination&quot;: [10, 15, 20],
-            &quot;moduleType&quot;: &quot;landscape&quot;,
-            &quot;availableModuleType&quot;: [&quot;portrait&quot;, &quot;landscape&quot;],
-            &quot;locked&quot;: [],
-            &quot;hidden&quot;: []
-        }
+    activeMapper: true,
+    activeRenderer: true,
+    buildingTextures: true,
+    sunSpeed: 1,
+    enablePlayer: true
+}
+</code></pre>
+<p>The attributes are:</p>
+<pre><code>{
+    activeMapper: activate mapper on start,
+    activeRenderer: activate renderer on start,
+    buildingTextures: generate building textures when creating a building,
+    sunSpeed: position of element of the sun simulator speed,
+    enablePlayer: enable three.js canvas
+}
+</code></pre>
+<div class="page-break"></div>
+
+<h3 id="model">Model</h3>
+<p>Sample values:</p>
+<pre><code>{
+    collisionBias: 0.03,
+    angleBias: 0.5,
+    maxAreaInclination: 75,
+    hidden: [ ]
+}
+</code></pre>
+<p>The attributes are:</p>
+<pre><code>{
+    collisionBias: factor to validate collisions (with bigger values less collision),
+    angleBias: factor to validate regular angles (with bigger values less angle precision),
+    maxAreaInclination: area is disabled when the area inclination is bigger than this value,
+    hidden: array of json properties within that json that don&#39;t want to be shown in panels
+}
+</code></pre>
+<h3 id="gui">GUI</h3>
+<p>Sample values:</p>
+<pre><code>{
+    closeRightCanvas: true,
+    showCoordinates: false,
+    showTotalPower: true,
+    customLogo: &#39;default&#39;,
+    showLogo: true,
+    defaultLanguage: &#39;en&#39;,
+    defaultUnits: &#39;m&#39;,
+    enableNotifications: true,
+    manageFullscreen: true,
+    movementStep: 0.1,
+    snapToGrid: false,
+    gridSize: 1,
+    gridOffsetX: 0,
+    gridOffsetY: 0,
+    snapToGuides: true,
+    snapToLines: true,
+    snapToVertices: false,
+    maxAllowedBuildings: 0,
+    viewportMode: 4
+}
+</code></pre>
+<div class="page-break"></div>
+
+<p>The attributes are:</p>
+<pre><code>{
+    closeRightCanvas: close right canvas on start,
+    showCoordinates: show coordinates of the mouse in the right bottom corner,
+    showTotalPower: show &#39;Total power&#39; indicator in the left upper corner,
+    customLogo: custom logo url,
+    showLogo: show logo,
+    defaultLanguage: string from available keys at &#39;defaultLanguages&#39;,
+    defaultUnits: string from available keys at &#39;units&#39;,
+    enableNotifications: enable operator notifications feature,
+    manageFullscreen: manage fullscreen mode,
+    movementStep: amount of movement in meters when using arrow keys to move solar panels,
+    snapToGrid: enable snap vertices to grid,
+    gridSize: grid distance to use as snap when using snap to move vertices,
+    gridOffsetX: offset grid drawing in x axis,
+    gridOffsetY: offset grid drawing in y axis,
+    snapToGuides: activate snap to guides,
+    snapToLines: enable snap to guidelines or edges,
+    snapToVertices: enable snap to vertices or guideline intersections,
+    maxAllowedBuildings: hides the button to create new buildings when their quantity is &gt;= to this value (if it&#39;s 0 there is no max quantity),
+    viewportMode: viewport mode
+}
+</code></pre>
+<p>The viewportMode options are:</p>
+<ul>
+<li>0: invisible interface</li>
+<li>1: showcase mode</li>
+<li>2: open street map</li>
+<li>3: hide interface [DEPRECATED]</li>
+<li>4: google streetview</li>
+<li>5: default values editor</li>
+<li>6: simple mode</li>
+<li>7: documentation</li>
+<li>8: autocad export</li>
+</ul>
+<div class="page-break"></div>
+
+<h2 id="default-buttons">Default buttons</h2>
+<p>There are several areas in the 3DLayout where the user can add his own functions. The defaultButtons property has different properties depending on the area of the buttons:</p>
+<pre><code>{
+    buttonsPanelLeft: { },
+    buttonsPanelRight: { },
+    buttonsPanelBottomZoom: { },
+    buttonsPanelBottomRight: { },
+    buttonsPanelBottomLeft: { },
+    buttonsPanelBottomCenter: { },
+    buttonsPanelRightViewportRight: { }
+}
+</code></pre>
+<p>Each buttons panel has the following properties:</p>
+<pre><code>buttonsPanelRight: {
+    position: &#39;right&#39;,
+    buttonsPanel: {
+        type: &#39;groupBlock&#39;,
+        elements: { }
     }
-}</code></pre>
-<p>Attributes explanation for default roof description:</p>
-<pre><code>{
-    //roof related
-    &quot;roofMaterial&quot;: should be one from the availableRoofMaterial list,
-    &quot;availableRoofMaterial&quot;: array of strings with the roof material names,
-    &quot;orientation&quot;: should be one from the availableorientation list, it can be an empty string for flat types,
-    &quot;availableorientation&quot;: array of strings with the orientation names. [&#39;EW&#39;, &#39;SN&#39;] or [&quot;E&quot;, &quot;W&quot;, &quot;N&quot;, &quot;S&quot;]
-    &quot;roofInclination&quot;: angle for the roof (in degrees),
-    //area related
-    &quot;moduleId&quot;: it is the default module model id, it is an optional attribute, if it doesn&#39;t exist the first model in the module list will be used,
-    &quot;structure&quot;: should be one from the availableStructures list,
-    &quot;availableStructures&quot;: array of strings with the structure names [&quot;EW&quot;, &quot;Standard&quot;],
-    &quot;offset&quot;: the distance to avoid from area borders (in meters),
-    &quot;inset&quot;: {
-        &quot;x&quot;: the distance between module borders in the x axis (in meters) ,
-        &quot;y&quot;:  the distance between module borders in the x axis (in meters)
+}
+</code></pre>
+<p>To create a button panel you must specify its type ('groupBlock').</p>
+<p>The 'elements' property within 'buttonsPanel' contains all the buttons that exist in that button panel. For example, to create the 'Snapshot' and 'Fullscreen' buttons at the right-top of the canvas:</p>
+<pre><code>elements: {
+    classed: &#39;ez3d-panel-buttons ez3d-flex-start-wrap-row viewport_left_controls_left&#39;,
+    snapshot: {
+        type: &#39;button&#39;,
+        tooltip: &#39;snapshot&#39;,
+        classed: &#39;ez3d-button fa-camera-retro&#39;,
+        confirmation: true,
+        confirmationWidget: {
+            &#39;name&#39;: &#39;snapshot&#39;,
+            &#39;title&#39;: &#39;snapShot&#39;,
+            &#39;functionOnCreation&#39;: [&#39;managerWidgetSnapShot&#39;, &#39;snapshot&#39;]
+        }
     },
-    &quot;azimuth&quot;: angle between the module and the north pole, it can be set as an empty string to let the 3DLayout to calculate the angle according to the external wall of the area,
-    &quot;moduleInclination&quot;: default module inclination. if availableModuleInclination is an array, this value should match one of the options in the array,
-    &quot;availableModuleInclination&quot;: this value can be an array of integers to restrict the inclination to this values. It can also be defined as an empty string to ignore the restriction,
-    &quot;moduleType&quot;: should be one from the availableModuleType list,
-    &quot;availableModuleType&quot;: array of strings with the available module types (i.e [&quot;landscape&quot;, &quot;portrait&quot;])
-    &quot;locked&quot;: array of strings with the area attributes that should be locked,
-    &quot;hidden&quot;: array of strings with the area attributes that should be hidden
-}</code></pre>
-<h3 id="defaultbuilding">DefaultBuilding</h3>
-<p>User can define the default building. These are the default values for each new created building.</p>
-<p>Sample values to define default building:</p>
+    fullScreen: {
+        type: &#39;button&#39;,
+        tooltip: &#39;fullScreen&#39;,
+        classed: &#39;ez3d-button ez3d-screen-icon&#39;,
+        changeIcon: &#39;screen&#39;,
+        functionOnClick: [&#39;fullScreen&#39;, &#39;&#39;]
+    },
+}
+</code></pre>
+<p>The 'elements' property is composed of a 'classed' property to position the buttons, and the buttons by their name.</p>
+<p>All the properties that a button can have are:</p>
+<pre><code>buttonName: {
+    type: &#39;button&#39;,
+    id: button id,
+    classed: class button attribute,
+    content: button text,
+    tooltip: button tooltip,
+    property: attribute only model,
+    confirmation: boolean for showing a button confirmation widget,
+    confirmationWidget: {
+        &#39;eventOk&#39;: event sent when clicking on the &#39;Ok&#39; button,
+        &#39;eventCancel&#39;: event sent when clicking on the &#39;Cancel&#39; button,
+        &#39;name&#39;: widget id,
+        &#39;title&#39;: widget title,
+        &#39;content&#39;: widget content,
+        &#39;functionOnCreation&#39;: function called when creating the widget
+    }
+    value: button value,
+    changeIcon: toggle button icon string,
+    editable: disabled button attribute,
+    active: active button class,
+    elements: foldable elements list (object),
+    functionOnClick: function called when clicking on the button,
+    eventOnClick: event sent when clicking on the button
+}
+</code></pre>
+<p>It is very important to specify the type of element (in this case 'button') for creating correctly these elements.</p>
+<p>These buttons will be created following the order of the 'buttonsPanel.elements' object.</p>
+<div class="page-break"></div>
+
+<h2 id="default-languages">Default languages</h2>
+<p>To customize the existing languages or add new ones, you have to edit them or create a new json property with the name of that language abbreviation ('EN', 'FR', 'ES', etc).</p>
+<pre><code>var defaultLanguages = {
+    &#39;EN&#39;: {
+        &#39;key&#39;: &#39;english key value&#39;
+    },
+    &#39;FR&#39;: {
+        &#39;key&#39;: &#39;french key value&#39;
+    }
+}
+</code></pre>
+<h2 id="default-colors">Default colors</h2>
+<p>All the customizable colors can be also edited in the Preferences menu selecting the 'Default values editor' on the viewport mode. These are:</p>
+<pre><code>var defaultColors = {
+    cssColors: { },
+    buildingColors: { },
+    roofPointsColors: { },
+    roofRidgeColors: { },
+    keepoutColors: { },
+    areaColors: { },
+    subareaColors: { },
+    dilatationLinesColors: { },
+    moduleColors: { },
+    treeColors: { },
+    customColor: { }
+}
+</code></pre>
+<h3 id="css-colors">Css colors</h3>
+<p>These colors are used in the viewport and buttons in the canvas areas.</p>
+<pre><code>cssColors: {
+    first: &#39;#7AAD37&#39;,
+    second: &#39;#222960&#39;,
+    third: &#39;#E68A14&#39;,
+    lightgray: &#39;#DDDCE6&#39;,
+    mediumgray: &#39;#A7A3BC&#39;,
+    darkgray: &#39;#999&#39;,
+    disabledbuttons: &#39;#808080&#39;,
+    disabledCustomSwtch: &#39;#e0dfe4&#39;,
+    primaryFont: &#39;#ff0000&#39;,
+    white: &#39;#ffffff&#39;,
+}
+</code></pre>
+<h3 id="building-and-roof-colors">Building and roof colors</h3>
+<p>Building and roof colors have the same main attributes:</p>
 <pre><code>{
-    &quot;DefaultBuilding&quot;: {
-        data: {
-            height: 10,
-            roof: {
-                type: &#39;gabled&#39;,
-                inclination: 30,
-                orientation: &#39;EW&#39;,
-                material: &#39;tiled&#39;
+    fill: &#39;#a52a2a&#39;,
+    fillOpacity: 0.1,
+    stroke: &#39;#000&#39;,
+    strokeWidth: 0.4,
+    strokeDasharray: 0
+}
+</code></pre>
+<p>These attributes can belong to different properties. For example 'standard', 'hover', 'active', 'vertices', etc.</p>
+<blockquote>
+<p>Note that every time it appears an empty object ({ }) in the examples, these main attributes exist in them.</p>
+</blockquote>
+<pre><code>buildingColors: {
+    path: {
+        standard: {
+            fill: &#39;#a52a2a&#39;,
+            fillOpacity: 0.1,
+            stroke: &#39;#000&#39;,
+            strokeWidth: 0.4,
+            strokeDasharray: 0
+        },
+        hover: { },
+        active: { },
+        roofContext: { },
+        move: { }
+    },
+    vertices: {
+        standard: { }
+    },
+    center: { },
+    autocad: { }
+}
+</code></pre>
+<div class="page-break"></div>
+
+<p>Also, in 'roofPointsColors' and 'roofRidgeColors' properties there's a new property called 'radius' on each property.</p>
+<pre><code>roofPointsColors: {
+    standard: {
+        fill: &#39;#008000&#39;,
+        fillOpacity: 1,
+        stroke: &#39;#fff&#39;,
+        strokeWidth: 0,
+        strokeDasharray: 0,
+        radius: 3
+    },
+    locked: { }
+},
+roofRidgeColors: {
+    path: {
+        standard: { }
+    }
+}
+</code></pre>
+<h3 id="keepout-colors">Keepout colors</h3>
+<p>In keepout colors property there are two new properties called 'offsettedPath' and 'autocad':</p>
+<pre><code>keepoutColors: {
+    path: {
+        standard: { },
+        active: { },
+        hover: { },
+        move: { },
+        offsettedPath: { }
+    },
+    autocad: { }
+</code></pre>
+<div class="page-break"></div>
+
+<h3 id="area-colors">Area colors</h3>
+<p>Areas and subareas have the same properties except for 'autocad' property, which is only available in areaColors.</p>
+<pre><code>areaColors: {
+    path: {
+        standard: { },
+        active: { },
+        move: { },
+        hover: { },
+        offsettedPath: { },
+    },
+    vertices: {
+        standard: { },
+        move: { }
+    },
+    autocad: {
+        fill: &#39;transparent&#39;,
+        fillOpacity: 1,
+        stroke: &#39;#ff3047&#39;,
+        strokeWidth: 0.3,
+        strokeDasharray: 0,
+        strokeLine: &#39;#6fff6d&#39;,
+        strokeWidthLine: 0.02
+    }
+},
+</code></pre>
+<h3 id="dilatation-lines-colors">Dilatation lines colors</h3>
+<p>Sample values:</p>
+<pre><code>dilatationLinesColors: {
+    cols: {
+        stroke: &#39;#ffa500&#39;
+    },
+    rows: {
+        stroke: &#39;#00ffff&#39;
+    }
+}
+</code></pre>
+<div class="page-break"></div>
+
+<h3 id="module-colors">Module colors</h3>
+<p>Properties for module colors:</p>
+<pre><code>moduleColors: {
+    path: {
+        module: { },
+        moduleSelected: { },
+        moduleHover: { },
+        empty: { },
+        emptyHover: { },
+        collision: { }
+    },
+    autocad: { }
+},
+</code></pre>
+<h3 id="tree-colors">Tree colors</h3>
+<p>Properties for tree colors:</p>
+<pre><code>treeColors: {
+    standard: { },
+    active: { },
+    hover: { }
+}
+</code></pre>
+<h3 id="custom-colors">Custom colors</h3>
+<p>Sample values:</p>
+<pre><code>customColor: [
+    &#39;#0000FF&#39;, &#39;#a52a2a&#39;, &#39;#ff0000&#39;, &#39;#1f77b4&#39;, &#39;#aec7e8&#39;, &#39;#ff7f0e&#39;,
+    &#39;#ffbb78&#39;, &#39;#2ca02c&#39;, &#39;#98df8a&#39;, &#39;#d62728&#39;, &#39;#ff9896&#39;, &#39;#9467bd&#39;,
+    &#39;#c5b0d5&#39;, &#39;#8c564b&#39;, &#39;#c49c94&#39;, &#39;#e377c2&#39;, &#39;#f7b6d2&#39;, &#39;#7f7f7f&#39;,
+    &#39;#c7c7c7&#39;, &#39;#bcbd22&#39;, &#39;#dbdb8d&#39;, &#39;#17becf&#39;, &#39;#9edae5&#39;
+]
+</code></pre>
+<div class="page-break"></div>
+
+<h2 id="default-modules">Default modules</h2>
+<p>The defaultModules variable is an array of objects with the modules information:</p>
+<pre><code>var defaultModules = [
+    {
+        id: 47113,
+        name: &#39;BenQ&#39;,
+        reference: &#39;327Wp Mono Zwart&#39;,
+        power: 327,
+        length: 1.559,
+        width: 1.046,
+        height: 0.046
+    }
+</code></pre>
+<h2 id="default-providers">Default providers</h2>
+<p>The defaultProviders variable is an array of strings with the providers names:</p>
+<pre><code>var defaultProviders = [&#39;White Map&#39;, &#39;Google Hybrid&#39;, &#39;Bing&#39;, &#39;Carto&#39;, &#39;Open Street Maps&#39;];
+</code></pre>
+<h2 id="default-model-values">Default model values</h2>
+<p>The defaultModelValues property is an object with the following properties:</p>
+<pre><code>var defaultModelValues = {
+    area: areaDefaultValues,
+    building: buildingDefaultValues,
+    keepout: keepoutDefaultValues,
+    roofByType: roofByTypeDefaultValues,
+    roof: roofDefaultValues,
+    subareaByRoofType: subareaByRoofTypeDefaultValues,
+    subarea: subareaDefaultValues,
+    tree: treeDefaultValues
+}
+</code></pre>
+<h3 id="default-model-area-values">Default model area values</h3>
+<p>Sample values:</p>
+<pre><code>var areaDefaultValues = {
+    disabled: false,
+    populated: true
+}
+</code></pre>
+<div class="page-break"></div>
+
+<h3 id="default-model-building-values">Default model building values</h3>
+<p>Sample values:</p>
+<pre><code>var buildingDefaultValues = {
+    overlapping: true,
+    name: &#39; &#39;,
+    height: 10,
+    maxHeight: Infinity,
+    minHeight: 0,
+    offset: [0],
+    padding: {
+        eaves: false,
+        parapet: 0,
+        height: 0
+    },
+    populated: true,
+    regular: true,
+    ridge: {
+        enabled: false
+    },
+    hidden: [ ]
+}
+</code></pre>
+<h3 id="default-model-keepout-values">Default model keepout values</h3>
+<p>Sample values:</p>
+<pre><code>var keepoutDefaultValues = {
+    crop: false,
+    height: 1,
+    invisible: false,
+    offset: [0],
+    regular: true,
+    type: &#39;vertical&#39;,
+    hidden: [ ]
+}
+</code></pre>
+<div class="page-break"></div>
+
+<h3 id="default-model-roof-by-type-values">Default model roof by type values</h3>
+<p>Sample values:</p>
+<pre><code>var roofByTypeDefaultValues = {
+    flat: {
+        material: &#39;bitumen&#39;,
+        availableMaterial: {
+            gravel: {
+                value: &#39;gravel&#39;,
+                image: &#39;gravel&#39;,
+                label: &#39;gravel&#39;
             },
-            vertices: [],
-            areas: [],
-            keepouts: []
-        }
+            bitumen: { },
+            membrane: { },
+            concrete: { }
+        },
+        availableOrientation: [ ],
+        inclination: 0,
+        offset: [1],
+        orientation: &#39;&#39;,
+        hidden: [ ],
+        locked: [ ]
+    },
+    gabled: { },
+    hipped: { },
+    pyramid { },
+    mansard { },
+    pent: {
+        material: &#39;tiled&#39;,
+        availableMaterial: [
+            &#39;tiled&#39;,
+            &#39;trapezoidal&#39;,
+            &#39;corrugated&#39;
+        ],
+        offset: [0.4],
+        orientation: &#39;S&#39;,
+        availableOrientation: [&#39;E&#39;, &#39;W&#39;, &#39;N&#39;, &#39;S&#39;],
+        inclination: 30,
+        hidden: [ ],
+        locked: [ ]
     }
-}</code></pre>
-<p>The attributes for the default building:</p>
-<pre><code>{
-    data: {
-        height: default height of the building (in meters),
-        roof: {
-            type: roof type (one of the available types in the defaultRoofs object),
-            inclination: angle for the roof (in degrees),
-            orientation: orientation of the roof ridge (&#39;EW&#39; for east-west or &#39;NS&#39; for  north-south orientation),
-            material: material of the roof (one of the available materials in the defaultRoofs object),
-        },
-        vertices: []
-        areas: [],
-        keepouts: []
-    }
-}</code></pre>
-<h3 id="custompalette">CustomPalette</h3>
-<p>User can define a custom set of hexadecimal colors. These colors are used to define module colors.</p>
-<p>To define your own color palette use this squeme:</p>
-<pre><code>{
-    &quot;CustomPalette&quot;: [
-        &#39;#242345&#39;,
-        &#39;#000000&#39;,
-        &#39;#ff0000&#39;
-    ]
-}</code></pre>
-<h3 id="maxbuildingheight">maxBuildingHeight</h3>
-<p>User can limit the maximum height of buildings in the layout by defining this value.</p>
-<pre><code>{
-    &quot;maxBuildingHeight&quot;: 25    (value in meters)
-}</code></pre>
-<h2 id="custom-buttons">Custom Buttons</h2>
-<p>There are several areas in the 3DLayout where the user can add his own functions. This areas are the <strong>main options buttons</strong> and the <strong>control buttons</strong>. Each one are defined in a JSON description that can be added to the layoutRules object.</p>
-<p>When the user adds a new button, this is defined as a event emitter.<br />
-We use the fontawesome icons collection, so you can use it to define new buttons.</p>
-<h3 id="mainoptionscustombuttons">MainoptionsCustomButtons</h3>
-<p><img class="w100" src="./layout-doc-imgs/new-img/mainoptions.png" alt="mainoptions" /></p>
-<p>The buttons on top of the canvas are custom buttons. User can define new custom buttons in this area.</p>
-<p>Here you can hide some existing buttons, change the order of them and create new ones with the ability to trigger an event.</p>
-<p>This is the default MainoptionsCustomButtons:</p>
-<pre><code>{
-    &quot;MainoptionsCustomButtons&quot;: [
-        {
-            click: &#39;undo.undo()&#39;,
-            tooltip: &#39;undo&#39;,
-            class: &#39;fa fa-fw fa-undo&#39;,
-            location: &#39;left&#39;
-        },
-        {
-            click: &#39;undo.redo()&#39;,
-            tooltip: &#39;redo&#39;,
-            class: &#39;fa fa-fw fa-repeat&#39;,
-            location: &#39;left&#39;
-        },
-        {
-            click: &#39;save(true)&#39;,
-            tooltip: &#39;save&#39;,
-            ngclass: &#39;saveButtonClass()&#39;,
-            location: &#39;left&#39;
-        },
-        {
-            click: &quot;snapshot()&quot;,
-            tooltip: &quot;takeSnapshot&quot;,
-            class: &quot;fa fa-fw fa-camera-retro&quot;
-        }, {
-            click: &quot;widgets.simulation.toggle()&quot;,
-            tooltip: &quot;sunSimulation&quot;,
-            class: &quot;fa fa-fw fa-sun-o&quot;
-        }, {
-            click: &quot;setCamera(&#39;orthographic&#39;)&quot;,
-            hide: &quot;display.camera.name === &#39;orthographic&#39;&quot;,
-            tooltip: &quot;switchTo2D&quot;,
-            class: &quot;fa fa-fw fa-square-o&quot;
-        }, {
-            click: &quot;setCamera(&#39;perspective&#39;)&quot;,
-            hide: &quot;display.camera.name === &#39;perspective&#39;&quot;,
-            tooltip: &quot;switchTo3D&quot;,
-            class: &quot;fa fa-fw fa-cube&quot;
-        },{
-            click: &quot;setScreen(&#39;full&#39;)&quot;,
-            hide: &quot;fullScreen&quot;,
-            tooltip: &quot;switch to full screen&quot;,
-            class: &quot;fa fa-fw fa-arrows-alt&quot;
-        }, {
-            click: &quot;setScreen(&#39;normal&#39;)&quot;,
-            hide: &quot;!fullScreen&quot;,
-            tooltip: &quot;cancel full screen&quot;,
-            class: &quot;fa fa-fw fa-desktop&quot;
-        }, {
-            click: &quot;setProvider(0)&quot;,
-            hide: &quot;map.provider === 0 || map.provider === 1&quot;,
-            tooltip: &quot;cyclomedia&quot;,
-            class: &quot;fa fa-fw fa-map&quot;
-        }, {
-            click: &quot;setProvider(1)&quot;,
-            hide: &quot;map.provider === 1 || map.provider === 2&quot;,
-            tooltip: &quot;grid&quot;,
-            class: &quot;fa fa-fw fa-th&quot;
-        }, {
-            click: &quot;setProvider(2)&quot;,
-            hide: &quot;map.provider === 2 || map.provider === 0&quot;,
-            tooltip: &quot;google&quot;,
-            class: &quot;fa fa-fw fa-google&quot;
-        }
-    ]
-}</code></pre>
-<p>To customize these buttons you can comment out the lines of the button you want to hide or extend the list by adding new objects with the same structure.</p>
-<p>When you add new buttons, an event with the name you define in the click field is sent every time the button is clicked.</p>
-<p>You can use location: ‘left’ to align the buttons to the left, and use location: ‘right’ or nothing to align the buttons to the right side.</p>
-<pre><code>{
-    click: a string with the event name you want to trigger,
-    hide: a condition to hide the button (this value is optional),
-    tooltip: a string with the operator description, to show as a tooltip,
-    class: a fontawesome class to define the icon,
-    location: where to align the button, if not defined, the button goes to the right
-}</code></pre>
+}
+</code></pre>
 <div class="page-break"></div>
-<h3 id="controlcustombuttons">ControlCustomButtons</h3>
-<p><img class="w80px" src="./layout-doc-imgs/new-img/controlbuttons2.png" alt="controlbuttons2" /></p>
-<p>The buttons over the zoom in and zoom out can be customized the same way the mainoptions custom buttons.</p>
-<p>This is the default ControlCustomButtons:</p>
-<pre><code>{    
-    &quot;ControlCustomButtons&quot;: [
-        {
-            click: &#39;widgets.geocoding.toggle()&#39;,
-            tooltip: &#39;searchAddress&#39;,
-            class: &#39;fa fa-fw fa-search&#39;
+
+<h3 id="default-model-roof-values">Default model roof values</h3>
+<p>Sample values:</p>
+<pre><code>var roofDefaultValues = {
+    disabled: false,
+    inclination: 0,
+    lockRoofPoints: false,
+    roofPointsSymmetry: true,
+    material: &#39;bitumen&#39;,
+    offset: [0],
+    orientation: &#39;SN&#39;,
+    type: &#39;flat&#39;,
+    hidden: [ ]
+}
+</code></pre>
+<h3 id="default-model-subarea-by-roof-type-values">Default model subarea by roof type values</h3>
+<p>Sample values:</p>
+<pre><code>var subareaByRoofTypeDefaultValues = {
+    flat: {
+        modelId: 471131,
+        azimuth: &#39;&#39;,
+        inset: {x: 0.025, y: 0.025},
+        inclination: 15,
+        useShadowsCalculation: false,
+        availableInclination: &#39;&#39;,
+        placement: &#39;landscape&#39;,
+        availablePlacement: [&#39;landscape&#39;,&#39;portrait&#39;],
+        structure: &#39;Standard&#39;,
+        availableStructure: [&#39;EW&#39;,&#39;Standard&#39;],
+        staggered: {
+            enabled: false,
+            offset: 0,
+            offsetMax: 3,
+            alternate: false
         },
-        {
-            click: &#39;!geolocating &amp;&amp; geolocate()&#39;,
-            hide: &#39;geolocating&#39;,
-            tooltip: &#39;geolocation&#39;,
-            class: &#39;fa fa-fw fa-map-marker&#39;
-        },
-        {
-            click: &#39;!geolocating &amp;&amp; geolocate()&#39;,
-            hide: &#39;!geolocating&#39;,
-            tooltip: &#39;geolocation&#39;,
-            class: &#39;fa fa-fw fa-spinner ng-class:{&quot;fa-spin&quot;: geolocating}&#39;
+        dilatationLines: {
+            enabled: false,
+            x: 30,
+            y: 30,
+            w: 0.35,
+            h: 0.1
         }
-    ]
-}</code></pre>
-<p>To customize this buttons you can comment out the lines of the button you want to hide or extend the list by adding new objects with the same structure.</p>
-<pre><code>{
-    click: a string with the event name you want to trigger,
-    hide: a condition to hide the button (this value is optional),
-    tooltip: a string with the operator description, to show as a tooltip,
-    class: a fontawesome class to define the icon
-}</code></pre>
-<h2 id="custom-logo">Custom Logo</h2>
-<p>You can easily customize the logo showed in the aside by setting a new CSS style to the loading element. Just add this code to the styles part of your html file:</p>
-<pre><code>#ez3d-logo {
-    background-image: url(path-to-your-png-logo) !important;
-    background-size: 140px !important;
-    background-position: 40px center !important;
-    background-repeat: no-repeat !important;
-}</code></pre>
-<p>Note you should use the <strong>!important</strong> attribute to overwrite the 3DLayout styles.</p>
-<p>Please use a transparent background png for better results.</p>
-<h2 id="custom-loading-animation">Custom Loading Animation</h2>
-<p>You can easily customize the loading animation showed when starting the 3DLayout by setting a new CSS style to the loading element. Just add this code to the styles part of your html file:</p>
-<pre><code>#ez3d-loader {
-    background-image: url(path-to-your-animated-gif) !important;
-    background-size: auto 75% !important;
-    background-position: center center !important;
-    background-repeat: no-repeat !important;
-}</code></pre>
-<p>Note you should use the <strong>!important</strong> attribute to overwrite the 3DLayout styles.</p>
-<p>Please use a transparent background animated gif or png for better results.</p>
-<h2 id="custom-logo-in-tutorial-section">Custom Logo in tutorial section</h2>
-<p>You can easily customize the logo showed in the tutorial section by setting a new CSS style to the loading element. Just add this code to the styles part of your html file:</p>
-<pre><code>#ez3d-logo-tuto {
-    background: url(path-to-your-png-logo) top center no-repeat !important;
-    background-size: auto 75px !important;
-}</code></pre>
-<h2 id="customize-go-back-button-in-the-tutorial-menu">Customize Go back button in the tutorial menu</h2>
-<p>If you want to hide the go-back button you can use this css declaration:</p>
-<pre><code>#ez3d-goback-tuto {
-  display: none;
-}</code></pre>
-<p>Or you can modify more in deep the href of the element via javascript by using the id: ‘ez3d-goback-tuto’</p>
-<div class="page-break"></div>
+    },
+    pent: { },
+    gabled: { },
+    hipped: { },
+    pyramid: { },
+    mansard: { }
+}
+</code></pre>
+<h3 id="default-model-subarea-values">Default model subarea values</h3>
+<p>Sample values:</p>
+<pre><code>var subareaDefaultValues = {
+    crop: false,
+    disabled: false,
+    offset: [0],
+    regular: true,
+    hidden: [ ]
+}
+</code></pre>
+<h3 id="default-model-tree-values">Default model tree values</h3>
+<p>Sample values:</p>
+<pre><code>var treeDefaultValues = {
+    disabled: false,
+    crownTopHeight: 10,
+    crownHigherHeight: 7,
+    crownHigherRadius: 1.42,
+    crownMiddleHeight: 5,
+    crownMiddleRadius: 1.75,
+    crownLowerHeight: 3.5,
+    crownLowerRadius: 1.42,
+    trunkHeight: 2.5,
+    trunkRadius: 0.33,
+    hidden: [ ]
+}
+</code></pre>
 </body>
 </html>
