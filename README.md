@@ -1464,7 +1464,8 @@ The attributes are:
 
     {
         defaultProjectId: crm project to load if there's no hash (set to 0 to load the demo version),
-        loadMockup: if true it loads a mockup
+        loadMockup: if true it loads a mockup,
+        userToken: user token
     }
 
 ### Development
@@ -1486,7 +1487,9 @@ Sample values:
         activeMapper: true,
         activeRenderer: true,
         buildingTextures: true,
-        sunSpeed: 1,
+        zoomRatio: 1,
+        translationRatio: 1,
+        rotationRatio: 1,   
         enablePlayer: true
     }
 
@@ -1496,13 +1499,11 @@ The attributes are:
         activeMapper: activate mapper on start,
         activeRenderer: activate renderer on start,
         buildingTextures: generate building textures when creating a building,
-        sunSpeed: position of element of the sun simulator speed,
+        zoomRatio: zoom ratio for 3D mode,
+        translationRatio: translation ratio for 3D mode,
+        rotationRatio: rotation ratio for 3D mode,
         enablePlayer: enable three.js canvas
     }
-
-<div class="page-break">
-
-</div>
 
 ### Model
 
@@ -1512,7 +1513,9 @@ Sample values:
         collisionBias: 0.03,
         angleBias: 0.5,
         maxAreaInclination: 75,
-        hidden: [ ]
+        sunSpeed: 1,
+        googleApiKey: '',
+        bingApiKey: ''
     }
 
 The attributes are:
@@ -1521,7 +1524,9 @@ The attributes are:
         collisionBias: factor to validate collisions (with bigger values less collision),
         angleBias: factor to validate regular angles (with bigger values less angle precision),
         maxAreaInclination: area is disabled when the area inclination is bigger than this value,
-        hidden: array of json properties within that json that don't want to be shown in panels
+        sunSpeed: position of element of the sun simulator speed,
+        googleApiKey: google api key for mapper,
+        bingApiKey: bing api key for mapper
     }
 
 ### GUI
@@ -1533,6 +1538,8 @@ Sample values:
         showCoordinates: false,
         showTotalPower: true,
         customLogo: 'default',
+        customNav: 'default',
+        showNav: true,
         showLogo: true,
         defaultLanguage: 'en',
         defaultUnits: 'm',
@@ -1547,12 +1554,9 @@ Sample values:
         snapToLines: true,
         snapToVertices: false,
         maxAllowedBuildings: 0,
-        viewportMode: 4
+        viewportMode: 4,
+        hidden: []
     }
-
-<div class="page-break">
-
-</div>
 
 The attributes are:
 
@@ -1561,6 +1565,8 @@ The attributes are:
         showCoordinates: show coordinates of the mouse in the right bottom corner,
         showTotalPower: show 'Total power' indicator in the left upper corner,
         customLogo: custom logo url,
+        customNav: show or hide nav ('default' shows nav),
+        showNav: creates structure of panels,
         showLogo: show logo,
         defaultLanguage: string from available keys at 'defaultLanguages',
         defaultUnits: string from available keys at 'units',
@@ -1575,7 +1581,8 @@ The attributes are:
         snapToLines: enable snap to guidelines or edges,
         snapToVertices: enable snap to vertices or guideline intersections,
         maxAllowedBuildings: hides the button to create new buildings when their quantity is >= to this value (if it's 0 there is no max quantity),
-        viewportMode: viewport mode
+        viewportMode: viewport mode,
+        hidden: array of json properties within that json that don't want to be shown in panels
     }
 
 The viewportMode options are:

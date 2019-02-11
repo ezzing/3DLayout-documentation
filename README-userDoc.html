@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>3DLayout Documentation for users</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="pandoc.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  <!DOCTYPE html>
+  <html>
+  <head>
+      <style type="text/css">
+          body {
+          }
+          #cover {
+              border: 1px solid lightgray;
+          }
+      </style>
+  </head>
+  <body onload="getPdfInfo()">
+      <h1>ezzing3DLayout</h1>
+      <h2>PV planning tool - User Documentation</h2>
+  
+      <img id="cover" class="w100" src="./doc_templates/portada-userDoc.jpg" alt="ezzing3DLayout Documentation" />
+  
+      <h1>Table of contents</h1>
+  </body>
+  </html>
+</head>
+<body>
+<header>
+<h1 class="title">3DLayout Documentation for users</h1>
+</header>
+<nav id="TOC">
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#screenshots">Screenshots</a></li>
+<li><a href="#3dlayout-interface">3DLayout Interface</a><ul>
+<li><a href="#aside-panel">Aside Panel</a></li>
+<li><a href="#canvas-area">Canvas Area</a><ul>
+<li><a href="#buildings-index">Buildings Index</a></li>
+<li><a href="#main-options">Main Options</a></li>
+<li><a href="#control-buttons">Control Buttons</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#buildings">Buildings</a><ul>
+<li><a href="#building-creation">Building creation</a></li>
+<li><a href="#add-building">Add building</a></li>
+<li><a href="#edit-building">Edit building</a></li>
+</ul></li>
+<li><a href="#areas">Areas</a><ul>
+<li><a href="#edit-area">Edit area</a></li>
+</ul></li>
+<li><a href="#subareas">Subareas</a><ul>
+<li><a href="#subarea-creation">Subarea creation</a></li>
+<li><a href="#add-subarea">Add subarea</a><ul>
+<li><a href="#crop-subarea-to-the-area-shape">Crop subarea to the area shape</a></li>
+<li><a href="#edit-subarea-vertices">Edit subarea vertices</a></li>
+</ul></li>
+<li><a href="#edit-subarea">Edit subarea</a></li>
+<li><a href="#remove-subarea">Remove subarea</a></li>
+</ul></li>
+<li><a href="#keepouts">Keepouts</a><ul>
+<li><a href="#invisible-keepouts">Invisible keepouts</a></li>
+<li><a href="#crop-keepout-to-the-building-shape">Crop keepout to the building shape</a></li>
+<li><a href="#vertical-and-inclined-keepouts">Vertical and inclined keepouts</a></li>
+</ul></li>
+<li><a href="#trees">Trees</a></li>
+<li><a href="#drawing-with-snaps">Drawing with Snaps</a><ul>
+<li><a href="#guide-lines">Guide lines</a></li>
+<li><a href="#grid">Grid</a></li>
+<li><a href="#context-panel">Context panel</a></li>
+</ul></li>
+<li><a href="#textures">Textures</a></li>
+<li><a href="#shortcuts">Shortcuts</a></li>
+<li><a href="#layout-coordinate-systems">Layout Coordinate Systems</a><ul>
+<li><a href="#world-coordinate-system">World Coordinate System</a></li>
+<li><a href="#scene-coordinate-system">Scene Coordinate System</a></li>
+<li><a href="#building-coordinate-system">Building Coordinate System</a></li>
+<li><a href="#area-coordinate-system">Area Coordinate System</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="introduction">Introduction</h1>
+<p>Ezzing 3DLayout is a PV planning tool that allows you to generate a 3d model of a building based on a satellite image. You can model any number of buildings, select between up to five different type of roofs, define keepouts and trees with custom heights...</p>
+<p>Inside each roof area you can customize different structures, select module models and get automated previews of your setup.</p>
+<p>It also provides you with a perspective view and a sun simulator to determine where the shadows will be in your installation.</p>
+<p>Ezzing 3DLayout is an embebible webapp. You can integrate it inside your own system and customize many elements inside, from module models to prefered default settings for each roof type.</p>
+<p>In this document you will find a brief showcase of the different areas of the app, a technical explanation on how to integrate this webapp inside your platform, a full description of the API that will allow you to communicate with the 3DLayout, and finally a description of how to customize different parts of the app.</p>
+<img class="w100" src="./layout-doc-imgs/general/intro.png" alt="3DLayout" />
+<br>
+
+<p>You can test the app by visiting this link:</p>
+<p><a href="https://layout.ezzing.com/#/demo"><a href="https://layout.ezzing.com/#/demo" class="uri">https://layout.ezzing.com/#/demo</a></a></li></p>
+<div class="page-break"></div>
+
+<h1 id="screenshots">Screenshots</h1>
+<img class="w100" src="./layout-doc-imgs/general/perspective-view.png" alt="Perspective view" />
+
+<img class="w100" src="./layout-doc-imgs/general/sun-simulation.png" alt="Sun simulation" />
+
+<div class="page-break"></div>
+
+<h1 id="3dlayout-interface">3DLayout Interface</h1>
+<p>The 3DLayout interface has two diferent parts: the <strong>aside panel</strong> and the <strong>canvas area</strong>.</p>
+<h2 id="aside-panel">Aside Panel</h2>
+<p>In the aside panel you can find functionalities related to the current active building and other objects in the scene.</p>
+<br>
+
+<img class="w100" src="./layout-doc-imgs/tabs/tab-building.png" alt="Tab building" />
+
+<img class="w100" src="./layout-doc-imgs/tabs/tab-areas-1.png" alt="Tab areas 1" />
+
+<img class="w100" src="./layout-doc-imgs/tabs/tab-areas-2.png" alt="Tab areas 2" />
+
+<img class="w100" src="./layout-doc-imgs/tabs/tab-keepouts.png" alt="Tab keepouts" />
+
+<img class="w100" src="./layout-doc-imgs/tabs/tab-trees.png" alt="Tab trees" />
+
+<img class="w100" src="./layout-doc-imgs/tabs/tab-preferences.png" alt="Tab preferences" />
+
+<div class="page-break"></div>
+
+<h2 id="canvas-area">Canvas Area</h2>
+<p>In the canvas area you can see the satellite view and three different sets of elements: the <strong>buildings index</strong> on the left side, the <strong>main options buttons</strong> on the top, and the <strong>control buttons</strong> on the bottom-right corner.</p>
+<img class="w100" src="./layout-doc-imgs/canvas/canvas.png" alt="Canvas" />
+
+<div class="page-break"></div>
+
+<h3 id="buildings-index">Buildings Index</h3>
+<p>In the buildings index you can see the active building and select another one to become active. The color represented on each index is the color of the building.</p>
+<img class="w200px" src="./layout-doc-imgs/canvas/buildings-index.png" alt="Buildings index" />
+
+<h3 id="main-options">Main Options</h3>
+<p>These are the main options in the canvas area:</p>
+<img class="w100" src="./layout-doc-imgs/canvas/main-options.png" alt="Main options" />
+
+<p>All these buttons are the <strong>main options custom buttons</strong>. You can customize this set of buttons by hidding some of them, by sorting them, or by adding new buttons.</p>
+<p>The default custom buttons are:</p>
+<ul>
+<li>Save: saves the layout in crm</li>
+<li>Search address: moves the project center to the address specified</li>
+<li>Snapshot: takes a photograph of the project (with or without modules in jpg format, or in svg format)</li>
+<li>Fullscreen</li>
+<li>Sun simulation: sun and shadow simulation</li>
+<li>Perspective view: switches to 2D/3D view</li>
+<li>Renderer</li>
+<li>Satellite provider selector (only showed if available)</li>
+</ul>
+<blockquote>
+<p>Please, visit the section <a href="#custom-buttons">Custom Buttons</a> to learn how to add your own buttons.</p>
+</blockquote>
+<div class="page-break"></div>
+
+<h3 id="control-buttons">Control Buttons</h3>
+<p>These are map related buttons. You can also customize the upper section of this set of buttons by hidding some of them or by adding new buttons.</p>
+<img class="w75px" src="./layout-doc-imgs/canvas/control-buttons-1.png" alt="Control buttons 1" />
+
+<p>Fixed buttons in this area:</p>
+<ul>
+<li>Zoom in</li>
+<li>Zoom out</li>
+</ul>
+<br>
+
+<img class="w75px" src="./layout-doc-imgs/canvas/control-buttons-2.png" alt="Control buttons 2" />
+
+<p>3D control custom buttons:</p>
+<ul>
+<li>Compass: centers 3D view to north</li>
+<li>Geolocation: centers 3D view to the project</li>
+<li>Zoom in</li>
+<li>Zoom out</li>
+</ul>
+<blockquote>
+<p>Please, visit the section <a href="#custom-buttons">Custom Buttons</a> to learn how to add your own functions.</p>
+</blockquote>
+<div class="page-break"></div>
+
+<h1 id="buildings">Buildings</h1>
+<h2 id="building-creation">Building creation</h2>
+<p>To start using the tool you need to create your first building. You will be able to customize its shape, name or height (from gutter or ridge).</p>
+<p>The 'Populated with modules' option determines if the building will be created with or without modules. It is useful to deactivate it for simulating the shadows of the buildings.</p>
+<p>You can activate the modules in the building edition (this configuration will be shown everytime the layout is loaded) or enabling the corresponding area in the area section.</p>
+<img class="w200px" src="./layout-doc-imgs/building/populated-with-modules-toggle.png" alt="Populated with modules toggle" />
+
+<blockquote>
+<p>Please, visit the section <a href="#drawing-with-snaps">Drawing with Snaps</a> to learn how to draw.</p>
+</blockquote>
+<p>The next step once you have drawn the building is configurating the roof. There are different types of roofs depending on the shape of the building (if the building is irregular, the roof can only be flat or pent).</p>
+<p>These are all the types of roof (available on regular buildings):</p>
+<img class="w200px" src="./layout-doc-imgs/building/roof-types.png" alt="Roof types" />
+
+<p>Each roof is composed of a determined number of areas that are automatically created.</p>
+<p>You can also choose a roof material despite it is only informative. The material options are common for all roof types (tiled, trapezoidal, and corrugated) except for the flat ones (gravel, bitumen, membrane, and concrete):</p>
+<img class="w200px" src="./layout-doc-imgs/building/roof-materials.png" alt="Roof materials" />
+
+<p>When the operation is finished, the textures of the building are generated using the mapper tool and the modules appear in a default subarea.</p>
+<blockquote>
+<p>Please, visit the section <a href="#textures">Textures</a> to learn how they are generated.</p>
+</blockquote>
+<p>Once the building is created, you will be able to:</p>
+<ul>
+<li>Edit</li>
+<li>Move</li>
+<li>Remove</li>
+<li>Clone (it will be cloned with the same settings)</li>
+<li>Paint</li>
+</ul>
+<h2 id="add-building">Add building</h2>
+<p>By clicking the '+' button at the top-left of the canvas you enter in the building creation process. There is no limit on buildings to create.</p>
+<h2 id="edit-building">Edit building</h2>
+<p>You can select between editing the building or editing the roof.</p>
+<p>In the first option you can modify the building vertices following the steps of the building creation. If you edit the roof you can select any type of roof and it will be recalculated.</p>
+<!-- Fiorella - Imagen distinguiendo de algunas maneras las dos opciones -->
+
+<img class="w200px" src="./layout-doc-imgs/building/building-edit.png" alt="Building edit" />
+
+<div class="page-break"></div>
+
+<h1 id="areas">Areas</h1>
+<p>The areas are sections on the roof that are automatically created when selecting the type of roof.</p>
+<p>Each area is composed of at least one subarea and has the information of the number of modules it contains and the power that generates.</p>
+<p>If you want to disable one area, you can click on the eye button next to its name. By doing this, its module count and power generated will be set to 0.</p>
+<img class="w75" src="./layout-doc-imgs/general/area-disabled.png" alt="Area disabled" />
+
+<h2 id="edit-area">Edit area</h2>
+<p>To edit an area you can modify the edge zone value. It is a numeric value that specifies the distance between the building limits and the subareas that exist within that area.</p>
+<div class="page-break"></div>
+
+<h1 id="subareas">Subareas</h1>
+<h2 id="subarea-creation">Subarea creation</h2>
+<p>A subarea is a region inside an area that allows you to define a modules installation just in a section of the area.</p>
+<p>To create a subarea click on the 'Create subarea' button.</p>
+<img class="w200px" src="./layout-doc-imgs/subarea/subarea-creation-button.png" alt="Subarea creation button" />
+
+<p>Once the subarea is created, you will be able to:</p>
+<ul>
+<li>Edit</li>
+<li>Move</li>
+<li>Refresh</li>
+<li>Remove (only if the area has more than one subarea)</li>
+<li>Clone (it will be cloned with the same settings)</li>
+</ul>
+<img class="w200px" src="./layout-doc-imgs/subarea/remove-add-subareas.png" alt="Remove add subareas" />
+
+<p>If you want to disable one subarea, you can click on the eye button next to its name. By doing this, its module count and power generated will be set to 0.</p>
+<div class="page-break"></div>
+
+<h2 id="add-subarea">Add subarea</h2>
+<p>By clicking the 'Create subarea' button you enter in the subarea creation process.</p>
+<p>If you create the first subarea it will replace the default one.</p>
+<img class="w75" src="./layout-doc-imgs/subarea/add-subarea.png" alt="Add subarea" />
+
+<h3 id="crop-subarea-to-the-area-shape">Crop subarea to the area shape</h3>
+<p>When editing the vertices of a subarea you can check the 'Crop' option. This helps you to draw subareas that extends to the border of the building with more precision.</p>
+<img class="w200px" src="./layout-doc-imgs/subarea/crop-shape-building-toggle.png" alt="Crop shape building toggle" />
+
+<p>If you uncheck this option then the subarea can extend outside the area, following the area plane.</p>
+<img class="w75" src="./layout-doc-imgs/subarea/subarea-sample.png" alt="Subarea sample" />
+
+<h3 id="edit-subarea-vertices">Edit subarea vertices</h3>
+<p>By clicking this button you can modify subarea vertices and the subarea will be recalculated.</p>
+<div class="page-break"></div>
+
+<h2 id="edit-subarea">Edit subarea</h2>
+<p>By clicking on a subarea you enter in the subarea edition process.</p>
+<img class="w75" src="./layout-doc-imgs/subarea/edit-subarea.png" alt="Edit subarea" />
+
+<p>You will be able to refresh, paint or move all the modules.</p>
+<p>These are all the subarea edition options:</p>
+<ul>
+<li>Module model: there are different module models available that have different size, weight and watt peak capacity</li>
+<li>Module orientation: you can choose between 'landscape' and 'portrait'</li>
+<li>Panels orientation: you can choose between 'south' and 'east/west'</li>
+<li>Module inclination</li>
+<li>Distance between modules</li>
+<li>Distance between rows</li>
+<li>Distance between centers</li>
+<li>Use max. shadow calculation: calculates the distance between rows and centers depending on the module inclination</li>
+<li>Azimuth: modules rotation</li>
+<li>Staggered enabled</li>
+<li>Dilatation lines enabled</li>
+</ul>
+<p>Here, you can click on any module to enable/disable it. If you right click on a module it will be displayed its position (row and column).</p>
+<h2 id="remove-subarea">Remove subarea</h2>
+<p>By clicking this button you can remove a single subarea from the subareas list. It is only available if there exists more than one subarea.</p>
+<div class="page-break"></div>
+
+<h1 id="keepouts">Keepouts</h1>
+<p>Keepouts are created for simulating any obstacle that might interrupt the installation of modules.</p>
+<p>When a keepout is created, there can't be any module that occupies the same position.</p>
+<p>You can customize them by changing their height, offset and type (vertical or inclined).</p>
+<!-- FIX
+
+## Keepout height calculations
+
+When creating keepouts, please note the height selected for the keepout is not always the final keepout height.
+
+Depending on the roof inclination and the keepout dimensions and positions, there is a minimum keepout height to avoid keepouts under the roof surface.
+Let's see an example:
+
+<img class="w100" src="./layout-doc-imgs/keepout/keeoput-height-scheme.jpg" alt="keeoput-height-scheme" />
+
+In keepout 1, A is the desired height, and B is the minimum height for this keepout. As A is bigger than B then the keepout is created with the desired height (A).
+
+In keepout 2, A is also the desired height, but the keepout can't be drawn correctly if the height is less than B measure, as some parts of the keepout will stay below the roof, so keepout 2 will be created with the minimum calculated height (B).
+-->
+
+<blockquote>
+<p>Note that for flat roofs it is posible to create 0 height keepouts, but for inclinated roofs you need to use the invisible keepouts feature to allow keepouts at roof surface level.</p>
+</blockquote>
+<h2 id="invisible-keepouts">Invisible keepouts</h2>
+<p>If you want to simulate a skylight or any keepout object without drawing the 3D volume you can check the 'Invisible keepout' option to hide the 3D volume but still taking the obstacle into account.</p>
+<img class="w200px" src="./layout-doc-imgs/keepout/invisible-keepout-toggle.png" alt="Invisible keepout toggle" />
+
+<h2 id="crop-keepout-to-the-building-shape">Crop keepout to the building shape</h2>
+<p>When editing the vertices of a keepout you can check the 'Crop shape to building limits' option. This helps you to draw keepouts that extends to the border of the building with more precision.</p>
+<img class="w200px" src="./layout-doc-imgs/keepout/crop-shape-keepout-toggle.png" alt="Crop shape keepout toggle" />
+
+<p>If you uncheck this option then the keepout can be floating outside the building limits. At least one vertex of the keepout should be inside the building limits to be created.</p>
+<h2 id="vertical-and-inclined-keepouts">Vertical and inclined keepouts</h2>
+<p>You can create a keepout as vertical or inclined. If the keepout is inclined, it will be created starting from the inclination of the building.</p>
+<div class="page-break"></div>
+
+<h1 id="trees">Trees</h1>
+<p>Trees belong to the scene, not to a building.</p>
+<p>It is important to create trees for simulating the shadows on the roofs. Therefore, you will be able to move them and modify their height and radius. The shape of the tree is calculated according to the proportion of these values.</p>
+<img class="w75" src="./layout-doc-imgs/general/tree.png" alt="Tree" />
+
+<div class="page-break"></div>
+
+<h1 id="drawing-with-snaps">Drawing with Snaps</h1>
+<p>The snap is a helpful tool for drawing buildings, subareas and keepouts.</p>
+<p>There are two ways for drawing points: using <strong>guide lines</strong> or a <strong>grid</strong>.</p>
+<h2 id="guide-lines">Guide lines</h2>
+<p>'Guide lines' is the default option when drawing. There are two ways for drawing points that can be combined to make the process easier: lines and vertices.</p>
+<img class="w100px" src="./layout-doc-imgs/snaps/snap-guide-lines.png" alt="Snap guide lines" />
+
+<p>To use them, you need first to draw two points. Once you have drawn them, there will appear parallel and perpendicular guide lines to the last drawn point. This way you can create regular shapes with right angles (it is also possible to move points along these guide lines).</p>
+<p>Switching to the 'Vertices' option allows you to draw points at the intersections of the guide lines and the vertices of the buildings.</p>
+<blockquote>
+<p>Please, visit the section <a href="#context-panel">Context panel</a> to see more drawing features.</p>
+</blockquote>
+<h2 id="grid">Grid</h2>
+<p>When selecting this option appears a grid that occupies the entire canvas area.</p>
+<img class="w100px" src="./layout-doc-imgs/snaps/snap-grid.png" alt="Snap grid" />
+
+<p>You can customize it by specifying a number for the grid size (size of each square) and an offset in the x and y coordinates for moving the grid.</p>
+<blockquote>
+<p>Please, visit the section <a href="#context-panel">Context panel</a> to see more drawing features.</p>
+</blockquote>
+<div class="page-break"></div>
+
+<h2 id="context-panel">Context panel</h2>
+<p>This menu is available in both options, guide lines and grid, by right clicking on a point or edge.</p>
+<img class="w100px" src="./layout-doc-imgs/snaps/context-panel.png" alt="Context panel" />
+
+<p>When right clicking a point, you can:</p>
+<ul>
+<li>Draw guides here (only in 'Guide lines' option): draws parallel and perpendicular guide lines to this point in relation to the selected edge</li>
+<li>Remove all guides (only in 'Guide lines' option): removes all guide lines except the ones to the selected point</li>
+<li>Select/deselect point: this is useful for moving many points along a guide line at once</li>
+<li>Deselect all points: deselects all points except the last selected one</li>
+<li>Delete point</li>
+</ul>
+<p>When right clicking an edge (only in 'Guide lines' option), you can:</p>
+<ul>
+<li>Select/deselect edge as guide: redraws the parallel and its perpendicular guide lines to the selected edge</li>
+<li>Select/deselect all edges as guide</li>
+</ul>
+<div class="page-break"></div>
+
+<h1 id="textures">Textures</h1>
+<p>The textures are images obtained from the satellite displayed on the roof, with the same size and position.</p>
+<p>They are generated by default when a building is created. You can disable their automatic creation in the Preferences panel.</p>
+<img class="w200px" src="./layout-doc-imgs/general/building-textures-toggle.png" alt="Building textures toggle" />
+
+<blockquote>
+<p>Please, visit the section <a href="#layout-rules">Layout Rules</a> to learn how to customize this property.</p>
+</blockquote>
+<img class="w200px" src="./layout-doc-imgs/general/textures.png" alt="Textures" />
+
+<p>In the building panel you can see the different options for the satellite image textures:</p>
+<ul>
+<li>'+' : adds satellite texture for the active building</li>
+<li>Refresh (available when the active building has textures)</li>
+<li>Remove (available when the active building has textures)</li>
+<li>Generate for all buildings</li>
+<li>Remove all satellite textures</li>
+</ul>
+<blockquote>
+<p>Note that the textures generation might fail because of the speed of the internet connection or the speed of response of the satellite image provider. For preventing the failure you can select each building and wait for the satellite images to load or refresh the textures individually.</p>
+</blockquote>
+<h1 id="shortcuts">Shortcuts</h1>
+<p>The shortcuts can be used in three cases:</p>
+<ul>
+<li>When drawing:
+<ul>
+<li>To enable/disable snap to guides, press 'S'</li>
+<li>To toggle between guide lines and vertices you can hold 'Ctrl'</li>
+<li>To select/deselect vertices, click on them while pressing 'Shift'</li>
+</ul></li>
+<li>Editing a subarea:
+<ul>
+<li>Hold 'Shift' for selecting the hole row</li>
+<li>Hold 'Ctrl' for selecting the hole column</li>
+</ul></li>
+<li>Moving a subarea:
+<ul>
+<li>Down: Numpad 1, 2, 3 | 'End' | 'Down arrow' | 'Page down'</li>
+<li>Left: Numpad 1, 4, 7 | 'End' | 'Left arrow' | 'Home'</li>
+<li>Right: Numpad 3, 6, 9 | 'Page down' | 'Right arrow' | 'Page up'</li>
+<li>Center: Numpad 5 | 'Clear'</li>
+</ul></li>
+<li>Save: for saving the project in crm you can press 'Ctrl + Shift + S'</li>
+</ul>
+<div class="page-break"></div>
+
+<h1 id="layout-coordinate-systems">Layout Coordinate Systems</h1>
+<p>The 3DLayout works in four different coordinate systems, depending on which context we are requesting info.</p>
+<h2 id="world-coordinate-system">World Coordinate System</h2>
+<img class="w75" src="./layout-doc-imgs/coords/world-coords.png" alt="world-coords" />
+
+<p>World coordinate system works with spherical coordinates, latitude and longitude.</p>
+<p>The values stored in this system and the API calls to retrieve this data are:</p>
+<ul>
+<li>Layout project center &gt; getLayout</li>
+</ul>
+<div class="page-break"></div>
+
+<h2 id="scene-coordinate-system">Scene Coordinate System</h2>
+<img class="w75" src="./layout-doc-imgs/coords/scene-coords.png" alt="scene-coords" />
+
+<p>Scene coordinate system works with cartesian coords, with origin in the layout project center and distances measured in meters. It is used to place each building relative to the project center.</p>
+<p>The values stored in this system and the API calls to retrieve this data are:</p>
+<ul>
+<li>Building data center &gt; getBuildingInfo()</li>
+</ul>
+<div class="page-break"></div>
+
+<h2 id="building-coordinate-system">Building Coordinate System</h2>
+<img class="w75" src="./layout-doc-imgs/coords/building-coords.png" alt="building-coords" />
+
+<p>Building coordinate System works with cartesian coords, with origin in the building center and measured in meters. Al tilted surfaces are represented in ortographic view.</p>
+<p>The values stored in this system and the API calls to retrieve this data are:</p>
+<ul>
+<li>Building vertices (verticesMCoords) &gt; getBuildingInfo()</li>
+</ul>
+<div class="page-break"></div>
+
+<h2 id="area-coordinate-system">Area Coordinate System</h2>
+<img class="w75" src="./layout-doc-imgs/coords/area-coords.png" alt="area-coords" />
+
+<p>Area Coordinate System works in cartesian coords, with origin in the bottom-left corner of the area, and rotated with the exterior wall azimuth of the area. On flat roofs the first wall drawed is considered the main wall.</p>
+<p>The values stored in this system and the API calls to retrieve this data are:</p>
+<ul>
+<li>Area vertices (verticesMCoords) &gt; getAreaInfo()</li>
+<li>Area offset vertices (verticesOffsetMCoords) &gt; getAreaInfo()</li>
+<li>Area modules coords (modulesData (x/y)) &gt; getAreaInfo()</li>
+</ul>
+<p>This is the same for subareas, just using <strong>getSubareaInfo</strong></p>
+</body>
+</html>

@@ -1172,7 +1172,8 @@ With this function you can change this building fields
 <p>The attributes are:</p>
 <pre><code>{
     defaultProjectId: crm project to load if there&#39;s no hash (set to 0 to load the demo version),
-    loadMockup: if true it loads a mockup
+    loadMockup: if true it loads a mockup,
+    userToken: user token
 }
 </code></pre>
 <h3 id="development">Development</h3>
@@ -1190,7 +1191,9 @@ With this function you can change this building fields
     activeMapper: true,
     activeRenderer: true,
     buildingTextures: true,
-    sunSpeed: 1,
+    zoomRatio: 1,
+    translationRatio: 1,
+    rotationRatio: 1,   
     enablePlayer: true
 }
 </code></pre>
@@ -1199,19 +1202,21 @@ With this function you can change this building fields
     activeMapper: activate mapper on start,
     activeRenderer: activate renderer on start,
     buildingTextures: generate building textures when creating a building,
-    sunSpeed: position of element of the sun simulator speed,
+    zoomRatio: zoom ratio for 3D mode,
+    translationRatio: translation ratio for 3D mode,
+    rotationRatio: rotation ratio for 3D mode,
     enablePlayer: enable three.js canvas
 }
 </code></pre>
-<div class="page-break"></div>
-
 <h3 id="model">Model</h3>
 <p>Sample values:</p>
 <pre><code>{
     collisionBias: 0.03,
     angleBias: 0.5,
     maxAreaInclination: 75,
-    hidden: [ ]
+    sunSpeed: 1,
+    googleApiKey: &#39;&#39;,
+    bingApiKey: &#39;&#39;
 }
 </code></pre>
 <p>The attributes are:</p>
@@ -1219,7 +1224,9 @@ With this function you can change this building fields
     collisionBias: factor to validate collisions (with bigger values less collision),
     angleBias: factor to validate regular angles (with bigger values less angle precision),
     maxAreaInclination: area is disabled when the area inclination is bigger than this value,
-    hidden: array of json properties within that json that don&#39;t want to be shown in panels
+    sunSpeed: position of element of the sun simulator speed,
+    googleApiKey: google api key for mapper,
+    bingApiKey: bing api key for mapper
 }
 </code></pre>
 <h3 id="gui">GUI</h3>
@@ -1229,6 +1236,8 @@ With this function you can change this building fields
     showCoordinates: false,
     showTotalPower: true,
     customLogo: &#39;default&#39;,
+    customNav: &#39;default&#39;,
+    showNav: true,
     showLogo: true,
     defaultLanguage: &#39;en&#39;,
     defaultUnits: &#39;m&#39;,
@@ -1243,17 +1252,18 @@ With this function you can change this building fields
     snapToLines: true,
     snapToVertices: false,
     maxAllowedBuildings: 0,
-    viewportMode: 4
+    viewportMode: 4,
+    hidden: []
 }
 </code></pre>
-<div class="page-break"></div>
-
 <p>The attributes are:</p>
 <pre><code>{
     closeRightCanvas: close right canvas on start,
     showCoordinates: show coordinates of the mouse in the right bottom corner,
     showTotalPower: show &#39;Total power&#39; indicator in the left upper corner,
     customLogo: custom logo url,
+    customNav: show or hide nav (&#39;default&#39; shows nav),
+    showNav: creates structure of panels,
     showLogo: show logo,
     defaultLanguage: string from available keys at &#39;defaultLanguages&#39;,
     defaultUnits: string from available keys at &#39;units&#39;,
@@ -1268,7 +1278,8 @@ With this function you can change this building fields
     snapToLines: enable snap to guidelines or edges,
     snapToVertices: enable snap to vertices or guideline intersections,
     maxAllowedBuildings: hides the button to create new buildings when their quantity is &gt;= to this value (if it&#39;s 0 there is no max quantity),
-    viewportMode: viewport mode
+    viewportMode: viewport mode,
+    hidden: array of json properties within that json that don&#39;t want to be shown in panels
 }
 </code></pre>
 <p>The viewportMode options are:</p>
