@@ -112,6 +112,17 @@ Fixed buttons in this area:
 
 > Please, visit the section [Custom Buttons](#custom-buttons) to learn how to add your own functions.
 
+### Notifications
+
+Everytime an operation is being executed, it will appear at the bottom of the canvas a bar with the name of that operation. Its color represents the type of notification:
+
+* Red: error
+* Orange: warning (you should wait until the operation is finished)
+* Green: success
+* Blue: info
+
+<img class="w100" src="./layout-doc-imgs/canvas/notifications.png" alt="Notifications" />
+
 <div class="page-break"></div>
 
 
