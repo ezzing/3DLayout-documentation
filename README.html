@@ -487,6 +487,8 @@ In keepout 2, A is also the desired height, but the keepout can't be drawn corre
 <blockquote>
 <p>Note that the textures generation might fail because of the speed of the internet connection or the speed of response of the satellite image provider. For preventing the failure you can select each building and wait for the satellite images to load or refresh the textures individually.</p>
 </blockquote>
+<div class="page-break"></div>
+
 <h1 id="shortcuts">Shortcuts</h1>
 <p>The shortcuts can be used in three cases:</p>
 <ul>
@@ -501,7 +503,7 @@ In keepout 2, A is also the desired height, but the keepout can't be drawn corre
 <li>Hold 'Shift' for selecting the hole row</li>
 <li>Hold 'Ctrl' for selecting the hole column</li>
 </ul></li>
-<li>Moving a subarea:
+<li>Moving a building, subarea or keepout:
 <ul>
 <li>Down: Numpad 1, 2, 3 | 'End' | 'Down arrow' | 'Page down'</li>
 <li>Left: Numpad 1, 4, 7 | 'End' | 'Left arrow' | 'Home'</li>
@@ -510,7 +512,8 @@ In keepout 2, A is also the desired height, but the keepout can't be drawn corre
 </ul></li>
 <li>Save: for saving the project in crm you can press 'Ctrl + Shift + S'</li>
 </ul>
-<div class="page-break"></div>
+<p>Anyways, these shortcuts will be displayed on a widget, so you can consult them when necessary.</p>
+<img class="w100px" src="./layout-doc-imgs/subarea/move-subarea-widget.png" alt="Move subarea shortcuts widget" />
 
 <h1 id="layout-coordinate-systems">Layout Coordinate Systems</h1>
 <p>The 3DLayout works in four different coordinate systems, depending on which context we are requesting info.</p>
@@ -555,6 +558,8 @@ In keepout 2, A is also the desired height, but the keepout can't be drawn corre
 <li>Area modules coords (modulesData (x/y)) &gt; getAreaInfo()</li>
 </ul>
 <p>This is the same for subareas, just using <strong>getSubareaInfo</strong></p>
+<div class="page-break"></div>
+
 <h1 id="how-to-use">How to use</h1>
 <h2 id="api-key-and-autentication">Api key and autentication</h2>
 <p>To start using the 3DLayout in your platform, you need to add the following script:</p>

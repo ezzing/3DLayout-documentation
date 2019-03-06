@@ -42,11 +42,6 @@
       - [Context panel](#context-panel)
   - [Textures](#textures)
   - [Shortcuts](#shortcuts)
-  - [Layout Coordinate Systems](#layout-coordinate-systems)
-      - [World Coordinate System](#world-coordinate-system)
-      - [Scene Coordinate System](#scene-coordinate-system)
-      - [Building Coordinate System](#building-coordinate-system)
-      - [Area Coordinate System](#area-coordinate-system)
 
 # Introduction
 
@@ -570,6 +565,10 @@ satellite image textures:
 > building and wait for the satellite images to load or refresh the
 > textures individually.
 
+<div class="page-break">
+
+</div>
+
 # Shortcuts
 
 The shortcuts can be used in three cases:
@@ -582,86 +581,15 @@ The shortcuts can be used in three cases:
   - Editing a subarea:
       - Hold 'Shift' for selecting the hole row
       - Hold 'Ctrl' for selecting the hole column
-  - Moving a subarea:
+  - Moving a building, subarea or keepout:
       - Down: Numpad 1, 2, 3 | 'End' | 'Down arrow' | 'Page down'
       - Left: Numpad 1, 4, 7 | 'End' | 'Left arrow' | 'Home'
       - Right: Numpad 3, 6, 9 | 'Page down' | 'Right arrow' | 'Page up'
       - Center: Numpad 5 | 'Clear'
   - Save: for saving the project in crm you can press 'Ctrl + Shift + S'
 
-<div class="page-break">
+Anyways, these shortcuts will be displayed on a widget, so you can
+consult them when necessary.
 
-</div>
-
-# Layout Coordinate Systems
-
-The 3DLayout works in four different coordinate systems, depending on
-which context we are requesting info.
-
-## World Coordinate System
-
-![world-coords](./layout-doc-imgs/coords/world-coords.png)
-
-World coordinate system works with spherical coordinates, latitude and
-longitude.
-
-The values stored in this system and the API calls to retrieve this data
-are:
-
-  - Layout project center \> getLayout
-
-<div class="page-break">
-
-</div>
-
-## Scene Coordinate System
-
-![scene-coords](./layout-doc-imgs/coords/scene-coords.png)
-
-Scene coordinate system works with cartesian coords, with origin in the
-layout project center and distances measured in meters. It is used to
-place each building relative to the project center.
-
-The values stored in this system and the API calls to retrieve this data
-are:
-
-  - Building data center \> getBuildingInfo()
-
-<div class="page-break">
-
-</div>
-
-## Building Coordinate System
-
-![building-coords](./layout-doc-imgs/coords/building-coords.png)
-
-Building coordinate System works with cartesian coords, with origin in
-the building center and measured in meters. Al tilted surfaces are
-represented in ortographic view.
-
-The values stored in this system and the API calls to retrieve this data
-are:
-
-  - Building vertices (verticesMCoords) \> getBuildingInfo()
-
-<div class="page-break">
-
-</div>
-
-## Area Coordinate System
-
-![area-coords](./layout-doc-imgs/coords/area-coords.png)
-
-Area Coordinate System works in cartesian coords, with origin in the
-bottom-left corner of the area, and rotated with the exterior wall
-azimuth of the area. On flat roofs the first wall drawed is considered
-the main wall.
-
-The values stored in this system and the API calls to retrieve this data
-are:
-
-  - Area vertices (verticesMCoords) \> getAreaInfo()
-  - Area offset vertices (verticesOffsetMCoords) \> getAreaInfo()
-  - Area modules coords (modulesData (x/y)) \> getAreaInfo()
-
-This is the same for subareas, just using **getSubareaInfo**
+![Move subarea shortcuts
+widget](./layout-doc-imgs/subarea/move-subarea-widget.png)

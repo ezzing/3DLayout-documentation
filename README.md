@@ -641,6 +641,10 @@ satellite image textures:
 > building and wait for the satellite images to load or refresh the
 > textures individually.
 
+<div class="page-break">
+
+</div>
+
 # Shortcuts
 
 The shortcuts can be used in three cases:
@@ -653,16 +657,18 @@ The shortcuts can be used in three cases:
   - Editing a subarea:
       - Hold 'Shift' for selecting the hole row
       - Hold 'Ctrl' for selecting the hole column
-  - Moving a subarea:
+  - Moving a building, subarea or keepout:
       - Down: Numpad 1, 2, 3 | 'End' | 'Down arrow' | 'Page down'
       - Left: Numpad 1, 4, 7 | 'End' | 'Left arrow' | 'Home'
       - Right: Numpad 3, 6, 9 | 'Page down' | 'Right arrow' | 'Page up'
       - Center: Numpad 5 | 'Clear'
   - Save: for saving the project in crm you can press 'Ctrl + Shift + S'
 
-<div class="page-break">
+Anyways, these shortcuts will be displayed on a widget, so you can
+consult them when necessary.
 
-</div>
+![Move subarea shortcuts
+widget](./layout-doc-imgs/subarea/move-subarea-widget.png)
 
 # Layout Coordinate Systems
 
@@ -736,6 +742,10 @@ are:
   - Area modules coords (modulesData (x/y)) \> getAreaInfo()
 
 This is the same for subareas, just using **getSubareaInfo**
+
+<div class="page-break">
+
+</div>
 
 # How to use
 

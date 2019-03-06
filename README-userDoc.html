@@ -84,12 +84,6 @@
 </ul></li>
 <li><a href="#textures">Textures</a></li>
 <li><a href="#shortcuts">Shortcuts</a></li>
-<li><a href="#layout-coordinate-systems">Layout Coordinate Systems</a><ul>
-<li><a href="#world-coordinate-system">World Coordinate System</a></li>
-<li><a href="#scene-coordinate-system">Scene Coordinate System</a></li>
-<li><a href="#building-coordinate-system">Building Coordinate System</a></li>
-<li><a href="#area-coordinate-system">Area Coordinate System</a></li>
-</ul></li>
 </ul>
 </nav>
 <h1 id="introduction">Introduction</h1>
@@ -413,6 +407,8 @@ In keepout 2, A is also the desired height, but the keepout can't be drawn corre
 <blockquote>
 <p>Note that the textures generation might fail because of the speed of the internet connection or the speed of response of the satellite image provider. For preventing the failure you can select each building and wait for the satellite images to load or refresh the textures individually.</p>
 </blockquote>
+<div class="page-break"></div>
+
 <h1 id="shortcuts">Shortcuts</h1>
 <p>The shortcuts can be used in three cases:</p>
 <ul>
@@ -427,7 +423,7 @@ In keepout 2, A is also the desired height, but the keepout can't be drawn corre
 <li>Hold 'Shift' for selecting the hole row</li>
 <li>Hold 'Ctrl' for selecting the hole column</li>
 </ul></li>
-<li>Moving a subarea:
+<li>Moving a building, subarea or keepout:
 <ul>
 <li>Down: Numpad 1, 2, 3 | 'End' | 'Down arrow' | 'Page down'</li>
 <li>Left: Numpad 1, 4, 7 | 'End' | 'Left arrow' | 'Home'</li>
@@ -436,50 +432,7 @@ In keepout 2, A is also the desired height, but the keepout can't be drawn corre
 </ul></li>
 <li>Save: for saving the project in crm you can press 'Ctrl + Shift + S'</li>
 </ul>
-<div class="page-break"></div>
-
-<h1 id="layout-coordinate-systems">Layout Coordinate Systems</h1>
-<p>The 3DLayout works in four different coordinate systems, depending on which context we are requesting info.</p>
-<h2 id="world-coordinate-system">World Coordinate System</h2>
-<img class="w75" src="./layout-doc-imgs/coords/world-coords.png" alt="world-coords" />
-
-<p>World coordinate system works with spherical coordinates, latitude and longitude.</p>
-<p>The values stored in this system and the API calls to retrieve this data are:</p>
-<ul>
-<li>Layout project center &gt; getLayout</li>
-</ul>
-<div class="page-break"></div>
-
-<h2 id="scene-coordinate-system">Scene Coordinate System</h2>
-<img class="w75" src="./layout-doc-imgs/coords/scene-coords.png" alt="scene-coords" />
-
-<p>Scene coordinate system works with cartesian coords, with origin in the layout project center and distances measured in meters. It is used to place each building relative to the project center.</p>
-<p>The values stored in this system and the API calls to retrieve this data are:</p>
-<ul>
-<li>Building data center &gt; getBuildingInfo()</li>
-</ul>
-<div class="page-break"></div>
-
-<h2 id="building-coordinate-system">Building Coordinate System</h2>
-<img class="w75" src="./layout-doc-imgs/coords/building-coords.png" alt="building-coords" />
-
-<p>Building coordinate System works with cartesian coords, with origin in the building center and measured in meters. Al tilted surfaces are represented in ortographic view.</p>
-<p>The values stored in this system and the API calls to retrieve this data are:</p>
-<ul>
-<li>Building vertices (verticesMCoords) &gt; getBuildingInfo()</li>
-</ul>
-<div class="page-break"></div>
-
-<h2 id="area-coordinate-system">Area Coordinate System</h2>
-<img class="w75" src="./layout-doc-imgs/coords/area-coords.png" alt="area-coords" />
-
-<p>Area Coordinate System works in cartesian coords, with origin in the bottom-left corner of the area, and rotated with the exterior wall azimuth of the area. On flat roofs the first wall drawed is considered the main wall.</p>
-<p>The values stored in this system and the API calls to retrieve this data are:</p>
-<ul>
-<li>Area vertices (verticesMCoords) &gt; getAreaInfo()</li>
-<li>Area offset vertices (verticesOffsetMCoords) &gt; getAreaInfo()</li>
-<li>Area modules coords (modulesData (x/y)) &gt; getAreaInfo()</li>
-</ul>
-<p>This is the same for subareas, just using <strong>getSubareaInfo</strong></p>
+<p>Anyways, these shortcuts will be displayed on a widget, so you can consult them when necessary.</p>
+<img class="w100px" src="./layout-doc-imgs/subarea/move-subarea-widget.png" alt="Move subarea shortcuts widget" />
 </body>
 </html>
