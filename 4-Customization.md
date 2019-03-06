@@ -113,8 +113,8 @@ The attributes are:
         angleBias: factor to validate regular angles (with bigger values less angle precision),
         maxAreaInclination: area is disabled when the area inclination is bigger than this value,
         sunSpeed: position of element of the sun simulator speed,
-        googleApiKey: google api key for mapper,
-        bingApiKey: bing api key for mapper
+        googleApiKey: Google api key for provider,
+        bingApiKey: Bing api key for provider
     }
 
 ### GUI

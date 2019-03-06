@@ -48,7 +48,7 @@
       - [Building Coordinate System](#building-coordinate-system)
       - [Area Coordinate System](#area-coordinate-system)
   - [How to use](#how-to-use)
-      - [Api key and autentication](#api-key-and-autentication)
+      - [API key and autentication](#api-key-and-autentication)
       - [DOM element](#dom-element)
       - [Basic functions](#basic-functions)
           - [createLayout](#createlayout)
@@ -749,16 +749,16 @@ This is the same for subareas, just using **getSubareaInfo**
 
 # How to use
 
-## Api key and autentication
+## API key and autentication
 
-To start using the 3DLayout in your platform, you need to add the
-following
-    script:
+The 3DLayout allows you to provide Google and Bing API keys.
 
-    <script data-key="API_KEY_HERE" src="https://layout.ezzing.com/lib.js"></script>
+In case these API keys don't exist, the default provider will be Open
+Street Maps.
 
-where you would replace `API_KEY_HERE` by an API key we provide you for
-your account.
+To add them as layout rules, please visit the [Scene
+preferences](#scene-preferences) section within the [Layout
+Rules](#layout-rules) section.
 
 ## DOM element
 
@@ -1549,8 +1549,8 @@ The attributes are:
         angleBias: factor to validate regular angles (with bigger values less angle precision),
         maxAreaInclination: area is disabled when the area inclination is bigger than this value,
         sunSpeed: position of element of the sun simulator speed,
-        googleApiKey: google api key for mapper,
-        bingApiKey: bing api key for mapper
+        googleApiKey: Google api key for provider,
+        bingApiKey: Bing api key for provider
     }
 
 ### GUI

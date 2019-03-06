@@ -56,13 +56,13 @@ This is the same for subareas, just using **getSubareaInfo**
 
 # How to use
 
-## Api key and autentication
+## API key and autentication
 
-To start using the 3DLayout in your platform, you need to add the following script:
+The 3DLayout allows you to provide Google and Bing API keys.
 
-    <script data-key="API_KEY_HERE" src="https://layout.ezzing.com/lib.js"></script>
+In case these API keys don't exist, the default provider will be Open Street Maps.
 
-where you would replace `API_KEY_HERE` by an API key we provide you for your account.
+To add them as layout rules, please visit the [Scene preferences](#scene-preferences) section within the [Layout Rules](#layout-rules) section.
 
 ## DOM element
 

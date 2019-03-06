@@ -91,7 +91,7 @@
 <li><a href="#area-coordinate-system">Area Coordinate System</a></li>
 </ul></li>
 <li><a href="#how-to-use">How to use</a><ul>
-<li><a href="#api-key-and-autentication">Api key and autentication</a></li>
+<li><a href="#api-key-and-autentication">API key and autentication</a></li>
 <li><a href="#dom-element">DOM element</a></li>
 <li><a href="#basic-functions">Basic functions</a><ul>
 <li><a href="#createlayout">createLayout</a></li>
@@ -561,11 +561,10 @@ In keepout 2, A is also the desired height, but the keepout can't be drawn corre
 <div class="page-break"></div>
 
 <h1 id="how-to-use">How to use</h1>
-<h2 id="api-key-and-autentication">Api key and autentication</h2>
-<p>To start using the 3DLayout in your platform, you need to add the following script:</p>
-<pre><code>&lt;script data-key=&quot;API_KEY_HERE&quot; src=&quot;https://layout.ezzing.com/lib.js&quot;&gt;&lt;/script&gt;
-</code></pre>
-<p>where you would replace <code>API_KEY_HERE</code> by an API key we provide you for your account.</p>
+<h2 id="api-key-and-autentication">API key and autentication</h2>
+<p>The 3DLayout allows you to provide Google and Bing API keys.</p>
+<p>In case these API keys don't exist, the default provider will be Open Street Maps.</p>
+<p>To add them as layout rules, please visit the <a href="#scene-preferences">Scene preferences</a> section within the <a href="#layout-rules">Layout Rules</a> section.</p>
 <h2 id="dom-element">DOM element</h2>
 <p>You need an element in the body of your html page, a div where <strong>the 3DLayout will fit inside this element</strong>.</p>
 <blockquote>
@@ -1241,8 +1240,8 @@ With this function you can change this building fields
     angleBias: factor to validate regular angles (with bigger values less angle precision),
     maxAreaInclination: area is disabled when the area inclination is bigger than this value,
     sunSpeed: position of element of the sun simulator speed,
-    googleApiKey: google api key for mapper,
-    bingApiKey: bing api key for mapper
+    googleApiKey: Google api key for provider,
+    bingApiKey: Bing api key for provider
 }
 </code></pre>
 <h3 id="gui">GUI</h3>
