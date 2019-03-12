@@ -777,11 +777,11 @@ change the size of this container div.
 
 ## Basic functions
 
-Adding the `client.min.js` script with a valid API Key makes available
-the `Ezzing3DApi` global object, which we will use to start using the
+Adding the `client.min.js` script with a valid API key makes available
+the `Ezzing3DClient` global object, which we will use to start using the
 3DLayout.
 
-The Ezzing3DApi object has the following functions:
+The Ezzing3DClient object has the following functions:
 
   - createLayout
   - getLayout
@@ -807,7 +807,7 @@ Create a new layout with the specified information.
 Where all values are optional except latitude and longitude that are
 required.
 
-    Ezzing3DApi.createLayout(data, function(err, layoutData) {
+    Ezzing3DClient.createLayout(data, function(err, layoutData) {
         if (err) throw err;
         console.log(layoutData);
     });
@@ -870,9 +870,10 @@ The data types in which each value is stored are:
 
 ### getLayout
 
-Returns the information of a layout related to the given id
+Returns the information of a layout related to the given
+    id
 
-    Ezzing3DApi.getLayout(id, function(err, layoutData) {
+    Ezzing3DClient.getLayout(layoutId, function(err, layoutData, container) {
         if (err) throw err;
         console.log(layoutData);
     });
@@ -881,7 +882,7 @@ Returns the information of a layout related to the given id
 
 Returns a list of all your created layouts.
 
-    Ezzing3DApi.listLayouts(function(err, layoutData) {
+    Ezzing3DClient.listLayouts(function(err, layoutData) {
         if (err) throw err;
         console.log(layoutData);
     });
@@ -889,9 +890,10 @@ Returns a list of all your created layouts.
 ### loadLayout
 
 Sets up the 3DLayout interface into the ezzing3D container and loads the
-project related to the given id.
+project related to the given
+    id.
 
-    Ezzing3DApi.loadLayout(id, function(err, layout, container) {
+    Ezzing3DClient.loadLayout(layoutId, function(err, layoutApi, container) {
         if (err) throw err;
     });
 
@@ -903,7 +905,7 @@ customizations.
 
     var rules = {};
     
-    Ezzing3DApi.loadLayout(id, rules, function(err, layout, container) {
+    Ezzing3DClient.loadLayout(layoutId, rules, function(err, layoutApi, container) {
         if (err) throw err;
     });
 

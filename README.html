@@ -576,8 +576,8 @@ In keepout 2, A is also the desired height, but the keepout can't be drawn corre
 &lt;/div&gt;
 </code></pre>
 <h2 id="basic-functions">Basic functions</h2>
-<p>Adding the <code>client.min.js</code> script with a valid API Key makes available the <code>Ezzing3DApi</code> global object, which we will use to start using the 3DLayout.</p>
-<p>The Ezzing3DApi object has the following functions:</p>
+<p>Adding the <code>client.min.js</code> script with a valid API key makes available the <code>Ezzing3DClient</code> global object, which we will use to start using the 3DLayout.</p>
+<p>The Ezzing3DClient object has the following functions:</p>
 <ul>
 <li>createLayout</li>
 <li>getLayout</li>
@@ -599,7 +599,7 @@ In keepout 2, A is also the desired height, but the keepout can't be drawn corre
 };
 </code></pre>
 <p>Where all values are optional except latitude and longitude that are required.</p>
-<pre><code>Ezzing3DApi.createLayout(data, function(err, layoutData) {
+<pre><code>Ezzing3DClient.createLayout(data, function(err, layoutData) {
     if (err) throw err;
     console.log(layoutData);
 });
@@ -655,21 +655,21 @@ In keepout 2, A is also the desired height, but the keepout can't be drawn corre
 </ul>
 <h3 id="getlayout">getLayout</h3>
 <p>Returns the information of a layout related to the given id</p>
-<pre><code>Ezzing3DApi.getLayout(id, function(err, layoutData) {
+<pre><code>Ezzing3DClient.getLayout(layoutId, function(err, layoutData, container) {
     if (err) throw err;
     console.log(layoutData);
 });
 </code></pre>
 <h3 id="listlayouts">listLayouts</h3>
 <p>Returns a list of all your created layouts.</p>
-<pre><code>Ezzing3DApi.listLayouts(function(err, layoutData) {
+<pre><code>Ezzing3DClient.listLayouts(function(err, layoutData) {
     if (err) throw err;
     console.log(layoutData);
 });
 </code></pre>
 <h3 id="loadlayout">loadLayout</h3>
 <p>Sets up the 3DLayout interface into the ezzing3D container and loads the project related to the given id.</p>
-<pre><code>Ezzing3DApi.loadLayout(id, function(err, layout, container) {
+<pre><code>Ezzing3DClient.loadLayout(layoutId, function(err, layoutApi, container) {
     if (err) throw err;
 });
 </code></pre>
@@ -679,7 +679,7 @@ In keepout 2, A is also the desired height, but the keepout can't be drawn corre
 </blockquote>
 <pre><code>var rules = {};
 
-Ezzing3DApi.loadLayout(id, rules, function(err, layout, container) {
+Ezzing3DClient.loadLayout(layoutId, rules, function(err, layoutApi, container) {
     if (err) throw err;
 });
 </code></pre>
