@@ -131,6 +131,7 @@
 <li><a href="#customalert-event">CustomAlert event</a></li>
 </ul></li>
 </ul></li>
+<li><a href="#alert-widgets">Alert widgets</a></li>
 <li><a href="#layout-rules">Layout Rules</a><ul>
 <li><a href="#scene-preferences">Scene preferences</a><ul>
 <li><a href="#project">Project</a></li>
@@ -1131,6 +1132,39 @@ With this function you can change this building fields
     scope.$emit("setBuildingAttribute", [id, field, value]);
  -->
 
+<div class="page-break"></div>
+
+<h1 id="alert-widgets">Alert widgets</h1>
+<p>It's important to notify user when a change is going to be made or an error has appeared. You can create new customizable widgets on any panel element when its value is going to be changed.</p>
+<p>To create a widget, you have to add two json properties on the json of the element whose value is being modified: 'confirmation' and 'confirmationWidget'.</p>
+<pre><code>paint: {
+    type: &#39;button&#39;,
+    tooltip: &#39;paint&#39;,
+    classed: &#39;ez3d-button fa-paint-brush&#39;,
+    confirmation: true,
+    confirmationWidget: {
+        &#39;name&#39;: &#39;color-palette-selector-building&#39;,
+        &#39;title&#39;: &#39;colorPaletteSelector&#39;,
+        &#39;functionOnCreation&#39;: [&#39;colorPaletteWidget&#39;, &#39;building&#39;]
+        &#39;eventCancel&#39;: [&#39;close_widget_notification&#39;, &#39;&#39;],
+    }
+}
+</code></pre>
+<p>The 'confirmation' property is a boolean that determines if the widget will be shown or not. It can be a raw value (true/false) or a function that returns a boolean value.</p>
+<p>The 'confirmationWidget' property is an object composed of:</p>
+<pre><code>confirmationWidget: {
+    &#39;name&#39;: widget id,
+    &#39;title&#39;: title displayed on the header,
+    &#39;content&#39;: string with the content of the widget
+    &#39;functionOnCreation&#39;: function with a json of the elements to create in the widget content container
+    &#39;eventOk&#39;: [optional] the changes will be applied
+    &#39;eventCancel&#39;: [optional] the changed value won&#39;t be applied and the panels will update
+}
+</code></pre>
+<p>If the widget is going to be only informative, there must be an 'eventOk' property so that the changes are applied.</p>
+<blockquote>
+<p>Notice that both 'content' and 'functionOnCreation' properties create the content of the widget but in different ways, therefore you can only use one of these.</p>
+</blockquote>
 <div class="page-break"></div>
 
 <h1 id="layout-rules">Layout Rules</h1>

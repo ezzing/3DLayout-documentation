@@ -1,3 +1,42 @@
+# Alert widgets
+
+It's important to notify user when a change is going to be made or an error has appeared. You can create new customizable widgets on any panel element when its value is going to be changed.
+
+To create a widget, you have to add two json properties on the json of the element whose value is being modified: 'confirmation' and 'confirmationWidget'.
+
+    paint: {
+        type: 'button',
+        tooltip: 'paint',
+        classed: 'ez3d-button fa-paint-brush',
+        confirmation: true,
+        confirmationWidget: {
+            'name': 'color-palette-selector-building',
+            'title': 'colorPaletteSelector',
+            'functionOnCreation': ['colorPaletteWidget', 'building']
+            'eventCancel': ['close_widget_notification', ''],
+        }
+    }
+
+The 'confirmation' property is a boolean that determines if the widget will be shown or not. It can be a raw value (true/false) or a function that returns a boolean value.
+
+The 'confirmationWidget' property is an object composed of:
+
+    confirmationWidget: {
+        'name': widget id,
+        'title': title displayed on the header,
+        'content': string with the content of the widget
+        'functionOnCreation': function with a json of the elements to create in the widget content container
+        'eventOk': [optional] the changes will be applied
+        'eventCancel': [optional] the changed value won't be applied and the panels will update
+    }
+
+If the widget is going to be only informative, there must be an 'eventOk' property so that the changes are applied.
+
+> Notice that both 'content' and 'functionOnCreation' properties create the content of the widget but in different ways, therefore you can only use one of these.
+
+
+<div class="page-break"></div>
+
 # Layout Rules
 
 The user can customize many options in the 3DLayout. By passing a 'rules' attribute to the 3DLayout instance with a collection of objects, you can define the default values, add special behaviours to the 3DLayout and customize the interface.
