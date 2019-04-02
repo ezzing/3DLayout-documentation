@@ -530,6 +530,22 @@ When right clicking an edge (only in 'Guide lines' option), you can:
     perpendicular guide lines to the selected edge
   - Select/deselect all edges as guide
 
+It is also available by right clicking on a module in the subarea view.
+
+![Context panel
+module](./layout-doc-imgs/snaps/context-panel-module.png)
+
+By doing this, it will display:
+
+  - The position of the module (col and row)
+  - Its index position in the row
+  - Its index position in the column
+
+If dilatation lines are disabled, there are also two buttons to:
+
+  - Change row modules orientation
+  - Add row offset
+
 <div class="page-break">
 
 </div>
@@ -571,7 +587,7 @@ satellite image textures:
 
 # Shortcuts
 
-The shortcuts can be used in three cases:
+The shortcuts can be used in the following cases:
 
   - When drawing:
       - To enable/disable snap to guides, press 'S'
@@ -587,9 +603,16 @@ The shortcuts can be used in three cases:
       - Right: Numpad 3, 6, 9 | 'Page down' | 'Right arrow' | 'Page up'
       - Center: Numpad 5 | 'Clear'
   - Save: for saving the project in crm you can press 'Ctrl + Shift + S'
+  - Widgets:
+      - To cancel the operation or close widget, press 'Esc'
+      - To confirm the operation, press 'Intro'
 
 Anyways, these shortcuts will be displayed on a widget, so you can
 consult them when necessary.
 
 ![Move subarea shortcuts
 widget](./layout-doc-imgs/subarea/move-subarea-widget.png)
+
+<div class="page-break">
+
+</div>

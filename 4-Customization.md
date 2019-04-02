@@ -103,7 +103,9 @@ All the attributes are boolean:
         debugPromises: debug promises (console log),
         disableUndoRedo: disable undo/redo feature (WIP),
         enableApi: enable Api feature,
-        snapShotCrm: allow snapshots to be sent to crm
+        snapShotCrm: allow snapshots to be sent to crm,
+        debugListeners: debug number of listeners in console.log,
+        debugOpTime: shows the time an operation takes to be done
     }
 
 ### 3D canvas

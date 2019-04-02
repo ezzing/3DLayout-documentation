@@ -465,6 +465,20 @@ In keepout 2, A is also the desired height, but the keepout can't be drawn corre
 <li>Select/deselect edge as guide: redraws the parallel and its perpendicular guide lines to the selected edge</li>
 <li>Select/deselect all edges as guide</li>
 </ul>
+<p>It is also available by right clicking on a module in the subarea view.</p>
+<img class="w100px" src="./layout-doc-imgs/snaps/context-panel-module.png" alt="Context panel module" />
+
+<p>By doing this, it will display:</p>
+<ul>
+<li>The position of the module (col and row)</li>
+<li>Its index position in the row</li>
+<li>Its index position in the column</li>
+</ul>
+<p>If dilatation lines are disabled, there are also two buttons to:</p>
+<ul>
+<li>Change row modules orientation</li>
+<li>Add row offset</li>
+</ul>
 <div class="page-break"></div>
 
 <h1 id="textures">Textures</h1>
@@ -491,7 +505,7 @@ In keepout 2, A is also the desired height, but the keepout can't be drawn corre
 <div class="page-break"></div>
 
 <h1 id="shortcuts">Shortcuts</h1>
-<p>The shortcuts can be used in three cases:</p>
+<p>The shortcuts can be used in the following cases:</p>
 <ul>
 <li>When drawing:
 <ul>
@@ -512,9 +526,16 @@ In keepout 2, A is also the desired height, but the keepout can't be drawn corre
 <li>Center: Numpad 5 | 'Clear'</li>
 </ul></li>
 <li>Save: for saving the project in crm you can press 'Ctrl + Shift + S'</li>
+<li>Widgets:
+<ul>
+<li>To cancel the operation or close widget, press 'Esc'</li>
+<li>To confirm the operation, press 'Intro'</li>
+</ul></li>
 </ul>
 <p>Anyways, these shortcuts will be displayed on a widget, so you can consult them when necessary.</p>
 <img class="w100px" src="./layout-doc-imgs/subarea/move-subarea-widget.png" alt="Move subarea shortcuts widget" />
+
+<div class="page-break"></div>
 
 <h1 id="layout-coordinate-systems">Layout Coordinate Systems</h1>
 <p>The 3DLayout works in four different coordinate systems, depending on which context we are requesting info.</p>
@@ -1231,7 +1252,9 @@ With this function you can change this building fields
     debugPromises: debug promises (console log),
     disableUndoRedo: disable undo/redo feature (WIP),
     enableApi: enable Api feature,
-    snapShotCrm: allow snapshots to be sent to crm
+    snapShotCrm: allow snapshots to be sent to crm,
+    debugListeners: debug number of listeners in console.log,
+    debugOpTime: shows the time an operation takes to be done
 }
 </code></pre>
 <h3 id="3d-canvas">3D canvas</h3>
