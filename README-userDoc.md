@@ -612,7 +612,3 @@ consult them when necessary.
 
 ![Move subarea shortcuts
 widget](./layout-doc-imgs/subarea/move-subarea-widget.png)
-
-<div class="page-break">
-
-</div>

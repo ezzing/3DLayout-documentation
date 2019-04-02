@@ -445,5 +445,3 @@ The shortcuts can be used in the following cases:
 Anyways, these shortcuts will be displayed on a widget, so you can consult them when necessary.
 
 <img class="w100px" src="./layout-doc-imgs/subarea/move-subarea-widget.png" alt="Move subarea shortcuts widget" />
-
-<div class="page-break"></div>
