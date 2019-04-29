@@ -10,7 +10,7 @@ Ezzing 3DLayout is an embebible webapp. You can integrate it inside your own sys
 
 In this document you will find a brief showcase of the different areas of the app, a technical explanation on how to integrate this webapp inside your platform, a full description of the API that will allow you to communicate with the 3DLayout, and finally a description of how to customize different parts of the app.
 
-<img class="w100" src="./layout-doc-imgs/general/intro.png" alt="3DLayout" />
+<img class="w100" src="./layout-doc-imgs/general/intro.jpg" alt="3DLayout" />
 <br>
 
 You can test the app by visiting this link:
@@ -21,9 +21,9 @@ You can test the app by visiting this link:
 
 # Screenshots
 
-<img class="w100" src="./layout-doc-imgs/general/perspective-view.png" alt="Perspective view" />
+<img class="w100" src="./layout-doc-imgs/general/perspective-view.jpg" alt="Perspective view" />
 
-<img class="w100" src="./layout-doc-imgs/general/sun-simulation.png" alt="Sun simulation" />
+<img class="w100" src="./layout-doc-imgs/general/sun-simulation.jpg" alt="Sun simulation" />
 
 <div class="page-break"></div>
 
@@ -37,17 +37,17 @@ In the aside panel you can find functionalities related to the current active bu
 
 <br>
 
-<img class="w100" src="./layout-doc-imgs/tabs/tab-building.png" alt="Tab building" />
+<img class="w100" src="./layout-doc-imgs/tabs/tab-building.jpg" alt="Tab building" />
 
-<img class="w100" src="./layout-doc-imgs/tabs/tab-areas-1.png" alt="Tab areas 1" />
+<img class="w100" src="./layout-doc-imgs/tabs/tab-areas-1.jpg" alt="Tab areas 1" />
 
-<img class="w100" src="./layout-doc-imgs/tabs/tab-areas-2.png" alt="Tab areas 2" />
+<img class="w100" src="./layout-doc-imgs/tabs/tab-areas-2.jpg" alt="Tab areas 2" />
 
-<img class="w100" src="./layout-doc-imgs/tabs/tab-keepouts.png" alt="Tab keepouts" />
+<img class="w100" src="./layout-doc-imgs/tabs/tab-keepouts.jpg" alt="Tab keepouts" />
 
-<img class="w100" src="./layout-doc-imgs/tabs/tab-trees.png" alt="Tab trees" />
+<img class="w100" src="./layout-doc-imgs/tabs/tab-trees.jpg" alt="Tab trees" />
 
-<img class="w100" src="./layout-doc-imgs/tabs/tab-preferences.png" alt="Tab preferences" />
+<img class="w100" src="./layout-doc-imgs/tabs/tab-preferences.jpg" alt="Tab preferences" />
 
 <div class="page-break"></div>
 
@@ -55,7 +55,7 @@ In the aside panel you can find functionalities related to the current active bu
 
 In the canvas area you can see the satellite view and three different sets of elements: the **buildings index** on the left side, the **main options buttons** on the top, and the **control buttons** on the bottom-right corner.
 
-<img class="w100" src="./layout-doc-imgs/canvas/canvas.png" alt="Canvas" />
+<img class="w100" src="./layout-doc-imgs/canvas/canvas.jpg" alt="Canvas" />
 
 <div class="page-break"></div>
 
@@ -63,13 +63,13 @@ In the canvas area you can see the satellite view and three different sets of el
 
 In the buildings index you can see the active building and select another one to become active. The color represented on each index is the color of the building.
 
-<img class="w200px" src="./layout-doc-imgs/canvas/buildings-index.png" alt="Buildings index" />
+<img class="w200px" src="./layout-doc-imgs/canvas/buildings-index.jpg" alt="Buildings index" />
 
 ### Main Options
 
 These are the main options in the canvas area:
 
-<img class="w100" src="./layout-doc-imgs/canvas/main-options.png" alt="Main options" />
+<img class="w100" src="./layout-doc-imgs/canvas/main-options.jpg" alt="Main options" />
 
 All these buttons are the **main options custom buttons**. You can customize this set of buttons by hidding some of them, by sorting them, or by adding new buttons.
 
@@ -121,7 +121,7 @@ Everytime an operation is being executed, it will appear at the bottom of the ca
 * Green: success
 * Blue: info
 
-<img class="w100" src="./layout-doc-imgs/canvas/notifications.png" alt="Notifications" />
+<img class="w100" src="./layout-doc-imgs/canvas/notifications.jpg" alt="Notifications" />
 
 <div class="page-break"></div>
 
@@ -188,7 +188,7 @@ Each area is composed of at least one subarea and has the information of the num
 
 If you want to disable one area, you can click on the eye button next to its name. By doing this, its module count and power generated will be set to 0.
 
-<img class="w75" src="./layout-doc-imgs/general/area-disabled.png" alt="Area disabled" />
+<img class="w75" src="./layout-doc-imgs/general/area-disabled.jpg" alt="Area disabled" />
 
 ## Edit area
 
@@ -226,7 +226,7 @@ By clicking the 'Create subarea' button you enter in the subarea creation proces
 
 If you create the first subarea it will replace the default one.
 
-<img class="w75" src="./layout-doc-imgs/subarea/add-subarea.png" alt="Add subarea" />
+<img class="w75" src="./layout-doc-imgs/subarea/add-subarea.jpg" alt="Add subarea" />
 
 ### Crop subarea to the area shape
 
@@ -236,7 +236,7 @@ When editing the vertices of a subarea you can check the 'Crop' option. This hel
 
 If you uncheck this option then the subarea can extend outside the area, following the area plane.
 
-<img class="w75" src="./layout-doc-imgs/subarea/subarea-sample.png" alt="Subarea sample" />
+<img class="w75" src="./layout-doc-imgs/subarea/subarea-sample.jpg" alt="Subarea sample" />
 
 ### Edit subarea vertices
 
@@ -248,7 +248,7 @@ By clicking this button you can modify subarea vertices and the subarea will be 
 
 By clicking on a subarea you enter in the subarea edition process.
 
-<img class="w75" src="./layout-doc-imgs/subarea/edit-subarea.png" alt="Edit subarea" />
+<img class="w75" src="./layout-doc-imgs/subarea/edit-subarea.jpg" alt="Edit subarea" />
 
 You will be able to refresh, paint or move all the modules.
 
@@ -327,7 +327,7 @@ Trees belong to the scene, not to a building.
 
 It is important to create trees for simulating the shadows on the roofs. Therefore, you will be able to move them and modify their height and radius. The shape of the tree is calculated according to the proportion of these values.
 
-<img class="w75" src="./layout-doc-imgs/general/tree.png" alt="Tree" />
+<img class="w75" src="./layout-doc-imgs/general/tree.jpg" alt="Tree" />
 
 <div class="page-break"></div>
 
@@ -365,7 +365,7 @@ You can customize it by specifying a number for the grid size (size of each squa
 
 This menu is available in both options, guide lines and grid, by right clicking on a point or edge.
 
-<img class="w100px" src="./layout-doc-imgs/snaps/context-panel.png" alt="Context panel" />
+<img class="w100px" src="./layout-doc-imgs/snaps/context-panel.jpg" alt="Context panel" />
 
 When right clicking a point, you can:
 
@@ -382,7 +382,7 @@ When right clicking an edge (only in 'Guide lines' option), you can:
 
 It is also available by right clicking on a module in the subarea view.
 
-<img class="w100px" src="./layout-doc-imgs/snaps/context-panel-module.png" alt="Context panel module" />
+<img class="w100px" src="./layout-doc-imgs/snaps/context-panel-module.jpg" alt="Context panel module" />
 
 By doing this, it will display:
 

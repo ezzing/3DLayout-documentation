@@ -66,7 +66,7 @@ inside your platform, a full description of the API that will allow you
 to communicate with the 3DLayout, and finally a description of how to
 customize different parts of the app.
 
-![3DLayout](./layout-doc-imgs/general/intro.png)  
+![3DLayout](./layout-doc-imgs/general/intro.jpg)  
 
 You can test the app by visiting this link:
 
@@ -78,8 +78,8 @@ You can test the app by visiting this link:
 
 # Screenshots
 
-![Perspective view](./layout-doc-imgs/general/perspective-view.png)
-![Sun simulation](./layout-doc-imgs/general/sun-simulation.png)
+![Perspective view](./layout-doc-imgs/general/perspective-view.jpg)
+![Sun simulation](./layout-doc-imgs/general/sun-simulation.jpg)
 
 <div class="page-break">
 
@@ -96,12 +96,12 @@ In the aside panel you can find functionalities related to the current
 active building and other objects in the scene.
 
   
-![Tab building](./layout-doc-imgs/tabs/tab-building.png) ![Tab areas
-1](./layout-doc-imgs/tabs/tab-areas-1.png) ![Tab areas
-2](./layout-doc-imgs/tabs/tab-areas-2.png) ![Tab
-keepouts](./layout-doc-imgs/tabs/tab-keepouts.png) ![Tab
-trees](./layout-doc-imgs/tabs/tab-trees.png) ![Tab
-preferences](./layout-doc-imgs/tabs/tab-preferences.png)
+![Tab building](./layout-doc-imgs/tabs/tab-building.jpg) ![Tab areas
+1](./layout-doc-imgs/tabs/tab-areas-1.jpg) ![Tab areas
+2](./layout-doc-imgs/tabs/tab-areas-2.jpg) ![Tab
+keepouts](./layout-doc-imgs/tabs/tab-keepouts.jpg) ![Tab
+trees](./layout-doc-imgs/tabs/tab-trees.jpg) ![Tab
+preferences](./layout-doc-imgs/tabs/tab-preferences.jpg)
 
 <div class="page-break">
 
@@ -114,7 +114,7 @@ sets of elements: the **buildings index** on the left side, the **main
 options buttons** on the top, and the **control buttons** on the
 bottom-right corner.
 
-![Canvas](./layout-doc-imgs/canvas/canvas.png)
+![Canvas](./layout-doc-imgs/canvas/canvas.jpg)
 
 <div class="page-break">
 
@@ -126,13 +126,13 @@ In the buildings index you can see the active building and select
 another one to become active. The color represented on each index is the
 color of the building.
 
-![Buildings index](./layout-doc-imgs/canvas/buildings-index.png)
+![Buildings index](./layout-doc-imgs/canvas/buildings-index.jpg)
 
 ### Main Options
 
 These are the main options in the canvas area:
 
-![Main options](./layout-doc-imgs/canvas/main-options.png)
+![Main options](./layout-doc-imgs/canvas/main-options.jpg)
 
 All these buttons are the **main options custom buttons**. You can
 customize this set of buttons by hidding some of them, by sorting them,
@@ -193,7 +193,7 @@ represents the type of notification:
   - Green: success
   - Blue: info
 
-![Notifications](./layout-doc-imgs/canvas/notifications.png)
+![Notifications](./layout-doc-imgs/canvas/notifications.jpg)
 
 <div class="page-break">
 
@@ -285,7 +285,7 @@ If you want to disable one area, you can click on the eye button next to
 its name. By doing this, its module count and power generated will be
 set to 0.
 
-![Area disabled](./layout-doc-imgs/general/area-disabled.png)
+![Area disabled](./layout-doc-imgs/general/area-disabled.jpg)
 
 ## Edit area
 
@@ -335,7 +335,7 @@ creation process.
 
 If you create the first subarea it will replace the default one.
 
-![Add subarea](./layout-doc-imgs/subarea/add-subarea.png)
+![Add subarea](./layout-doc-imgs/subarea/add-subarea.jpg)
 
 ### Crop subarea to the area shape
 
@@ -349,7 +349,7 @@ toggle](./layout-doc-imgs/subarea/crop-shape-building-toggle.png)
 If you uncheck this option then the subarea can extend outside the area,
 following the area plane.
 
-![Subarea sample](./layout-doc-imgs/subarea/subarea-sample.png)
+![Subarea sample](./layout-doc-imgs/subarea/subarea-sample.jpg)
 
 ### Edit subarea vertices
 
@@ -364,7 +364,7 @@ will be recalculated.
 
 By clicking on a subarea you enter in the subarea edition process.
 
-![Edit subarea](./layout-doc-imgs/subarea/edit-subarea.png)
+![Edit subarea](./layout-doc-imgs/subarea/edit-subarea.jpg)
 
 You will be able to refresh, paint or move all the modules.
 
@@ -454,7 +454,7 @@ Therefore, you will be able to move them and modify their height and
 radius. The shape of the tree is calculated according to the proportion
 of these values.
 
-![Tree](./layout-doc-imgs/general/tree.png)
+![Tree](./layout-doc-imgs/general/tree.jpg)
 
 <div class="page-break">
 
@@ -509,7 +509,7 @@ grid.
 This menu is available in both options, guide lines and grid, by right
 clicking on a point or edge.
 
-![Context panel](./layout-doc-imgs/snaps/context-panel.png)
+![Context panel](./layout-doc-imgs/snaps/context-panel.jpg)
 
 When right clicking a point, you can:
 
@@ -533,7 +533,7 @@ When right clicking an edge (only in 'Guide lines' option), you can:
 It is also available by right clicking on a module in the subarea view.
 
 ![Context panel
-module](./layout-doc-imgs/snaps/context-panel-module.png)
+module](./layout-doc-imgs/snaps/context-panel-module.jpg)
 
 By doing this, it will display:
 
