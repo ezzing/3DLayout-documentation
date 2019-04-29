@@ -6,6 +6,7 @@
 
 # Table of contents
 
+  - [Table of contents](#table-of-contents)
   - [Introduction](#introduction)
   - [Screenshots](#screenshots)
   - [3DLayout Interface](#3dlayout-interface)
@@ -42,6 +43,51 @@
       - [Context panel](#context-panel)
   - [Textures](#textures)
   - [Shortcuts](#shortcuts)
+  - [Progress bar](#progress-bar)
+
+# Table of contents
+
+  - [Introduction](#introduction)
+  - [Screenshots](#screenshots)
+  - [3DLayout Interface](#3dlayout-interface)
+      - [Aside Panel](#aside-panel)
+      - [Canvas Area](#canvas-area)
+          - [Buildings Index](#buildings-index)
+          - [Main Options](#main-options)
+          - [Control Buttons](#control-buttons)
+          - [Notifications](#notifications)
+  - [Buildings](#buildings)
+      - [Building creation](#building-creation)
+      - [Add building](#add-building)
+      - [Edit building](#edit-building)
+  - [Areas](#areas)
+      - [Edit area](#edit-area)
+  - [Subareas](#subareas)
+      - [Subarea creation](#subarea-creation)
+      - [Add subarea](#add-subarea)
+          - [Crop subarea to the area
+            shape](#crop-subarea-to-the-area-shape)
+          - [Edit subarea vertices](#edit-subarea-vertices)
+      - [Edit subarea](#edit-subarea)
+      - [Remove subarea](#remove-subarea)
+  - [Keepouts](#keepouts)
+      - [Invisible keepouts](#invisible-keepouts)
+      - [Crop keepout to the building
+        shape](#crop-keepout-to-the-building-shape)
+      - [Vertical and inclined
+        keepouts](#vertical-and-inclined-keepouts)
+  - [Trees](#trees)
+  - [Drawing with Snaps](#drawing-with-snaps)
+      - [Guide lines](#guide-lines)
+      - [Grid](#grid)
+      - [Context panel](#context-panel)
+  - [Textures](#textures)
+  - [Shortcuts](#shortcuts)
+  - [Progress bar](#progress-bar)
+
+<div class="page-break">
+
+</div>
 
 # Introduction
 
@@ -79,6 +125,10 @@ You can test the app by visiting this link:
 # Screenshots
 
 ![Perspective view](./layout-doc-imgs/general/perspective-view.jpg)
+
+  
+  
+
 ![Sun simulation](./layout-doc-imgs/general/sun-simulation.jpg)
 
 <div class="page-break">
@@ -96,11 +146,14 @@ In the aside panel you can find functionalities related to the current
 active building and other objects in the scene.
 
   
-![Tab building](./layout-doc-imgs/tabs/tab-building.jpg) ![Tab areas
-1](./layout-doc-imgs/tabs/tab-areas-1.jpg) ![Tab areas
-2](./layout-doc-imgs/tabs/tab-areas-2.jpg) ![Tab
-keepouts](./layout-doc-imgs/tabs/tab-keepouts.jpg) ![Tab
-trees](./layout-doc-imgs/tabs/tab-trees.jpg) ![Tab
+![Tab building](./layout-doc-imgs/tabs/tab-building.jpg)  
+  
+![Tab areas 1](./layout-doc-imgs/tabs/tab-areas-1.jpg) ![Tab areas
+2](./layout-doc-imgs/tabs/tab-areas-2.jpg)  
+  
+![Tab keepouts](./layout-doc-imgs/tabs/tab-keepouts.jpg)  
+  
+![Tab trees](./layout-doc-imgs/tabs/tab-trees.jpg) ![Tab
 preferences](./layout-doc-imgs/tabs/tab-preferences.jpg)
 
 <div class="page-break">
@@ -184,9 +237,9 @@ Fixed buttons in this area:
 
 ### Notifications
 
-Everytime an operation is being executed, it will appear at the bottom
-of the canvas a bar with the name of that operation. Its color
-represents the type of notification:
+Everytime an operation is being executed, it will appear at the top of
+the canvas a bar with the name of that operation. Its color represents
+the type of notification:
 
   - Red: error
   - Orange: warning (you should wait until the operation is finished)
@@ -299,10 +352,23 @@ subareas that exist within that area.
 
 # Subareas
 
-## Subarea creation
-
 A subarea is a region inside an area that allows you to define a modules
 installation just in a section of the area.
+
+By clicking on a subarea, two views will appear: the project view (top)
+and the subarea view (bottom).
+
+The subarea view is hidden by default. To toggle its view, you have to
+click on the button 'Open subarea view' or 'Close subarea view' at the
+bottom of the canvas.
+
+![Subarea view](./layout-doc-imgs/subarea/subarea-view.jpg)
+
+> Note that when moving the subarea or changing its azimuth the subarea
+> view will be opened. This is because this view hasn't got any
+> deformation.
+
+## Subarea creation
 
 To create a subarea click on the 'Create subarea' button.
 
@@ -537,7 +603,7 @@ module](./layout-doc-imgs/snaps/context-panel-module.jpg)
 
 By doing this, it will display:
 
-  - The position of the module (col and row)
+  - The position of the module (column and row)
   - Its index position in the row
   - Its index position in the column
 
@@ -591,24 +657,50 @@ The shortcuts can be used in the following cases:
 
   - When drawing:
       - To enable/disable snap to guides, press 'S'
-      - To toggle between guide lines and vertices you can hold 'Ctrl'
+      - To toggle between guide lines and vertices you can hold
+        'Ctrl'/'Command'
       - To select/deselect vertices, click on them while pressing
         'Shift'
   - Editing a subarea:
       - Hold 'Shift' for selecting the hole row
-      - Hold 'Ctrl' for selecting the hole column
+      - Hold 'Ctrl'/'Command' for selecting the hole column
   - Moving a building, subarea or keepout:
       - Down: Numpad 1, 2, 3 | 'End' | 'Down arrow' | 'Page down'
       - Left: Numpad 1, 4, 7 | 'End' | 'Left arrow' | 'Home'
       - Right: Numpad 3, 6, 9 | 'Page down' | 'Right arrow' | 'Page up'
       - Center: Numpad 5 | 'Clear'
-  - Save: for saving the project in crm you can press 'Ctrl + Shift + S'
+  - Save: for saving the project in crm you can press 'Ctrl + Shift +
+    S'/'Command + Shift + S'
   - Widgets:
-      - To cancel the operation or close widget, press 'Esc'
-      - To confirm the operation, press 'Intro'
+      - To cancel the operation or close the widget, press 'Esc'
+      - To confirm the operation, press 'Enter'
 
 Anyways, these shortcuts will be displayed on a widget, so you can
 consult them when necessary.
 
 ![Move subarea shortcuts
 widget](./layout-doc-imgs/subarea/move-subarea-widget.png)
+
+<div class="page-break">
+
+</div>
+
+# Progress bar
+
+Everytime a long operation is being executed, it will be displayed a
+progress bar to inform the user.
+
+The progress bar it's composed of:
+
+  - Title: name of the operation being executed
+  - Label 1: function withing the operation
+  - Label 2: step of the funcion
+  - Bar: if there is a determinate number of steps it will be increasing
+    its value, if not, it will be shown as an animation
+
+![Generating textures progress
+bar](./layout-doc-imgs/general/progress-bar-textures.jpg)
+
+> Please, visit the section [Progress bar
+> customization](#progress-bar-customization) to learn how to customize
+> the progress bar.

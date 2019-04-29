@@ -37,6 +37,39 @@ If the widget is going to be only informative, there must be an 'eventOk' proper
 
 <div class="page-break"></div>
 
+# Progress bar customization
+
+The progress bar is managed by events. It has 4 listeners:
+
+* showProgressBar
+* resetProgressBar
+* updateProgressBar
+* hideProgressBar
+
+Resetting the progress bar will remove its width and set the bar animation. We recommend you to emit this event before updating the progress bar with a value.
+
+To update the progress bar it is important to first open it by emitting the event 'showProgressBar'. The values will be sent as an object this way:
+
+    ee.emitEvent('updateProgressBar', [{
+        title: 'Title of the operation'
+        label1: 'Name of function',
+        label2 : 'Step withing the function',
+        value: 50
+    }]);
+
+There are some cases that need to be mentioned when sending these parameters:
+
+* If 'title' is undefined, it will keep its last value. If it's different than the current one, the progress bar will reset
+* If 'label1' is undefined, it will keep its last value. If title has changed, it won't have a value
+* If 'label2' is undefined it won't have a value
+* If 'value' is undefined it will be displayed the animation in the bar. Otherwise, it's value will be added to the width of the bar.
+
+> The simplest example is generating all the textures. If the project has 3 bulidings, you will have to divide 100 by number of buildings, so that the bar width will increase a 33.3% each time the event is emitted.
+
+When the progress bar is being hidden, all of its texts are removed and the animation is shown.
+
+<div class="page-break"></div>
+
 # Layout Rules
 
 The user can customize many options in the 3DLayout. By passing a 'rules' attribute to the 3DLayout instance with a collection of objects, you can define the default values, add special behaviours to the 3DLayout and customize the interface.
@@ -184,6 +217,8 @@ Sample values:
         snapToVertices: false,
         maxAllowedBuildings: 0,
         viewportMode: 4,
+        customRowOffset: true,
+        customRowOrientation: true,
         hidden: []
     }
 
@@ -211,6 +246,8 @@ The attributes are:
         snapToVertices: enable snap to vertices or guideline intersections,
         maxAllowedBuildings: hides the button to create new buildings when their quantity is >= to this value (if it's 0 there is no max quantity),
         viewportMode: viewport mode,
+        customRowOffset: enable custom row offset (right click on modules),
+        customRowOrientation: enable custom row orientation (right click on modules),
         hidden: array of json properties within that json that don't want to be shown in panels
     }
 

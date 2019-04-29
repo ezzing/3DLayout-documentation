@@ -1,0 +1,41 @@
+# Table of contents
+
+  - [Introduction](#introduction)
+  - [Screenshots](#screenshots)
+  - [3DLayout Interface](#3dlayout-interface)
+      - [Aside Panel](#aside-panel)
+      - [Canvas Area](#canvas-area)
+          - [Buildings Index](#buildings-index)
+          - [Main Options](#main-options)
+          - [Control Buttons](#control-buttons)
+          - [Notifications](#notifications)
+  - [Buildings](#buildings)
+      - [Building creation](#building-creation)
+      - [Add building](#add-building)
+      - [Edit building](#edit-building)
+  - [Areas](#areas)
+      - [Edit area](#edit-area)
+  - [Subareas](#subareas)
+      - [Subarea creation](#subarea-creation)
+      - [Add subarea](#add-subarea)
+          - [Crop subarea to the area
+            shape](#crop-subarea-to-the-area-shape)
+          - [Edit subarea vertices](#edit-subarea-vertices)
+      - [Edit subarea](#edit-subarea)
+      - [Remove subarea](#remove-subarea)
+  - [Keepouts](#keepouts)
+      - [Invisible keepouts](#invisible-keepouts)
+      - [Crop keepout to the building
+        shape](#crop-keepout-to-the-building-shape)
+      - [Vertical and inclined
+        keepouts](#vertical-and-inclined-keepouts)
+  - [Trees](#trees)
+  - [Drawing with Snaps](#drawing-with-snaps)
+      - [Guide lines](#guide-lines)
+      - [Grid](#grid)
+      - [Context panel](#context-panel)
+  - [Textures](#textures)
+  - [Shortcuts](#shortcuts)
+  - [Progress bar](#progress-bar)
+
+<div class="page-break"></div>

@@ -43,6 +43,7 @@
 </header>
 <nav id="TOC">
 <ul>
+<li><a href="#table-of-contents">Table of contents</a></li>
 <li><a href="#introduction">Introduction</a></li>
 <li><a href="#screenshots">Screenshots</a></li>
 <li><a href="#3dlayout-interface">3DLayout Interface</a><ul>
@@ -84,6 +85,7 @@
 </ul></li>
 <li><a href="#textures">Textures</a></li>
 <li><a href="#shortcuts">Shortcuts</a></li>
+<li><a href="#progress-bar">Progress bar</a></li>
 <li><a href="#layout-coordinate-systems">Layout Coordinate Systems</a><ul>
 <li><a href="#world-coordinate-system">World Coordinate System</a></li>
 <li><a href="#scene-coordinate-system">Scene Coordinate System</a></li>
@@ -132,6 +134,7 @@
 </ul></li>
 </ul></li>
 <li><a href="#alert-widgets">Alert widgets</a></li>
+<li><a href="#progress-bar-customization">Progress bar customization</a></li>
 <li><a href="#layout-rules">Layout Rules</a><ul>
 <li><a href="#scene-preferences">Scene preferences</a><ul>
 <li><a href="#project">Project</a></li>
@@ -167,6 +170,155 @@
 </ul></li>
 </ul>
 </nav>
+<h1 id="table-of-contents">Table of contents</h1>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#screenshots">Screenshots</a></li>
+<li><a href="#3dlayout-interface">3DLayout Interface</a>
+<ul>
+<li><a href="#aside-panel">Aside Panel</a></li>
+<li><a href="#canvas-area">Canvas Area</a>
+<ul>
+<li><a href="#buildings-index">Buildings Index</a></li>
+<li><a href="#main-options">Main Options</a></li>
+<li><a href="#control-buttons">Control Buttons</a></li>
+<li><a href="#notifications">Notifications</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#buildings">Buildings</a>
+<ul>
+<li><a href="#building-creation">Building creation</a></li>
+<li><a href="#add-building">Add building</a></li>
+<li><a href="#edit-building">Edit building</a></li>
+</ul></li>
+<li><a href="#areas">Areas</a>
+<ul>
+<li><a href="#edit-area">Edit area</a></li>
+</ul></li>
+<li><a href="#subareas">Subareas</a>
+<ul>
+<li><a href="#subarea-creation">Subarea creation</a></li>
+<li><a href="#add-subarea">Add subarea</a>
+<ul>
+<li><a href="#crop-subarea-to-the-area-shape">Crop subarea to the area shape</a></li>
+<li><a href="#edit-subarea-vertices">Edit subarea vertices</a></li>
+</ul></li>
+<li><a href="#edit-subarea">Edit subarea</a></li>
+<li><a href="#remove-subarea">Remove subarea</a></li>
+</ul></li>
+<li><a href="#keepouts">Keepouts</a>
+<ul>
+<li><a href="#invisible-keepouts">Invisible keepouts</a></li>
+<li><a href="#crop-keepout-to-the-building-shape">Crop keepout to the building shape</a></li>
+<li><a href="#vertical-and-inclined-keepouts">Vertical and inclined keepouts</a></li>
+</ul></li>
+<li><a href="#trees">Trees</a></li>
+<li><a href="#drawing-with-snaps">Drawing with Snaps</a>
+<ul>
+<li><a href="#guide-lines">Guide lines</a></li>
+<li><a href="#grid">Grid</a></li>
+<li><a href="#context-panel">Context panel</a></li>
+</ul></li>
+<li><a href="#textures">Textures</a></li>
+<li><a href="#shortcuts">Shortcuts</a></li>
+<li><a href="#progress-bar">Progress bar</a></li>
+<li><a href="#layout-coordinate-systems">Layout Coordinate Systems</a>
+<ul>
+<li><a href="#world-coordinate-system">World Coordinate System</a></li>
+<li><a href="#scene-coordinate-system">Scene Coordinate System</a></li>
+<li><a href="#building-coordinate-system">Building Coordinate System</a></li>
+<li><a href="#area-coordinate-system">Area Coordinate System</a></li>
+</ul></li>
+<li><a href="#how-to-use">How to use</a>
+<ul>
+<li><a href="#api-key-and-autentication">API key and autentication</a></li>
+<li><a href="#dom-element">DOM element</a></li>
+<li><a href="#basic-functions">Basic functions</a>
+<ul>
+<li><a href="#createlayout">createLayout</a></li>
+<li><a href="#getlayout">getLayout</a></li>
+<li><a href="#listlayouts">listLayouts</a></li>
+<li><a href="#loadlayout">loadLayout</a></li>
+</ul></li>
+<li><a href="#showcase-mode">Showcase mode</a>
+<ul>
+<li><a href="#showcase-without-camera-spin">Showcase without camera spin</a></li>
+<li><a href="#showcase-with-camera-spin">Showcase with camera spin</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#3dlayout-communication-system">3DLayout Communication System</a>
+<ul>
+<li><a href="#info-events-sent-by-3dlayout">Info Events sent by 3DLayout</a>
+<ul>
+<li><a href="#zoomchanged">zoomChanged</a></li>
+<li><a href="#fullscreen">fullscreen</a></li>
+<li><a href="#tabchanged">tabChanged</a></li>
+<li><a href="#editarea">editArea</a></li>
+<li><a href="#editkeepout">editKeepout</a></li>
+<li><a href="#edittree">editTree</a></li>
+<li><a href="#areachanged">areaChanged</a></li>
+<li><a href="#buildingchanged">buildingChanged</a></li>
+<li><a href="#roofchanged">roofChanged</a></li>
+<li><a href="#editroof">editRoof</a></li>
+<li><a href="#editvertices">editVertices</a></li>
+<li><a href="#buildingremoved">buildingRemoved</a></li>
+<li><a href="#buildingselected">buildingSelected</a></li>
+<li><a href="#buildingcreated">buildingCreated</a></li>
+</ul></li>
+<li><a href="#functions-to-retrieve-info-from-3dlayout">Functions to retrieve info from 3DLayout</a>
+<ul>
+<li><a href="#generic-functions">Generic Functions</a></li>
+<li><a href="#building-related-functions">Building related functions</a></li>
+<li><a href="#area-related-functions">Area related functions</a></li>
+<li><a href="#subarea-related-functions">Subarea related functions</a></li>
+</ul></li>
+<li><a href="#functions-to-send-info-to-the-3dlayout">Functions to send info to the 3DLayout</a>
+<ul>
+<li><a href="#customalert-event">CustomAlert event</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#alert-widgets">Alert widgets</a></li>
+<li><a href="#progress-bar-customization">Progress bar customization</a></li>
+<li><a href="#layout-rules">Layout Rules</a>
+<ul>
+<li><a href="#scene-preferences">Scene preferences</a>
+<ul>
+<li><a href="#project">Project</a></li>
+<li><a href="#development">Development</a></li>
+<li><a href="#3d-canvas">3D canvas</a></li>
+<li><a href="#model">Model</a></li>
+<li><a href="#gui">GUI</a></li>
+</ul></li>
+<li><a href="#default-buttons">Default buttons</a></li>
+<li><a href="#default-languages">Default languages</a></li>
+<li><a href="#default-colors">Default colors</a>
+<ul>
+<li><a href="#css-colors">Css colors</a></li>
+<li><a href="#building-and-roof-colors">Building and roof colors</a></li>
+<li><a href="#keepout-colors">Keepout colors</a></li>
+<li><a href="#area-colors">Area colors</a></li>
+<li><a href="#dilatation-lines-colors">Dilatation lines colors</a></li>
+<li><a href="#module-colors">Module colors</a></li>
+<li><a href="#tree-colors">Tree colors</a></li>
+<li><a href="#custom-colors">Custom colors</a></li>
+</ul></li>
+<li><a href="#default-modules">Default modules</a></li>
+<li><a href="#default-providers">Default providers</a></li>
+<li><a href="#default-model-values">Default model values</a>
+<ul>
+<li><a href="#default-model-area-values">Default model area values</a></li>
+<li><a href="#default-model-building-values">Default model building values</a></li>
+<li><a href="#default-model-keepout-values">Default model keepout values</a></li>
+<li><a href="#default-model-roof-by-type-values">Default model roof by type values</a></li>
+<li><a href="#default-model-roof-values">Default model roof values</a></li>
+<li><a href="#default-model-subarea-by-roof-type-values">Default model subarea by roof type values</a></li>
+<li><a href="#default-model-subarea-values">Default model subarea values</a></li>
+<li><a href="#default-model-tree-values">Default model tree values</a></li>
+</ul></li>
+</ul></li>
+</ul>
+<div class="page-break"></div>
+
 <h1 id="introduction">Introduction</h1>
 <p>Ezzing 3DLayout is a PV planning tool that allows you to generate a 3d model of a building based on a satellite image. You can model any number of buildings, select between up to five different type of roofs, define keepouts and trees with custom heights...</p>
 <p>Inside each roof area you can customize different structures, select module models and get automated previews of your setup.</p>
@@ -183,6 +335,7 @@
 <h1 id="screenshots">Screenshots</h1>
 <img class="w100" src="./layout-doc-imgs/general/perspective-view.jpg" alt="Perspective view" />
 
+<p><br><br></p>
 <img class="w100" src="./layout-doc-imgs/general/sun-simulation.jpg" alt="Sun simulation" />
 
 <div class="page-break"></div>
@@ -194,13 +347,13 @@
 <br>
 
 <img class="w100" src="./layout-doc-imgs/tabs/tab-building.jpg" alt="Tab building" />
-
+<br><br>
 <img class="w100" src="./layout-doc-imgs/tabs/tab-areas-1.jpg" alt="Tab areas 1" />
 
 <img class="w100" src="./layout-doc-imgs/tabs/tab-areas-2.jpg" alt="Tab areas 2" />
-
+<br><br>
 <img class="w100" src="./layout-doc-imgs/tabs/tab-keepouts.jpg" alt="Tab keepouts" />
-
+<br><br>
 <img class="w100" src="./layout-doc-imgs/tabs/tab-trees.jpg" alt="Tab trees" />
 
 <img class="w100" src="./layout-doc-imgs/tabs/tab-preferences.jpg" alt="Tab preferences" />
@@ -262,7 +415,7 @@
 <p>Please, visit the section <a href="#custom-buttons">Custom Buttons</a> to learn how to add your own functions.</p>
 </blockquote>
 <h3 id="notifications">Notifications</h3>
-<p>Everytime an operation is being executed, it will appear at the bottom of the canvas a bar with the name of that operation. Its color represents the type of notification:</p>
+<p>Everytime an operation is being executed, it will appear at the top of the canvas a bar with the name of that operation. Its color represents the type of notification:</p>
 <ul>
 <li>Red: error</li>
 <li>Orange: warning (you should wait until the operation is finished)</li>
@@ -325,8 +478,15 @@
 <div class="page-break"></div>
 
 <h1 id="subareas">Subareas</h1>
-<h2 id="subarea-creation">Subarea creation</h2>
 <p>A subarea is a region inside an area that allows you to define a modules installation just in a section of the area.</p>
+<p>By clicking on a subarea, two views will appear: the project view (top) and the subarea view (bottom).</p>
+<p>The subarea view is hidden by default. To toggle its view, you have to click on the button 'Open subarea view' or 'Close subarea view' at the bottom of the canvas.</p>
+<img class="w75" src="./layout-doc-imgs/subarea/subarea-view.jpg" alt="Subarea view" />
+
+<blockquote>
+<p>Note that when moving the subarea or changing its azimuth the subarea view will be opened. This is because this view hasn't got any deformation.</p>
+</blockquote>
+<h2 id="subarea-creation">Subarea creation</h2>
 <p>To create a subarea click on the 'Create subarea' button.</p>
 <img class="w200px" src="./layout-doc-imgs/subarea/subarea-creation-button.png" alt="Subarea creation button" />
 
@@ -470,7 +630,7 @@ In keepout 2, A is also the desired height, but the keepout can't be drawn corre
 
 <p>By doing this, it will display:</p>
 <ul>
-<li>The position of the module (col and row)</li>
+<li>The position of the module (column and row)</li>
 <li>Its index position in the row</li>
 <li>Its index position in the column</li>
 </ul>
@@ -510,13 +670,13 @@ In keepout 2, A is also the desired height, but the keepout can't be drawn corre
 <li>When drawing:
 <ul>
 <li>To enable/disable snap to guides, press 'S'</li>
-<li>To toggle between guide lines and vertices you can hold 'Ctrl'</li>
+<li>To toggle between guide lines and vertices you can hold 'Ctrl'/'Command'</li>
 <li>To select/deselect vertices, click on them while pressing 'Shift'</li>
 </ul></li>
 <li>Editing a subarea:
 <ul>
 <li>Hold 'Shift' for selecting the hole row</li>
-<li>Hold 'Ctrl' for selecting the hole column</li>
+<li>Hold 'Ctrl'/'Command' for selecting the hole column</li>
 </ul></li>
 <li>Moving a building, subarea or keepout:
 <ul>
@@ -525,16 +685,32 @@ In keepout 2, A is also the desired height, but the keepout can't be drawn corre
 <li>Right: Numpad 3, 6, 9 | 'Page down' | 'Right arrow' | 'Page up'</li>
 <li>Center: Numpad 5 | 'Clear'</li>
 </ul></li>
-<li>Save: for saving the project in crm you can press 'Ctrl + Shift + S'</li>
+<li>Save: for saving the project in crm you can press 'Ctrl + Shift + S'/'Command + Shift + S'</li>
 <li>Widgets:
 <ul>
-<li>To cancel the operation or close widget, press 'Esc'</li>
-<li>To confirm the operation, press 'Intro'</li>
+<li>To cancel the operation or close the widget, press 'Esc'</li>
+<li>To confirm the operation, press 'Enter'</li>
 </ul></li>
 </ul>
 <p>Anyways, these shortcuts will be displayed on a widget, so you can consult them when necessary.</p>
 <img class="w100px" src="./layout-doc-imgs/subarea/move-subarea-widget.png" alt="Move subarea shortcuts widget" />
 
+<div class="page-break"></div>
+
+<h1 id="progress-bar">Progress bar</h1>
+<p>Everytime a long operation is being executed, it will be displayed a progress bar to inform the user.</p>
+<p>The progress bar it's composed of:</p>
+<ul>
+<li>Title: name of the operation being executed</li>
+<li>Label 1: function withing the operation</li>
+<li>Label 2: step of the funcion</li>
+<li>Bar: if there is a determinate number of steps it will be increasing its value, if not, it will be shown as an animation</li>
+</ul>
+<img class="w75" src="./layout-doc-imgs/general/progress-bar-textures.jpg" alt="Generating textures progress bar" />
+
+<blockquote>
+<p>Please, visit the section <a href="#progress-bar-customization">Progress bar customization</a> to learn how to customize the progress bar.</p>
+</blockquote>
 <div class="page-break"></div>
 
 <h1 id="layout-coordinate-systems">Layout Coordinate Systems</h1>
@@ -1188,6 +1364,36 @@ With this function you can change this building fields
 </blockquote>
 <div class="page-break"></div>
 
+<h1 id="progress-bar-customization">Progress bar customization</h1>
+<p>The progress bar is managed by events. It has 4 listeners:</p>
+<ul>
+<li>showProgressBar</li>
+<li>resetProgressBar</li>
+<li>updateProgressBar</li>
+<li>hideProgressBar</li>
+</ul>
+<p>Resetting the progress bar will remove its width and set the bar animation. We recommend you to emit this event before updating the progress bar with a value.</p>
+<p>To update the progress bar it is important to first open it by emitting the event 'showProgressBar'. The values will be sent as an object this way:</p>
+<pre><code>ee.emitEvent(&#39;updateProgressBar&#39;, [{
+    title: &#39;Title of the operation&#39;
+    label1: &#39;Name of function&#39;,
+    label2 : &#39;Step withing the function&#39;,
+    value: 50
+}]);
+</code></pre>
+<p>There are some cases that need to be mentioned when sending these parameters:</p>
+<ul>
+<li>If 'title' is undefined, it will keep its last value. If it's different than the current one, the progress bar will reset</li>
+<li>If 'label1' is undefined, it will keep its last value. If title has changed, it won't have a value</li>
+<li>If 'label2' is undefined it won't have a value</li>
+<li>If 'value' is undefined it will be displayed the animation in the bar. Otherwise, it's value will be added to the width of the bar.</li>
+</ul>
+<blockquote>
+<p>The simplest example is generating all the textures. If the project has 3 bulidings, you will have to divide 100 by number of buildings, so that the bar width will increase a 33.3% each time the event is emitted.</p>
+</blockquote>
+<p>When the progress bar is being hidden, all of its texts are removed and the animation is shown.</p>
+<div class="page-break"></div>
+
 <h1 id="layout-rules">Layout Rules</h1>
 <p>The user can customize many options in the 3DLayout. By passing a 'rules' attribute to the 3DLayout instance with a collection of objects, you can define the default values, add special behaviours to the 3DLayout and customize the interface.</p>
 <p>Example of rules object:</p>
@@ -1325,6 +1531,8 @@ With this function you can change this building fields
     snapToVertices: false,
     maxAllowedBuildings: 0,
     viewportMode: 4,
+    customRowOffset: true,
+    customRowOrientation: true,
     hidden: []
 }
 </code></pre>
@@ -1351,6 +1559,8 @@ With this function you can change this building fields
     snapToVertices: enable snap to vertices or guideline intersections,
     maxAllowedBuildings: hides the button to create new buildings when their quantity is &gt;= to this value (if it&#39;s 0 there is no max quantity),
     viewportMode: viewport mode,
+    customRowOffset: enable custom row offset (right click on modules),
+    customRowOrientation: enable custom row orientation (right click on modules),
     hidden: array of json properties within that json that don&#39;t want to be shown in panels
 }
 </code></pre>
