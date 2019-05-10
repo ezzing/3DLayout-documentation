@@ -6,7 +6,6 @@
 
 # Table of contents
 
-  - [Table of contents](#table-of-contents)
   - [Introduction](#introduction)
   - [Screenshots](#screenshots)
   - [3DLayout Interface](#3dlayout-interface)
@@ -122,128 +121,6 @@
           - [Default model subarea
             values](#default-model-subarea-values)
           - [Default model tree values](#default-model-tree-values)
-
-# Table of contents
-
-  - [Introduction](#introduction)
-  - [Screenshots](#screenshots)
-  - [3DLayout Interface](#3dlayout-interface)
-      - [Aside Panel](#aside-panel)
-      - [Canvas Area](#canvas-area)
-          - [Buildings Index](#buildings-index)
-          - [Main Options](#main-options)
-          - [Control Buttons](#control-buttons)
-          - [Notifications](#notifications)
-  - [Buildings](#buildings)
-      - [Building creation](#building-creation)
-      - [Add building](#add-building)
-      - [Edit building](#edit-building)
-  - [Areas](#areas)
-      - [Edit area](#edit-area)
-  - [Subareas](#subareas)
-      - [Subarea creation](#subarea-creation)
-      - [Add subarea](#add-subarea)
-          - [Crop subarea to the area
-            shape](#crop-subarea-to-the-area-shape)
-          - [Edit subarea vertices](#edit-subarea-vertices)
-      - [Edit subarea](#edit-subarea)
-      - [Remove subarea](#remove-subarea)
-  - [Keepouts](#keepouts)
-      - [Invisible keepouts](#invisible-keepouts)
-      - [Crop keepout to the building
-        shape](#crop-keepout-to-the-building-shape)
-      - [Vertical and inclined
-        keepouts](#vertical-and-inclined-keepouts)
-  - [Trees](#trees)
-  - [Drawing with Snaps](#drawing-with-snaps)
-      - [Guide lines](#guide-lines)
-      - [Grid](#grid)
-      - [Context panel](#context-panel)
-  - [Textures](#textures)
-  - [Shortcuts](#shortcuts)
-  - [Progress bar](#progress-bar)
-  - [Layout Coordinate Systems](#layout-coordinate-systems)
-      - [World Coordinate System](#world-coordinate-system)
-      - [Scene Coordinate System](#scene-coordinate-system)
-      - [Building Coordinate System](#building-coordinate-system)
-      - [Area Coordinate System](#area-coordinate-system)
-  - [How to use](#how-to-use)
-      - [API key and autentication](#api-key-and-autentication)
-      - [DOM element](#dom-element)
-      - [Basic functions](#basic-functions)
-          - [createLayout](#createlayout)
-          - [getLayout](#getlayout)
-          - [listLayouts](#listlayouts)
-          - [loadLayout](#loadlayout)
-      - [Showcase mode](#showcase-mode)
-          - [Showcase without camera
-            spin](#showcase-without-camera-spin)
-          - [Showcase with camera spin](#showcase-with-camera-spin)
-  - [3DLayout Communication System](#3dlayout-communication-system)
-      - [Info Events sent by 3DLayout](#info-events-sent-by-3dlayout)
-          - [zoomChanged](#zoomchanged)
-          - [fullscreen](#fullscreen)
-          - [tabChanged](#tabchanged)
-          - [editArea](#editarea)
-          - [editKeepout](#editkeepout)
-          - [editTree](#edittree)
-          - [areaChanged](#areachanged)
-          - [buildingChanged](#buildingchanged)
-          - [roofChanged](#roofchanged)
-          - [editRoof](#editroof)
-          - [editVertices](#editvertices)
-          - [buildingRemoved](#buildingremoved)
-          - [buildingSelected](#buildingselected)
-          - [buildingCreated](#buildingcreated)
-      - [Functions to retrieve info from
-        3DLayout](#functions-to-retrieve-info-from-3dlayout)
-          - [Generic Functions](#generic-functions)
-          - [Building related functions](#building-related-functions)
-          - [Area related functions](#area-related-functions)
-          - [Subarea related functions](#subarea-related-functions)
-      - [Functions to send info to the
-        3DLayout](#functions-to-send-info-to-the-3dlayout)
-          - [CustomAlert event](#customalert-event)
-  - [Alert widgets](#alert-widgets)
-  - [Progress bar customization](#progress-bar-customization)
-  - [Layout Rules](#layout-rules)
-      - [Scene preferences](#scene-preferences)
-          - [Project](#project)
-          - [Development](#development)
-          - [3D canvas](#3d-canvas)
-          - [Model](#model)
-          - [GUI](#gui)
-      - [Default buttons](#default-buttons)
-      - [Default languages](#default-languages)
-      - [Default colors](#default-colors)
-          - [Css colors](#css-colors)
-          - [Building and roof colors](#building-and-roof-colors)
-          - [Keepout colors](#keepout-colors)
-          - [Area colors](#area-colors)
-          - [Dilatation lines colors](#dilatation-lines-colors)
-          - [Module colors](#module-colors)
-          - [Tree colors](#tree-colors)
-          - [Custom colors](#custom-colors)
-      - [Default modules](#default-modules)
-      - [Default providers](#default-providers)
-      - [Default model values](#default-model-values)
-          - [Default model area values](#default-model-area-values)
-          - [Default model building
-            values](#default-model-building-values)
-          - [Default model keepout
-            values](#default-model-keepout-values)
-          - [Default model roof by type
-            values](#default-model-roof-by-type-values)
-          - [Default model roof values](#default-model-roof-values)
-          - [Default model subarea by roof type
-            values](#default-model-subarea-by-roof-type-values)
-          - [Default model subarea
-            values](#default-model-subarea-values)
-          - [Default model tree values](#default-model-tree-values)
-
-<div class="page-break">
-
-</div>
 
 # Introduction
 
@@ -319,9 +196,9 @@ preferences](./layout-doc-imgs/tabs/tab-preferences.jpg)
 ## Canvas Area
 
 In the canvas area you can see the satellite view and three different
-sets of elements: the **buildings index** on the left side, the **main
-options buttons** on the top, and the **control buttons** on the
-bottom-right corner.
+sets of elements: the **buildings index** on the top-left side, the
+**main options buttons** on the top-right, and the **control buttons**
+on the bottom-right corner.
 
 ![Canvas](./layout-doc-imgs/canvas/canvas.jpg)
 
@@ -518,7 +395,7 @@ The subarea view is hidden by default. To toggle its view, you have to
 click on the button 'Open subarea view' or 'Close subarea view' at the
 bottom of the canvas.
 
-![Subarea view](./layout-doc-imgs/subarea/subarea-view.jpg)
+![Subarea view](./layout-doc-imgs/subarea/edit-subarea.jpg)
 
 > Note that when moving the subarea or changing its azimuth the subarea
 > view will be opened. This is because this view hasn't got any
@@ -811,22 +688,23 @@ satellite image textures:
 
 The shortcuts can be used in the following cases:
 
+  - To navigate between tabs, press 1, 2, 3 or 4
   - When drawing:
       - To enable/disable snap to guides, press 'S'
-      - To toggle between guide lines and vertices you can hold
-        'Ctrl'/'Command'
+      - To toggle between guide lines and vertices you can hold 'Ctrl' /
+        '⌘'
       - To select/deselect vertices, click on them while pressing
         'Shift'
   - Editing a subarea:
       - Hold 'Shift' for selecting the hole row
-      - Hold 'Ctrl'/'Command' for selecting the hole column
+      - Hold 'Ctrl' / '⌘' for selecting the hole column
   - Moving a building, subarea or keepout:
       - Down: Numpad 1, 2, 3 | 'End' | 'Down arrow' | 'Page down'
       - Left: Numpad 1, 4, 7 | 'End' | 'Left arrow' | 'Home'
       - Right: Numpad 3, 6, 9 | 'Page down' | 'Right arrow' | 'Page up'
       - Center: Numpad 5 | 'Clear'
-  - Save: for saving the project in crm you can press 'Ctrl + Shift +
-    S'/'Command + Shift + S'
+  - Save: for saving the project in crm you can press 'Ctrl + Shift + S'
+    / '⌘ + Shift + S'
   - Widgets:
       - To cancel the operation or close the widget, press 'Esc'
       - To confirm the operation, press 'Enter'
@@ -836,6 +714,9 @@ consult them when necessary.
 
 ![Move subarea shortcuts
 widget](./layout-doc-imgs/subarea/move-subarea-widget.png)
+
+> For users with Mac operating system, Ctrl key in shortcuts will be
+> disabled using the Command key instead (⌘).
 
 <div class="page-break">
 
@@ -1809,7 +1690,9 @@ Sample values:
         zoomRatio: 1,
         translationRatio: 1,
         rotationRatio: 1,   
-        enablePlayer: true
+        enablePlayer: true,
+        customDateTime: false,
+        defaultDateTime: '2019-01-01T10:00'
     }
 
 The attributes are:
@@ -1821,7 +1704,9 @@ The attributes are:
         zoomRatio: zoom ratio for 3D mode,
         translationRatio: translation ratio for 3D mode,
         rotationRatio: rotation ratio for 3D mode,
-        enablePlayer: enable three.js canvas
+        enablePlayer: enable three.js canvas,
+        customDateTime: enable custom date time for sun simulation,
+        defaultDateTime: date time for sun simulation (customDateTime must be true, or defaultDateTime will be calculated depending on hemisphere)
     }
 
 ### Model
@@ -1832,7 +1717,7 @@ Sample values:
         collisionBias: 0.03,
         angleBias: 0.5,
         maxAreaInclination: 75,
-        sunSpeed: 1,
+        sunSpeed: 3,
         googleApiKey: '',
         bingApiKey: ''
     }

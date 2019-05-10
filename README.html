@@ -43,7 +43,6 @@
 </header>
 <nav id="TOC">
 <ul>
-<li><a href="#table-of-contents">Table of contents</a></li>
 <li><a href="#introduction">Introduction</a></li>
 <li><a href="#screenshots">Screenshots</a></li>
 <li><a href="#3dlayout-interface">3DLayout Interface</a><ul>
@@ -170,155 +169,6 @@
 </ul></li>
 </ul>
 </nav>
-<h1 id="table-of-contents">Table of contents</h1>
-<ul>
-<li><a href="#introduction">Introduction</a></li>
-<li><a href="#screenshots">Screenshots</a></li>
-<li><a href="#3dlayout-interface">3DLayout Interface</a>
-<ul>
-<li><a href="#aside-panel">Aside Panel</a></li>
-<li><a href="#canvas-area">Canvas Area</a>
-<ul>
-<li><a href="#buildings-index">Buildings Index</a></li>
-<li><a href="#main-options">Main Options</a></li>
-<li><a href="#control-buttons">Control Buttons</a></li>
-<li><a href="#notifications">Notifications</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#buildings">Buildings</a>
-<ul>
-<li><a href="#building-creation">Building creation</a></li>
-<li><a href="#add-building">Add building</a></li>
-<li><a href="#edit-building">Edit building</a></li>
-</ul></li>
-<li><a href="#areas">Areas</a>
-<ul>
-<li><a href="#edit-area">Edit area</a></li>
-</ul></li>
-<li><a href="#subareas">Subareas</a>
-<ul>
-<li><a href="#subarea-creation">Subarea creation</a></li>
-<li><a href="#add-subarea">Add subarea</a>
-<ul>
-<li><a href="#crop-subarea-to-the-area-shape">Crop subarea to the area shape</a></li>
-<li><a href="#edit-subarea-vertices">Edit subarea vertices</a></li>
-</ul></li>
-<li><a href="#edit-subarea">Edit subarea</a></li>
-<li><a href="#remove-subarea">Remove subarea</a></li>
-</ul></li>
-<li><a href="#keepouts">Keepouts</a>
-<ul>
-<li><a href="#invisible-keepouts">Invisible keepouts</a></li>
-<li><a href="#crop-keepout-to-the-building-shape">Crop keepout to the building shape</a></li>
-<li><a href="#vertical-and-inclined-keepouts">Vertical and inclined keepouts</a></li>
-</ul></li>
-<li><a href="#trees">Trees</a></li>
-<li><a href="#drawing-with-snaps">Drawing with Snaps</a>
-<ul>
-<li><a href="#guide-lines">Guide lines</a></li>
-<li><a href="#grid">Grid</a></li>
-<li><a href="#context-panel">Context panel</a></li>
-</ul></li>
-<li><a href="#textures">Textures</a></li>
-<li><a href="#shortcuts">Shortcuts</a></li>
-<li><a href="#progress-bar">Progress bar</a></li>
-<li><a href="#layout-coordinate-systems">Layout Coordinate Systems</a>
-<ul>
-<li><a href="#world-coordinate-system">World Coordinate System</a></li>
-<li><a href="#scene-coordinate-system">Scene Coordinate System</a></li>
-<li><a href="#building-coordinate-system">Building Coordinate System</a></li>
-<li><a href="#area-coordinate-system">Area Coordinate System</a></li>
-</ul></li>
-<li><a href="#how-to-use">How to use</a>
-<ul>
-<li><a href="#api-key-and-autentication">API key and autentication</a></li>
-<li><a href="#dom-element">DOM element</a></li>
-<li><a href="#basic-functions">Basic functions</a>
-<ul>
-<li><a href="#createlayout">createLayout</a></li>
-<li><a href="#getlayout">getLayout</a></li>
-<li><a href="#listlayouts">listLayouts</a></li>
-<li><a href="#loadlayout">loadLayout</a></li>
-</ul></li>
-<li><a href="#showcase-mode">Showcase mode</a>
-<ul>
-<li><a href="#showcase-without-camera-spin">Showcase without camera spin</a></li>
-<li><a href="#showcase-with-camera-spin">Showcase with camera spin</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#3dlayout-communication-system">3DLayout Communication System</a>
-<ul>
-<li><a href="#info-events-sent-by-3dlayout">Info Events sent by 3DLayout</a>
-<ul>
-<li><a href="#zoomchanged">zoomChanged</a></li>
-<li><a href="#fullscreen">fullscreen</a></li>
-<li><a href="#tabchanged">tabChanged</a></li>
-<li><a href="#editarea">editArea</a></li>
-<li><a href="#editkeepout">editKeepout</a></li>
-<li><a href="#edittree">editTree</a></li>
-<li><a href="#areachanged">areaChanged</a></li>
-<li><a href="#buildingchanged">buildingChanged</a></li>
-<li><a href="#roofchanged">roofChanged</a></li>
-<li><a href="#editroof">editRoof</a></li>
-<li><a href="#editvertices">editVertices</a></li>
-<li><a href="#buildingremoved">buildingRemoved</a></li>
-<li><a href="#buildingselected">buildingSelected</a></li>
-<li><a href="#buildingcreated">buildingCreated</a></li>
-</ul></li>
-<li><a href="#functions-to-retrieve-info-from-3dlayout">Functions to retrieve info from 3DLayout</a>
-<ul>
-<li><a href="#generic-functions">Generic Functions</a></li>
-<li><a href="#building-related-functions">Building related functions</a></li>
-<li><a href="#area-related-functions">Area related functions</a></li>
-<li><a href="#subarea-related-functions">Subarea related functions</a></li>
-</ul></li>
-<li><a href="#functions-to-send-info-to-the-3dlayout">Functions to send info to the 3DLayout</a>
-<ul>
-<li><a href="#customalert-event">CustomAlert event</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#alert-widgets">Alert widgets</a></li>
-<li><a href="#progress-bar-customization">Progress bar customization</a></li>
-<li><a href="#layout-rules">Layout Rules</a>
-<ul>
-<li><a href="#scene-preferences">Scene preferences</a>
-<ul>
-<li><a href="#project">Project</a></li>
-<li><a href="#development">Development</a></li>
-<li><a href="#3d-canvas">3D canvas</a></li>
-<li><a href="#model">Model</a></li>
-<li><a href="#gui">GUI</a></li>
-</ul></li>
-<li><a href="#default-buttons">Default buttons</a></li>
-<li><a href="#default-languages">Default languages</a></li>
-<li><a href="#default-colors">Default colors</a>
-<ul>
-<li><a href="#css-colors">Css colors</a></li>
-<li><a href="#building-and-roof-colors">Building and roof colors</a></li>
-<li><a href="#keepout-colors">Keepout colors</a></li>
-<li><a href="#area-colors">Area colors</a></li>
-<li><a href="#dilatation-lines-colors">Dilatation lines colors</a></li>
-<li><a href="#module-colors">Module colors</a></li>
-<li><a href="#tree-colors">Tree colors</a></li>
-<li><a href="#custom-colors">Custom colors</a></li>
-</ul></li>
-<li><a href="#default-modules">Default modules</a></li>
-<li><a href="#default-providers">Default providers</a></li>
-<li><a href="#default-model-values">Default model values</a>
-<ul>
-<li><a href="#default-model-area-values">Default model area values</a></li>
-<li><a href="#default-model-building-values">Default model building values</a></li>
-<li><a href="#default-model-keepout-values">Default model keepout values</a></li>
-<li><a href="#default-model-roof-by-type-values">Default model roof by type values</a></li>
-<li><a href="#default-model-roof-values">Default model roof values</a></li>
-<li><a href="#default-model-subarea-by-roof-type-values">Default model subarea by roof type values</a></li>
-<li><a href="#default-model-subarea-values">Default model subarea values</a></li>
-<li><a href="#default-model-tree-values">Default model tree values</a></li>
-</ul></li>
-</ul></li>
-</ul>
-<div class="page-break"></div>
-
 <h1 id="introduction">Introduction</h1>
 <p>Ezzing 3DLayout is a PV planning tool that allows you to generate a 3d model of a building based on a satellite image. You can model any number of buildings, select between up to five different type of roofs, define keepouts and trees with custom heights...</p>
 <p>Inside each roof area you can customize different structures, select module models and get automated previews of your setup.</p>
@@ -361,7 +211,7 @@
 <div class="page-break"></div>
 
 <h2 id="canvas-area">Canvas Area</h2>
-<p>In the canvas area you can see the satellite view and three different sets of elements: the <strong>buildings index</strong> on the left side, the <strong>main options buttons</strong> on the top, and the <strong>control buttons</strong> on the bottom-right corner.</p>
+<p>In the canvas area you can see the satellite view and three different sets of elements: the <strong>buildings index</strong> on the top-left side, the <strong>main options buttons</strong> on the top-right, and the <strong>control buttons</strong> on the bottom-right corner.</p>
 <img class="w100" src="./layout-doc-imgs/canvas/canvas.jpg" alt="Canvas" />
 
 <div class="page-break"></div>
@@ -481,7 +331,7 @@
 <p>A subarea is a region inside an area that allows you to define a modules installation just in a section of the area.</p>
 <p>By clicking on a subarea, two views will appear: the project view (top) and the subarea view (bottom).</p>
 <p>The subarea view is hidden by default. To toggle its view, you have to click on the button 'Open subarea view' or 'Close subarea view' at the bottom of the canvas.</p>
-<img class="w75" src="./layout-doc-imgs/subarea/subarea-view.jpg" alt="Subarea view" />
+<img class="w75" src="./layout-doc-imgs/subarea/edit-subarea.jpg" alt="Subarea view" />
 
 <blockquote>
 <p>Note that when moving the subarea or changing its azimuth the subarea view will be opened. This is because this view hasn't got any deformation.</p>
@@ -667,16 +517,17 @@ In keepout 2, A is also the desired height, but the keepout can't be drawn corre
 <h1 id="shortcuts">Shortcuts</h1>
 <p>The shortcuts can be used in the following cases:</p>
 <ul>
+<li>To navigate between tabs, press 1, 2, 3 or 4</li>
 <li>When drawing:
 <ul>
 <li>To enable/disable snap to guides, press 'S'</li>
-<li>To toggle between guide lines and vertices you can hold 'Ctrl'/'Command'</li>
+<li>To toggle between guide lines and vertices you can hold 'Ctrl' / '⌘'</li>
 <li>To select/deselect vertices, click on them while pressing 'Shift'</li>
 </ul></li>
 <li>Editing a subarea:
 <ul>
 <li>Hold 'Shift' for selecting the hole row</li>
-<li>Hold 'Ctrl'/'Command' for selecting the hole column</li>
+<li>Hold 'Ctrl' / '⌘' for selecting the hole column</li>
 </ul></li>
 <li>Moving a building, subarea or keepout:
 <ul>
@@ -685,7 +536,7 @@ In keepout 2, A is also the desired height, but the keepout can't be drawn corre
 <li>Right: Numpad 3, 6, 9 | 'Page down' | 'Right arrow' | 'Page up'</li>
 <li>Center: Numpad 5 | 'Clear'</li>
 </ul></li>
-<li>Save: for saving the project in crm you can press 'Ctrl + Shift + S'/'Command + Shift + S'</li>
+<li>Save: for saving the project in crm you can press 'Ctrl + Shift + S' / '⌘ + Shift + S'</li>
 <li>Widgets:
 <ul>
 <li>To cancel the operation or close the widget, press 'Esc'</li>
@@ -695,6 +546,9 @@ In keepout 2, A is also the desired height, but the keepout can't be drawn corre
 <p>Anyways, these shortcuts will be displayed on a widget, so you can consult them when necessary.</p>
 <img class="w100px" src="./layout-doc-imgs/subarea/move-subarea-widget.png" alt="Move subarea shortcuts widget" />
 
+<blockquote>
+<p>For users with Mac operating system, Ctrl key in shortcuts will be disabled using the Command key instead (⌘).</p>
+</blockquote>
 <div class="page-break"></div>
 
 <h1 id="progress-bar">Progress bar</h1>
@@ -1472,7 +1326,9 @@ With this function you can change this building fields
     zoomRatio: 1,
     translationRatio: 1,
     rotationRatio: 1,   
-    enablePlayer: true
+    enablePlayer: true,
+    customDateTime: false,
+    defaultDateTime: &#39;2019-01-01T10:00&#39;
 }
 </code></pre>
 <p>The attributes are:</p>
@@ -1483,7 +1339,9 @@ With this function you can change this building fields
     zoomRatio: zoom ratio for 3D mode,
     translationRatio: translation ratio for 3D mode,
     rotationRatio: rotation ratio for 3D mode,
-    enablePlayer: enable three.js canvas
+    enablePlayer: enable three.js canvas,
+    customDateTime: enable custom date time for sun simulation,
+    defaultDateTime: date time for sun simulation (customDateTime must be true, or defaultDateTime will be calculated depending on hemisphere)
 }
 </code></pre>
 <h3 id="model">Model</h3>
@@ -1492,7 +1350,7 @@ With this function you can change this building fields
     collisionBias: 0.03,
     angleBias: 0.5,
     maxAreaInclination: 75,
-    sunSpeed: 1,
+    sunSpeed: 3,
     googleApiKey: &#39;&#39;,
     bingApiKey: &#39;&#39;
 }

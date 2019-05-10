@@ -55,7 +55,7 @@ In the aside panel you can find functionalities related to the current active bu
 
 ## Canvas Area
 
-In the canvas area you can see the satellite view and three different sets of elements: the **buildings index** on the left side, the **main options buttons** on the top, and the **control buttons** on the bottom-right corner.
+In the canvas area you can see the satellite view and three different sets of elements: the **buildings index** on the top-left side, the **main options buttons** on the top-right, and the **control buttons** on the bottom-right corner.
 
 <img class="w100" src="./layout-doc-imgs/canvas/canvas.jpg" alt="Canvas" />
 
@@ -206,7 +206,7 @@ By clicking on a subarea, two views will appear: the project view (top) and the 
 
 The subarea view is hidden by default. To toggle its view, you have to click on the button 'Open subarea view' or 'Close subarea view' at the bottom of the canvas.
 
-<img class="w75" src="./layout-doc-imgs/subarea/subarea-view.jpg" alt="Subarea view" />
+<img class="w75" src="./layout-doc-imgs/subarea/edit-subarea.jpg" alt="Subarea view" />
 
 > Note that when moving the subarea or changing its azimuth the subarea view will be opened. This is because this view hasn't got any deformation.
 
@@ -435,19 +435,20 @@ In the building panel you can see the different options for the satellite image 
 
 The shortcuts can be used in the following cases:
 
+* To navigate between tabs, press 1, 2, 3 or 4
 * When drawing:
     * To enable/disable snap to guides, press 'S'
-    * To toggle between guide lines and vertices you can hold 'Ctrl'/'Command'
+    * To toggle between guide lines and vertices you can hold 'Ctrl' / '⌘'
     * To select/deselect vertices, click on them while pressing 'Shift'
 * Editing a subarea:
     * Hold 'Shift' for selecting the hole row
-    * Hold 'Ctrl'/'Command' for selecting the hole column
+    * Hold 'Ctrl' / '⌘' for selecting the hole column
 * Moving a building, subarea or keepout:
     * Down: Numpad 1, 2, 3 | 'End' | 'Down arrow' | 'Page down'
     * Left: Numpad 1, 4, 7 | 'End' | 'Left arrow' | 'Home'
     * Right: Numpad 3, 6, 9 | 'Page down' | 'Right arrow' | 'Page up'
     * Center: Numpad 5 | 'Clear'
-* Save: for saving the project in crm you can press 'Ctrl + Shift + S'/'Command + Shift + S'
+* Save: for saving the project in crm you can press 'Ctrl + Shift + S' / '⌘ + Shift + S'
 * Widgets:
     * To cancel the operation or close the widget, press 'Esc'
     * To confirm the operation, press 'Enter'
@@ -455,6 +456,8 @@ The shortcuts can be used in the following cases:
 Anyways, these shortcuts will be displayed on a widget, so you can consult them when necessary.
 
 <img class="w100px" src="./layout-doc-imgs/subarea/move-subarea-widget.png" alt="Move subarea shortcuts widget" />
+
+> For users with Mac operating system, Ctrl key in shortcuts will be disabled using the Command key instead (⌘).
 
 <div class="page-break"></div>
 

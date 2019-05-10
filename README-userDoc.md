@@ -6,7 +6,6 @@
 
 # Table of contents
 
-  - [Table of contents](#table-of-contents)
   - [Introduction](#introduction)
   - [Screenshots](#screenshots)
   - [3DLayout Interface](#3dlayout-interface)
@@ -44,50 +43,6 @@
   - [Textures](#textures)
   - [Shortcuts](#shortcuts)
   - [Progress bar](#progress-bar)
-
-# Table of contents
-
-  - [Introduction](#introduction)
-  - [Screenshots](#screenshots)
-  - [3DLayout Interface](#3dlayout-interface)
-      - [Aside Panel](#aside-panel)
-      - [Canvas Area](#canvas-area)
-          - [Buildings Index](#buildings-index)
-          - [Main Options](#main-options)
-          - [Control Buttons](#control-buttons)
-          - [Notifications](#notifications)
-  - [Buildings](#buildings)
-      - [Building creation](#building-creation)
-      - [Add building](#add-building)
-      - [Edit building](#edit-building)
-  - [Areas](#areas)
-      - [Edit area](#edit-area)
-  - [Subareas](#subareas)
-      - [Subarea creation](#subarea-creation)
-      - [Add subarea](#add-subarea)
-          - [Crop subarea to the area
-            shape](#crop-subarea-to-the-area-shape)
-          - [Edit subarea vertices](#edit-subarea-vertices)
-      - [Edit subarea](#edit-subarea)
-      - [Remove subarea](#remove-subarea)
-  - [Keepouts](#keepouts)
-      - [Invisible keepouts](#invisible-keepouts)
-      - [Crop keepout to the building
-        shape](#crop-keepout-to-the-building-shape)
-      - [Vertical and inclined
-        keepouts](#vertical-and-inclined-keepouts)
-  - [Trees](#trees)
-  - [Drawing with Snaps](#drawing-with-snaps)
-      - [Guide lines](#guide-lines)
-      - [Grid](#grid)
-      - [Context panel](#context-panel)
-  - [Textures](#textures)
-  - [Shortcuts](#shortcuts)
-  - [Progress bar](#progress-bar)
-
-<div class="page-break">
-
-</div>
 
 # Introduction
 
@@ -163,9 +118,9 @@ preferences](./layout-doc-imgs/tabs/tab-preferences.jpg)
 ## Canvas Area
 
 In the canvas area you can see the satellite view and three different
-sets of elements: the **buildings index** on the left side, the **main
-options buttons** on the top, and the **control buttons** on the
-bottom-right corner.
+sets of elements: the **buildings index** on the top-left side, the
+**main options buttons** on the top-right, and the **control buttons**
+on the bottom-right corner.
 
 ![Canvas](./layout-doc-imgs/canvas/canvas.jpg)
 
@@ -362,7 +317,7 @@ The subarea view is hidden by default. To toggle its view, you have to
 click on the button 'Open subarea view' or 'Close subarea view' at the
 bottom of the canvas.
 
-![Subarea view](./layout-doc-imgs/subarea/subarea-view.jpg)
+![Subarea view](./layout-doc-imgs/subarea/edit-subarea.jpg)
 
 > Note that when moving the subarea or changing its azimuth the subarea
 > view will be opened. This is because this view hasn't got any
@@ -655,22 +610,23 @@ satellite image textures:
 
 The shortcuts can be used in the following cases:
 
+  - To navigate between tabs, press 1, 2, 3 or 4
   - When drawing:
       - To enable/disable snap to guides, press 'S'
-      - To toggle between guide lines and vertices you can hold
-        'Ctrl'/'Command'
+      - To toggle between guide lines and vertices you can hold 'Ctrl' /
+        '⌘'
       - To select/deselect vertices, click on them while pressing
         'Shift'
   - Editing a subarea:
       - Hold 'Shift' for selecting the hole row
-      - Hold 'Ctrl'/'Command' for selecting the hole column
+      - Hold 'Ctrl' / '⌘' for selecting the hole column
   - Moving a building, subarea or keepout:
       - Down: Numpad 1, 2, 3 | 'End' | 'Down arrow' | 'Page down'
       - Left: Numpad 1, 4, 7 | 'End' | 'Left arrow' | 'Home'
       - Right: Numpad 3, 6, 9 | 'Page down' | 'Right arrow' | 'Page up'
       - Center: Numpad 5 | 'Clear'
-  - Save: for saving the project in crm you can press 'Ctrl + Shift +
-    S'/'Command + Shift + S'
+  - Save: for saving the project in crm you can press 'Ctrl + Shift + S'
+    / '⌘ + Shift + S'
   - Widgets:
       - To cancel the operation or close the widget, press 'Esc'
       - To confirm the operation, press 'Enter'
@@ -680,6 +636,9 @@ consult them when necessary.
 
 ![Move subarea shortcuts
 widget](./layout-doc-imgs/subarea/move-subarea-widget.png)
+
+> For users with Mac operating system, Ctrl key in shortcuts will be
+> disabled using the Command key instead (⌘).
 
 <div class="page-break">
 

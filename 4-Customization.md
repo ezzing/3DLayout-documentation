@@ -152,7 +152,9 @@ Sample values:
         zoomRatio: 1,
         translationRatio: 1,
         rotationRatio: 1,   
-        enablePlayer: true
+        enablePlayer: true,
+        customDateTime: false,
+        defaultDateTime: '2019-01-01T10:00'
     }
 
 The attributes are:
@@ -164,7 +166,9 @@ The attributes are:
         zoomRatio: zoom ratio for 3D mode,
         translationRatio: translation ratio for 3D mode,
         rotationRatio: rotation ratio for 3D mode,
-        enablePlayer: enable three.js canvas
+        enablePlayer: enable three.js canvas,
+        customDateTime: enable custom date time for sun simulation,
+        defaultDateTime: date time for sun simulation (customDateTime must be true, or defaultDateTime will be calculated depending on hemisphere)
     }
 
 ### Model
@@ -175,7 +179,7 @@ Sample values:
         collisionBias: 0.03,
         angleBias: 0.5,
         maxAreaInclination: 75,
-        sunSpeed: 1,
+        sunSpeed: 3,
         googleApiKey: '',
         bingApiKey: ''
     }
