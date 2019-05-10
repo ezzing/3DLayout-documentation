@@ -158,9 +158,6 @@ The default custom buttons are:
   - Renderer
   - Satellite provider selector (only showed if available)
 
-> Please, visit the section [Custom Buttons](#custom-buttons) to learn
-> how to add your own buttons.
-
 <div class="page-break">
 
 </div>
@@ -186,9 +183,6 @@ Fixed buttons in this area:
   - Geolocation: centers 3D view to the project
   - Zoom in
   - Zoom out
-
-> Please, visit the section [Custom Buttons](#custom-buttons) to learn
-> how to add your own functions.
 
 ### Notifications
 
@@ -246,6 +240,10 @@ corrugated) except for the flat ones (gravel, bitumen, membrane, and
 concrete):
 
 ![Roof materials](./layout-doc-imgs/building/roof-materials.png)
+
+<div class="page-break">
+
+</div>
 
 When the operation is finished, the textures of the building are
 generated using the mapper tool and the modules appear in a default
@@ -581,10 +579,6 @@ disable their automatic creation in the Preferences panel.
 
 ![Building textures
 toggle](./layout-doc-imgs/general/building-textures-toggle.png)
-
-> Please, visit the section [Layout Rules](#layout-rules) to learn how
-> to customize this property.
-
 ![Textures](./layout-doc-imgs/general/textures.png)
 
 In the building panel you can see the different options for the
@@ -659,7 +653,3 @@ The progress bar it's composed of:
 
 ![Generating textures progress
 bar](./layout-doc-imgs/general/progress-bar-textures.jpg)
-
-> Please, visit the section [Progress bar
-> customization](#progress-bar-customization) to learn how to customize
-> the progress bar.
