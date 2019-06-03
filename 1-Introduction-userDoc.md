@@ -42,13 +42,13 @@ In the aside panel you can find functionalities related to the current active bu
 <img class="w100" src="./layout-doc-imgs/tabs/tab-building.jpg" alt="Tab building" />
 <br><br>
 <img class="w100" src="./layout-doc-imgs/tabs/tab-areas-1.jpg" alt="Tab areas 1" />
-
+<br><br>
 <img class="w100" src="./layout-doc-imgs/tabs/tab-areas-2.jpg" alt="Tab areas 2" />
 <br><br>
 <img class="w100" src="./layout-doc-imgs/tabs/tab-keepouts.jpg" alt="Tab keepouts" />
 <br><br>
 <img class="w100" src="./layout-doc-imgs/tabs/tab-trees.jpg" alt="Tab trees" />
-
+<br><br>
 <img class="w100" src="./layout-doc-imgs/tabs/tab-preferences.jpg" alt="Tab preferences" />
 
 <div class="page-break"></div>

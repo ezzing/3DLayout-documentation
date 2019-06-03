@@ -134,6 +134,9 @@
 </ul></li>
 <li><a href="#alert-widgets">Alert widgets</a></li>
 <li><a href="#progress-bar-customization">Progress bar customization</a></li>
+<li><a href="#custom-panels">Custom panels</a><ul>
+<li><a href="#panel-blocks">Panel blocks</a></li>
+</ul></li>
 <li><a href="#layout-rules">Layout Rules</a><ul>
 <li><a href="#scene-preferences">Scene preferences</a><ul>
 <li><a href="#project">Project</a></li>
@@ -165,6 +168,23 @@
 <li><a href="#default-model-subarea-by-roof-type-values">Default model subarea by roof type values</a></li>
 <li><a href="#default-model-subarea-values">Default model subarea values</a></li>
 <li><a href="#default-model-tree-values">Default model tree values</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#changelog">Changelog</a><ul>
+<li><a href="#v3180-03062019">v3.18.0 (03/06/2019)</a><ul>
+<li><a href="#features">Features</a></li>
+<li><a href="#fixes">Fixes</a></li>
+</ul></li>
+<li><a href="#v3171-29052019">v3.17.1 (29/05/2019)</a><ul>
+<li><a href="#fixes-1">Fixes</a></li>
+</ul></li>
+<li><a href="#v3170-13052019">v3.17.0 (13/05/2019)</a><ul>
+<li><a href="#features-1">Features</a></li>
+<li><a href="#fixes-2">Fixes</a></li>
+</ul></li>
+<li><a href="#v3160-30042019">v3.16.0 (30/04/2019)</a><ul>
+<li><a href="#features-2">Features</a></li>
+<li><a href="#fixes-3">Fixes</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -1248,6 +1268,86 @@ With this function you can change this building fields
 <p>When the progress bar is being hidden, all of its texts are removed and the animation is shown.</p>
 <div class="page-break"></div>
 
+<h1 id="custom-panels">Custom panels</h1>
+<p>You can customize all of the panels by changing their content.</p>
+<p>There is a function in the API called setCustomPanel that receives as parameter a json that contains the panel info, content, functions and listeners.</p>
+<p>To create a new panel, the panel elements must be in a 'json' property and a 'populate' property must be valued with 'updatePanel'.</p>
+<pre><code>var newPanel = {
+    name: &#39;panel-name&#39;,
+    model: &#39;EZModelKeepout&#39;,
+    customMethods: {},
+    customGuiMethods: {},
+    customListeners: {},
+    json: {
+        name: {
+            type: &#39;string&#39;,
+            property: &#39;name&#39;,
+            label: &#39;keepout_name&#39;,
+            value: this.name
+        }
+    },
+    populate: &#39;updatePanel&#39;
+}
+</code></pre>
+<p>To create a group of panels, they have to be declared as customMethods:</p>
+<pre><code>var keepoutPanels = {
+    name: &#39;custom-keepouts-panels&#39;,
+    model: &#39;EZModelKeepout&#39;,
+    customMethods: {
+        keepoutCreate: customKeepoutCreatePanel,
+        keepoutEdit: customKeepoutEditPanel,
+        keepoutInfo: customKeepoutInfoPanel
+    },
+    customGuiMethods: {}
+};
+</code></pre>
+<p>These panels are also jsons that define the content of each panel by blocks.</p>
+<blockquote>
+<p>Please, visit the section <a href="#panel-blocks">Panel blocks</a> to learn how to create different blocks in panels.</p>
+</blockquote>
+<div class="page-break"></div>
+
+<p>CustomMethods are functions that extend the given model (for example, EZModelKeepout). For executing these, you have to use the runMethod operator in an eventOnClick/eventOnChange property:</p>
+<pre><code>eventOnChange: [&#39;EZModelKeepout_runMethodListener&#39;, &#39;nameOfTheCustomMethod&#39;]
+</code></pre>
+<p>CustomGUIMethod will be executed directly in a functionOnClick/functionOnChange giving arguments as a second paramenter:</p>
+<pre><code>functionOnClick: [&#39;nameOfTheGUIMethod&#39;, argument],
+</code></pre>
+<p>CustomListeners define which event are listening to, and which customGUIMethod will run:</p>
+<pre><code>nameOfProperty: [&#39;eventToListen&#39;, &#39;nameOfTheGUIMethod&#39;]
+</code></pre>
+<h2 id="panel-blocks">Panel blocks</h2>
+<p>To create different blocks, each element must have a 'type' property. These are the available types:</p>
+<ul>
+<li>string</li>
+<li>float / integer</li>
+<li>boolean</li>
+<li>select</li>
+<li>selectByImage</li>
+<li>selectBySVGImage</li>
+<li>azimuthRange</li>
+<li>helper</li>
+<li>link</li>
+<li>groupBlock</li>
+<li>button</li>
+<li>listResume</li>
+<li>blockList</li>
+<li>foldableBlock</li>
+<li>subareaBlock</li>
+<li>blockResume</li>
+<li>title</li>
+<li>compass</li>
+<li>invisibleKeepout</li>
+<li>stringWidget</li>
+<li>selectWidget</li>
+<li>buttonsPanelWidget</li>
+<li>buttonWidget</li>
+<li>rangeWidget</li>
+<li>dateTimeWidget</li>
+<li>booleanWidget</li>
+<li>imageNavigator</li>
+<li>navigator</li>
+</ul>
 <h1 id="layout-rules">Layout Rules</h1>
 <p>The user can customize many options in the 3DLayout. By passing a 'rules' attribute to the 3DLayout instance with a collection of objects, you can define the default values, add special behaviours to the 3DLayout and customize the interface.</p>
 <p>Example of rules object:</p>
@@ -1888,5 +1988,57 @@ roofRidgeColors: {
     hidden: [ ]
 }
 </code></pre>
+<div class="page-break"></div>
+
+<h1 id="changelog">Changelog</h1>
+<h2 id="v3180-03062019">v3.18.0 (03/06/2019)</h2>
+<h3 id="features">Features</h3>
+<ul>
+<li>Created new tree shapes</li>
+<li>Changed cancel widget button background color to gray</li>
+<li>Logo and attributions aren't displayed when Mapper is deactivated</li>
+<li>Recovered sun and flares in the sky</li>
+<li>Change project center depending on first building vertex distance from original center</li>
+</ul>
+<h3 id="fixes">Fixes</h3>
+<ul>
+<li>Perspective widget is displayed at the left side of the canvas</li>
+<li>Changed providers selector style</li>
+<li>Fixed bottom buttons interruption on canvas drag</li>
+</ul>
+<h2 id="v3171-29052019">v3.17.1 (29/05/2019)</h2>
+<h3 id="fixes-1">Fixes</h3>
+<ul>
+<li>Change initial perspective widget position</li>
+</ul>
+<h2 id="v3170-13052019">v3.17.0 (13/05/2019)</h2>
+<h3 id="features-1">Features</h3>
+<ul>
+<li>New alert: the layout blocks when browser is not Chrome</li>
+<li>New features in sun simulation widget. Now you can set the date with the shortest or longest shadow, and reset the date to its default value. A new layoutRule has been defined to modify the default date of the simulator.</li>
+<li>Shortcuts widgets style improvements.</li>
+<li>There are new shortcuts to navigate between the main tabs. By pressing keys 1, 2, 3 and 4 you can navigate between Building, Areas, Objects and Preferences panels, respectively.</li>
+<li>New alternative of using Command key instead of Ctrl in computers with mac OS operating system.</li>
+</ul>
+<h3 id="fixes-2">Fixes</h3>
+<ul>
+<li>Fixed a bug related to the subarea clone.</li>
+<li>Fixed the translation and rotation in perspective mode and changed shortcuts.</li>
+</ul>
+<h2 id="v3160-30042019">v3.16.0 (30/04/2019)</h2>
+<h3 id="features-2">Features</h3>
+<ul>
+<li>Context panel improvements on hover.</li>
+<li>New button to show and hide subarea view.</li>
+<li>Modified the progress bar (new styles showing information for the user).</li>
+<li>Snap to vertices shortcuts improvements in Windows and Mac.</li>
+<li>Created browser check.</li>
+</ul>
+<h3 id="fixes-3">Fixes</h3>
+<ul>
+<li>Reset modules when changing orientation.</li>
+<li>Fixed unnecessary console warning.</li>
+<li>Check modules number before deleting them.</li>
+</ul>
 </body>
 </html>

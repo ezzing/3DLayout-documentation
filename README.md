@@ -87,6 +87,8 @@
           - [CustomAlert event](#customalert-event)
   - [Alert widgets](#alert-widgets)
   - [Progress bar customization](#progress-bar-customization)
+  - [Custom panels](#custom-panels)
+      - [Panel blocks](#panel-blocks)
   - [Layout Rules](#layout-rules)
       - [Scene preferences](#scene-preferences)
           - [Project](#project)
@@ -121,6 +123,18 @@
           - [Default model subarea
             values](#default-model-subarea-values)
           - [Default model tree values](#default-model-tree-values)
+  - [Changelog](#changelog)
+      - [v3.18.0 (03/06/2019)](#v3180-03062019)
+          - [Features](#features)
+          - [Fixes](#fixes)
+      - [v3.17.1 (29/05/2019)](#v3171-29052019)
+          - [Fixes](#fixes-1)
+      - [v3.17.0 (13/05/2019)](#v3170-13052019)
+          - [Features](#features-1)
+          - [Fixes](#fixes-2)
+      - [v3.16.0 (30/04/2019)](#v3160-30042019)
+          - [Features](#features-2)
+          - [Fixes](#fixes-3)
 
 # Introduction
 
@@ -1603,6 +1617,109 @@ the animation is shown.
 
 </div>
 
+# Custom panels
+
+You can customize all of the panels by changing their content.
+
+There is a function in the API called setCustomPanel that receives as
+parameter a json that contains the panel info, content, functions and
+listeners.
+
+To create a new panel, the panel elements must be in a 'json' property
+and a 'populate' property must be valued with 'updatePanel'.
+
+    var newPanel = {
+        name: 'panel-name',
+        model: 'EZModelKeepout',
+        customMethods: {},
+        customGuiMethods: {},
+        customListeners: {},
+        json: {
+            name: {
+                type: 'string',
+                property: 'name',
+                label: 'keepout_name',
+                value: this.name
+            }
+        },
+        populate: 'updatePanel'
+    }
+
+To create a group of panels, they have to be declared as customMethods:
+
+    var keepoutPanels = {
+        name: 'custom-keepouts-panels',
+        model: 'EZModelKeepout',
+        customMethods: {
+            keepoutCreate: customKeepoutCreatePanel,
+            keepoutEdit: customKeepoutEditPanel,
+            keepoutInfo: customKeepoutInfoPanel
+        },
+        customGuiMethods: {}
+    };
+
+These panels are also jsons that define the content of each panel by
+blocks.
+
+> Please, visit the section [Panel blocks](#panel-blocks) to learn how
+> to create different blocks in panels.
+
+<div class="page-break">
+
+</div>
+
+CustomMethods are functions that extend the given model (for example,
+EZModelKeepout). For executing these, you have to use the runMethod
+operator in an eventOnClick/eventOnChange
+    property:
+
+    eventOnChange: ['EZModelKeepout_runMethodListener', 'nameOfTheCustomMethod']
+
+CustomGUIMethod will be executed directly in a
+functionOnClick/functionOnChange giving arguments as a second
+paramenter:
+
+    functionOnClick: ['nameOfTheGUIMethod', argument],
+
+CustomListeners define which event are listening to, and which
+customGUIMethod will run:
+
+    nameOfProperty: ['eventToListen', 'nameOfTheGUIMethod']
+
+## Panel blocks
+
+To create different blocks, each element must have a 'type' property.
+These are the available types:
+
+  - string
+  - float / integer
+  - boolean
+  - select
+  - selectByImage
+  - selectBySVGImage
+  - azimuthRange
+  - helper
+  - link
+  - groupBlock
+  - button
+  - listResume
+  - blockList
+  - foldableBlock
+  - subareaBlock
+  - blockResume
+  - title
+  - compass
+  - invisibleKeepout
+  - stringWidget
+  - selectWidget
+  - buttonsPanelWidget
+  - buttonWidget
+  - rangeWidget
+  - dateTimeWidget
+  - booleanWidget
+  - imageNavigator
+  - navigator
+
 # Layout Rules
 
 The user can customize many options in the 3DLayout. By passing a
@@ -2346,3 +2463,71 @@ Sample values:
         trunkRadius: 0.33,
         hidden: [ ]
     }
+
+<div class="page-break">
+
+</div>
+
+# Changelog
+
+## v3.18.0 (03/06/2019)
+
+### Features
+
+  - Created new tree shapes
+  - Changed cancel widget button background color to gray
+  - Logo and attributions aren't displayed when Mapper is deactivated
+  - Recovered sun and flares in the sky
+  - Change project center depending on first building vertex distance
+    from original center
+
+### Fixes
+
+  - Perspective widget is displayed at the left side of the canvas
+  - Changed providers selector style
+  - Fixed bottom buttons interruption on canvas drag
+
+## v3.17.1 (29/05/2019)
+
+### Fixes
+
+  - Change initial perspective widget position
+
+## v3.17.0 (13/05/2019)
+
+### Features
+
+  - New alert: the layout blocks when browser is not Chrome
+  - New features in sun simulation widget. Now you can set the date with
+    the shortest or longest shadow, and reset the date to its default
+    value. A new layoutRule has been defined to modify the default date
+    of the simulator.
+  - Shortcuts widgets style improvements.
+  - There are new shortcuts to navigate between the main tabs. By
+    pressing keys 1, 2, 3 and 4 you can navigate between Building,
+    Areas, Objects and Preferences panels, respectively.
+  - New alternative of using Command key instead of Ctrl in computers
+    with mac OS operating system.
+
+### Fixes
+
+  - Fixed a bug related to the subarea clone.
+  - Fixed the translation and rotation in perspective mode and changed
+    shortcuts.
+
+## v3.16.0 (30/04/2019)
+
+### Features
+
+  - Context panel improvements on hover.
+  - New button to show and hide subarea view.
+  - Modified the progress bar (new styles showing information for the
+    user).
+  - Snap to vertices shortcuts improvements in Windows and Mac.
+  - Created browser check.
+
+### Fixes
+
+  - Reset modules when changing orientation.
+  - Fixed unnecessary console warning.
+  - Check modules number before deleting them.

@@ -34,7 +34,6 @@ If the widget is going to be only informative, there must be an 'eventOk' proper
 
 > Notice that both 'content' and 'functionOnCreation' properties create the content of the widget but in different ways, therefore you can only use one of these.
 
-
 <div class="page-break"></div>
 
 # Progress bar customization
@@ -69,6 +68,95 @@ There are some cases that need to be mentioned when sending these parameters:
 When the progress bar is being hidden, all of its texts are removed and the animation is shown.
 
 <div class="page-break"></div>
+
+# Custom panels
+
+You can customize all of the panels by changing their content.
+
+There is a function in the API called setCustomPanel that receives as parameter a json that contains the panel info, content, functions and listeners.
+
+To create a new panel, the panel elements must be in a 'json' property and a 'populate' property must be valued with 'updatePanel'.
+
+    var newPanel = {
+        name: 'panel-name',
+        model: 'EZModelKeepout',
+        customMethods: {},
+        customGuiMethods: {},
+        customListeners: {},
+        json: {
+            name: {
+                type: 'string',
+                property: 'name',
+                label: 'keepout_name',
+                value: this.name
+            }
+        },
+        populate: 'updatePanel'
+    }
+
+To create a group of panels, they have to be declared as customMethods:
+
+    var keepoutPanels = {
+        name: 'custom-keepouts-panels',
+        model: 'EZModelKeepout',
+        customMethods: {
+            keepoutCreate: customKeepoutCreatePanel,
+            keepoutEdit: customKeepoutEditPanel,
+            keepoutInfo: customKeepoutInfoPanel
+        },
+        customGuiMethods: {}
+    };
+
+These panels are also jsons that define the content of each panel by blocks.
+
+> Please, visit the section [Panel blocks](#panel-blocks) to learn how to create different blocks in panels.
+
+<div class="page-break"></div>
+
+CustomMethods are functions that extend the given model (for example, EZModelKeepout). For executing these, you have to use the runMethod operator in an eventOnClick/eventOnChange property:
+
+    eventOnChange: ['EZModelKeepout_runMethodListener', 'nameOfTheCustomMethod']
+
+CustomGUIMethod will be executed directly in a functionOnClick/functionOnChange giving arguments as a second paramenter:
+
+    functionOnClick: ['nameOfTheGUIMethod', argument],
+
+CustomListeners define which event are listening to, and which customGUIMethod will run:
+
+    nameOfProperty: ['eventToListen', 'nameOfTheGUIMethod']
+
+## Panel blocks
+
+To create different blocks, each element must have a 'type' property. These are the available types:
+
+- string
+- float / integer
+- boolean
+- select
+- selectByImage
+- selectBySVGImage
+- azimuthRange
+- helper
+- link
+- groupBlock
+- button
+- listResume
+- blockList
+- foldableBlock
+- subareaBlock
+- blockResume
+- title
+- compass
+- invisibleKeepout
+- stringWidget
+- selectWidget
+- buttonsPanelWidget
+- buttonWidget
+- rangeWidget
+- dateTimeWidget
+- booleanWidget
+- imageNavigator
+- navigator
 
 # Layout Rules
 
