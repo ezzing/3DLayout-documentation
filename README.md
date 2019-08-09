@@ -124,17 +124,20 @@
             values](#default-model-subarea-values)
           - [Default model tree values](#default-model-tree-values)
   - [Changelog](#changelog)
-      - [v3.18.0 (03/06/2019)](#v3180-03062019)
+      - [v3.19.0 (09/08/2019)](#v3190-09082019)
           - [Features](#features)
           - [Fixes](#fixes)
-      - [v3.17.1 (29/05/2019)](#v3171-29052019)
-          - [Fixes](#fixes-1)
-      - [v3.17.0 (13/05/2019)](#v3170-13052019)
+      - [v3.18.0 (03/06/2019)](#v3180-03062019)
           - [Features](#features-1)
+          - [Fixes](#fixes-1)
+      - [v3.17.1 (29/05/2019)](#v3171-29052019)
           - [Fixes](#fixes-2)
-      - [v3.16.0 (30/04/2019)](#v3160-30042019)
+      - [v3.17.0 (13/05/2019)](#v3170-13052019)
           - [Features](#features-2)
           - [Fixes](#fixes-3)
+      - [v3.16.0 (30/04/2019)](#v3160-30042019)
+          - [Features](#features-3)
+          - [Fixes](#fixes-4)
 
 # Introduction
 
@@ -2479,6 +2482,32 @@ Sample values:
 </div>
 
 # Changelog
+
+## v3.19.0 (09/08/2019)
+
+### Features
+
+  - Compass and Center view buttons have been added in Showcase mode
+  - New benchmarks with 1000 and 100000 modules for performance testing
+  - New layoutRule to include inset in dilatation lines
+  - Path editor is now created as a json
+
+### Fixes
+
+  - The Showcase widget has been removed and the old shortcuts have been
+    restored (camera traslation and rotation).
+  - Removed Mapper flickering when redrawing buttons
+  - Fixed zoom when selecting a tree
+  - Cloning a subarea displays its information updated
+  - Fixed a bug in building indexes when canceling the creation of a
+    building
+  - Fixed the Move subarea button performance when cloning a subarea
+    repeatedly
+  - Fixed an error when creating a building after editing another one
+  - Json editor buttons click work properly
+  - It is now controlled when buildings have to be rendered
+  - Fixed ‘Invalid Lat, Lng’ console error
+  - Fixed resize listener related to bootstrap error
 
 ## v3.18.0 (03/06/2019)
 

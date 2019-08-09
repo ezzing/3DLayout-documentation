@@ -86,20 +86,24 @@
 <li><a href="#shortcuts">Shortcuts</a></li>
 <li><a href="#progress-bar">Progress bar</a></li>
 <li><a href="#changelog">Changelog</a><ul>
-<li><a href="#v3180-03062019">v3.18.0 (03/06/2019)</a><ul>
+<li><a href="#v3190-09082019">v3.19.0 (09/08/2019)</a><ul>
 <li><a href="#features">Features</a></li>
 <li><a href="#fixes">Fixes</a></li>
 </ul></li>
-<li><a href="#v3171-29052019">v3.17.1 (29/05/2019)</a><ul>
+<li><a href="#v3180-03062019">v3.18.0 (03/06/2019)</a><ul>
+<li><a href="#features-1">Features</a></li>
 <li><a href="#fixes-1">Fixes</a></li>
 </ul></li>
-<li><a href="#v3170-13052019">v3.17.0 (13/05/2019)</a><ul>
-<li><a href="#features-1">Features</a></li>
+<li><a href="#v3171-29052019">v3.17.1 (29/05/2019)</a><ul>
 <li><a href="#fixes-2">Fixes</a></li>
 </ul></li>
-<li><a href="#v3160-30042019">v3.16.0 (30/04/2019)</a><ul>
+<li><a href="#v3170-13052019">v3.17.0 (13/05/2019)</a><ul>
 <li><a href="#features-2">Features</a></li>
 <li><a href="#fixes-3">Fixes</a></li>
+</ul></li>
+<li><a href="#v3160-30042019">v3.16.0 (30/04/2019)</a><ul>
+<li><a href="#features-3">Features</a></li>
+<li><a href="#fixes-4">Fixes</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -493,8 +497,30 @@ In keepout 2, A is also the desired height, but the keepout can't be drawn corre
 <div class="page-break"></div>
 
 <h1 id="changelog">Changelog</h1>
-<h2 id="v3180-03062019">v3.18.0 (03/06/2019)</h2>
+<h2 id="v3190-09082019">v3.19.0 (09/08/2019)</h2>
 <h3 id="features">Features</h3>
+<ul>
+<li>Compass and Center view buttons have been added in Showcase mode</li>
+<li>New benchmarks with 1000 and 100000 modules for performance testing</li>
+<li>New layoutRule to include inset in dilatation lines</li>
+<li>Path editor is now created as a json</li>
+</ul>
+<h3 id="fixes">Fixes</h3>
+<ul>
+<li>The Showcase widget has been removed and the old shortcuts have been restored (camera traslation and rotation).</li>
+<li>Removed Mapper flickering when redrawing buttons</li>
+<li>Fixed zoom when selecting a tree</li>
+<li>Cloning a subarea displays its information updated</li>
+<li>Fixed a bug in building indexes when canceling the creation of a building</li>
+<li>Fixed the Move subarea button performance when cloning a subarea repeatedly</li>
+<li>Fixed an error when creating a building after editing another one</li>
+<li>Json editor buttons click work properly</li>
+<li>It is now controlled when buildings have to be rendered</li>
+<li>Fixed ‘Invalid Lat, Lng’ console error</li>
+<li>Fixed resize listener related to bootstrap error</li>
+</ul>
+<h2 id="v3180-03062019">v3.18.0 (03/06/2019)</h2>
+<h3 id="features-1">Features</h3>
 <ul>
 <li>Created new tree shapes</li>
 <li>Changed cancel widget button background color to gray</li>
@@ -502,19 +528,19 @@ In keepout 2, A is also the desired height, but the keepout can't be drawn corre
 <li>Recovered sun and flares in the sky</li>
 <li>Change project center depending on first building vertex distance from original center</li>
 </ul>
-<h3 id="fixes">Fixes</h3>
+<h3 id="fixes-1">Fixes</h3>
 <ul>
 <li>Perspective widget is displayed at the left side of the canvas</li>
 <li>Changed providers selector style</li>
 <li>Fixed bottom buttons interruption on canvas drag</li>
 </ul>
 <h2 id="v3171-29052019">v3.17.1 (29/05/2019)</h2>
-<h3 id="fixes-1">Fixes</h3>
+<h3 id="fixes-2">Fixes</h3>
 <ul>
 <li>Change initial perspective widget position</li>
 </ul>
 <h2 id="v3170-13052019">v3.17.0 (13/05/2019)</h2>
-<h3 id="features-1">Features</h3>
+<h3 id="features-2">Features</h3>
 <ul>
 <li>New alert: the layout blocks when browser is not Chrome</li>
 <li>New features in sun simulation widget. Now you can set the date with the shortest or longest shadow, and reset the date to its default value. A new layoutRule has been defined to modify the default date of the simulator.</li>
@@ -522,13 +548,13 @@ In keepout 2, A is also the desired height, but the keepout can't be drawn corre
 <li>There are new shortcuts to navigate between the main tabs. By pressing keys 1, 2, 3 and 4 you can navigate between Building, Areas, Objects and Preferences panels, respectively.</li>
 <li>New alternative of using Command key instead of Ctrl in computers with mac OS operating system.</li>
 </ul>
-<h3 id="fixes-2">Fixes</h3>
+<h3 id="fixes-3">Fixes</h3>
 <ul>
 <li>Fixed a bug related to the subarea clone.</li>
 <li>Fixed the translation and rotation in perspective mode and changed shortcuts.</li>
 </ul>
 <h2 id="v3160-30042019">v3.16.0 (30/04/2019)</h2>
-<h3 id="features-2">Features</h3>
+<h3 id="features-3">Features</h3>
 <ul>
 <li>Context panel improvements on hover.</li>
 <li>New button to show and hide subarea view.</li>
@@ -536,7 +562,7 @@ In keepout 2, A is also the desired height, but the keepout can't be drawn corre
 <li>Snap to vertices shortcuts improvements in Windows and Mac.</li>
 <li>Created browser check.</li>
 </ul>
-<h3 id="fixes-3">Fixes</h3>
+<h3 id="fixes-4">Fixes</h3>
 <ul>
 <li>Reset modules when changing orientation.</li>
 <li>Fixed unnecessary console warning.</li>

@@ -2,6 +2,27 @@
 
 # Changelog
 
+## v3.19.0 (09/08/2019)
+### Features
+- Compass and Center view buttons have been added in Showcase mode
+- New benchmarks with 1000 and 100000 modules for performance testing
+- New layoutRule to include inset in dilatation lines
+- Path editor is now created as a json
+
+### Fixes
+- The Showcase widget has been removed and the old shortcuts have been restored (camera traslation and rotation).
+- Removed Mapper flickering when redrawing buttons
+- Fixed zoom when selecting a tree
+- Cloning a subarea displays its information updated
+- Fixed a bug in building indexes when canceling the creation of a building
+- Fixed the Move subarea button performance when cloning a subarea repeatedly
+- Fixed an error when creating a building after editing another one
+- Json editor buttons click work properly
+- It is now controlled when buildings have to be rendered
+- Fixed ‘Invalid Lat, Lng’ console error
+- Fixed resize listener related to bootstrap error
+
+
 ## v3.18.0 (03/06/2019)
 ### Features
 - Created new tree shapes
