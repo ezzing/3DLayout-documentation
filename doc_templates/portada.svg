@@ -124,15 +124,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.66564535"
-     inkscape:cx="354.24531"
+     inkscape:cx="132.65584"
      inkscape:cy="530.28517"
      inkscape:document-units="px"
-     inkscape:current-layer="g144"
+     inkscape:current-layer="layer2"
      showgrid="false"
-     inkscape:window-width="1920"
-     inkscape:window-height="1052"
-     inkscape:window-x="1920"
-     inkscape:window-y="0"
+     inkscape:window-width="1853"
+     inkscape:window-height="1025"
+     inkscape:window-x="67"
+     inkscape:window-y="27"
      inkscape:window-maximized="1" />
   <metadata
      id="metadata7">
@@ -162,12 +162,12 @@
     <image
        sodipodi:absref="/home/fiorella/workspace/3DLayout-documentation/doc_templates/../layout-doc-imgs/cover/cover-2D.jpg"
        xlink:href="../layout-doc-imgs/cover/cover-2D.jpg"
-       width="482.90143"
-       height="271.63205"
-       preserveAspectRatio="none"
-       id="image4572"
+       y="557.86243"
        x="218.08356"
-       y="557.86243" />
+       id="image4572"
+       preserveAspectRatio="none"
+       height="271.63205"
+       width="482.90143" />
     <rect
        style="fill:#222b5d;fill-opacity:1;stroke:none;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:6, 2;stroke-dashoffset:0;stroke-opacity:1"
        id="rect3495"
@@ -330,24 +330,24 @@
       <image
          sodipodi:absref="/home/fiorella/workspace/3DLayout-documentation/doc_templates/../../../workspace/3DLayout-documentation/layout-doc-imgs/./../layout-doc-imgs/MacScreen.png"
          xlink:href="../../../workspace/3DLayout-documentation/layout-doc-imgs/./../layout-doc-imgs/MacScreen.png"
-         width="522.16382"
-         height="363.60611"
-         preserveAspectRatio="none"
-         id="image3706"
+         y="545.41132"
          x="188.60963"
-         y="545.41132" />
+         id="image3706"
+         preserveAspectRatio="none"
+         height="363.60611"
+         width="522.16382" />
     </g>
     <image
        sodipodi:absref="/home/fiorella/workspace/3DLayout-documentation/doc_templates/../layout-doc-imgs/tablet3-min.png"
        xlink:href="../layout-doc-imgs/tablet3-min.png"
-       y="475.67062"
-       x="853.73962"
-       id="image4455"
-       preserveAspectRatio="none"
-       height="415.67636"
-       width="512.07062"
+       transform="matrix(0.73757556,0,0,0.73757556,-660.23967,301.92879)"
        clip-path="url(#clipPath3792-3)"
-       transform="matrix(0.73757556,0,0,0.73757556,-660.23967,301.92879)" />
+       width="512.07062"
+       height="415.67636"
+       preserveAspectRatio="none"
+       id="image4455"
+       x="853.73962"
+       y="475.67062" />
     <rect
        transform="scale(1,-1)"
        style="fill:#222b5d;fill-opacity:1;stroke:none;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:6, 2;stroke-dashoffset:0;stroke-opacity:1"
@@ -551,14 +551,14 @@
     <image
        sodipodi:absref="/home/fiorella/workspace/3DLayout-documentation/doc_templates/../layout-doc-imgs/cover/cover-3D.jpg"
        xlink:href="../layout-doc-imgs/cover/cover-3D.jpg"
-       transform="translate(-0.28168153,-0.14084077)"
-       clip-path="url(#clipPath4577)"
-       width="314.81055"
-       height="177.08095"
-       preserveAspectRatio="none"
-       id="image4561"
+       y="760.30054"
        x="18.930332"
-       y="760.30054" />
+       id="image4561"
+       preserveAspectRatio="none"
+       height="177.08095"
+       width="314.81055"
+       clip-path="url(#clipPath4577)"
+       transform="translate(-0.28168153,-0.14084077)" />
   </g>
   <g
      inkscape:groupmode="layer"
@@ -608,7 +608,7 @@
          id="tspan146"
          x="930.95746"
          y="555.57336"
-         style="stroke-width:0.9375"></tspan></text>
+         style="stroke-width:0.9375" /></text>
   </g>
   <g
      inkscape:groupmode="layer"
@@ -629,7 +629,7 @@
            id="rect3438"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:26.79081154px;line-height:125%;font-family:'Futura Std';-inkscape-font-specification:'Futura Std, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#ffffff" /></flowRegion><flowPara
          id="flowPara3440"
-         style="font-size:26.79081154px;line-height:1.25">(v3.18.0)</flowPara></flowRoot>  </g>
+         style="font-size:26.79081154px;line-height:1.25">(v3.19.0)</flowPara></flowRoot>  </g>
   <g
      inkscape:groupmode="layer"
      id="layer3"
@@ -649,5 +649,5 @@
            y="973.52216"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:29.1337471px;line-height:125%;font-family:'Futura Std';-inkscape-font-specification:'Futura Std, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start" /></flowRegion><flowPara
          id="flowPara3358"
-         style="font-size:29.1337471px;line-height:1.25">May 2019</flowPara></flowRoot>  </g>
+         style="font-size:29.1337471px;line-height:1.25">August 2019</flowPara></flowRoot>  </g>
 </svg>

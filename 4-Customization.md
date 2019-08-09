@@ -226,7 +226,13 @@ All the attributes are boolean:
         enableApi: enable Api feature,
         snapShotCrm: allow snapshots to be sent to crm,
         debugListeners: debug number of listeners in console.log,
-        debugOpTime: shows the time an operation takes to be done
+        debugOpTime: shows the time an operation takes to be done,
+        recordOperators: record all the executed operators with their args
+        debugContainers: show or ignore console.logs in code
+        showOldSystemProject: show old drawing in svgProject container
+        showOldSystemArea: show old drawing in svgArea container
+        showNewSystemProject: show new drawing in svgProject container
+        showNewSystemArea: show new drawing in svgArea container
     }
 
 ### 3D canvas
@@ -269,7 +275,9 @@ Sample values:
         maxAreaInclination: 75,
         sunSpeed: 3,
         googleApiKey: '',
-        bingApiKey: ''
+        bingApiKey: '',
+        maxDistanceFromCenter: 1000
+        includeInsetInDL: false
     }
 
 The attributes are:
@@ -280,7 +288,9 @@ The attributes are:
         maxAreaInclination: area is disabled when the area inclination is bigger than this value,
         sunSpeed: position of element of the sun simulator speed,
         googleApiKey: Google api key for provider,
-        bingApiKey: Bing api key for provider
+        bingApiKey: Bing api key for provider,
+        maxDistanceFromCenter: max distance in meters allowed from the first drawn building vertex to the project center
+        includeInsetInDL: include inset in DL height and width
     }
 
 ### GUI
