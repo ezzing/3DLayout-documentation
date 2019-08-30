@@ -77,6 +77,7 @@ All these buttons are the **main options custom buttons**. You can customize thi
 
 The default custom buttons are:
 
+* Undo/Redo
 * Save: saves the layout in crm
 * Search address: moves the project center to the address specified
 * Snapshot: takes a photograph of the project (with or without modules in jpg format, or in svg format)
@@ -271,6 +272,7 @@ These are all the subarea edition options:
 * Use max. shadow calculation: calculates the distance between rows and centers depending on the module inclination
 * Azimuth: modules rotation
 * Staggered enabled
+* Sails
 * Dilatation lines enabled
 
 Here, you can click on any module to enable/disable it. If you right click on a module it will be displayed its position (row and column).
@@ -431,6 +433,7 @@ In the building panel you can see the different options for the satellite image 
 The shortcuts can be used in the following cases:
 
 * To navigate between tabs, press 1, 2, 3 or 4
+* To execute undo press 'Ctrl + Z', and to execute redo press 'Ctrl + Y'
 * When drawing:
     * To enable/disable snap to guides, press 'S'
     * To toggle between guide lines and vertices you can hold 'Ctrl' / '⌘'

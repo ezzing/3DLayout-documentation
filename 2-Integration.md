@@ -85,15 +85,25 @@ Adding the `client.min.js` script with a valid API key makes available the `Ezzi
 
 The Ezzing3DClient object has the following functions:
 
-* createLayout
 * getLayout
+* createLayout
 * listLayouts
 * loadLayout
 * destroyLayout
 
+### getLayout
+
+Returns the information of a layout related to the given id.
+
+    Ezzing3DClient.getLayout(layoutId, function(err, layoutData, container) {
+        if (err) throw err;
+        console.log(layoutData);
+    });
+
+
 ### createLayout
 
-Create a new layout with the specified information.
+Creates a new layout with the specified information.
 
     var data = {
         title: "EzzingSolar",
@@ -106,7 +116,7 @@ Create a new layout with the specified information.
         country: "Spain"
     };
 
-Where all values are optional except latitude and longitude that are required.
+Where the only required values are latitude and longitude.
 
     Ezzing3DClient.createLayout(data, function(err, layoutData) {
         if (err) throw err;
@@ -114,7 +124,7 @@ Where all values are optional except latitude and longitude that are required.
     });
 
 
-Which will return the information from the created layout:
+This will return the information from the created layout with the following properties:
 
     {
       id: 1093,
@@ -133,44 +143,22 @@ Which will return the information from the created layout:
 
 where:
 
-* **id**: the layout id, you need this id to load the project or retrieve information,
-* **title**: A title for the project,
-* **address**: the address
-* **city**: the city,
-* **province**: the province,
-* **country**: the contry,
-* **zip**: the zip code,
-* **latitude**: latitude value in decimal degrees (remember to include the negative sign for south and west coordinates) ,
-* **longitude**:longitude value in decimal degrees (remember to include the negative sign for south and west coordinates),
-* **created_at**: creation date,
-* **updated_at**: modification date,
-* **url**: an url to visit the project or embed it as an iframe
+    {
+      id: layout id needed for loading the project or retrieving information,
+      title: a title for the project,
+      address: project address,
+      zip: zip code,
+      city: city name,
+      province: province name,
+      country: country name,
+      latitude: latitude value in decimal degrees (remember to include the negative sign for south and west coordinates),
+      longitude: longitude value in decimal degrees (remember to include the negative sign for south and west coordinates),
+      created_at: creation date (ISO8601),
+      updated_at: creation date (ISO8601),
+      url: an url to visit the project or embed it as an iframe
+    }
 
 > The url can be used to embed a readonly version of the project. You can read a description of this methods in the [Showcase mode](#showcase-mode) section.
-
-The data types in which each value is stored are:
-
-* **id**: integer
-* **title**: string 255 chars
-* **address**: string 255 chars
-* **city**: string 255 chars
-* **province**: string 255 chars
-* **country**: string 255 chars
-* **zip**: string 255 chars
-* **latitude**: decimal (+/-)xx.yyyyyyyy (max. precision 8 decimal digits)
-* **longitude**: decimal (+/-)xxx.yyyyyyyy (max. precision 8 decimal digits)
-* **created_at**: ISO8601
-* **updated_at**: ISO8601
-* **url**: string 2000 chars
-
-### getLayout
-
-Returns the information of a layout related to the given id
-
-    Ezzing3DClient.getLayout(layoutId, function(err, layoutData, container) {
-        if (err) throw err;
-        console.log(layoutData);
-    });
 
 ### listLayouts
 
@@ -185,7 +173,9 @@ Returns a list of all your created layouts.
 
 Sets up the 3DLayout interface into the ezzing3D container and loads the project related to the given id.
 
-    Ezzing3DClient.loadLayout(layoutId, function(err, layoutApi, container) {
+    var rules = {};
+
+    Ezzing3DClient.loadLayout(layoutId, rules, function(err, layoutApi, container) {
         if (err) throw err;
     });
 
@@ -193,23 +183,19 @@ loadLayout can receive an `options` argument where you can setup some customizat
 
 > You can read a description of this methods in the [Layout Rules](#layout-rules) section.
 
-    var rules = {};
-
-    Ezzing3DClient.loadLayout(layoutId, rules, function(err, layoutApi, container) {
-        if (err) throw err;
-    });
-
-This method returns two objects, where:
+This method returns the following objects:
 
 * layout: Exposes an object with methods to interact with the 3DLayout.
 
 > You can read a description of this methods in the [3DLayout Communication System](#dlayout-communication-system) section.
 
-* container: the DOM element where the 3DLayot is created.
+* container: the DOM element where the 3DLayout is created.
 
 ## Showcase mode
 
 If you want to show the layout to a customer or embed it in read-only mode in another page of your platform (to act as a thumbnail of the project) you can do it by adding an iframe element to an html page, with a modified version of the url of the layout.
+
+It can be displayed with and without camera spin.
 
 ### Showcase without camera spin
 

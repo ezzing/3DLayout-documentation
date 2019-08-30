@@ -95,8 +95,8 @@
 <li><a href="#api-key-and-autentication">API key and autentication</a></li>
 <li><a href="#dom-element">DOM element</a></li>
 <li><a href="#basic-functions">Basic functions</a><ul>
-<li><a href="#createlayout">createLayout</a></li>
 <li><a href="#getlayout">getLayout</a></li>
+<li><a href="#createlayout">createLayout</a></li>
 <li><a href="#listlayouts">listLayouts</a></li>
 <li><a href="#loadlayout">loadLayout</a></li>
 </ul></li>
@@ -106,31 +106,15 @@
 </ul></li>
 </ul></li>
 <li><a href="#3dlayout-communication-system">3DLayout Communication System</a><ul>
-<li><a href="#info-events-sent-by-3dlayout">Info Events sent by 3DLayout</a><ul>
-<li><a href="#zoomchanged">zoomChanged</a></li>
-<li><a href="#fullscreen">fullscreen</a></li>
-<li><a href="#tabchanged">tabChanged</a></li>
-<li><a href="#editarea">editArea</a></li>
-<li><a href="#editkeepout">editKeepout</a></li>
-<li><a href="#edittree">editTree</a></li>
-<li><a href="#areachanged">areaChanged</a></li>
-<li><a href="#buildingchanged">buildingChanged</a></li>
-<li><a href="#roofchanged">roofChanged</a></li>
-<li><a href="#editroof">editRoof</a></li>
-<li><a href="#editvertices">editVertices</a></li>
-<li><a href="#buildingremoved">buildingRemoved</a></li>
-<li><a href="#buildingselected">buildingSelected</a></li>
-<li><a href="#buildingcreated">buildingCreated</a></li>
-</ul></li>
+<li><a href="#info-events-sent-by-3dlayout">Info Events sent by 3DLayout</a></li>
 <li><a href="#functions-to-retrieve-info-from-3dlayout">Functions to retrieve info from 3DLayout</a><ul>
-<li><a href="#generic-functions">Generic Functions</a></li>
-<li><a href="#building-related-functions">Building related functions</a></li>
-<li><a href="#area-related-functions">Area related functions</a></li>
-<li><a href="#subarea-related-functions">Subarea related functions</a></li>
+<li><a href="#general-functions">General functions</a></li>
+<li><a href="#panels-functions">Panels functions</a></li>
+<li><a href="#buildings-functions">Buildings functions</a></li>
+<li><a href="#areas-functions">Areas functions</a></li>
+<li><a href="#subarea-functions">Subarea functions</a></li>
 </ul></li>
-<li><a href="#functions-to-send-info-to-the-3dlayout">Functions to send info to the 3DLayout</a><ul>
-<li><a href="#customalert-event">CustomAlert event</a></li>
-</ul></li>
+<li><a href="#functions-to-send-info-to-the-3dlayout">Functions to send info to the 3DLayout</a></li>
 </ul></li>
 <li><a href="#alert-widgets">Alert widgets</a></li>
 <li><a href="#progress-bar-customization">Progress bar customization</a></li>
@@ -171,24 +155,28 @@
 </ul></li>
 </ul></li>
 <li><a href="#changelog">Changelog</a><ul>
-<li><a href="#v3190-09082019">v3.19.0 (09/08/2019)</a><ul>
+<li><a href="#v3200-29082019">v3.20.0 (29/08/2019)</a><ul>
 <li><a href="#features">Features</a></li>
 <li><a href="#fixes">Fixes</a></li>
 </ul></li>
-<li><a href="#v3180-03062019">v3.18.0 (03/06/2019)</a><ul>
+<li><a href="#v3190-09082019">v3.19.0 (09/08/2019)</a><ul>
 <li><a href="#features-1">Features</a></li>
 <li><a href="#fixes-1">Fixes</a></li>
 </ul></li>
-<li><a href="#v3171-29052019">v3.17.1 (29/05/2019)</a><ul>
+<li><a href="#v3180-03062019">v3.18.0 (03/06/2019)</a><ul>
+<li><a href="#features-2">Features</a></li>
 <li><a href="#fixes-2">Fixes</a></li>
 </ul></li>
-<li><a href="#v3170-13052019">v3.17.0 (13/05/2019)</a><ul>
-<li><a href="#features-2">Features</a></li>
+<li><a href="#v3171-29052019">v3.17.1 (29/05/2019)</a><ul>
 <li><a href="#fixes-3">Fixes</a></li>
 </ul></li>
-<li><a href="#v3160-30042019">v3.16.0 (30/04/2019)</a><ul>
+<li><a href="#v3170-13052019">v3.17.0 (13/05/2019)</a><ul>
 <li><a href="#features-3">Features</a></li>
 <li><a href="#fixes-4">Fixes</a></li>
+</ul></li>
+<li><a href="#v3160-30042019">v3.16.0 (30/04/2019)</a><ul>
+<li><a href="#features-4">Features</a></li>
+<li><a href="#fixes-5">Fixes</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -251,6 +239,7 @@
 <p>All these buttons are the <strong>main options custom buttons</strong>. You can customize this set of buttons by hidding some of them, by sorting them, or by adding new buttons.</p>
 <p>The default custom buttons are:</p>
 <ul>
+<li>Undo/Redo</li>
 <li>Save: saves the layout in crm</li>
 <li>Search address: moves the project center to the address specified</li>
 <li>Snapshot: takes a photograph of the project (with or without modules in jpg format, or in svg format)</li>
@@ -410,6 +399,7 @@
 <li>Use max. shadow calculation: calculates the distance between rows and centers depending on the module inclination</li>
 <li>Azimuth: modules rotation</li>
 <li>Staggered enabled</li>
+<li>Sails</li>
 <li>Dilatation lines enabled</li>
 </ul>
 <p>Here, you can click on any module to enable/disable it. If you right click on a module it will be displayed its position (row and column).</p>
@@ -542,6 +532,7 @@ In keepout 2, A is also the desired height, but the keepout can't be drawn corre
 <p>The shortcuts can be used in the following cases:</p>
 <ul>
 <li>To navigate between tabs, press 1, 2, 3 or 4</li>
+<li>To execute undo press 'Ctrl + Z', and to execute redo press 'Ctrl + Y'</li>
 <li>When drawing:
 <ul>
 <li>To enable/disable snap to guides, press 'S'</li>
@@ -655,14 +646,21 @@ In keepout 2, A is also the desired height, but the keepout can't be drawn corre
 <p>Adding the <code>client.min.js</code> script with a valid API key makes available the <code>Ezzing3DClient</code> global object, which we will use to start using the 3DLayout.</p>
 <p>The Ezzing3DClient object has the following functions:</p>
 <ul>
-<li>createLayout</li>
 <li>getLayout</li>
+<li>createLayout</li>
 <li>listLayouts</li>
 <li>loadLayout</li>
 <li>destroyLayout</li>
 </ul>
+<h3 id="getlayout">getLayout</h3>
+<p>Returns the information of a layout related to the given id.</p>
+<pre><code>Ezzing3DClient.getLayout(layoutId, function(err, layoutData, container) {
+    if (err) throw err;
+    console.log(layoutData);
+});
+</code></pre>
 <h3 id="createlayout">createLayout</h3>
-<p>Create a new layout with the specified information.</p>
+<p>Creates a new layout with the specified information.</p>
 <pre><code>var data = {
     title: &quot;EzzingSolar&quot;,
     latitude: 40.428121,
@@ -674,13 +672,13 @@ In keepout 2, A is also the desired height, but the keepout can't be drawn corre
     country: &quot;Spain&quot;
 };
 </code></pre>
-<p>Where all values are optional except latitude and longitude that are required.</p>
+<p>Where the only required values are latitude and longitude.</p>
 <pre><code>Ezzing3DClient.createLayout(data, function(err, layoutData) {
     if (err) throw err;
     console.log(layoutData);
 });
 </code></pre>
-<p>Which will return the information from the created layout:</p>
+<p>This will return the information from the created layout with the following properties:</p>
 <pre><code>{
   id: 1093,
   title: &quot;EzzingSolar&quot;,
@@ -697,45 +695,24 @@ In keepout 2, A is also the desired height, but the keepout can't be drawn corre
 }
 </code></pre>
 <p>where:</p>
-<ul>
-<li><strong>id</strong>: the layout id, you need this id to load the project or retrieve information,</li>
-<li><strong>title</strong>: A title for the project,</li>
-<li><strong>address</strong>: the address</li>
-<li><strong>city</strong>: the city,</li>
-<li><strong>province</strong>: the province,</li>
-<li><strong>country</strong>: the contry,</li>
-<li><strong>zip</strong>: the zip code,</li>
-<li><strong>latitude</strong>: latitude value in decimal degrees (remember to include the negative sign for south and west coordinates) ,</li>
-<li><strong>longitude</strong>:longitude value in decimal degrees (remember to include the negative sign for south and west coordinates),</li>
-<li><strong>created_at</strong>: creation date,</li>
-<li><strong>updated_at</strong>: modification date,</li>
-<li><strong>url</strong>: an url to visit the project or embed it as an iframe</li>
-</ul>
+<pre><code>{
+  id: layout id needed for loading the project or retrieving information,
+  title: a title for the project,
+  address: project address,
+  zip: zip code,
+  city: city name,
+  province: province name,
+  country: country name,
+  latitude: latitude value in decimal degrees (remember to include the negative sign for south and west coordinates),
+  longitude: longitude value in decimal degrees (remember to include the negative sign for south and west coordinates),
+  created_at: creation date (ISO8601),
+  updated_at: creation date (ISO8601),
+  url: an url to visit the project or embed it as an iframe
+}
+</code></pre>
 <blockquote>
 <p>The url can be used to embed a readonly version of the project. You can read a description of this methods in the <a href="#showcase-mode">Showcase mode</a> section.</p>
 </blockquote>
-<p>The data types in which each value is stored are:</p>
-<ul>
-<li><strong>id</strong>: integer</li>
-<li><strong>title</strong>: string 255 chars</li>
-<li><strong>address</strong>: string 255 chars</li>
-<li><strong>city</strong>: string 255 chars</li>
-<li><strong>province</strong>: string 255 chars</li>
-<li><strong>country</strong>: string 255 chars</li>
-<li><strong>zip</strong>: string 255 chars</li>
-<li><strong>latitude</strong>: decimal (+/-)xx.yyyyyyyy (max. precision 8 decimal digits)</li>
-<li><strong>longitude</strong>: decimal (+/-)xxx.yyyyyyyy (max. precision 8 decimal digits)</li>
-<li><strong>created_at</strong>: ISO8601</li>
-<li><strong>updated_at</strong>: ISO8601</li>
-<li><strong>url</strong>: string 2000 chars</li>
-</ul>
-<h3 id="getlayout">getLayout</h3>
-<p>Returns the information of a layout related to the given id</p>
-<pre><code>Ezzing3DClient.getLayout(layoutId, function(err, layoutData, container) {
-    if (err) throw err;
-    console.log(layoutData);
-});
-</code></pre>
 <h3 id="listlayouts">listLayouts</h3>
 <p>Returns a list of all your created layouts.</p>
 <pre><code>Ezzing3DClient.listLayouts(function(err, layoutData) {
@@ -745,7 +722,9 @@ In keepout 2, A is also the desired height, but the keepout can't be drawn corre
 </code></pre>
 <h3 id="loadlayout">loadLayout</h3>
 <p>Sets up the 3DLayout interface into the ezzing3D container and loads the project related to the given id.</p>
-<pre><code>Ezzing3DClient.loadLayout(layoutId, function(err, layoutApi, container) {
+<pre><code>var rules = {};
+
+Ezzing3DClient.loadLayout(layoutId, rules, function(err, layoutApi, container) {
     if (err) throw err;
 });
 </code></pre>
@@ -753,13 +732,7 @@ In keepout 2, A is also the desired height, but the keepout can't be drawn corre
 <blockquote>
 <p>You can read a description of this methods in the <a href="#layout-rules">Layout Rules</a> section.</p>
 </blockquote>
-<pre><code>var rules = {};
-
-Ezzing3DClient.loadLayout(layoutId, rules, function(err, layoutApi, container) {
-    if (err) throw err;
-});
-</code></pre>
-<p>This method returns two objects, where:</p>
+<p>This method returns the following objects:</p>
 <ul>
 <li>layout: Exposes an object with methods to interact with the 3DLayout.</li>
 </ul>
@@ -767,10 +740,11 @@ Ezzing3DClient.loadLayout(layoutId, rules, function(err, layoutApi, container) {
 <p>You can read a description of this methods in the <a href="#dlayout-communication-system">3DLayout Communication System</a> section.</p>
 </blockquote>
 <ul>
-<li>container: the DOM element where the 3DLayot is created.</li>
+<li>container: the DOM element where the 3DLayout is created.</li>
 </ul>
 <h2 id="showcase-mode">Showcase mode</h2>
 <p>If you want to show the layout to a customer or embed it in read-only mode in another page of your platform (to act as a thumbnail of the project) you can do it by adding an iframe element to an html page, with a modified version of the url of the layout.</p>
+<p>It can be displayed with and without camera spin.</p>
 <h3 id="showcase-without-camera-spin">Showcase without camera spin</h3>
 <pre><code>&lt;iframe src=(url + &quot;/showcase&quot;)&gt; &lt;/iframe&gt;
 </code></pre>
@@ -782,189 +756,147 @@ Ezzing3DClient.loadLayout(layoutId, rules, function(err, layoutApi, container) {
 <h1 id="3dlayout-communication-system">3DLayout Communication System</h1>
 <h2 id="info-events-sent-by-3dlayout">Info Events sent by 3DLayout</h2>
 <p>The 3DLayout triggers different events to report actions when they are accomplished or to inform on GUI changes.</p>
-<p>An example on how to listen this events:</p>
+<p>Here is an example of how to listen to these events:</p>
 <pre><code>var container = window.document.getElementById(&#39;ezzing3d&#39;);
 
-container.addEventListener(&quot;buildingSelected&quot;, function(event, data){
+container.addEventListener(&#39;buildingSelected&#39;, function(event, data){
     console.log(event.detail);
 });
 </code></pre>
 <p>The full list of events emmited by the 3DLayout are:</p>
-<!-- * load -->
-
+<p>Active changed: triggered every time the user activates this object or enters its edit section. The event sends the <strong>object.id</strong>.</p>
 <ul>
-<li>zoomChanged</li>
-<li>fullscreen</li>
-<li>tabChanged</li>
-<li>editArea</li>
-<li>editKeepout</li>
-<li>editTree</li>
-<li>areaChanged</li>
-<li>buildingChanged</li>
-<li>roofChanged</li>
-<li>editRoof</li>
-<li>editVertices</li>
-<li>buildingRemoved</li>
-<li>buildingSelected</li>
-<li>buildingCreated</li>
-<li>customAlertOk</li>
+<li>Building: activeBuilding, editBuilding</li>
+<li>Area: activeArea, editArea</li>
+<li>Subarea: activeSubarea, editSubarea, resetSubarea</li>
+<li>Tree: activeTree, editTree</li>
+<li>Keepout: activeKeepout, editKeepout</li>
 </ul>
-<!--  
-### load
-
-This event is triggered when the 3DLayout finish to load the project from the CRM
--->
-
-<h3 id="zoomchanged">zoomChanged</h3>
-<p>This event is triggered when the zoom is changed in the canvas. It sends the zoom level value.</p>
-<h3 id="fullscreen">fullscreen</h3>
-<p>This event is triggered when the user changes from normal view to fullscreen. It sends <strong>true</strong> when changing to fullscreen and <strong>false</strong> when disabling fullscreen mode.</p>
-<h3 id="tabchanged">tabChanged</h3>
-<p>This event is triggered every time the user changes the aside panel navigation tab. It sends a string with the current tab name, the values can be one of this: [ &quot;building&quot;, &quot;areas&quot;, &quot;keepouts&quot;, &quot;trees&quot; ].</p>
-<h3 id="editarea">editArea</h3>
-<p>This event is triggered every time the user enters the edit section of an area. The event sends the <strong>area.id</strong>.</p>
-<h3 id="editkeepout">editKeepout</h3>
-<p>This event is triggered every time the user enters the edit section of a keepout. The event sends the <strong>keepout.id</strong>.</p>
-<h3 id="edittree">editTree</h3>
-<p>This event is triggered every time the user enters the edit section of a tree. The event sends the <strong>tree.id</strong>.</p>
-<h3 id="areachanged">areaChanged</h3>
-<p>This event is triggerd every time an area attribute is changed. The event sends back an array with this info:</p>
-<pre><code>[area.id, attribute, value]
-</code></pre>
-<h3 id="buildingchanged">buildingChanged</h3>
-<p>This event is triggered every time a building is changed. The event sends back an array with this info:</p>
-<pre><code>[building.id, building attribute, value]
-</code></pre>
-<h3 id="roofchanged">roofChanged</h3>
-<p>This event is triggered every time a roof attribute is changed. The event sends back an array with this info:</p>
-<pre><code>[building.id, roof attribute, value]
-</code></pre>
-<h3 id="editroof">editRoof</h3>
-<p>This event is triggered every time the user enters the roof edit section of a building. The event sends the <strong>building.id</strong></p>
-<h3 id="editvertices">editVertices</h3>
-<p>This event is triggered every time the user enters the vertices edit section of a building. The event sends the <strong>building.id</strong></p>
-<h3 id="buildingremoved">buildingRemoved</h3>
-<p>This event is triggered every time a building is deleted. The event sends the <strong>building.id</strong> (after this operation this building won't longer exist in the project)</p>
-<h3 id="buildingselected">buildingSelected</h3>
-<p>This event is triggered every time a new building becomes active. The event sends the <strong>building.id</strong></p>
-<h3 id="buildingcreated">buildingCreated</h3>
-<p>This event is triggered every time a new building is created. The event sends the <strong>building.id</strong></p>
-<!-- ### customAlertOk
-
-This event is triggered when the user confirm a custom alert dialog.
-
-> You can read a description of this methods in the [Layout Rules](#layout-rules) section. -->
-
+<p>Finish creation: triggered every time a one of the following objects is created. The event sends the <strong>object.id</strong>.</p>
+<ul>
+<li>buildingCreated</li>
+<li>subareaCreated</li>
+<li>keepoutCreated</li>
+</ul>
+<p>Edit points: triggered every time the user enters the vertices/roof edit section of a building. The event sends the <strong>building.id</strong>).</p>
+<ul>
+<li>editVertices</li>
+<li>editRoof</li>
+<li>editRoofFinished</li>
+</ul>
+<p>Close panel:</p>
+<ul>
+<li>editSubareaFinished</li>
+</ul>
+<p>Set attribute changed: triggered every time any of these objects attribute is changed. The event sends back an array with <strong>[object.id, attribute, value]</strong>.</p>
+<ul>
+<li>buildingChanged</li>
+<li>areaChanged</li>
+<li>subareaChanged</li>
+<li>treeChanged</li>
+<li>keepoutChanged</li>
+<li>roofChanged</li>
+<li>sceneChanged</li>
+</ul>
+<p>Delete object: triggered every time any of these objects is deleted. The event sends the <strong>object.id</strong> (after this operation this object won't longer exist in the project).</p>
+<ul>
+<li>buildingRemoved</li>
+<li>areaRemoved</li>
+<li>subareaRemoved</li>
+<li>treeRemoved</li>
+<li>keepoutRemoved</li>
+</ul>
+<p>Change tab: triggered every time the aside panel navigation tab changes. It sends a string with the current tab name ('building', 'areas', 'keepouts', 'trees', 'keepout-info' or 'tree-info').</p>
+<ul>
+<li>tabChangedApi</li>
+</ul>
+<p>Save project:</p>
+<ul>
+<li>layoutProjectSaved</li>
+</ul>
+<p>Clone:</p>
+<ul>
+<li>buildingCloned</li>
+<li>areaCloned</li>
+<li>subareaCloned</li>
+<li>treeCloned</li>
+<li>keepoutCloned</li>
+</ul>
+<p>Move points:</p>
+<ul>
+<li>locationChanged</li>
+</ul>
+<p>Edit subarea:</p>
+<ul>
+<li>editSubareaPath</li>
+</ul>
+<p>Move subarea:</p>
+<ul>
+<li>subareaMoved</li>
+</ul>
+<p>Move system finished:</p>
+<ul>
+<li>modulesMoved</li>
+</ul>
+<p>Delete subarea:</p>
+<ul>
+<li>subareaRemoved</li>
+</ul>
+<p>Fullscreen enabled/disabled: triggered when the user changes from normal view to fullscreen. It sends <strong>true</strong> when changing to fullscreen and <strong>false</strong> when disabling it mode.</p>
+<ul>
+<li>ez3d-fullscreen-disabled</li>
+<li>ez3d-fullscreen-enabled</li>
+</ul>
+<p>Lock interface:</p>
+<ul>
+<li>lockInterface</li>
+</ul>
+<p>Invalid offset:</p>
+<ul>
+<li>invalidOffset</li>
+</ul>
+<p>Undo/Redo panels: triggered when a customProperty has been changed sending the panel name.</p>
+<ul>
+<li>changePanelOnUndoRedo</li>
+</ul>
+<p>Undo/Redo executed: triggered every time a undo or redo operation has been executed.</p>
+<ul>
+<li>executedUndoRedo</li>
+</ul>
 <h2 id="functions-to-retrieve-info-from-3dlayout">Functions to retrieve info from 3DLayout</h2>
 <p>There is a set of functions to retrieve information from the 3DLayout.</p>
-<p>For all these functions you can pass a callback as an argument to be executed when data is retrieved.</p>
-<h3 id="generic-functions">Generic Functions</h3>
-<p>Set of generic functions to retrieve project information from the layout. You just need to pass the <strong>callback</strong>, no other arguments are needed.</p>
+<p>For all these functions you can send a callback as an argument to be executed when data is retrieved.</p>
+<h3 id="general-functions">General functions</h3>
 <ul>
-<li>getCurrentBuildingId</li>
-<li>getLayoutData</li>
-<li>getNumberOfModules</li>
-<li>getTotalPower</li>
-<li>getPower</li>
+<li>saveProject(callback)</li>
+<li>refreshViewport</li>
 </ul>
-<h4 id="getcurrentbuildingid">getCurrentBuildingId</h4>
-<pre><code>layout.getCurrentBuildingId(callback);
-</code></pre>
-<p>This function returns the id value of the current active building.</p>
-<h4 id="getlayoutdata">getLayoutData</h4>
-<pre><code>layout.getLayoutData(callback);
-</code></pre>
-<p>This function returns a JSON with an array of buildings.</p>
-<p>Each building in the array contains:</p>
-<pre><code>{
-    id: the building id,
-    name: the building name,
-    areas: an array of areas in the building
-}
-</code></pre>
-<p>Each area in the areas array contains:</p>
-<pre><code>{
-    id: the area id,
-    name: the area name,
-    subareas: an array of subareas in the area
-}
-</code></pre>
-<p>Each subarea in the subareas array contains:</p>
-<pre><code>{
-    id: the subarea id,
-    name: the subarea name
-}
-</code></pre>
-<h4 id="getnumberofmodules">getNumberOfModules</h4>
-<pre><code>layout.getNumberOfModules(callback);
-</code></pre>
-<p>This function returns a JSON with an array of buildings.</p>
-<p>Each building in the array contains:</p>
-<pre><code>{
-    id: the building id,
-    name: the building name,
-    modules: total of modules in the building
-    areas: an array of areas in the building
-}
-</code></pre>
-<p>Each area in the areas array contains:</p>
-<pre><code>{
-    id: the area id,
-    name: the area name,
-    modules: total of modules in the area,
-    subareas: an array of subareas in the area
-}
-</code></pre>
-<p>Each subarea in the subareas array contains:</p>
-<pre><code>{
-    id: the subarea id,
-    name: the subarea name,
-    modules: total of modules in the subarea
-}
-</code></pre>
-<h4 id="gettotalpower">getTotalPower</h4>
-<pre><code>layout.getTotalPower(callback);
-</code></pre>
-<p>Returns the total power for all the buildings in the project.</p>
-<h4 id="getpower">getPower</h4>
-<pre><code>layout.getPower(callback);
-</code></pre>
-<p>Returns an array of all buildings in the project.</p>
-<p>Each building in the array contains:</p>
-<pre><code>{
-    id: the building id,
-    name: the building name,
-    power: the total power for this building,
-    areas: array of areas in this building
-}
-</code></pre>
-<p>Each area in the areas array contains:</p>
-<pre><code>{
-    id: the area id,
-    name: the area name,
-    power: total power in this area,
-    subareas: an array of subareas in the area
-}
-</code></pre>
-<p>Each subarea in the subareas array contains:</p>
-<pre><code>{
-    id: the subarea id,
-    name: the subarea name,
-    power: total power in this subarea
-}
-</code></pre>
-<h3 id="building-related-functions">Building related functions</h3>
-<p>Set of generic functions to retrieve building related information from the layout. In this set of functions you should pass an existing building id and a callback.</p>
+<h3 id="panels-functions">Panels functions</h3>
 <ul>
-<li>getBuildingInfo</li>
-<li>getRoofInfo</li>
-<li>getBuildingPosition</li>
+<li>setCustomPanel(customPanelData, callback): creates a new panel</li>
+<li>setUnits(unitToChange, callback): set a new unit (m, cm, mm, ...)</li>
 </ul>
-<h4 id="getbuildinginfo">getBuildingInfo</h4>
-<pre><code>layout.getBuildingInfo(id, callback);
+<h3 id="buildings-functions">Buildings functions</h3>
+<p>Set of functions to retrieve buildings information from the layout. The <strong>callback</strong> argument is always needed.</p>
+<h4 id="getcurrentbuildingidcallback">getCurrentBuildingId(callback)</h4>
+<p>Returns the id of the current active building.</p>
+<h4 id="getlayoutdatacallback">getLayoutData(callback)</h4>
+<p>Returns a JSON with an array of buildings:</p>
+<pre><code>{
+    id: building id,
+    name: building name,
+    areas: {
+        id: area id,
+        name: area name,
+        subareas: {
+            id: subarea id,
+            name: subarea name
+        }
+    }
+}
 </code></pre>
-<p>Returns building information for a given building.id</p>
-<p>The data returned is:</p>
+<h4 id="getbuildinginfoid-callback">getBuildingInfo(id, callback)</h4>
+<p>Returns all the building information for a given building.id:</p>
 <pre><code>{
     id: the building id,
     name: the building name,
@@ -977,27 +909,18 @@ This event is triggered when the user confirm a custom alert dialog.
     verticesMCoords: building vertices in building coordinate system,
     modules: total of modules in the building
     power: total power of the building,
-    areas: array of areas in this building
+    areas: {
+        id: the area id,
+        name: the area name,
+        subareas: {
+            id: the subarea id,
+            name: the subarea name
+        }
+    }
 }
 </code></pre>
-<p>Each area in the areas array contains:</p>
-<pre><code>{
-    id: the area id,
-    name: the area name,
-    subareas: an array of subareas in the area
-}
-</code></pre>
-<p>Each subarea in the subareas array contains:</p>
-<pre><code>{
-    id: the subarea id,
-    name: the subarea name
-}
-</code></pre>
-<h4 id="getroofinfo">getRoofInfo</h4>
-<pre><code>layout.getRoofInfo(id, callback);
-</code></pre>
-<p>Returns roof information for a given building.id]</p>
-<p>The data returned is:</p>
+<h4 id="getroofsinfoid-callback">getRoofsInfo(id, callback)</h4>
+<p>Returns roof information for a given building.id:</p>
 <pre><code>{
     height: roof height (in meters, not including building height),
     inclination: roof angle (in degrees),
@@ -1006,11 +929,8 @@ This event is triggered when the user confirm a custom alert dialog.
     type: roof type (i.e: flat, pent, gabled, etc...)
 }
 </code></pre>
-<h4 id="getbuildingposition">getBuildingPosition</h4>
-<pre><code>layout.getBuildingPosition(id, callback);
-</code></pre>
-<p>Returns building position info for a given building.id.</p>
-<p>The data returned is:</p>
+<h4 id="getbuildingpositionid-callback">getBuildingPosition(id, callback)</h4>
+<p>Returns building position info for a given building.id:</p>
 <pre><code>{
     center: building center in world coord system [DEPRECATED],
     vertices: array of building vertices, world coord system [DEPRECATED],
@@ -1019,27 +939,60 @@ This event is triggered when the user confirm a custom alert dialog.
     verticesMCoords: building vertices in building coord system,
 }
 </code></pre>
-<h3 id="area-related-functions">Area related functions</h3>
+<h4 id="getnumberofmodulescallback">getNumberOfModules(callback)</h4>
+<p>Returns a JSON with an array of buildings with the following properties:</p>
+<pre><code>{
+    id: building id,
+    name: building name,
+    modules: total of modules in the building,
+    areas: {
+        id: area id,
+        name: area name,
+        modules: total of modules in the area,
+        subareas: {
+            id: subarea id,
+            name: subarea name,
+            modules: total of modules in the subarea
+        }
+    }
+}
+</code></pre>
+<h4 id="gettotalpowercallback">getTotalPower(callback)</h4>
+<p>Returns the total power for all the buildings in the project.</p>
+<h4 id="getpowercallback">getPower(callback)</h4>
+<p>Returns an array of all buildings in the project with the following properties:</p>
+<pre><code>{
+    id: the building id,
+    name: the building name,
+    power: the total power for this building,
+    areas: {
+        id: the area id,
+        name: the area name,
+        power: total power in this area,
+        subareas: {
+            id: the subarea id,
+            name: the subarea name,
+            power: total power in this subarea
+        }
+    }
+}
+</code></pre>
+<h3 id="areas-functions">Areas functions</h3>
 <p>Set of generic functions to retrieve Area related information from the layout. In this set of functions you should pass an existing area id and a callback.</p>
 <ul>
 <li>getAreaInfo</li>
-<li>getModuleInfoByArea</li>
-<li>getModulesStructureByArea</li>
 <li>getAreaOffset</li>
 </ul>
-<h4 id="getareainfo">getAreaInfo</h4>
-<pre><code>layout.getAreaInfo(id, callback);
-</code></pre>
-<p>Returns area info for a given area.id.</p>
-<p>The data returned is:</p>
+<h4 id="getareainfoid-callback">getAreaInfo(id, callback)</h4>
+<p>Returns area info for a given area.id:</p>
 <pre><code>{
-    id: the area id,
-    name: the area name,
-    offset: the area offset,
-    placement: placement (i.e: portrait / landscape),
-    structure: i.e: east-west / standard,
+    id: area id,
+    name: area name,
+    offset: area offset,
+    placement: placement (ex: portrait/landscape),
+    structure: (ex: east-west/standard),
     inclination: modules inclination (in degrees),
-    azimuth: modules azimuthal inclination (in degrees),
+    azimuth: modules azimuth inclination (in degrees),
     areaMCoords: array with area vertices coordinates in Area system coords [DEPRECATED],
     areaOffsetMCoords: array with offseted area vertices in Area system coords [DEPRECATED],
     verticesMCoords: array with area vertices coordinates in Area system coords,
@@ -1047,70 +1000,32 @@ This event is triggered when the user confirm a custom alert dialog.
     wallSizes: size in meters for each area wall,
     wallAzimuth: azimuthal angle for the external area wall,
     power: total power of the area,
-    subareas: an array of subareas in the area
+    subareas: {
+        id: subarea id,
+        name: subarea name
+    }
 }
 </code></pre>
-<p>Each subarea in the subareas array contains:</p>
-<pre><code>{
-    id: the subarea id,
-    name: the subarea name
-}
-</code></pre>
-<h4 id="getmoduleinfobyarea">getModuleInfoByArea</h4>
-<pre><code>layout.getModuleInfoByArea(id, callback);
-</code></pre>
-<p>Returns module info for a given area.id.</p>
-<p>The data returned is:</p>
-<pre><code>{
-    id: the module id,
-    name: the module model name,
-    reference: extra model information,
-    width: the width of the module (in meters),
-    height: the height of the module (in meters),
-    length: the lenght of the module (in meters),
-    power: the power of the module
-}
-</code></pre>
-<h4 id="getmodulesstructurebyarea">getModulesStructureByArea</h4>
-<pre><code>layout.getModulesStructureByArea(id, callback);
-</code></pre>
-<p>Returns a JSON with an array of modules for a given area.id.</p>
-<p>The data for each module in the array is:</p>
-<pre><code>{
-    x: x position of the module in Area system coords,
-    y: y position of the module in Area system coords,
-    col: column to which the module belongs,
-    row: row to which the module belongs,,
-    rX: rotation of the module in the X axis (inclination),
-    rZ: rotation of the module in the Z axis (azimuth),
-    color: the color of the module (only exist if color is not default),
-}
-</code></pre>
-<h4 id="getareaoffset">getAreaOffset</h4>
-<pre><code>layout.getAreaOffset(id, offset, callback);
-</code></pre>
+<h4 id="getareaoffsetid-offset-callback">getAreaOffset(id, offset, callback)</h4>
 <p>Returns an array of vertices containing the offseted area for a given area.id and offset.</p>
 <p>If the offset is a negative value, then the area is reduced by the offset value (in meters).</p>
-<h3 id="subarea-related-functions">Subarea related functions</h3>
-<p>Set of generic functions to retrieve Area related information from the layout. In this set of functions you should pass an existing area id and a callback.</p>
+<h3 id="subarea-functions">Subarea functions</h3>
+<p>Set of generic functions to retrieve area related information from the layout. In this set of functions you should pass an existing area id and a callback.</p>
 <ul>
 <li>getSubareaInfo</li>
 <li>getModuleInfoBySubarea</li>
 <li>getModulesStructureBySubarea</li>
 </ul>
-<h4 id="getsubareainfo">getSubareaInfo</h4>
-<pre><code>layout.getSubareaInfo(id, callback);
-</code></pre>
-<p>Returns subarea info for a given subarea.id.</p>
-<p>The data returned is:</p>
+<h4 id="getsubareainfoid-callback">getSubareaInfo(id, callback)</h4>
+<p>Returns subarea info for a given subarea.id:</p>
 <pre><code>{
-    id: the subarea id,
-    name: the subarea name,
-    offset: the subarea offset,
-    placement: placement (i.e: portrait / landscape),
-    structure: i.e: east-west / standard,
+    id: subarea id,
+    name: subarea name,
+    offset: subarea offset,
+    placement: placement (ex: portrait/landscape),
+    structure: (ex: east-west/standard),
     inclination: modules inclination (in degrees),
-    azimuth: modules azimuthal inclination (in degrees),
+    azimuth: modules azimuth inclination (in degrees),
     verticesMCoords: array with subarea vertices coordinates in Area system coords,
     verticesOffsetMCoords: array with offseted subarea vertices in Area system coords,
     wallSizes: size in meters for each subarea wall,
@@ -1118,26 +1033,20 @@ This event is triggered when the user confirm a custom alert dialog.
     power: total power of the subarea,
 }
 </code></pre>
-<h4 id="getmoduleinfobysubarea">getModuleInfoBySubarea</h4>
-<pre><code>layout.getModuleInfoBySubarea(id, callback);
-</code></pre>
-<p>Returns module info for a given subarea.id.</p>
-<p>The data returned is:</p>
+<h4 id="getmoduleinfobysubareaid-callback">getModuleInfoBySubarea(id, callback)</h4>
+<p>Returns module info for a given subarea.id:</p>
 <pre><code>{
-    id: the module id,
-    name: the module model name,
+    id: module id,
+    name: module model name,
     reference: extra model information,
-    width: the width of the module (in meters),
-    height: the height of the module (in meters),
-    length: the lenght of the module (in meters),
-    power: the power of the module
+    width: width of the module (in meters),
+    height: height of the module (in meters),
+    length: lenght of the module (in meters),
+    power: power of the module
 }
 </code></pre>
-<h4 id="getmodulesstructurebysubarea">getModulesStructureBySubarea</h4>
-<pre><code>layout.getModulesStructureBySubarea(id, callback);
-</code></pre>
-<p>Returns a JSON with an array of modules for a given subarea.id.</p>
-<p>The data for each module in the array is:</p>
+<h4 id="getmodulesstructurebysubareaid-callback">getModulesStructureBySubarea(id, callback)</h4>
+<p>Returns a JSON with an array of modules for a given subarea.id:</p>
 <pre><code>{
     x: x position of the module in Area system coords,
     y: y position of the module in Area system coords,
@@ -1145,68 +1054,18 @@ This event is triggered when the user confirm a custom alert dialog.
     row: row to which the module belongs,,
     rX: rotation of the module in the X axis (inclination),
     rZ: rotation of the module in the Z axis (azimuth),
-    color: the color of the module (only exist if color is not default),
+    color: color of the module (only exist if color is not default),
 }
 </code></pre>
 <h2 id="functions-to-send-info-to-the-3dlayout">Functions to send info to the 3DLayout</h2>
-<h3 id="customalert-event">CustomAlert event</h3>
-<p>You can send this event to show an alert with some information to the user at any time.</p>
-<pre><code>layout.customAlert(title_text_string, body_text_string, callback);
-</code></pre>
-<!--
-## Functions to set values in to the project
-
-Set of functions to change values inside the project. There are two types:
-
-* setAreaAttribute
-* setBuildingAttribute
-
-### setAreaAttribute
-
-With this function you can change this area attributes:
-
-* model
-* placement
-* structure
-* inclination
-* useShadowsCalculation
-* inset.x
-* inset.y
-* totalInset.x
-* totalInset.y
-* offset
-* azimuth
-
-    var id = "aaa060bf-cae0-41b0-9fd2-c234262ea710";
-    var field = "structure";
-    var value = "Standard";
-
-    scope.$emit("setAreaAttribute", [id, field, value]);
-    scope.$emit("setAreaAttribute", [id, 'inclination', 45]);
-    scope.$emit("setAreaAttribute", [id, 'inset.y', 0.0034]);
-    scope.$emit("setAreaAttribute", [id, 'azimuth', 45]);
-
-### setBuildingAttribute
-
-With this function you can change this building fields
-
-* name
-* height
-* roof.inclination
-* roof.material
-
-
-    var id = "64a1f446-a552-4aef-bed3-5268b62610a6";
-
-    var value = 75;
-    var field = "roof.inclination";
-    scope.$emit("setBuildingAttribute", [id, field, value]);
-
-    var value = 20;
-    var field = "height";
-    scope.$emit("setBuildingAttribute", [id, field, value]);
- -->
-
+<p>Set of functions to change values inside the project:</p>
+<ul>
+<li>setAttribute(objectId, attr, value, callback)</li>
+<li>updateRender</li>
+<li>setActive(objectId, callback)</li>
+<li>disabledMap(callback)</li>
+<li>cleanResult(list)</li>
+</ul>
 <div class="page-break"></div>
 
 <h1 id="alert-widgets">Alert widgets</h1>
@@ -1414,7 +1273,7 @@ With this function you can change this building fields
 <p>All the attributes are boolean:</p>
 <pre><code>{
     debugPromises: debug promises (console log),
-    disableUndoRedo: disable undo/redo feature (WIP),
+    enableUndoRedo: enable undo/redo feature,
     enableApi: enable Api feature,
     snapShotCrm: allow snapshots to be sent to crm,
     debugListeners: debug number of listeners in console.log,
@@ -1464,7 +1323,8 @@ With this function you can change this building fields
     googleApiKey: &#39;&#39;,
     bingApiKey: &#39;&#39;,
     maxDistanceFromCenter: 1000
-    includeInsetInDL: false
+    includeInsetInDL: false,
+    limitUndoRedo: 10
 }
 </code></pre>
 <p>The attributes are:</p>
@@ -1476,7 +1336,8 @@ With this function you can change this building fields
     googleApiKey: Google api key for provider,
     bingApiKey: Bing api key for provider,
     maxDistanceFromCenter: max distance in meters allowed from the first drawn building vertex to the project center
-    includeInsetInDL: include inset in DL height and width
+    includeInsetInDL: include inset in DL height and width,
+    limitUndoRedo: maximum number of operations stored in the undo/redo history
 }
 </code></pre>
 <h3 id="gui">GUI</h3>
@@ -2005,64 +1866,81 @@ roofRidgeColors: {
 <div class="page-break"></div>
 
 <h1 id="changelog">Changelog</h1>
-<h2 id="v3190-09082019">v3.19.0 (09/08/2019)</h2>
+<h2 id="v3200-29082019">v3.20.0 (29/08/2019)</h2>
 <h3 id="features">Features</h3>
 <ul>
-<li>Compass and Center view buttons have been added in Showcase mode</li>
-<li>New benchmarks with 1000 and 100000 modules for performance testing</li>
-<li>New layoutRule to include inset in dilatation lines</li>
-<li>Path editor is now created as a json</li>
+<li>Undo/redo feature.</li>
+<li>New module sails (available in subarea info panel).</li>
 </ul>
 <h3 id="fixes">Fixes</h3>
 <ul>
-<li>The Showcase widget has been removed and the old shortcuts have been restored (camera traslation and rotation).</li>
-<li>Removed Mapper flickering when redrawing buttons</li>
-<li>Fixed zoom when selecting a tree</li>
-<li>Cloning a subarea displays its information updated</li>
-<li>Fixed a bug in building indexes when canceling the creation of a building</li>
-<li>Fixed the Move subarea button performance when cloning a subarea repeatedly</li>
-<li>Fixed an error when creating a building after editing another one</li>
-<li>Json editor buttons click work properly</li>
-<li>It is now controlled when buildings have to be rendered</li>
-<li>Fixed ‘Invalid Lat, Lng’ console error</li>
-<li>Fixed resize listener related to bootstrap error</li>
+<li>Implemented compass rotation in the subarea view.</li>
+<li>Fixed autocad export error.</li>
+<li>Update system info when changing dilatation lines values.</li>
+<li>Close subarea panel on tab change.</li>
+<li>Keepout projection error.</li>
+<li>Removed vertical line on project loading screen.</li>
+<li>Bug when switching perspective mode with an active subarea.</li>
+<li>Error on zoom when Player is disabled.</li>
 </ul>
-<h2 id="v3180-03062019">v3.18.0 (03/06/2019)</h2>
+<h2 id="v3190-09082019">v3.19.0 (09/08/2019)</h2>
 <h3 id="features-1">Features</h3>
 <ul>
-<li>Created new tree shapes</li>
-<li>Changed cancel widget button background color to gray</li>
-<li>Logo and attributions aren't displayed when Mapper is deactivated</li>
-<li>Recovered sun and flares in the sky</li>
-<li>Change project center depending on first building vertex distance from original center</li>
+<li>Compass and Center view buttons have been added in Showcase mode.</li>
+<li>New benchmarks with 1000 and 100000 modules for performance testing.</li>
+<li>New layoutRule to include inset in dilatation lines.</li>
+<li>Path editor is now created as a json.</li>
 </ul>
 <h3 id="fixes-1">Fixes</h3>
 <ul>
-<li>Perspective widget is displayed at the left side of the canvas</li>
-<li>Changed providers selector style</li>
-<li>Fixed bottom buttons interruption on canvas drag</li>
+<li>The Showcase widget has been removed and the old shortcuts have been restored (camera traslation and rotation).</li>
+<li>Removed Mapper flickering when redrawing buttons.</li>
+<li>Fixed zoom when selecting a tree.</li>
+<li>Cloning a subarea displays its information updated.</li>
+<li>Fixed a bug in building indexes when canceling the creation of a building.</li>
+<li>Fixed the Move subarea button performance when cloning a subarea repeatedly.</li>
+<li>Fixed an error when creating a building after editing another one.</li>
+<li>Json editor buttons click work properly.</li>
+<li>It is now controlled when buildings have to be rendered.</li>
+<li>Fixed ‘Invalid Lat, Lng’ console error.</li>
+<li>Fixed resize listener related to bootstrap error.</li>
 </ul>
-<h2 id="v3171-29052019">v3.17.1 (29/05/2019)</h2>
-<h3 id="fixes-2">Fixes</h3>
-<ul>
-<li>Change initial perspective widget position</li>
-</ul>
-<h2 id="v3170-13052019">v3.17.0 (13/05/2019)</h2>
+<h2 id="v3180-03062019">v3.18.0 (03/06/2019)</h2>
 <h3 id="features-2">Features</h3>
 <ul>
-<li>New alert: the layout blocks when browser is not Chrome</li>
+<li>Created new tree shapes.</li>
+<li>Changed cancel widget button background color to gray.</li>
+<li>Logo and attributions aren't displayed when Mapper is deactivated.</li>
+<li>Recovered sun and flares in the sky.</li>
+<li>Change project center depending on first building vertex distance from original center.</li>
+</ul>
+<h3 id="fixes-2">Fixes</h3>
+<ul>
+<li>Perspective widget is displayed at the left side of the canvas.</li>
+<li>Changed providers selector style.</li>
+<li>Fixed bottom buttons interruption on canvas drag.</li>
+</ul>
+<h2 id="v3171-29052019">v3.17.1 (29/05/2019)</h2>
+<h3 id="fixes-3">Fixes</h3>
+<ul>
+<li>Change initial perspective widget position.</li>
+</ul>
+<h2 id="v3170-13052019">v3.17.0 (13/05/2019)</h2>
+<h3 id="features-3">Features</h3>
+<ul>
+<li>New alert: the layout blocks when browser is not Chrome.</li>
 <li>New features in sun simulation widget. Now you can set the date with the shortest or longest shadow, and reset the date to its default value. A new layoutRule has been defined to modify the default date of the simulator.</li>
 <li>Shortcuts widgets style improvements.</li>
 <li>There are new shortcuts to navigate between the main tabs. By pressing keys 1, 2, 3 and 4 you can navigate between Building, Areas, Objects and Preferences panels, respectively.</li>
 <li>New alternative of using Command key instead of Ctrl in computers with mac OS operating system.</li>
 </ul>
-<h3 id="fixes-3">Fixes</h3>
+<h3 id="fixes-4">Fixes</h3>
 <ul>
 <li>Fixed a bug related to the subarea clone.</li>
 <li>Fixed the translation and rotation in perspective mode and changed shortcuts.</li>
 </ul>
 <h2 id="v3160-30042019">v3.16.0 (30/04/2019)</h2>
-<h3 id="features-3">Features</h3>
+<h3 id="features-4">Features</h3>
 <ul>
 <li>Context panel improvements on hover.</li>
 <li>New button to show and hide subarea view.</li>
@@ -2070,7 +1948,7 @@ roofRidgeColors: {
 <li>Snap to vertices shortcuts improvements in Windows and Mac.</li>
 <li>Created browser check.</li>
 </ul>
-<h3 id="fixes-4">Fixes</h3>
+<h3 id="fixes-5">Fixes</h3>
 <ul>
 <li>Reset modules when changing orientation.</li>
 <li>Fixed unnecessary console warning.</li>

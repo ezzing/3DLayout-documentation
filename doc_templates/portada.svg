@@ -124,15 +124,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.66564535"
-     inkscape:cx="132.65584"
-     inkscape:cy="530.28517"
+     inkscape:cx="193.49905"
+     inkscape:cy="554.32199"
      inkscape:document-units="px"
-     inkscape:current-layer="layer2"
+     inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1853"
      inkscape:window-height="1025"
      inkscape:window-x="67"
-     inkscape:window-y="27"
+     inkscape:window-y="68"
      inkscape:window-maximized="1" />
   <metadata
      id="metadata7">
@@ -147,7 +147,7 @@
     </rdf:RDF>
   </metadata>
   <g
-     inkscape:label="Capa 1"
+     inkscape:label="Fondo"
      inkscape:groupmode="layer"
      id="layer1"
      style="display:inline"
@@ -162,12 +162,12 @@
     <image
        sodipodi:absref="/home/fiorella/workspace/3DLayout-documentation/doc_templates/../layout-doc-imgs/cover/cover-2D.jpg"
        xlink:href="../layout-doc-imgs/cover/cover-2D.jpg"
-       y="557.86243"
-       x="218.08356"
-       id="image4572"
-       preserveAspectRatio="none"
+       width="482.90143"
        height="271.63205"
-       width="482.90143" />
+       preserveAspectRatio="none"
+       id="image4572"
+       x="218.08356"
+       y="557.86243" />
     <rect
        style="fill:#222b5d;fill-opacity:1;stroke:none;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:6, 2;stroke-dashoffset:0;stroke-opacity:1"
        id="rect3495"
@@ -330,24 +330,24 @@
       <image
          sodipodi:absref="/home/fiorella/workspace/3DLayout-documentation/doc_templates/../../../workspace/3DLayout-documentation/layout-doc-imgs/./../layout-doc-imgs/MacScreen.png"
          xlink:href="../../../workspace/3DLayout-documentation/layout-doc-imgs/./../layout-doc-imgs/MacScreen.png"
-         y="545.41132"
-         x="188.60963"
-         id="image3706"
-         preserveAspectRatio="none"
+         width="522.16382"
          height="363.60611"
-         width="522.16382" />
+         preserveAspectRatio="none"
+         id="image3706"
+         x="188.60963"
+         y="545.41132" />
     </g>
     <image
        sodipodi:absref="/home/fiorella/workspace/3DLayout-documentation/doc_templates/../layout-doc-imgs/tablet3-min.png"
        xlink:href="../layout-doc-imgs/tablet3-min.png"
-       transform="matrix(0.73757556,0,0,0.73757556,-660.23967,301.92879)"
-       clip-path="url(#clipPath3792-3)"
-       width="512.07062"
-       height="415.67636"
-       preserveAspectRatio="none"
-       id="image4455"
+       y="475.67062"
        x="853.73962"
-       y="475.67062" />
+       id="image4455"
+       preserveAspectRatio="none"
+       height="415.67636"
+       width="512.07062"
+       clip-path="url(#clipPath3792-3)"
+       transform="matrix(0.73757556,0,0,0.73757556,-660.23967,301.92879)" />
     <rect
        transform="scale(1,-1)"
        style="fill:#222b5d;fill-opacity:1;stroke:none;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:6, 2;stroke-dashoffset:0;stroke-opacity:1"
@@ -551,14 +551,14 @@
     <image
        sodipodi:absref="/home/fiorella/workspace/3DLayout-documentation/doc_templates/../layout-doc-imgs/cover/cover-3D.jpg"
        xlink:href="../layout-doc-imgs/cover/cover-3D.jpg"
-       y="760.30054"
-       x="18.930332"
-       id="image4561"
-       preserveAspectRatio="none"
-       height="177.08095"
-       width="314.81055"
+       transform="translate(-0.28168153,-0.14084077)"
        clip-path="url(#clipPath4577)"
-       transform="translate(-0.28168153,-0.14084077)" />
+       width="314.81055"
+       height="177.08095"
+       preserveAspectRatio="none"
+       id="image4561"
+       x="18.930332"
+       y="760.30054" />
   </g>
   <g
      inkscape:groupmode="layer"

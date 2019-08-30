@@ -4,243 +4,141 @@
 
 The 3DLayout triggers different events to report actions when they are accomplished or to inform on GUI changes.
 
-An example on how to listen this events:
+Here is an example of how to listen to these events:
 
     var container = window.document.getElementById('ezzing3d');
 
-    container.addEventListener("buildingSelected", function(event, data){
+    container.addEventListener('buildingSelected', function(event, data){
         console.log(event.detail);
     });
 
 The full list of events emmited by the 3DLayout are:
 
-<!-- * load -->
-* zoomChanged
-* fullscreen
-* tabChanged
-* editArea
-* editKeepout
-* editTree
-* areaChanged
-* buildingChanged
-* roofChanged
-* editRoof
-* editVertices
-* buildingRemoved
-* buildingSelected
+Active changed: triggered every time the user activates this object or enters its edit section. The event sends the **object.id**.
+* Building: activeBuilding, editBuilding
+* Area: activeArea, editArea
+* Subarea: activeSubarea, editSubarea, resetSubarea
+* Tree: activeTree, editTree
+* Keepout: activeKeepout, editKeepout
+
+
+Finish creation: triggered every time a one of the following objects is created. The event sends the **object.id**.
 * buildingCreated
-* customAlertOk
+* subareaCreated
+* keepoutCreated
 
-<!--  
-### load
+Edit points: triggered every time the user enters the vertices/roof edit section of a building. The event sends the **building.id**).
+* editVertices
+* editRoof
+* editRoofFinished
 
-This event is triggered when the 3DLayout finish to load the project from the CRM
--->
+Close panel:
+* editSubareaFinished
 
-### zoomChanged
+Set attribute changed: triggered every time any of these objects attribute is changed. The event sends back an array with **[object.id, attribute, value]**.
+* buildingChanged
+* areaChanged
+* subareaChanged
+* treeChanged
+* keepoutChanged
+* roofChanged
+* sceneChanged
 
-This event is triggered when the zoom is changed in the canvas. It sends the zoom level value.
+Delete object: triggered every time any of these objects is deleted. The event sends the **object.id** (after this operation this object won't longer exist in the project).
+* buildingRemoved
+* areaRemoved
+* subareaRemoved
+* treeRemoved
+* keepoutRemoved
 
-### fullscreen
+Change tab: triggered every time the aside panel navigation tab changes. It sends a string with the current tab name ('building', 'areas', 'keepouts', 'trees', 'keepout-info' or 'tree-info').
+* tabChangedApi
 
-This event is triggered when the user changes from normal view to fullscreen. It sends **true** when changing to fullscreen and **false** when disabling fullscreen mode.
+Save project:
+* layoutProjectSaved
 
-### tabChanged
+Clone:
+* buildingCloned
+* areaCloned
+* subareaCloned
+* treeCloned
+* keepoutCloned
 
-This event is triggered every time the user changes the aside panel navigation tab. It sends a string with the current tab name, the values can be one of this: [ "building", "areas", "keepouts", "trees" ].
+Move points:
+* locationChanged
 
-### editArea
+Edit subarea:
+* editSubareaPath
 
-This event is triggered every time the user enters the edit section of an area. The event sends the **area.id**.
+Move subarea:
+* subareaMoved
 
-### editKeepout
+Move system finished:
+* modulesMoved
 
-This event is triggered every time the user enters the edit section of a keepout. The event sends the **keepout.id**.
+Delete subarea:
+* subareaRemoved
 
-### editTree
+Fullscreen enabled/disabled: triggered when the user changes from normal view to fullscreen. It sends **true** when changing to fullscreen and **false** when disabling it mode.
+* ez3d-fullscreen-disabled
+* ez3d-fullscreen-enabled
 
-This event is triggered every time the user enters the edit section of a tree. The event sends the **tree.id**.
+Lock interface:
+* lockInterface
 
-### areaChanged
+Invalid offset:
+* invalidOffset
 
-This event is triggerd every time an area attribute is changed. The event sends back an array with this info:
+Undo/Redo panels: triggered when a customProperty has been changed sending the panel name.
+* changePanelOnUndoRedo
 
-    [area.id, attribute, value]
-
-### buildingChanged
-
-This event is triggered every time a building is changed. The event sends back an array with this info:
-
-    [building.id, building attribute, value]
-
-### roofChanged
-
-This event is triggered every time a roof attribute is changed. The event sends back an array with this info:
-
-    [building.id, roof attribute, value]
-
-### editRoof
-
-This event is triggered every time the user enters the roof edit section of a building. The event sends the **building.id**
-
-### editVertices
-
-This event is triggered every time the user enters the vertices edit section of a building. The event sends the **building.id**
-
-### buildingRemoved
-
-This event is triggered every time a building is deleted. The event sends the **building.id** (after this operation this building won't longer exist in the project)
-
-### buildingSelected
-
-This event is triggered every time a new building becomes active. The event sends the **building.id**
-
-### buildingCreated
-
-This event is triggered every time a new building is created. The event sends the **building.id**
-
-<!-- ### customAlertOk
-
-This event is triggered when the user confirm a custom alert dialog.
-
-> You can read a description of this methods in the [Layout Rules](#layout-rules) section. -->
+Undo/Redo executed: triggered every time a undo or redo operation has been executed.
+* executedUndoRedo
 
 ## Functions to retrieve info from 3DLayout
 
 There is a set of functions to retrieve information from the 3DLayout.
 
-For all these functions you can pass a callback as an argument to be executed when data is retrieved.
+For all these functions you can send a callback as an argument to be executed when data is retrieved.
 
-### Generic Functions
+### General functions
 
-Set of generic functions to retrieve project information from the layout. You just need to pass the **callback**, no other arguments are needed.
+* saveProject(callback)
+* refreshViewport
 
-* getCurrentBuildingId
-* getLayoutData
-* getNumberOfModules
-* getTotalPower
-* getPower
+### Panels functions
 
-#### getCurrentBuildingId
+* setCustomPanel(customPanelData, callback): creates a new panel
+* setUnits(unitToChange, callback): set a new unit (m, cm, mm, ...)
 
-    layout.getCurrentBuildingId(callback);
+### Buildings functions
 
-This function returns the id value of the current active building.
+Set of functions to retrieve buildings information from the layout. The **callback** argument is always needed.
 
-#### getLayoutData
+#### getCurrentBuildingId(callback)
 
-    layout.getLayoutData(callback);
+Returns the id of the current active building.
 
-This function returns a JSON with an array of buildings.
+#### getLayoutData(callback)
 
-Each building in the array contains:
+Returns a JSON with an array of buildings:
 
     {
-        id: the building id,
-        name: the building name,
-        areas: an array of areas in the building
+        id: building id,
+        name: building name,
+        areas: {
+            id: area id,
+            name: area name,
+            subareas: {
+                id: subarea id,
+                name: subarea name
+            }
+        }
     }
 
-Each area in the areas array contains:
+#### getBuildingInfo(id, callback)
 
-    {
-        id: the area id,
-        name: the area name,
-        subareas: an array of subareas in the area
-    }
-
-Each subarea in the subareas array contains:
-
-    {
-        id: the subarea id,
-        name: the subarea name
-    }
-
-#### getNumberOfModules
-
-    layout.getNumberOfModules(callback);
-
-This function returns a JSON with an array of buildings.
-
-Each building in the array contains:
-
-    {
-        id: the building id,
-        name: the building name,
-        modules: total of modules in the building
-        areas: an array of areas in the building
-    }
-
-Each area in the areas array contains:
-
-    {
-        id: the area id,
-        name: the area name,
-        modules: total of modules in the area,
-        subareas: an array of subareas in the area
-    }
-
-Each subarea in the subareas array contains:
-
-    {
-        id: the subarea id,
-        name: the subarea name,
-        modules: total of modules in the subarea
-    }
-
-#### getTotalPower
-
-    layout.getTotalPower(callback);
-
-Returns the total power for all the buildings in the project.
-
-#### getPower
-
-    layout.getPower(callback);
-
-Returns an array of all buildings in the project.
-
-Each building in the array contains:
-
-    {
-        id: the building id,
-        name: the building name,
-        power: the total power for this building,
-        areas: array of areas in this building
-    }
-
-Each area in the areas array contains:
-
-    {
-        id: the area id,
-        name: the area name,
-        power: total power in this area,
-        subareas: an array of subareas in the area
-    }
-
-Each subarea in the subareas array contains:
-
-    {
-        id: the subarea id,
-        name: the subarea name,
-        power: total power in this subarea
-    }
-
-### Building related functions
-
-Set of generic functions to retrieve building related information from the layout. In this set of functions you should pass an existing building id and a callback.
-
-* getBuildingInfo
-* getRoofInfo
-* getBuildingPosition
-
-#### getBuildingInfo
-
-    layout.getBuildingInfo(id, callback);
-
-Returns building information for a given building.id
-
-The data returned is:
+Returns all the building information for a given building.id:
 
     {
         id: the building id,
@@ -254,31 +152,19 @@ The data returned is:
         verticesMCoords: building vertices in building coordinate system,
         modules: total of modules in the building
         power: total power of the building,
-        areas: array of areas in this building
+        areas: {
+            id: the area id,
+            name: the area name,
+            subareas: {
+                id: the subarea id,
+                name: the subarea name
+            }
+        }
     }
 
-Each area in the areas array contains:
+#### getRoofsInfo(id, callback)
 
-    {
-        id: the area id,
-        name: the area name,
-        subareas: an array of subareas in the area
-    }
-
-Each subarea in the subareas array contains:
-
-    {
-        id: the subarea id,
-        name: the subarea name
-    }
-
-#### getRoofInfo
-
-    layout.getRoofInfo(id, callback);
-
-Returns roof information for a given building.id]
-
-The data returned is:
+Returns roof information for a given building.id:
 
     {
         height: roof height (in meters, not including building height),
@@ -288,13 +174,9 @@ The data returned is:
         type: roof type (i.e: flat, pent, gabled, etc...)
     }
 
-#### getBuildingPosition
+#### getBuildingPosition(id, callback)
 
-    layout.getBuildingPosition(id, callback);
-
-Returns building position info for a given building.id.
-
-The data returned is:
+Returns building position info for a given building.id:
 
     {
         center: building center in world coord system [DEPRECATED],
@@ -304,31 +186,69 @@ The data returned is:
         verticesMCoords: building vertices in building coord system,
     }
 
-### Area related functions
+#### getNumberOfModules(callback)
+
+Returns a JSON with an array of buildings with the following properties:
+
+    {
+        id: building id,
+        name: building name,
+        modules: total of modules in the building,
+        areas: {
+            id: area id,
+            name: area name,
+            modules: total of modules in the area,
+            subareas: {
+                id: subarea id,
+                name: subarea name,
+                modules: total of modules in the subarea
+            }
+        }
+    }
+
+#### getTotalPower(callback)
+
+Returns the total power for all the buildings in the project.
+
+#### getPower(callback)
+
+Returns an array of all buildings in the project with the following properties:
+
+    {
+        id: the building id,
+        name: the building name,
+        power: the total power for this building,
+        areas: {
+            id: the area id,
+            name: the area name,
+            power: total power in this area,
+            subareas: {
+                id: the subarea id,
+                name: the subarea name,
+                power: total power in this subarea
+            }
+        }
+    }
+
+### Areas functions
 
 Set of generic functions to retrieve Area related information from the layout. In this set of functions you should pass an existing area id and a callback.
 
 * getAreaInfo
-* getModuleInfoByArea
-* getModulesStructureByArea
 * getAreaOffset
 
-#### getAreaInfo
+#### getAreaInfo(id, callback)
 
-    layout.getAreaInfo(id, callback);
-
-Returns area info for a given area.id.
-
-The data returned is:
+Returns area info for a given area.id:
 
     {
-        id: the area id,
-        name: the area name,
-        offset: the area offset,
-        placement: placement (i.e: portrait / landscape),
-        structure: i.e: east-west / standard,
+        id: area id,
+        name: area name,
+        offset: area offset,
+        placement: placement (ex: portrait/landscape),
+        structure: (ex: east-west/standard),
         inclination: modules inclination (in degrees),
-        azimuth: modules azimuthal inclination (in degrees),
+        azimuth: modules azimuth inclination (in degrees),
         areaMCoords: array with area vertices coordinates in Area system coords [DEPRECATED],
         areaOffsetMCoords: array with offseted area vertices in Area system coords [DEPRECATED],
         verticesMCoords: array with area vertices coordinates in Area system coords,
@@ -336,84 +256,38 @@ The data returned is:
         wallSizes: size in meters for each area wall,
         wallAzimuth: azimuthal angle for the external area wall,
         power: total power of the area,
-        subareas: an array of subareas in the area
+        subareas: {
+            id: subarea id,
+            name: subarea name
+        }
     }
 
-Each subarea in the subareas array contains:
-
-    {
-        id: the subarea id,
-        name: the subarea name
-    }
-
-#### getModuleInfoByArea
-
-    layout.getModuleInfoByArea(id, callback);
-
-Returns module info for a given area.id.
-
-The data returned is:
-
-    {
-        id: the module id,
-        name: the module model name,
-        reference: extra model information,
-        width: the width of the module (in meters),
-        height: the height of the module (in meters),
-        length: the lenght of the module (in meters),
-        power: the power of the module
-    }
-
-#### getModulesStructureByArea
-
-    layout.getModulesStructureByArea(id, callback);
-
-Returns a JSON with an array of modules for a given area.id.
-
-The data for each module in the array is:
-
-    {
-        x: x position of the module in Area system coords,
-        y: y position of the module in Area system coords,
-        col: column to which the module belongs,
-        row: row to which the module belongs,,
-        rX: rotation of the module in the X axis (inclination),
-        rZ: rotation of the module in the Z axis (azimuth),
-        color: the color of the module (only exist if color is not default),
-    }
-
-#### getAreaOffset
-
-    layout.getAreaOffset(id, offset, callback);
+#### getAreaOffset(id, offset, callback)
 
 Returns an array of vertices containing the offseted area for a given area.id and offset.
 
 If the offset is a negative value, then the area is reduced by the offset value (in meters).
 
-### Subarea related functions
+### Subarea functions
 
-Set of generic functions to retrieve Area related information from the layout. In this set of functions you should pass an existing area id and a callback.
+Set of generic functions to retrieve area related information from the layout. In this set of functions you should pass an existing area id and a callback.
 
 * getSubareaInfo
 * getModuleInfoBySubarea
 * getModulesStructureBySubarea
 
-#### getSubareaInfo
+#### getSubareaInfo(id, callback)
 
-    layout.getSubareaInfo(id, callback);
-
-Returns subarea info for a given subarea.id.
-
-The data returned is:
+Returns subarea info for a given subarea.id:
 
     {
-        id: the subarea id,
-        name: the subarea name,
-        offset: the subarea offset,
-        placement: placement (i.e: portrait / landscape),
-        structure: i.e: east-west / standard,
+        id: subarea id,
+        name: subarea name,
+        offset: subarea offset,
+        placement: placement (ex: portrait/landscape),
+        structure: (ex: east-west/standard),
         inclination: modules inclination (in degrees),
-        azimuth: modules azimuthal inclination (in degrees),
+        azimuth: modules azimuth inclination (in degrees),
         verticesMCoords: array with subarea vertices coordinates in Area system coords,
         verticesOffsetMCoords: array with offseted subarea vertices in Area system coords,
         wallSizes: size in meters for each subarea wall,
@@ -421,33 +295,23 @@ The data returned is:
         power: total power of the subarea,
     }
 
+#### getModuleInfoBySubarea(id, callback)
 
-
-#### getModuleInfoBySubarea
-
-    layout.getModuleInfoBySubarea(id, callback);
-
-Returns module info for a given subarea.id.
-
-The data returned is:
+Returns module info for a given subarea.id:
 
     {
-        id: the module id,
-        name: the module model name,
+        id: module id,
+        name: module model name,
         reference: extra model information,
-        width: the width of the module (in meters),
-        height: the height of the module (in meters),
-        length: the lenght of the module (in meters),
-        power: the power of the module
+        width: width of the module (in meters),
+        height: height of the module (in meters),
+        length: lenght of the module (in meters),
+        power: power of the module
     }
 
-#### getModulesStructureBySubarea
+#### getModulesStructureBySubarea(id, callback)
 
-    layout.getModulesStructureBySubarea(id, callback);
-
-Returns a JSON with an array of modules for a given subarea.id.
-
-The data for each module in the array is:
+Returns a JSON with an array of modules for a given subarea.id:
 
     {
         x: x position of the module in Area system coords,
@@ -456,74 +320,17 @@ The data for each module in the array is:
         row: row to which the module belongs,,
         rX: rotation of the module in the X axis (inclination),
         rZ: rotation of the module in the Z axis (azimuth),
-        color: the color of the module (only exist if color is not default),
+        color: color of the module (only exist if color is not default),
     }
-
 
 ## Functions to send info to the 3DLayout
 
-### CustomAlert event
+Set of functions to change values inside the project:
 
-You can send this event to show an alert with some information to the user at any time.
-
-    layout.customAlert(title_text_string, body_text_string, callback);
-
-
-
-
-
-<!--
-## Functions to set values in to the project
-
-Set of functions to change values inside the project. There are two types:
-
-* setAreaAttribute
-* setBuildingAttribute
-
-### setAreaAttribute
-
-With this function you can change this area attributes:
-
-* model
-* placement
-* structure
-* inclination
-* useShadowsCalculation
-* inset.x
-* inset.y
-* totalInset.x
-* totalInset.y
-* offset
-* azimuth
-
-    var id = "aaa060bf-cae0-41b0-9fd2-c234262ea710";
-    var field = "structure";
-    var value = "Standard";
-
-    scope.$emit("setAreaAttribute", [id, field, value]);
-    scope.$emit("setAreaAttribute", [id, 'inclination', 45]);
-    scope.$emit("setAreaAttribute", [id, 'inset.y', 0.0034]);
-    scope.$emit("setAreaAttribute", [id, 'azimuth', 45]);
-
-### setBuildingAttribute
-
-With this function you can change this building fields
-
-* name
-* height
-* roof.inclination
-* roof.material
-
-
-    var id = "64a1f446-a552-4aef-bed3-5268b62610a6";
-
-    var value = 75;
-    var field = "roof.inclination";
-    scope.$emit("setBuildingAttribute", [id, field, value]);
-
-    var value = 20;
-    var field = "height";
-    scope.$emit("setBuildingAttribute", [id, field, value]);
- -->
+* setAttribute(objectId, attr, value, callback)
+* updateRender
+* setActive(objectId, callback)
+* disabledMap(callback)
+* cleanResult(list)
 
 <div class="page-break"></div>

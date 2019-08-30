@@ -222,7 +222,7 @@ All the attributes are boolean:
 
     {
         debugPromises: debug promises (console log),
-        disableUndoRedo: disable undo/redo feature (WIP),
+        enableUndoRedo: enable undo/redo feature,
         enableApi: enable Api feature,
         snapShotCrm: allow snapshots to be sent to crm,
         debugListeners: debug number of listeners in console.log,
@@ -277,7 +277,8 @@ Sample values:
         googleApiKey: '',
         bingApiKey: '',
         maxDistanceFromCenter: 1000
-        includeInsetInDL: false
+        includeInsetInDL: false,
+        limitUndoRedo: 10
     }
 
 The attributes are:
@@ -290,7 +291,8 @@ The attributes are:
         googleApiKey: Google api key for provider,
         bingApiKey: Bing api key for provider,
         maxDistanceFromCenter: max distance in meters allowed from the first drawn building vertex to the project center
-        includeInsetInDL: include inset in DL height and width
+        includeInsetInDL: include inset in DL height and width,
+        limitUndoRedo: maximum number of operations stored in the undo/redo history
     }
 
 ### GUI
