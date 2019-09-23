@@ -40,6 +40,12 @@
       - [Guide lines](#guide-lines)
       - [Grid](#grid)
       - [Context panel](#context-panel)
+          - [On a point](#on-a-point)
+          - [On an edge](#on-an-edge)
+          - [On a module](#on-a-module)
+          - [On an area](#on-an-area)
+          - [On a keepout in subarea
+            view](#on-a-keepout-in-subarea-view)
   - [Textures](#textures)
   - [Shortcuts](#shortcuts)
   - [Progress bar](#progress-bar)
@@ -73,6 +79,11 @@
         3DLayout](#functions-to-send-info-to-the-3dlayout)
   - [Alert widgets](#alert-widgets)
   - [Progress bar customization](#progress-bar-customization)
+      - [Show progress bar](#show-progress-bar)
+      - [Reset progress bar](#reset-progress-bar)
+      - [Update progress bar](#update-progress-bar)
+      - [Hide progress bar](#hide-progress-bar)
+      - [Cancel button events](#cancel-button-events)
   - [Custom panels](#custom-panels)
       - [Panel blocks](#panel-blocks)
   - [Layout Rules](#layout-rules)
@@ -110,23 +121,26 @@
             values](#default-model-subarea-values)
           - [Default model tree values](#default-model-tree-values)
   - [Changelog](#changelog)
-      - [v3.20.0 (29/08/2019)](#v3200-29082019)
+      - [v3.21.0 (00/09/2019)](#v3210-00092019)
           - [Features](#features)
           - [Fixes](#fixes)
-      - [v3.19.0 (09/08/2019)](#v3190-09082019)
+      - [v3.20.0 (29/08/2019)](#v3200-29082019)
           - [Features](#features-1)
           - [Fixes](#fixes-1)
-      - [v3.18.0 (03/06/2019)](#v3180-03062019)
+      - [v3.19.0 (09/08/2019)](#v3190-09082019)
           - [Features](#features-2)
           - [Fixes](#fixes-2)
-      - [v3.17.1 (29/05/2019)](#v3171-29052019)
-          - [Fixes](#fixes-3)
-      - [v3.17.0 (13/05/2019)](#v3170-13052019)
+      - [v3.18.0 (03/06/2019)](#v3180-03062019)
           - [Features](#features-3)
+          - [Fixes](#fixes-3)
+      - [v3.17.1 (29/05/2019)](#v3171-29052019)
           - [Fixes](#fixes-4)
-      - [v3.16.0 (30/04/2019)](#v3160-30042019)
+      - [v3.17.0 (13/05/2019)](#v3170-13052019)
           - [Features](#features-4)
           - [Fixes](#fixes-5)
+      - [v3.16.0 (30/04/2019)](#v3160-30042019)
+          - [Features](#features-5)
+          - [Fixes](#fixes-6)
 
 # Introduction
 
@@ -490,7 +504,7 @@ These are all the subarea edition options:
   - Azimuth: modules rotation
   - Staggered enabled
   - Sails
-  - Dilatation lines enabled
+  - Dilatation lines
 
 Here, you can click on any module to enable/disable it. If you right
 click on a module it will be displayed its position (row and column).
@@ -613,10 +627,9 @@ grid.
 
 ## Context panel
 
-This menu is available in both options, guide lines and grid, by right
-clicking on a point or edge.
+### On a point
 
-![Context panel](./layout-doc-imgs/snaps/context-panel.jpg)
+![Context panel point](./layout-doc-imgs/snaps/context-panel-point.jpg)
 
 When right clicking a point, you can:
 
@@ -631,18 +644,22 @@ When right clicking a point, you can:
     one
   - Delete point
 
+### On an edge
+
+![Context panel edge](./layout-doc-imgs/snaps/context-panel-edge.jpg)
+
 When right clicking an edge (only in 'Guide lines' option), you can:
 
   - Select/deselect edge as guide: redraws the parallel and its
     perpendicular guide lines to the selected edge
   - Select/deselect all edges as guide
 
-It is also available by right clicking on a module in the subarea view.
+### On a module
 
 ![Context panel
 module](./layout-doc-imgs/snaps/context-panel-module.jpg)
 
-By doing this, it will display:
+By right clicking a module, it will display:
 
   - The position of the module (column and row)
   - Its index position in the row
@@ -652,6 +669,21 @@ If dilatation lines are disabled, there are also two buttons to:
 
   - Change row modules orientation
   - Add row offset
+
+### On an area
+
+![Context panel area](./layout-doc-imgs/snaps/context-panel-area.jpg)
+
+You can also right click on an area in the svgProject to enable or
+disable it.
+
+### On a keepout in subarea view
+
+![Context panel
+keepout](./layout-doc-imgs/snaps/context-panel-keepout.jpg)
+
+By right clicking on a keepout in the subarea view you can set that
+keepout as active, closing the subarea view.
 
 <div class="page-break">
 
@@ -744,6 +776,8 @@ The progress bar it's composed of:
   - Label 2: step of the funcion
   - Bar: if there is a determinate number of steps it will be increasing
     its value, if not, it will be shown as an animation
+  - Cancel button: only visible on 'Waiting for satellite tiles'
+    generating textures step
 
 ![Generating textures progress
 bar](./layout-doc-imgs/general/progress-bar-textures.jpg)
@@ -1390,9 +1424,9 @@ Set of functions to change values inside the project:
 
 # Alert widgets
 
-It's important to notify user when a change is going to be made or an
-error has appeared. You can create new customizable widgets on any panel
-element when its value is going to be changed.
+It is important to notify the user when a change is going to be made or
+an error has appeared. You can create new customizable widgets on any
+panel element when its value is going to be changed.
 
 To create a widget, you have to add two json properties on the json of
 the element whose value is being modified: 'confirmation' and
@@ -1439,23 +1473,37 @@ If the widget is going to be only informative, there must be an
 
 # Progress bar customization
 
-The progress bar is managed by events. It has 4 listeners:
+The progress bar is managed by events:
 
   - showProgressBar
   - resetProgressBar
   - updateProgressBar
   - hideProgressBar
+  - Cancel button events
+
+## Show progress bar
+
+This event shows an empty progress bar. It must be emitted if the
+changes on the progress bar want to be displayed.
+
+    ee.emitEvent('showProgressBar');
+
+## Reset progress bar
 
 Resetting the progress bar will remove its width and set the bar
 animation. We recommend you to emit this event before updating the
 progress bar with a value.
+
+    ee.emitEvent('resetProgressBar');
+
+## Update progress bar
 
 To update the progress bar it is important to first open it by emitting
 the event 'showProgressBar'. The values will be sent as an object this
 way:
 
     ee.emitEvent('updateProgressBar', [{
-        title: 'Title of the operation'
+        title: 'Title of the operation',
         label1: 'Name of function',
         label2 : 'Step withing the function',
         value: 50
@@ -1477,8 +1525,33 @@ parameters:
 > so that the bar width will increase a 33.3% each time the event is
 > emitted.
 
-When the progress bar is being hidden, all of its texts are removed and
-the animation is shown.
+## Hide progress bar
+
+When the progress bar is being hidden, all of its texts are removed, the
+animation is shown and the cancel button is hidden.
+
+    ee.emitEvent('hideProgressBar');
+
+## Cancel button events
+
+The cancel button is hidden by default. You can display it by sending a
+boolean parameter on the emitted event.
+
+Keep in mind that this event has to be emitted before executing an
+operator or within it. Also, there has to be a listener
+'cancelProgressBar' that is going to be executed when clicking on this
+button.
+
+    ee.emitEvent('showProgressBarCancelBtn', [boolean]);
+
+> In the case of texture generation, these events are emitted in the
+> operator.
+
+There is also a listener to update this button used when changing
+language. This removes and recreates the button with the hidden
+visibility property.
+
+    ee.emitEvent('updateProgressBarCancelBtn');
 
 <div class="page-break">
 
@@ -1661,12 +1734,10 @@ All the attributes are boolean:
         snapShotCrm: allow snapshots to be sent to crm,
         debugListeners: debug number of listeners in console.log,
         debugOpTime: shows the time an operation takes to be done,
-        recordOperators: record all the executed operators with their args
-        debugContainers: show or ignore console.logs in code
-        showOldSystemProject: show old drawing in svgProject container
-        showOldSystemArea: show old drawing in svgArea container
+        recordOperators: record all the executed operators with their args,
+        debugContainers: show or ignore console.logs in code,
+        showOldSystemProject: show old drawing in svgProject container,
         showNewSystemProject: show new drawing in svgProject container
-        showNewSystemArea: show new drawing in svgArea container
     }
 
 ### 3D canvas
@@ -1737,8 +1808,7 @@ Sample values:
         closeRightCanvas: true,
         showCoordinates: false,
         showTotalPower: true,
-        customLogo: 'default',
-        customNav: 'default',
+        customLogoUrl: 'default',
         showNav: true,
         showLogo: true,
         defaultLanguage: 'en',
@@ -1756,7 +1826,8 @@ Sample values:
         maxAllowedBuildings: 0,
         viewportMode: 4,
         customRowOffset: true,
-        customRowOrientation: true,
+        customRowOrientation: false,
+        slowInternetConexionTimeout: 40000,
         hidden: []
     }
 
@@ -1766,9 +1837,8 @@ The attributes are:
         closeRightCanvas: close right canvas on start,
         showCoordinates: show coordinates of the mouse in the right bottom corner,
         showTotalPower: show 'Total power' indicator in the left upper corner,
-        customLogo: custom logo url,
-        customNav: show or hide nav ('default' shows nav),
-        showNav: creates structure of panels,
+        customLogoUrl: custom logo url,
+        showNav: show or hide nav,
         showLogo: show logo,
         defaultLanguage: string from available keys at 'defaultLanguages',
         defaultUnits: string from available keys at 'units',
@@ -1786,6 +1856,7 @@ The attributes are:
         viewportMode: viewport mode,
         customRowOffset: enable custom row offset (right click on modules),
         customRowOrientation: enable custom row orientation (right click on modules),
+        slowInternetConexionTimeout: timeout in milliseconds to display a widget to inform and cancel progress bar
         hidden: array of json properties within that json that don't want to be shown in panels
     }
 
@@ -2348,6 +2419,19 @@ Sample values:
 </div>
 
 # Changelog
+
+## v3.21.0 (00/09/2019)
+
+### Features
+
+  - New drawing in svgProject.
+  - New cancel button on progress bar when generating textures.
+  - Manage area habilitation from context menu (by right clicking on an
+    area in svgProject).
+
+### Fixes
+
+  - Deprecated layoutRules on aside header creation refactor.
 
 ## v3.20.0 (29/08/2019)
 

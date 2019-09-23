@@ -80,7 +80,13 @@
 <li><a href="#drawing-with-snaps">Drawing with Snaps</a><ul>
 <li><a href="#guide-lines">Guide lines</a></li>
 <li><a href="#grid">Grid</a></li>
-<li><a href="#context-panel">Context panel</a></li>
+<li><a href="#context-panel">Context panel</a><ul>
+<li><a href="#on-a-point">On a point</a></li>
+<li><a href="#on-an-edge">On an edge</a></li>
+<li><a href="#on-a-module">On a module</a></li>
+<li><a href="#on-an-area">On an area</a></li>
+<li><a href="#on-a-keepout-in-subarea-view">On a keepout in subarea view</a></li>
+</ul></li>
 </ul></li>
 <li><a href="#textures">Textures</a></li>
 <li><a href="#shortcuts">Shortcuts</a></li>
@@ -117,7 +123,13 @@
 <li><a href="#functions-to-send-info-to-the-3dlayout">Functions to send info to the 3DLayout</a></li>
 </ul></li>
 <li><a href="#alert-widgets">Alert widgets</a></li>
-<li><a href="#progress-bar-customization">Progress bar customization</a></li>
+<li><a href="#progress-bar-customization">Progress bar customization</a><ul>
+<li><a href="#show-progress-bar">Show progress bar</a></li>
+<li><a href="#reset-progress-bar">Reset progress bar</a></li>
+<li><a href="#update-progress-bar">Update progress bar</a></li>
+<li><a href="#hide-progress-bar">Hide progress bar</a></li>
+<li><a href="#cancel-button-events">Cancel button events</a></li>
+</ul></li>
 <li><a href="#custom-panels">Custom panels</a><ul>
 <li><a href="#panel-blocks">Panel blocks</a></li>
 </ul></li>
@@ -155,28 +167,32 @@
 </ul></li>
 </ul></li>
 <li><a href="#changelog">Changelog</a><ul>
-<li><a href="#v3200-29082019">v3.20.0 (29/08/2019)</a><ul>
+<li><a href="#v3210-00092019">v3.21.0 (00/09/2019)</a><ul>
 <li><a href="#features">Features</a></li>
 <li><a href="#fixes">Fixes</a></li>
 </ul></li>
-<li><a href="#v3190-09082019">v3.19.0 (09/08/2019)</a><ul>
+<li><a href="#v3200-29082019">v3.20.0 (29/08/2019)</a><ul>
 <li><a href="#features-1">Features</a></li>
 <li><a href="#fixes-1">Fixes</a></li>
 </ul></li>
-<li><a href="#v3180-03062019">v3.18.0 (03/06/2019)</a><ul>
+<li><a href="#v3190-09082019">v3.19.0 (09/08/2019)</a><ul>
 <li><a href="#features-2">Features</a></li>
 <li><a href="#fixes-2">Fixes</a></li>
 </ul></li>
-<li><a href="#v3171-29052019">v3.17.1 (29/05/2019)</a><ul>
+<li><a href="#v3180-03062019">v3.18.0 (03/06/2019)</a><ul>
+<li><a href="#features-3">Features</a></li>
 <li><a href="#fixes-3">Fixes</a></li>
 </ul></li>
-<li><a href="#v3170-13052019">v3.17.0 (13/05/2019)</a><ul>
-<li><a href="#features-3">Features</a></li>
+<li><a href="#v3171-29052019">v3.17.1 (29/05/2019)</a><ul>
 <li><a href="#fixes-4">Fixes</a></li>
 </ul></li>
-<li><a href="#v3160-30042019">v3.16.0 (30/04/2019)</a><ul>
+<li><a href="#v3170-13052019">v3.17.0 (13/05/2019)</a><ul>
 <li><a href="#features-4">Features</a></li>
 <li><a href="#fixes-5">Fixes</a></li>
+</ul></li>
+<li><a href="#v3160-30042019">v3.16.0 (30/04/2019)</a><ul>
+<li><a href="#features-5">Features</a></li>
+<li><a href="#fixes-6">Fixes</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -324,8 +340,6 @@
 <h2 id="edit-building">Edit building</h2>
 <p>You can select between editing the building or editing the roof.</p>
 <p>In the first option you can modify the building vertices following the steps of the building creation. If you edit the roof you can select any type of roof and it will be recalculated.</p>
-<!-- Fiorella - Imagen distinguiendo de algunas maneras las dos opciones -->
-
 <img class="w200px" src="./layout-doc-imgs/building/building-edit.png" alt="Building edit" />
 
 <div class="page-break"></div>
@@ -400,7 +414,7 @@
 <li>Azimuth: modules rotation</li>
 <li>Staggered enabled</li>
 <li>Sails</li>
-<li>Dilatation lines enabled</li>
+<li>Dilatation lines</li>
 </ul>
 <p>Here, you can click on any module to enable/disable it. If you right click on a module it will be displayed its position (row and column).</p>
 <h2 id="remove-subarea">Remove subarea</h2>
@@ -473,8 +487,8 @@ In keepout 2, A is also the desired height, but the keepout can't be drawn corre
 <div class="page-break"></div>
 
 <h2 id="context-panel">Context panel</h2>
-<p>This menu is available in both options, guide lines and grid, by right clicking on a point or edge.</p>
-<img class="w100px" src="./layout-doc-imgs/snaps/context-panel.jpg" alt="Context panel" />
+<h3 id="on-a-point">On a point</h3>
+<img class="w100px" src="./layout-doc-imgs/snaps/context-panel-point.jpg" alt="Context panel point" />
 
 <p>When right clicking a point, you can:</p>
 <ul>
@@ -484,15 +498,18 @@ In keepout 2, A is also the desired height, but the keepout can't be drawn corre
 <li>Deselect all points: deselects all points except the last selected one</li>
 <li>Delete point</li>
 </ul>
+<h3 id="on-an-edge">On an edge</h3>
+<img class="w100px" src="./layout-doc-imgs/snaps/context-panel-edge.jpg" alt="Context panel edge" />
+
 <p>When right clicking an edge (only in 'Guide lines' option), you can:</p>
 <ul>
 <li>Select/deselect edge as guide: redraws the parallel and its perpendicular guide lines to the selected edge</li>
 <li>Select/deselect all edges as guide</li>
 </ul>
-<p>It is also available by right clicking on a module in the subarea view.</p>
+<h3 id="on-a-module">On a module</h3>
 <img class="w100px" src="./layout-doc-imgs/snaps/context-panel-module.jpg" alt="Context panel module" />
 
-<p>By doing this, it will display:</p>
+<p>By right clicking a module, it will display:</p>
 <ul>
 <li>The position of the module (column and row)</li>
 <li>Its index position in the row</li>
@@ -503,6 +520,14 @@ In keepout 2, A is also the desired height, but the keepout can't be drawn corre
 <li>Change row modules orientation</li>
 <li>Add row offset</li>
 </ul>
+<h3 id="on-an-area">On an area</h3>
+<img class="w100px" src="./layout-doc-imgs/snaps/context-panel-area.jpg" alt="Context panel area" />
+
+<p>You can also right click on an area in the svgProject to enable or disable it.</p>
+<h3 id="on-a-keepout-in-subarea-view">On a keepout in subarea view</h3>
+<img class="w100px" src="./layout-doc-imgs/snaps/context-panel-keepout.jpg" alt="Context panel keepout" />
+
+<p>By right clicking on a keepout in the subarea view you can set that keepout as active, closing the subarea view.</p>
 <div class="page-break"></div>
 
 <h1 id="textures">Textures</h1>
@@ -574,6 +599,7 @@ In keepout 2, A is also the desired height, but the keepout can't be drawn corre
 <li>Label 1: function withing the operation</li>
 <li>Label 2: step of the funcion</li>
 <li>Bar: if there is a determinate number of steps it will be increasing its value, if not, it will be shown as an animation</li>
+<li>Cancel button: only visible on 'Waiting for satellite tiles' generating textures step</li>
 </ul>
 <img class="w75" src="./layout-doc-imgs/general/progress-bar-textures.jpg" alt="Generating textures progress bar" />
 
@@ -1069,7 +1095,7 @@ container.addEventListener(&#39;buildingSelected&#39;, function(event, data){
 <div class="page-break"></div>
 
 <h1 id="alert-widgets">Alert widgets</h1>
-<p>It's important to notify user when a change is going to be made or an error has appeared. You can create new customizable widgets on any panel element when its value is going to be changed.</p>
+<p>It is important to notify the user when a change is going to be made or an error has appeared. You can create new customizable widgets on any panel element when its value is going to be changed.</p>
 <p>To create a widget, you have to add two json properties on the json of the element whose value is being modified: 'confirmation' and 'confirmationWidget'.</p>
 <pre><code>paint: {
     type: &#39;button&#39;,
@@ -1102,17 +1128,26 @@ container.addEventListener(&#39;buildingSelected&#39;, function(event, data){
 <div class="page-break"></div>
 
 <h1 id="progress-bar-customization">Progress bar customization</h1>
-<p>The progress bar is managed by events. It has 4 listeners:</p>
+<p>The progress bar is managed by events:</p>
 <ul>
 <li>showProgressBar</li>
 <li>resetProgressBar</li>
 <li>updateProgressBar</li>
 <li>hideProgressBar</li>
+<li>Cancel button events</li>
 </ul>
+<h2 id="show-progress-bar">Show progress bar</h2>
+<p>This event shows an empty progress bar. It must be emitted if the changes on the progress bar want to be displayed.</p>
+<pre><code>ee.emitEvent(&#39;showProgressBar&#39;);
+</code></pre>
+<h2 id="reset-progress-bar">Reset progress bar</h2>
 <p>Resetting the progress bar will remove its width and set the bar animation. We recommend you to emit this event before updating the progress bar with a value.</p>
+<pre><code>ee.emitEvent(&#39;resetProgressBar&#39;);
+</code></pre>
+<h2 id="update-progress-bar">Update progress bar</h2>
 <p>To update the progress bar it is important to first open it by emitting the event 'showProgressBar'. The values will be sent as an object this way:</p>
 <pre><code>ee.emitEvent(&#39;updateProgressBar&#39;, [{
-    title: &#39;Title of the operation&#39;
+    title: &#39;Title of the operation&#39;,
     label1: &#39;Name of function&#39;,
     label2 : &#39;Step withing the function&#39;,
     value: 50
@@ -1128,7 +1163,21 @@ container.addEventListener(&#39;buildingSelected&#39;, function(event, data){
 <blockquote>
 <p>The simplest example is generating all the textures. If the project has 3 bulidings, you will have to divide 100 by number of buildings, so that the bar width will increase a 33.3% each time the event is emitted.</p>
 </blockquote>
-<p>When the progress bar is being hidden, all of its texts are removed and the animation is shown.</p>
+<h2 id="hide-progress-bar">Hide progress bar</h2>
+<p>When the progress bar is being hidden, all of its texts are removed, the animation is shown and the cancel button is hidden.</p>
+<pre><code>ee.emitEvent(&#39;hideProgressBar&#39;);
+</code></pre>
+<h2 id="cancel-button-events">Cancel button events</h2>
+<p>The cancel button is hidden by default. You can display it by sending a boolean parameter on the emitted event.</p>
+<p>Keep in mind that this event has to be emitted before executing an operator or within it. Also, there has to be a listener 'cancelProgressBar' that is going to be executed when clicking on this button.</p>
+<pre><code>ee.emitEvent(&#39;showProgressBarCancelBtn&#39;, [boolean]);
+</code></pre>
+<blockquote>
+<p>In the case of texture generation, these events are emitted in the operator.</p>
+</blockquote>
+<p>There is also a listener to update this button used when changing language. This removes and recreates the button with the hidden visibility property.</p>
+<pre><code>ee.emitEvent(&#39;updateProgressBarCancelBtn&#39;);
+</code></pre>
 <div class="page-break"></div>
 
 <h1 id="custom-panels">Custom panels</h1>
@@ -1278,12 +1327,10 @@ container.addEventListener(&#39;buildingSelected&#39;, function(event, data){
     snapShotCrm: allow snapshots to be sent to crm,
     debugListeners: debug number of listeners in console.log,
     debugOpTime: shows the time an operation takes to be done,
-    recordOperators: record all the executed operators with their args
-    debugContainers: show or ignore console.logs in code
-    showOldSystemProject: show old drawing in svgProject container
-    showOldSystemArea: show old drawing in svgArea container
+    recordOperators: record all the executed operators with their args,
+    debugContainers: show or ignore console.logs in code,
+    showOldSystemProject: show old drawing in svgProject container,
     showNewSystemProject: show new drawing in svgProject container
-    showNewSystemArea: show new drawing in svgArea container
 }
 </code></pre>
 <h3 id="3d-canvas">3D canvas</h3>
@@ -1346,8 +1393,7 @@ container.addEventListener(&#39;buildingSelected&#39;, function(event, data){
     closeRightCanvas: true,
     showCoordinates: false,
     showTotalPower: true,
-    customLogo: &#39;default&#39;,
-    customNav: &#39;default&#39;,
+    customLogoUrl: &#39;default&#39;,
     showNav: true,
     showLogo: true,
     defaultLanguage: &#39;en&#39;,
@@ -1365,7 +1411,8 @@ container.addEventListener(&#39;buildingSelected&#39;, function(event, data){
     maxAllowedBuildings: 0,
     viewportMode: 4,
     customRowOffset: true,
-    customRowOrientation: true,
+    customRowOrientation: false,
+    slowInternetConexionTimeout: 40000,
     hidden: []
 }
 </code></pre>
@@ -1374,9 +1421,8 @@ container.addEventListener(&#39;buildingSelected&#39;, function(event, data){
     closeRightCanvas: close right canvas on start,
     showCoordinates: show coordinates of the mouse in the right bottom corner,
     showTotalPower: show &#39;Total power&#39; indicator in the left upper corner,
-    customLogo: custom logo url,
-    customNav: show or hide nav (&#39;default&#39; shows nav),
-    showNav: creates structure of panels,
+    customLogoUrl: custom logo url,
+    showNav: show or hide nav,
     showLogo: show logo,
     defaultLanguage: string from available keys at &#39;defaultLanguages&#39;,
     defaultUnits: string from available keys at &#39;units&#39;,
@@ -1394,6 +1440,7 @@ container.addEventListener(&#39;buildingSelected&#39;, function(event, data){
     viewportMode: viewport mode,
     customRowOffset: enable custom row offset (right click on modules),
     customRowOrientation: enable custom row orientation (right click on modules),
+    slowInternetConexionTimeout: timeout in milliseconds to display a widget to inform and cancel progress bar
     hidden: array of json properties within that json that don&#39;t want to be shown in panels
 }
 </code></pre>
@@ -1866,13 +1913,24 @@ roofRidgeColors: {
 <div class="page-break"></div>
 
 <h1 id="changelog">Changelog</h1>
-<h2 id="v3200-29082019">v3.20.0 (29/08/2019)</h2>
+<h2 id="v3210-00092019">v3.21.0 (00/09/2019)</h2>
 <h3 id="features">Features</h3>
+<ul>
+<li>New drawing in svgProject.</li>
+<li>New cancel button on progress bar when generating textures.</li>
+<li>Manage area habilitation from context menu (by right clicking on an area in svgProject).</li>
+</ul>
+<h3 id="fixes">Fixes</h3>
+<ul>
+<li>Deprecated layoutRules on aside header creation refactor.</li>
+</ul>
+<h2 id="v3200-29082019">v3.20.0 (29/08/2019)</h2>
+<h3 id="features-1">Features</h3>
 <ul>
 <li>Undo/redo feature.</li>
 <li>New module sails (available in subarea info panel).</li>
 </ul>
-<h3 id="fixes">Fixes</h3>
+<h3 id="fixes-1">Fixes</h3>
 <ul>
 <li>Implemented compass rotation in the subarea view.</li>
 <li>Fixed autocad export error.</li>
@@ -1884,14 +1942,14 @@ roofRidgeColors: {
 <li>Error on zoom when Player is disabled.</li>
 </ul>
 <h2 id="v3190-09082019">v3.19.0 (09/08/2019)</h2>
-<h3 id="features-1">Features</h3>
+<h3 id="features-2">Features</h3>
 <ul>
 <li>Compass and Center view buttons have been added in Showcase mode.</li>
 <li>New benchmarks with 1000 and 100000 modules for performance testing.</li>
 <li>New layoutRule to include inset in dilatation lines.</li>
 <li>Path editor is now created as a json.</li>
 </ul>
-<h3 id="fixes-1">Fixes</h3>
+<h3 id="fixes-2">Fixes</h3>
 <ul>
 <li>The Showcase widget has been removed and the old shortcuts have been restored (camera traslation and rotation).</li>
 <li>Removed Mapper flickering when redrawing buttons.</li>
@@ -1906,7 +1964,7 @@ roofRidgeColors: {
 <li>Fixed resize listener related to bootstrap error.</li>
 </ul>
 <h2 id="v3180-03062019">v3.18.0 (03/06/2019)</h2>
-<h3 id="features-2">Features</h3>
+<h3 id="features-3">Features</h3>
 <ul>
 <li>Created new tree shapes.</li>
 <li>Changed cancel widget button background color to gray.</li>
@@ -1914,19 +1972,19 @@ roofRidgeColors: {
 <li>Recovered sun and flares in the sky.</li>
 <li>Change project center depending on first building vertex distance from original center.</li>
 </ul>
-<h3 id="fixes-2">Fixes</h3>
+<h3 id="fixes-3">Fixes</h3>
 <ul>
 <li>Perspective widget is displayed at the left side of the canvas.</li>
 <li>Changed providers selector style.</li>
 <li>Fixed bottom buttons interruption on canvas drag.</li>
 </ul>
 <h2 id="v3171-29052019">v3.17.1 (29/05/2019)</h2>
-<h3 id="fixes-3">Fixes</h3>
+<h3 id="fixes-4">Fixes</h3>
 <ul>
 <li>Change initial perspective widget position.</li>
 </ul>
 <h2 id="v3170-13052019">v3.17.0 (13/05/2019)</h2>
-<h3 id="features-3">Features</h3>
+<h3 id="features-4">Features</h3>
 <ul>
 <li>New alert: the layout blocks when browser is not Chrome.</li>
 <li>New features in sun simulation widget. Now you can set the date with the shortest or longest shadow, and reset the date to its default value. A new layoutRule has been defined to modify the default date of the simulator.</li>
@@ -1934,13 +1992,13 @@ roofRidgeColors: {
 <li>There are new shortcuts to navigate between the main tabs. By pressing keys 1, 2, 3 and 4 you can navigate between Building, Areas, Objects and Preferences panels, respectively.</li>
 <li>New alternative of using Command key instead of Ctrl in computers with mac OS operating system.</li>
 </ul>
-<h3 id="fixes-4">Fixes</h3>
+<h3 id="fixes-5">Fixes</h3>
 <ul>
 <li>Fixed a bug related to the subarea clone.</li>
 <li>Fixed the translation and rotation in perspective mode and changed shortcuts.</li>
 </ul>
 <h2 id="v3160-30042019">v3.16.0 (30/04/2019)</h2>
-<h3 id="features-4">Features</h3>
+<h3 id="features-5">Features</h3>
 <ul>
 <li>Context panel improvements on hover.</li>
 <li>New button to show and hide subarea view.</li>
@@ -1948,7 +2006,7 @@ roofRidgeColors: {
 <li>Snap to vertices shortcuts improvements in Windows and Mac.</li>
 <li>Created browser check.</li>
 </ul>
-<h3 id="fixes-5">Fixes</h3>
+<h3 id="fixes-6">Fixes</h3>
 <ul>
 <li>Reset modules when changing orientation.</li>
 <li>Fixed unnecessary console warning.</li>

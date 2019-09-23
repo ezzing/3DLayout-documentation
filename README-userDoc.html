@@ -80,34 +80,44 @@
 <li><a href="#drawing-with-snaps">Drawing with Snaps</a><ul>
 <li><a href="#guide-lines">Guide lines</a></li>
 <li><a href="#grid">Grid</a></li>
-<li><a href="#context-panel">Context panel</a></li>
+<li><a href="#context-panel">Context panel</a><ul>
+<li><a href="#on-a-point">On a point</a></li>
+<li><a href="#on-an-edge">On an edge</a></li>
+<li><a href="#on-a-module">On a module</a></li>
+<li><a href="#on-an-area">On an area</a></li>
+<li><a href="#on-a-keepout-in-subarea-view">On a keepout in subarea view</a></li>
+</ul></li>
 </ul></li>
 <li><a href="#textures">Textures</a></li>
 <li><a href="#shortcuts">Shortcuts</a></li>
 <li><a href="#progress-bar">Progress bar</a></li>
 <li><a href="#changelog">Changelog</a><ul>
-<li><a href="#v3200-29082019">v3.20.0 (29/08/2019)</a><ul>
+<li><a href="#v3210-00092019">v3.21.0 (00/09/2019)</a><ul>
 <li><a href="#features">Features</a></li>
 <li><a href="#fixes">Fixes</a></li>
 </ul></li>
-<li><a href="#v3190-09082019">v3.19.0 (09/08/2019)</a><ul>
+<li><a href="#v3200-29082019">v3.20.0 (29/08/2019)</a><ul>
 <li><a href="#features-1">Features</a></li>
 <li><a href="#fixes-1">Fixes</a></li>
 </ul></li>
-<li><a href="#v3180-03062019">v3.18.0 (03/06/2019)</a><ul>
+<li><a href="#v3190-09082019">v3.19.0 (09/08/2019)</a><ul>
 <li><a href="#features-2">Features</a></li>
 <li><a href="#fixes-2">Fixes</a></li>
 </ul></li>
-<li><a href="#v3171-29052019">v3.17.1 (29/05/2019)</a><ul>
+<li><a href="#v3180-03062019">v3.18.0 (03/06/2019)</a><ul>
+<li><a href="#features-3">Features</a></li>
 <li><a href="#fixes-3">Fixes</a></li>
 </ul></li>
-<li><a href="#v3170-13052019">v3.17.0 (13/05/2019)</a><ul>
-<li><a href="#features-3">Features</a></li>
+<li><a href="#v3171-29052019">v3.17.1 (29/05/2019)</a><ul>
 <li><a href="#fixes-4">Fixes</a></li>
 </ul></li>
-<li><a href="#v3160-30042019">v3.16.0 (30/04/2019)</a><ul>
+<li><a href="#v3170-13052019">v3.17.0 (13/05/2019)</a><ul>
 <li><a href="#features-4">Features</a></li>
 <li><a href="#fixes-5">Fixes</a></li>
+</ul></li>
+<li><a href="#v3160-30042019">v3.16.0 (30/04/2019)</a><ul>
+<li><a href="#features-5">Features</a></li>
+<li><a href="#fixes-6">Fixes</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -251,8 +261,6 @@
 <h2 id="edit-building">Edit building</h2>
 <p>You can select between editing the building or editing the roof.</p>
 <p>In the first option you can modify the building vertices following the steps of the building creation. If you edit the roof you can select any type of roof and it will be recalculated.</p>
-<!-- Fiorella - Imagen distinguiendo de algunas maneras las dos opciones -->
-
 <img class="w200px" src="./layout-doc-imgs/building/building-edit.png" alt="Building edit" />
 
 <div class="page-break"></div>
@@ -327,7 +335,7 @@
 <li>Azimuth: modules rotation</li>
 <li>Staggered enabled</li>
 <li>Sails</li>
-<li>Dilatation lines enabled</li>
+<li>Dilatation lines</li>
 </ul>
 <p>Here, you can click on any module to enable/disable it. If you right click on a module it will be displayed its position (row and column).</p>
 <h2 id="remove-subarea">Remove subarea</h2>
@@ -400,8 +408,8 @@ In keepout 2, A is also the desired height, but the keepout can't be drawn corre
 <div class="page-break"></div>
 
 <h2 id="context-panel">Context panel</h2>
-<p>This menu is available in both options, guide lines and grid, by right clicking on a point or edge.</p>
-<img class="w100px" src="./layout-doc-imgs/snaps/context-panel.jpg" alt="Context panel" />
+<h3 id="on-a-point">On a point</h3>
+<img class="w100px" src="./layout-doc-imgs/snaps/context-panel-point.jpg" alt="Context panel point" />
 
 <p>When right clicking a point, you can:</p>
 <ul>
@@ -411,15 +419,18 @@ In keepout 2, A is also the desired height, but the keepout can't be drawn corre
 <li>Deselect all points: deselects all points except the last selected one</li>
 <li>Delete point</li>
 </ul>
+<h3 id="on-an-edge">On an edge</h3>
+<img class="w100px" src="./layout-doc-imgs/snaps/context-panel-edge.jpg" alt="Context panel edge" />
+
 <p>When right clicking an edge (only in 'Guide lines' option), you can:</p>
 <ul>
 <li>Select/deselect edge as guide: redraws the parallel and its perpendicular guide lines to the selected edge</li>
 <li>Select/deselect all edges as guide</li>
 </ul>
-<p>It is also available by right clicking on a module in the subarea view.</p>
+<h3 id="on-a-module">On a module</h3>
 <img class="w100px" src="./layout-doc-imgs/snaps/context-panel-module.jpg" alt="Context panel module" />
 
-<p>By doing this, it will display:</p>
+<p>By right clicking a module, it will display:</p>
 <ul>
 <li>The position of the module (column and row)</li>
 <li>Its index position in the row</li>
@@ -430,6 +441,14 @@ In keepout 2, A is also the desired height, but the keepout can't be drawn corre
 <li>Change row modules orientation</li>
 <li>Add row offset</li>
 </ul>
+<h3 id="on-an-area">On an area</h3>
+<img class="w100px" src="./layout-doc-imgs/snaps/context-panel-area.jpg" alt="Context panel area" />
+
+<p>You can also right click on an area in the svgProject to enable or disable it.</p>
+<h3 id="on-a-keepout-in-subarea-view">On a keepout in subarea view</h3>
+<img class="w100px" src="./layout-doc-imgs/snaps/context-panel-keepout.jpg" alt="Context panel keepout" />
+
+<p>By right clicking on a keepout in the subarea view you can set that keepout as active, closing the subarea view.</p>
 <div class="page-break"></div>
 
 <h1 id="textures">Textures</h1>
@@ -498,19 +517,31 @@ In keepout 2, A is also the desired height, but the keepout can't be drawn corre
 <li>Label 1: function withing the operation</li>
 <li>Label 2: step of the funcion</li>
 <li>Bar: if there is a determinate number of steps it will be increasing its value, if not, it will be shown as an animation</li>
+<li>Cancel button: only visible on 'Waiting for satellite tiles' generating textures step</li>
 </ul>
 <img class="w75" src="./layout-doc-imgs/general/progress-bar-textures.jpg" alt="Generating textures progress bar" />
 
 <div class="page-break"></div>
 
 <h1 id="changelog">Changelog</h1>
-<h2 id="v3200-29082019">v3.20.0 (29/08/2019)</h2>
+<h2 id="v3210-00092019">v3.21.0 (00/09/2019)</h2>
 <h3 id="features">Features</h3>
+<ul>
+<li>New drawing in svgProject.</li>
+<li>New cancel button on progress bar when generating textures.</li>
+<li>Manage area habilitation from context menu (by right clicking on an area in svgProject).</li>
+</ul>
+<h3 id="fixes">Fixes</h3>
+<ul>
+<li>Deprecated layoutRules on aside header creation refactor.</li>
+</ul>
+<h2 id="v3200-29082019">v3.20.0 (29/08/2019)</h2>
+<h3 id="features-1">Features</h3>
 <ul>
 <li>Undo/redo feature.</li>
 <li>New module sails (available in subarea info panel).</li>
 </ul>
-<h3 id="fixes">Fixes</h3>
+<h3 id="fixes-1">Fixes</h3>
 <ul>
 <li>Implemented compass rotation in the subarea view.</li>
 <li>Fixed autocad export error.</li>
@@ -522,14 +553,14 @@ In keepout 2, A is also the desired height, but the keepout can't be drawn corre
 <li>Error on zoom when Player is disabled.</li>
 </ul>
 <h2 id="v3190-09082019">v3.19.0 (09/08/2019)</h2>
-<h3 id="features-1">Features</h3>
+<h3 id="features-2">Features</h3>
 <ul>
 <li>Compass and Center view buttons have been added in Showcase mode.</li>
 <li>New benchmarks with 1000 and 100000 modules for performance testing.</li>
 <li>New layoutRule to include inset in dilatation lines.</li>
 <li>Path editor is now created as a json.</li>
 </ul>
-<h3 id="fixes-1">Fixes</h3>
+<h3 id="fixes-2">Fixes</h3>
 <ul>
 <li>The Showcase widget has been removed and the old shortcuts have been restored (camera traslation and rotation).</li>
 <li>Removed Mapper flickering when redrawing buttons.</li>
@@ -544,7 +575,7 @@ In keepout 2, A is also the desired height, but the keepout can't be drawn corre
 <li>Fixed resize listener related to bootstrap error.</li>
 </ul>
 <h2 id="v3180-03062019">v3.18.0 (03/06/2019)</h2>
-<h3 id="features-2">Features</h3>
+<h3 id="features-3">Features</h3>
 <ul>
 <li>Created new tree shapes.</li>
 <li>Changed cancel widget button background color to gray.</li>
@@ -552,19 +583,19 @@ In keepout 2, A is also the desired height, but the keepout can't be drawn corre
 <li>Recovered sun and flares in the sky.</li>
 <li>Change project center depending on first building vertex distance from original center.</li>
 </ul>
-<h3 id="fixes-2">Fixes</h3>
+<h3 id="fixes-3">Fixes</h3>
 <ul>
 <li>Perspective widget is displayed at the left side of the canvas.</li>
 <li>Changed providers selector style.</li>
 <li>Fixed bottom buttons interruption on canvas drag.</li>
 </ul>
 <h2 id="v3171-29052019">v3.17.1 (29/05/2019)</h2>
-<h3 id="fixes-3">Fixes</h3>
+<h3 id="fixes-4">Fixes</h3>
 <ul>
 <li>Change initial perspective widget position.</li>
 </ul>
 <h2 id="v3170-13052019">v3.17.0 (13/05/2019)</h2>
-<h3 id="features-3">Features</h3>
+<h3 id="features-4">Features</h3>
 <ul>
 <li>New alert: the layout blocks when browser is not Chrome.</li>
 <li>New features in sun simulation widget. Now you can set the date with the shortest or longest shadow, and reset the date to its default value. A new layoutRule has been defined to modify the default date of the simulator.</li>
@@ -572,13 +603,13 @@ In keepout 2, A is also the desired height, but the keepout can't be drawn corre
 <li>There are new shortcuts to navigate between the main tabs. By pressing keys 1, 2, 3 and 4 you can navigate between Building, Areas, Objects and Preferences panels, respectively.</li>
 <li>New alternative of using Command key instead of Ctrl in computers with mac OS operating system.</li>
 </ul>
-<h3 id="fixes-4">Fixes</h3>
+<h3 id="fixes-5">Fixes</h3>
 <ul>
 <li>Fixed a bug related to the subarea clone.</li>
 <li>Fixed the translation and rotation in perspective mode and changed shortcuts.</li>
 </ul>
 <h2 id="v3160-30042019">v3.16.0 (30/04/2019)</h2>
-<h3 id="features-4">Features</h3>
+<h3 id="features-5">Features</h3>
 <ul>
 <li>Context panel improvements on hover.</li>
 <li>New button to show and hide subarea view.</li>
@@ -586,7 +617,7 @@ In keepout 2, A is also the desired height, but the keepout can't be drawn corre
 <li>Snap to vertices shortcuts improvements in Windows and Mac.</li>
 <li>Created browser check.</li>
 </ul>
-<h3 id="fixes-5">Fixes</h3>
+<h3 id="fixes-6">Fixes</h3>
 <ul>
 <li>Reset modules when changing orientation.</li>
 <li>Fixed unnecessary console warning.</li>

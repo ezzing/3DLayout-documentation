@@ -175,7 +175,6 @@ You can select between editing the building or editing the roof.
 In the first option you can modify the building vertices following the steps of the building creation.
 If you edit the roof you can select any type of roof and it will be recalculated.
 
-<!-- Fiorella - Imagen distinguiendo de algunas maneras las dos opciones -->
 <img class="w200px" src="./layout-doc-imgs/building/building-edit.png" alt="Building edit" />
 
 <div class="page-break"></div>
@@ -273,7 +272,7 @@ These are all the subarea edition options:
 * Azimuth: modules rotation
 * Staggered enabled
 * Sails
-* Dilatation lines enabled
+* Dilatation lines
 
 Here, you can click on any module to enable/disable it. If you right click on a module it will be displayed its position (row and column).
 
@@ -372,9 +371,9 @@ You can customize it by specifying a number for the grid size (size of each squa
 
 ## Context panel
 
-This menu is available in both options, guide lines and grid, by right clicking on a point or edge.
+### On a point
 
-<img class="w100px" src="./layout-doc-imgs/snaps/context-panel.jpg" alt="Context panel" />
+<img class="w100px" src="./layout-doc-imgs/snaps/context-panel-point.jpg" alt="Context panel point" />
 
 When right clicking a point, you can:
 
@@ -384,16 +383,20 @@ When right clicking a point, you can:
 * Deselect all points: deselects all points except the last selected one
 * Delete point
 
+### On an edge
+
+<img class="w100px" src="./layout-doc-imgs/snaps/context-panel-edge.jpg" alt="Context panel edge" />
+
 When right clicking an edge (only in 'Guide lines' option), you can:
 
 * Select/deselect edge as guide: redraws the parallel and its perpendicular guide lines to the selected edge
 * Select/deselect all edges as guide
 
-It is also available by right clicking on a module in the subarea view.
+### On a module
 
 <img class="w100px" src="./layout-doc-imgs/snaps/context-panel-module.jpg" alt="Context panel module" />
 
-By doing this, it will display:
+By right clicking a module, it will display:
 
 * The position of the module (column and row)
 * Its index position in the row
@@ -403,6 +406,18 @@ If dilatation lines are disabled, there are also two buttons to:
 
 * Change row modules orientation
 * Add row offset
+
+### On an area
+
+<img class="w100px" src="./layout-doc-imgs/snaps/context-panel-area.jpg" alt="Context panel area" />
+
+You can also right click on an area in the svgProject to enable or disable it.
+
+### On a keepout in subarea view
+
+<img class="w100px" src="./layout-doc-imgs/snaps/context-panel-keepout.jpg" alt="Context panel keepout" />
+
+By right clicking on a keepout in the subarea view you can set that keepout as active, closing the subarea view.
 
 <div class="page-break"></div>
 
@@ -469,5 +484,6 @@ The progress bar it's composed of:
 * Label 1: function withing the operation
 * Label 2: step of the funcion
 * Bar: if there is a determinate number of steps it will be increasing its value, if not, it will be shown as an animation
+* Cancel button: only visible on 'Waiting for satellite tiles' generating textures step
 
 <img class="w75" src="./layout-doc-imgs/general/progress-bar-textures.jpg" alt="Generating textures progress bar" />

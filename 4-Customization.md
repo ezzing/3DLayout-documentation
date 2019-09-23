@@ -1,6 +1,6 @@
 # Alert widgets
 
-It's important to notify user when a change is going to be made or an error has appeared. You can create new customizable widgets on any panel element when its value is going to be changed.
+It is important to notify the user when a change is going to be made or an error has appeared. You can create new customizable widgets on any panel element when its value is going to be changed.
 
 To create a widget, you have to add two json properties on the json of the element whose value is being modified: 'confirmation' and 'confirmationWidget'.
 
@@ -38,19 +38,32 @@ If the widget is going to be only informative, there must be an 'eventOk' proper
 
 # Progress bar customization
 
-The progress bar is managed by events. It has 4 listeners:
+The progress bar is managed by events:
 
 * showProgressBar
 * resetProgressBar
 * updateProgressBar
 * hideProgressBar
+* Cancel button events
+
+## Show progress bar
+
+This event shows an empty progress bar. It must be emitted if the changes on the progress bar want to be displayed.
+
+    ee.emitEvent('showProgressBar');
+
+## Reset progress bar
 
 Resetting the progress bar will remove its width and set the bar animation. We recommend you to emit this event before updating the progress bar with a value.
+
+    ee.emitEvent('resetProgressBar');
+
+## Update progress bar
 
 To update the progress bar it is important to first open it by emitting the event 'showProgressBar'. The values will be sent as an object this way:
 
     ee.emitEvent('updateProgressBar', [{
-        title: 'Title of the operation'
+        title: 'Title of the operation',
         label1: 'Name of function',
         label2 : 'Step withing the function',
         value: 50
@@ -65,7 +78,25 @@ There are some cases that need to be mentioned when sending these parameters:
 
 > The simplest example is generating all the textures. If the project has 3 bulidings, you will have to divide 100 by number of buildings, so that the bar width will increase a 33.3% each time the event is emitted.
 
-When the progress bar is being hidden, all of its texts are removed and the animation is shown.
+## Hide progress bar
+
+When the progress bar is being hidden, all of its texts are removed, the animation is shown and the cancel button is hidden.
+
+    ee.emitEvent('hideProgressBar');
+
+## Cancel button events
+
+The cancel button is hidden by default. You can display it by sending a boolean parameter on the emitted event.
+
+Keep in mind that this event has to be emitted before executing an operator or within it. Also, there has to be a listener 'cancelProgressBar' that is going to be executed when clicking on this button.
+
+    ee.emitEvent('showProgressBarCancelBtn', [boolean]);
+
+> In the case of texture generation, these events are emitted in the operator.
+
+There is also a listener to update this button used when changing language. This removes and recreates the button with the hidden visibility property.
+
+    ee.emitEvent('updateProgressBarCancelBtn');
 
 <div class="page-break"></div>
 
@@ -227,12 +258,10 @@ All the attributes are boolean:
         snapShotCrm: allow snapshots to be sent to crm,
         debugListeners: debug number of listeners in console.log,
         debugOpTime: shows the time an operation takes to be done,
-        recordOperators: record all the executed operators with their args
-        debugContainers: show or ignore console.logs in code
-        showOldSystemProject: show old drawing in svgProject container
-        showOldSystemArea: show old drawing in svgArea container
+        recordOperators: record all the executed operators with their args,
+        debugContainers: show or ignore console.logs in code,
+        showOldSystemProject: show old drawing in svgProject container,
         showNewSystemProject: show new drawing in svgProject container
-        showNewSystemArea: show new drawing in svgArea container
     }
 
 ### 3D canvas
@@ -303,8 +332,7 @@ Sample values:
         closeRightCanvas: true,
         showCoordinates: false,
         showTotalPower: true,
-        customLogo: 'default',
-        customNav: 'default',
+        customLogoUrl: 'default',
         showNav: true,
         showLogo: true,
         defaultLanguage: 'en',
@@ -322,7 +350,8 @@ Sample values:
         maxAllowedBuildings: 0,
         viewportMode: 4,
         customRowOffset: true,
-        customRowOrientation: true,
+        customRowOrientation: false,
+        slowInternetConexionTimeout: 40000,
         hidden: []
     }
 
@@ -332,9 +361,8 @@ The attributes are:
         closeRightCanvas: close right canvas on start,
         showCoordinates: show coordinates of the mouse in the right bottom corner,
         showTotalPower: show 'Total power' indicator in the left upper corner,
-        customLogo: custom logo url,
-        customNav: show or hide nav ('default' shows nav),
-        showNav: creates structure of panels,
+        customLogoUrl: custom logo url,
+        showNav: show or hide nav,
         showLogo: show logo,
         defaultLanguage: string from available keys at 'defaultLanguages',
         defaultUnits: string from available keys at 'units',
@@ -352,6 +380,7 @@ The attributes are:
         viewportMode: viewport mode,
         customRowOffset: enable custom row offset (right click on modules),
         customRowOrientation: enable custom row orientation (right click on modules),
+        slowInternetConexionTimeout: timeout in milliseconds to display a widget to inform and cancel progress bar
         hidden: array of json properties within that json that don't want to be shown in panels
     }
 

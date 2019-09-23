@@ -34,8 +34,15 @@
       - [Guide lines](#guide-lines)
       - [Grid](#grid)
       - [Context panel](#context-panel)
+          - [On a point](#on-a-point)
+          - [On an edge](#on-an-edge)
+          - [On a module](#on-a-module)
+          - [On an area](#on-an-area)
+          - [On a keepout in subarea
+            view](#on-a-keepout-in-subarea-view)
   - [Textures](#textures)
   - [Shortcuts](#shortcuts)
   - [Progress bar](#progress-bar)
+  - [Changelog](#changelog)
 
 <div class="page-break"></div>

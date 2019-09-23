@@ -40,27 +40,36 @@
       - [Guide lines](#guide-lines)
       - [Grid](#grid)
       - [Context panel](#context-panel)
+          - [On a point](#on-a-point)
+          - [On an edge](#on-an-edge)
+          - [On a module](#on-a-module)
+          - [On an area](#on-an-area)
+          - [On a keepout in subarea
+            view](#on-a-keepout-in-subarea-view)
   - [Textures](#textures)
   - [Shortcuts](#shortcuts)
   - [Progress bar](#progress-bar)
   - [Changelog](#changelog)
-      - [v3.20.0 (29/08/2019)](#v3200-29082019)
+      - [v3.21.0 (00/09/2019)](#v3210-00092019)
           - [Features](#features)
           - [Fixes](#fixes)
-      - [v3.19.0 (09/08/2019)](#v3190-09082019)
+      - [v3.20.0 (29/08/2019)](#v3200-29082019)
           - [Features](#features-1)
           - [Fixes](#fixes-1)
-      - [v3.18.0 (03/06/2019)](#v3180-03062019)
+      - [v3.19.0 (09/08/2019)](#v3190-09082019)
           - [Features](#features-2)
           - [Fixes](#fixes-2)
-      - [v3.17.1 (29/05/2019)](#v3171-29052019)
-          - [Fixes](#fixes-3)
-      - [v3.17.0 (13/05/2019)](#v3170-13052019)
+      - [v3.18.0 (03/06/2019)](#v3180-03062019)
           - [Features](#features-3)
+          - [Fixes](#fixes-3)
+      - [v3.17.1 (29/05/2019)](#v3171-29052019)
           - [Fixes](#fixes-4)
-      - [v3.16.0 (30/04/2019)](#v3160-30042019)
+      - [v3.17.0 (13/05/2019)](#v3170-13052019)
           - [Features](#features-4)
           - [Fixes](#fixes-5)
+      - [v3.16.0 (30/04/2019)](#v3160-30042019)
+          - [Features](#features-5)
+          - [Fixes](#fixes-6)
 
 # Introduction
 
@@ -424,7 +433,7 @@ These are all the subarea edition options:
   - Azimuth: modules rotation
   - Staggered enabled
   - Sails
-  - Dilatation lines enabled
+  - Dilatation lines
 
 Here, you can click on any module to enable/disable it. If you right
 click on a module it will be displayed its position (row and column).
@@ -547,10 +556,9 @@ grid.
 
 ## Context panel
 
-This menu is available in both options, guide lines and grid, by right
-clicking on a point or edge.
+### On a point
 
-![Context panel](./layout-doc-imgs/snaps/context-panel.jpg)
+![Context panel point](./layout-doc-imgs/snaps/context-panel-point.jpg)
 
 When right clicking a point, you can:
 
@@ -565,18 +573,22 @@ When right clicking a point, you can:
     one
   - Delete point
 
+### On an edge
+
+![Context panel edge](./layout-doc-imgs/snaps/context-panel-edge.jpg)
+
 When right clicking an edge (only in 'Guide lines' option), you can:
 
   - Select/deselect edge as guide: redraws the parallel and its
     perpendicular guide lines to the selected edge
   - Select/deselect all edges as guide
 
-It is also available by right clicking on a module in the subarea view.
+### On a module
 
 ![Context panel
 module](./layout-doc-imgs/snaps/context-panel-module.jpg)
 
-By doing this, it will display:
+By right clicking a module, it will display:
 
   - The position of the module (column and row)
   - Its index position in the row
@@ -586,6 +598,21 @@ If dilatation lines are disabled, there are also two buttons to:
 
   - Change row modules orientation
   - Add row offset
+
+### On an area
+
+![Context panel area](./layout-doc-imgs/snaps/context-panel-area.jpg)
+
+You can also right click on an area in the svgProject to enable or
+disable it.
+
+### On a keepout in subarea view
+
+![Context panel
+keepout](./layout-doc-imgs/snaps/context-panel-keepout.jpg)
+
+By right clicking on a keepout in the subarea view you can set that
+keepout as active, closing the subarea view.
 
 <div class="page-break">
 
@@ -674,6 +701,8 @@ The progress bar it's composed of:
   - Label 2: step of the funcion
   - Bar: if there is a determinate number of steps it will be increasing
     its value, if not, it will be shown as an animation
+  - Cancel button: only visible on 'Waiting for satellite tiles'
+    generating textures step
 
 ![Generating textures progress
 bar](./layout-doc-imgs/general/progress-bar-textures.jpg)
@@ -683,6 +712,19 @@ bar](./layout-doc-imgs/general/progress-bar-textures.jpg)
 </div>
 
 # Changelog
+
+## v3.21.0 (00/09/2019)
+
+### Features
+
+  - New drawing in svgProject.
+  - New cancel button on progress bar when generating textures.
+  - Manage area habilitation from context menu (by right clicking on an
+    area in svgProject).
+
+### Fixes
+
+  - Deprecated layoutRules on aside header creation refactor.
 
 ## v3.20.0 (29/08/2019)
 
