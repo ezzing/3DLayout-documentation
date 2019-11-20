@@ -410,17 +410,17 @@ If dilatation lines are disabled, there are also two buttons to:
 * Change row modules orientation
 * Add row offset
 
-### On an area
-
-<img class="w100px" src="./layout-doc-imgs/snaps/context-panel-area.jpg" alt="Context panel area" />
-
-You can also right click on an area in the svgProject to enable or disable it.
-
 ### On a keepout in subarea view
 
 <img class="w100px" src="./layout-doc-imgs/snaps/context-panel-keepout.jpg" alt="Context panel keepout" />
 
 By right clicking on a keepout in the subarea view you can set that keepout as active, closing the subarea view.
+
+### On an object
+
+<img class="w100px" src="./layout-doc-imgs/snaps/context-panel-area.jpg" alt="Context panel area" />
+
+You can also right click on any object in the svgProject. You will be able to set active, edit, move, etc the current object and its parents objects (ex: from a subarea you can execute areas and building operations).
 
 <div class="page-break"></div>
 

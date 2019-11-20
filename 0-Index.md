@@ -37,9 +37,9 @@
           - [On a point](#on-a-point)
           - [On an edge](#on-an-edge)
           - [On a module](#on-a-module)
-          - [On an area](#on-an-area)
           - [On a keepout in subarea
-            view](#on-a-keepout-in-subarea-view)
+          view](#on-a-keepout-in-subarea-view)
+          - [On an object](#on-an-object)
   - [Textures](#textures)
   - [Shortcuts](#shortcuts)
   - [Progress bar](#progress-bar)

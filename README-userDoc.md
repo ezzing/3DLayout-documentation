@@ -43,33 +43,36 @@
           - [On a point](#on-a-point)
           - [On an edge](#on-an-edge)
           - [On a module](#on-a-module)
-          - [On an area](#on-an-area)
           - [On a keepout in subarea
             view](#on-a-keepout-in-subarea-view)
+          - [On an object](#on-an-object)
   - [Textures](#textures)
   - [Shortcuts](#shortcuts)
   - [Progress bar](#progress-bar)
   - [Changelog](#changelog)
-      - [v3.21.0 (00/09/2019)](#v3210-00092019)
+      - [v3.23.0 (20/11/2019)](#v3230-20112019)
           - [Features](#features)
           - [Fixes](#fixes)
-      - [v3.20.0 (29/08/2019)](#v3200-29082019)
+      - [v3.21.0 (00/09/2019)](#v3210-00092019)
           - [Features](#features-1)
           - [Fixes](#fixes-1)
-      - [v3.19.0 (09/08/2019)](#v3190-09082019)
+      - [v3.20.0 (29/08/2019)](#v3200-29082019)
           - [Features](#features-2)
           - [Fixes](#fixes-2)
-      - [v3.18.0 (03/06/2019)](#v3180-03062019)
+      - [v3.19.0 (09/08/2019)](#v3190-09082019)
           - [Features](#features-3)
           - [Fixes](#fixes-3)
-      - [v3.17.1 (29/05/2019)](#v3171-29052019)
-          - [Fixes](#fixes-4)
-      - [v3.17.0 (13/05/2019)](#v3170-13052019)
+      - [v3.18.0 (03/06/2019)](#v3180-03062019)
           - [Features](#features-4)
+          - [Fixes](#fixes-4)
+      - [v3.17.1 (29/05/2019)](#v3171-29052019)
           - [Fixes](#fixes-5)
-      - [v3.16.0 (30/04/2019)](#v3160-30042019)
+      - [v3.17.0 (13/05/2019)](#v3170-13052019)
           - [Features](#features-5)
           - [Fixes](#fixes-6)
+      - [v3.16.0 (30/04/2019)](#v3160-30042019)
+          - [Features](#features-6)
+          - [Fixes](#fixes-7)
 
 # Introduction
 
@@ -599,13 +602,6 @@ If dilatation lines are disabled, there are also two buttons to:
   - Change row modules orientation
   - Add row offset
 
-### On an area
-
-![Context panel area](./layout-doc-imgs/snaps/context-panel-area.jpg)
-
-You can also right click on an area in the svgProject to enable or
-disable it.
-
 ### On a keepout in subarea view
 
 ![Context panel
@@ -613,6 +609,15 @@ keepout](./layout-doc-imgs/snaps/context-panel-keepout.jpg)
 
 By right clicking on a keepout in the subarea view you can set that
 keepout as active, closing the subarea view.
+
+### On an object
+
+![Context panel area](./layout-doc-imgs/snaps/context-panel-area.jpg)
+
+You can also right click on any object in the svgProject. You will be
+able to set active, edit, move, etc the current object and its parents
+objects (ex: from a subarea you can execute areas and building
+operations).
 
 <div class="page-break">
 
@@ -712,6 +717,22 @@ bar](./layout-doc-imgs/general/progress-bar-textures.jpg)
 </div>
 
 # Changelog
+
+## v3.23.0 (20/11/2019)
+
+### Features
+
+  - Improved drawing speed.
+  - New context panel buttons (by right-clicking on buildings, areas,
+    subares, etc. from canvas).
+  - When moving an object, other objects don't interfere.
+  - Subareas can be moved with keyboard shortcuts.
+
+### Fixes
+
+  - Finish panels button is locked when the operation has not been
+    validated.
+  - Drawing alignment when switching perspective mode from 3D to 2D.
 
 ## v3.21.0 (00/09/2019)
 

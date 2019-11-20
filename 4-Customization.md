@@ -615,6 +615,8 @@ Areas and subareas have the same properties except for 'autocad' property, which
             move: { },
             hover: { },
             offsettedPath: { },
+            roofEditor: { },
+            hoverRoofEditor: { }
         },
         vertices: {
             standard: { },
@@ -669,7 +671,8 @@ Properties for tree colors:
     treeColors: {
         standard: { },
         active: { },
-        hover: { }
+        hover: { },
+        move: { }
     }
 
 ### Custom colors

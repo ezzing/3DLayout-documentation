@@ -2,6 +2,18 @@
 
 # Changelog
 
+## v3.23.0 (20/11/2019)
+### Features
+- Improved drawing speed.
+- New context panel buttons (by right-clicking on buildings, areas, subares, etc. from canvas).
+- When moving an object, other objects don't interfere.
+- Subareas can be moved with keyboard shortcuts.
+
+### Fixes
+- Finish panels button is locked when the operation has not been validated.
+- Drawing alignment when switching perspective mode from 3D to 2D.
+
+
 ## v3.21.0 (00/09/2019)
 ### Features
 - New drawing in svgProject.
