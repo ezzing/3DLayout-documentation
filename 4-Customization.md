@@ -394,6 +394,8 @@ The viewportMode options are:
 * 6: simple mode
 * 7: documentation
 * 8: autocad export
+* 9: simple mode invisible
+* 11: read only
 
 <div class="page-break"></div>
 
