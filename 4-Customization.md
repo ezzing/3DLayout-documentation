@@ -779,6 +779,7 @@ Sample values:
 
 Sample values:
 
+1. Adds new available materials to list: 
     var roofByTypeDefaultValues = {
         flat: {
             material: 'bitumen',
@@ -803,6 +804,10 @@ Sample values:
         hipped: { },
         pyramid { },
         mansard { },
+    }
+
+2. Overwrites available materials with default values: 
+    var roofByTypeDefaultValues = {
         pent: {
             material: 'tiled',
             availableMaterial: [
@@ -816,8 +821,34 @@ Sample values:
             inclination: 30,
             hidden: [ ],
             locked: [ ]
-        }
+        },
+        gabled: { },
+        hipped: { },
+        pyramid { },
+        mansard { },
     }
+
+3. Overwrites available materials with custom values: 
+    var roofByTypeDefaultValues = {
+        flat: {
+            material: 'bitumen',
+            availableMaterial: [
+                [ 'tiled', 'tiled', 'tiledImage', 'tiledLabel'],
+                [],....
+            ],
+            availableOrientation: [ ],
+            inclination: 0,
+            offset: [1],
+            orientation: '',
+            hidden: [ ],
+            locked: [ ]
+        },
+        gabled: { },
+        hipped: { },
+        pyramid { },
+        mansard { },
+    }
+    the format of the array is following: [ ID, value, image, label]
 
 <div class="page-break"></div>
 
