@@ -3,29 +3,30 @@
 # Changelog
 ## v3.25.0 (??/03/2020) <!-- Hey change this date! -->
 ### Features
-- Read-only mode
+- Read-only mode.
+- New roof type: mansard.
 - Navbar (Building/Areas/Object/Map/...) located at the very top: better visualization of panel options!
 - Enhanced undo/redo feature. We've got you covered!
 - Map snapshots.
 ### Fixes
-- Flux create edit panel. <!-- Hey, this need better description of this! -->
-- Pop up blocking layer. <!-- Hey, this need better description of this! -->
+- Fix bug due to users ommiting modals messages while changing attributes.
 - Performance boost.
-- Other fixes
+- Stability improvements.
+- Other minor fixes.
 
 ## v3.24.0 (10/02/2020)
 ### Features
 - Building Shapes: you can use common predesigned building shapes. Let's skyrocket that productivity!
-- New roof geometries.
-- Pergola "roof" type. <!-- Hey review this translation! -->
+- Improved roof geometries.
+- New roof type: pergola. <!-- Hey review this translation! -->
 - You can move roof points symmetrically (hipped roofs).
 - Turkish translations: Selam!
 ### Fixes
 - Fix default module height was displayed in millimeters (instead of meters).
-- Labels displaying wrong when dilation lines were added.
+- Labels displaying wrong when dilatation lines were added.
 - Snap to grid now behaves correctly.
-- Now modules being dragged show the right color.
-- Other minor errors.
+- Now modules being dragged show their right color.
+- Other minor fixes.
 
 ## v3.23.0 (20/11/2019)
 ### Features
