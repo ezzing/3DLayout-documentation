@@ -343,7 +343,12 @@ It is important to create trees for simulating the shadows on the roofs. Therefo
 
 The snap is a helpful tool for drawing buildings, subareas and keepouts.
 
-There are two ways for drawing points: using **guide lines** or a **grid**.
+There are three ways for drawing points: without snap, using **guide lines** or a **grid**.
+
+## Without Snap
+You can draw unassisted disabling both snap options. With this option you can put a point anywhere.
+
+<img class="w100px" src="./layout-doc-imgs/snaps/snap-without-options.png" alt="Snap disabled" />
 
 ## Guide lines
 
