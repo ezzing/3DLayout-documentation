@@ -136,9 +136,32 @@ To start using the tool you need to create your first building. To do so you can
 
 <img class="w200px" src="./layout-doc-imgs/building/building-create-button.png" alt="Create Building Button">
 
+Since v3.24.0, once you click to create a new building, you will be prompted to choose which mode to use, there are available two ways of creating buildings: 
+
+<img class="w200" src="./layout-doc-imgs/building/building-creation-mode.png" alt="Building Creation Modes">
+
+### Custom shapes
+Custon Shapes lets you quickly create a building from a predefined set. This mode is designed to quickly add buidings to the project with common shapes. The current ones are:
+
+<img class="w200" src="./layout-doc-imgs/building/custom-shape-types.png" alt="Custom Shapes (Types)">
+
+Once you select one it will be created in the project center. You can tweak this custom shape from the aside panel (note that the cavas points can't be edited as they're grayed out). You can config in the panel the size of the edges and the building rotation. When you're ready you click *Finish* in the panel will proceed to edit the building as regular one (created with *Draw Shapes* option). Once the building is created you can move it like any other building to their correct place.
+
+Special mention to the *Step by step* type. This powerful option lets you define a bulding wall by wall:
+
+<img class="w200" src="./layout-doc-imgs/building/custom-shapes-stepbystep.png" alt="Building Creation Modes">
+
+In the example above you can see that the user has defined 3 walls (with different lengths and angles), plus a closing wall from the first to the last point. The closing wall is calculated automatically so you don´t have to worry about it.
+
+### Draw shape
+
+Draw shape: the conventional way of creating buildings, in this mode you have to click on the canvas tu add each of the points that will define the shape of your building.
+
+> Please, visit the section [Drawing with Snaps](#drawing-with-snaps) to learn how to draw.
+
 Keep in mind that the different parts of the user interface serve different purposes:
 * In the canvas area, you will be able to customize the shape of the building by clicking in the desired places.
-* In the aside panel, you will be able to change various options such as 'Populate with modules' and 'Building height'.
+* In the aside panel, you will be able to change options such as 'Populate with modules' and 'Building height'.
 
 The 'Building Height' input can be configured to:
 
