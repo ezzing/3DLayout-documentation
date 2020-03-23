@@ -42,13 +42,13 @@ In the aside panel you can find functionalities related to the current active bu
 <img class="w100" src="./layout-doc-imgs/tabs/tab-building.jpg" alt="Tab building" />
 <br><br>
 <img class="w100" src="./layout-doc-imgs/tabs/tab-areas-1.jpg" alt="Tab areas 1" />
-
+<br><br>
 <img class="w100" src="./layout-doc-imgs/tabs/tab-areas-2.jpg" alt="Tab areas 2" />
 <br><br>
 <img class="w100" src="./layout-doc-imgs/tabs/tab-keepouts.jpg" alt="Tab keepouts" />
 <br><br>
 <img class="w100" src="./layout-doc-imgs/tabs/tab-trees.jpg" alt="Tab trees" />
-
+<br><br>
 <img class="w100" src="./layout-doc-imgs/tabs/tab-preferences.jpg" alt="Tab preferences" />
 
 <div class="page-break"></div>
@@ -134,7 +134,7 @@ Everytime an operation is being executed, it will appear at the top of the canva
 
 To start using the tool you need to create your first building. To do so you can either click on the start button in the aside panel or in the '+' icon, in the top left corner inside the canvas area.  There is no limit on the number of buildings to create.
 
-<img class="w200px" src="./layout-doc-imgs/building/building-create-button.png" alt="Create Building Button">
+<img class="w300px" src="./layout-doc-imgs/building/building-create-button.png" alt="Create Building Button">
 
 Since v3.24.0, once you click to create a new building, you will be prompted to choose which mode to use, there are available two ways of creating buildings: 
 
@@ -151,7 +151,9 @@ Special mention to the *Step by step* type. This powerful option lets you define
 
 <img class="w200" src="./layout-doc-imgs/building/custom-shapes-stepbystep.png" alt="Building Creation Modes">
 
-In the example above you can see that the user has defined 3 walls (with different lengths and angles), plus a closing wall from the first to the last point. The closing wall is calculated automatically so you don´t have to worry about it.
+In the example above you can see that the user has configured the settings of 4 walls with their respective lengths and angles, plus a closing wall from the first to the last point. The closing wall is calculated automatically so you don´t have to worry about it.
+
+To add a new wall you only need to click the *Add Step* button in the panel, the new wall will be listed below the ones already there and you can set it up as you wish.
 
 ### Draw shape
 
@@ -168,7 +170,7 @@ The 'Building Height' input can be configured to:
 * Gutter: the height will be measured from the floor to the lowest point of the roof.
 * Ridge: the height will be measured from the floor to the peak of the roof. Is the place where usually two (or more) opposing planes meet.
 
-<img class="w200px" src="./layout-doc-imgs/building/building-height.png" alt="Building Height toggle" />
+<img class="w300px" src="./layout-doc-imgs/building/building-height.png" alt="Building Height toggle" />
 
 > Change height units clicking on the current units to the right of the height number.
 
@@ -176,7 +178,7 @@ The 'Populated with modules' option determines if the building will be created w
 
 You can activate the modules in the building edition (this configuration will be shown everytime the layout is loaded) or enabling the corresponding area in the area section.
 
-<img class="w200px" src="./layout-doc-imgs/building/populated-with-modules-toggle.png" alt="Populated with modules toggle" />
+<img class="w300px" src="./layout-doc-imgs/building/populated-with-modules-toggle.png" alt="Populated with modules toggle" />
 
 > Please, visit the section [Drawing with Snaps](#drawing-with-snaps) to learn how to draw.
 
@@ -184,7 +186,7 @@ The next step once you have drawn the building is configurating the roof. There 
 
 These are all the types of roof (available on regular buildings):
 
-<img class="w100px" src="./layout-doc-imgs/building/roof-types-v.3.25.png" alt="Roof types" />
+<img class="w300px" src="./layout-doc-imgs/building/roof-types-v.3.25.png" alt="Roof types" />
 
 Each roof is composed of a determined number of areas that are automatically created.
 
@@ -219,13 +221,13 @@ You can select between editing the building or editing the roof.
 In the first option you can modify the building vertices following the steps of the building creation.
 If you edit the roof you can select any type of roof and it will be recalculated.
 
-<img class="w200px" src="./layout-doc-imgs/building/building-edit-2.png" alt="Building edit" />
+<img class="w300px" src="./layout-doc-imgs/building/building-edit.png" alt="Building edit" />
 
 ## Roof editor
 
 You can edit a roof by clicking in the pencil icon in the roof section:
 
-<img class="w200px" src="./layout-doc-imgs/building/roof-editor.png" alt="Roof edit" />
+<img class="w300px" src="./layout-doc-imgs/building/roof-editor.png" alt="Roof edit" />
 
 There you can change the roof type in a similar way as you did when creating the building. To know the interactions available in each roof type, you should read the draggable help window that displays the interactions with each roof:
 
@@ -259,7 +261,7 @@ Similar in options to a gabled roof, but slightly more complex. The main differe
 
 ### Mansard
 
-<img class="w200px" src="./layout-doc-imgs/building/mansard-editor-A.png" alt="Mansard Editor" />
+<img class="w200px" src="./layout-doc-imgs/building/mansard-editor.png" alt="Mansard Editor" />
 
 The first time you convert a roof to a mansard you'll see that a basic mansards is a roof like a piramid that has a section on what would be the top of a pyramid. 
 
@@ -267,11 +269,11 @@ Besides the inclination settings you can change in other roof types, when you cr
 
 After you click finish, you can check that now there are two roofs in the aside panel:
 
-<img class="w200px" src="./layout-doc-imgs/building/mansard-second-roof-A.png" alt="Mansard Editor" />
+<img class="w300px" src="./layout-doc-imgs/building/mansard-second-roof-A.png" alt="Mansard Editor" />
 
-Clicking on the edit the new roof (Roof 2 in the previous image) you can change the default flat roof on top of the mansard to other type of roof. In the next image you can see an example mansard with a pent roof on top:
+Clicking on the edit the new roof (Roof 2 in the previous image) you can change the default flat roof on top of the mansard to other type of roof. The image below shows a mansard with a pent roof on top as an example:
 
-<img class="w200px" src="./layout-doc-imgs/building/mansard-second-roof-B.png" alt="Mansard Compound Roof" />
+<img class="w40center" src="./layout-doc-imgs/building/mansard-second-roof-B.png" alt="Mansard Compound Roof" />
 
 <div class="page-break"></div>
 
