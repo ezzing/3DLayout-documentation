@@ -141,13 +141,13 @@ Custon Shapes lets you quickly create a building from a predefined set. This mod
 
 <img class="w200" src="./layout-doc-imgs/building/custom-shape-types.png" alt="Custom Shapes (Types)">
 
-Once you select one it will be created in the project center. You can tweak this custom shape from the aside panel (note that the cavas points can't be edited as they're grayed out). You can config in the panel the size of the edges and the building rotation. When you're ready, click *Finish* in the panel, and you will proceed to edit the building as regular one (see *Draw Shapes* option below). Once the building is created you can move it like any other building to the desired place.
+Once you select one it will be created in the project center. You can tweak this custom shape from the aside panel (note that the canvas points can't be edited as they're grayed out). Configure the size of the edges and the building rotation in the panel. Clicking on *Finish* you will proceed to edit the building as regular one (see next section *Draw Shape*). Once the building is created you can move it like any other building to the desired place.
 
 Special mention to the *Step by step* type. This powerful option lets you define a bulding wall by wall:
 
 <img class="w200" src="./layout-doc-imgs/building/custom-shapes-stepbystep.png" alt="Building Creation Modes">
 
-In the example above you can see that the user has configured the settings of 4 walls with their respective lengths and angles, plus a closing wall from the first to the last point. The closing wall is calculated automatically so you don´t have to worry about it.
+In the example above the user has configured the settings of 4 walls with their respective lengths and angles, plus a closing wall from the first to the last point. The closing wall is calculated automatically so you don´t have to worry about it.
 
 To add a new wall you only need to click the *Add Step* button in the panel, the new wall will be listed below the ones already there and you can set it up as you wish.
 
@@ -178,7 +178,7 @@ You can activate the modules in the building edition (this configuration will be
 
 > Please, visit the section [Drawing with Snaps](#drawing-with-snaps) to learn how to draw.
 
-The next step once you have drawn the building is configurating the roof. There are different types of roofs depending on the shape of the building (if the building is irregular, the roof can only be flat or pent).
+The next step once you have drawn the building is setting up the roof. There are different types of roofs depending on the shape of the building (if the building is irregular, the roof can only be flat or pent).
 
 These are all the types of roof (available on regular buildings):
 
@@ -225,7 +225,7 @@ You can edit a roof by clicking in the pencil icon in the roof section:
 
 <img class="w300px" src="./layout-doc-imgs/building/roof-editor.png" alt="Roof edit" />
 
-There you can change the roof type in a similar way as you did when creating the building. To know the interactions available in each roof type, you should read the draggable help window that displays the interactions with each roof:
+After that, you can change the roof type in a similar way as you did when creating the building. To know the interactions available in each roof type, read the draggable help window that displays the interactions with each roof:
 
 <img class="w200px" src="./layout-doc-imgs/building/roof-editor-helper.png" alt="Roof editor helper" />
 
@@ -247,27 +247,27 @@ Similar to pents but this roof has four faces instead of one and you can move th
 
 <img class="w200px" src="./layout-doc-imgs/building/gabled-editor.png" alt="Gabled Editor" />
 
-Gabled roofs lets you move the edge of the ridge along the whole roof base. You can also change the inclination of the planes as with previous roofs. To change the orientation of the ridge you can click on the different edges, like in pent roofs or click in the option in the aside panel East/West or South/North.
+Gabled roofs lets you move the edge of the ridge along the whole roof base. You can also change the inclination of the planes as with previous roofs. To change the orientation of the ridge you can click on one edge (like with pent roofs) or using the icons in the aside panel called: East/West or South/North.
 
 ### Hipped
 
 <img class="w200px" src="./layout-doc-imgs/building/hipped-editor.png" alt="Hipped Editor" />
 
-Similar in options to a gabled roof, but slightly more complex. The main differences are that hipped roofs have four faces, and you have two vertex that define the ridge of the roof (the edge at the peak). Important to note that you have a switch in the aside panel to force the symmetry of the ridge.
+Similar in options to a gabled roof, but slightly more complex. The main difference is that in hipped you have two vertex that define the ridge of the roof (the edge at the peak). There's a switch in the aside panel to ensure the symmetry of the ridge.
 
 ### Mansard
 
 <img class="w200px" src="./layout-doc-imgs/building/mansard-editor.png" alt="Mansard Editor" />
 
-The first time you convert a roof to a mansard you'll see that a basic mansards is a roof like a piramid that has a section on what would be the top of a pyramid. 
+The first time you convert a roof to a mansard you'll see that a basic mansards is like a pyramid roof that has the upper part sectioned. 
 
-Besides the inclination settings you can change in other roof types, when you create a mansard it has a four-sided ridge where you can move each point. If the symmetric ridge switch is on, the ridge will have a perfect square ratio.
+In a mansard roof, besides the inclination settings available in other roof types, it is possible to change the size of a four-sided ridge. If the symmetric ridge switch in the panel is on, the ridge will have a perfect square ratio.
 
-After you click finish, you can check that now there are two roofs in the aside panel:
+After clicking *Finish* with a mansard roof, you will see two roofs in the aside panel:
 
 <img class="w300px" src="./layout-doc-imgs/building/mansard-second-roof-A.png" alt="Mansard Editor" />
 
-Clicking on the edit the new roof (Roof 2 in the previous image) you can change the default flat roof on top of the mansard to other type of roof. The image below shows a mansard with a pent roof on top as an example:
+You can change the default flat roof (Roof 2 in the previous image) created on top of the mansard to other type of roof. The image below shows a mansard with a pent roof on top as an example:
 
 <img class="w40center" src="./layout-doc-imgs/building/mansard-second-roof-B.png" alt="Mansard Compound Roof" />
 
