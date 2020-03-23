@@ -128,12 +128,26 @@ Everytime an operation is being executed, it will appear at the top of the canva
 
 <div class="page-break"></div>
 
-
 # Buildings
 
 ## Building creation
 
-To start using the tool you need to create your first building. You will be able to customize its shape, name or height (from gutter or ridge).
+To start using the tool you need to create your first building. To do so you can either click on the start button in the aside panel or in the '+' icon, in the top left corner inside the canvas area.  There is no limit on the number of buildings to create.
+
+<img class="w200px" src="./layout-doc-imgs/building/building-create-button.png" alt="Create Building Button">
+
+Keep in mind that the different parts of the user interface serve different purposes:
+* In the canvas area, you will be able to customize the shape of the building by clicking in the desired places.
+* In the aside panel, you will be able to change various options such as 'Populate with modules' and 'Building height'.
+
+The 'Building Height' input can be configured to:
+
+* Gutter: the height will be measured from the floor to the lowest point of the roof.
+* Ridge: the height will be measured from the floor to the peak of the roof. Is the place where usually two (or more) opposing planes meet.
+
+<img class="w200px" src="./layout-doc-imgs/building/building-height.png" alt="Building Height toggle" />
+
+> Change height units clicking on the current units to the right of the height number.
 
 The 'Populated with modules' option determines if the building will be created with or without modules. It is useful to deactivate it for simulating the shadows of the buildings.
 
@@ -147,13 +161,17 @@ The next step once you have drawn the building is configurating the roof. There 
 
 These are all the types of roof (available on regular buildings):
 
-<img class="w200px" src="./layout-doc-imgs/building/roof-types.png" alt="Roof types" />
+<img class="w100px" src="./layout-doc-imgs/building/roof-types-v.3.25.png" alt="Roof types" />
 
 Each roof is composed of a determined number of areas that are automatically created.
 
-You can also choose a roof material despite it is only informative. The material options are common for all roof types (tiled, trapezoidal, and corrugated) except for the flat ones (gravel, bitumen, membrane, and concrete):
+You can also choose a roof material despite it is only informative. The material options are common for all roof types (tiled, trapezoidal, and corrugated): 
 
-<img class="w200px" src="./layout-doc-imgs/building/roof-materials.png" alt="Roof materials" />
+<img class="w200px" src="./layout-doc-imgs/building/roof-materials-1.png" alt="Rest of Roof materials" />
+
+Except for the flat roof type (gravel, bitumen, membrane, and concrete):
+
+<img class="w200px" src="./layout-doc-imgs/building/roof-materials-2.png" alt="Flat Roof materials" />
 
 When the operation is finished, the textures of the building are generated using the mapper tool and the modules appear in a default subarea.
 
@@ -167,9 +185,9 @@ Once the building is created, you will be able to:
 * Clone (it will be cloned with the same settings)
 * Paint
 
-## Add building
+## Select building
 
-By clicking the '+' button at the top-left of the canvas you enter in the building creation process. There is no limit on buildings to create.
+By clicking in the buildings indexes, below the add building button ('+' icon), you can select them. The selected building will become the active one and the canvas will be centered on that building. This is very useful when you are on a projects with several buildings and you want to focus your view on one. After selecting a building, the aside panel will show the properties of the building.
 
 ## Edit building
 
@@ -178,7 +196,59 @@ You can select between editing the building or editing the roof.
 In the first option you can modify the building vertices following the steps of the building creation.
 If you edit the roof you can select any type of roof and it will be recalculated.
 
-<img class="w200px" src="./layout-doc-imgs/building/building-edit.png" alt="Building edit" />
+<img class="w200px" src="./layout-doc-imgs/building/building-edit-2.png" alt="Building edit" />
+
+## Roof editor
+
+You can edit a roof by clicking in the pencil icon in the roof section:
+
+<img class="w200px" src="./layout-doc-imgs/building/roof-editor.png" alt="Roof edit" />
+
+There you can change the roof type in a similar way as you did when creating the building. To know the interactions available in each roof type, you should read the draggable help window that displays the interactions with each roof:
+
+<img class="w200px" src="./layout-doc-imgs/building/roof-editor-helper.png" alt="Roof editor helper" />
+
+> You can click on the upper right corner to minimize the helper if you need more available space to work.
+
+### Pent and pergola
+
+<img class="w200px" src="./layout-doc-imgs/building/pent-editor.png" alt="Pent & Pergola Editor" />
+
+Lets you modify the angle of inclination by clicking somewhere inside the roof and changing the angle. You can change the orientation of the roof by clicking one of the roof edges and selecting "Change Orientation".
+
+### Pyramid
+
+<img class="w200px" src="./layout-doc-imgs/building/pyramid-editor.png" alt="Pyramid Editor" />
+
+Similar to pents but this roof has four faces instead of one and you can move the top vertex (the peak of the pyramid) to adjust to the desired shape.
+
+### Gabled
+
+<img class="w200px" src="./layout-doc-imgs/building/gabled-editor.png" alt="Gabled Editor" />
+
+Gabled roofs lets you move the edge of the ridge along the whole roof base. You can also change the inclination of the planes as with previous roofs. To change the orientation of the ridge you can click on the different edges, like in pent roofs or click in the option in the aside panel East/West or South/North.
+
+### Hipped
+
+<img class="w200px" src="./layout-doc-imgs/building/hipped-editor.png" alt="Hipped Editor" />
+
+Similar in options to a gabled roof, but slightly more complex. The main differences are that hipped roofs have four faces, and you have two vertex that define the ridge of the roof (the edge at the peak). Important to note that you have a switch in the aside panel to force the symmetry of the ridge.
+
+### Mansard
+
+<img class="w200px" src="./layout-doc-imgs/building/mansard-editor-A.png" alt="Mansard Editor" />
+
+The first time you convert a roof to a mansard you'll see that a basic mansards is a roof like a piramid that has a section on what would be the top of a pyramid. 
+
+Besides the inclination settings you can change in other roof types, when you create a mansard it has a four-sided ridge where you can move each point. If the symmetric ridge switch is on, the ridge will have a perfect square ratio.
+
+After you click finish, you can check that now there are two roofs in the aside panel:
+
+<img class="w200px" src="./layout-doc-imgs/building/mansard-second-roof-A.png" alt="Mansard Editor" />
+
+Clicking on the edit the new roof (Roof 2 in the previous image) you can change the default flat roof on top of the mansard to other type of roof. In the next image you can see an example mansard with a pent roof on top:
+
+<img class="w200px" src="./layout-doc-imgs/building/mansard-second-roof-B.png" alt="Mansard Compound Roof" />
 
 <div class="page-break"></div>
 
