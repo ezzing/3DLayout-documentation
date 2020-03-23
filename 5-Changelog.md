@@ -1,7 +1,7 @@
 <div class="page-break"></div>
 
 # Changelog
-## v3.25.0 (??/03/2020) <!-- Hey change this date! -->
+## v3.25.0 (24/03/2020)
 ### Features
 - Read-only mode.
 - New roof type: mansard.
@@ -18,7 +18,7 @@
 ### Features
 - Building Shapes: you can use common predesigned building shapes. Let's skyrocket that productivity!
 - Improved roof geometries.
-- New roof type: pergola. <!-- Hey review this translation! -->
+- New roof type: pergola. <!-- Hey! Review translation the translation for: 'pergola' -->
 - You can move roof points symmetrically (hipped roofs).
 - Turkish translations: Selam!
 ### Fixes
@@ -40,7 +40,7 @@
 - Drawing alignment when switching perspective mode from 3D to 2D.
 
 
-## v3.21.0 (00/09/2019)
+## v3.21.0 (23/09/2019)
 ### Features
 - New drawing in svgProject.
 - New cancel button on progress bar when generating textures.
