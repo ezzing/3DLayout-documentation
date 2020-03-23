@@ -17,8 +17,16 @@
           - [Notifications](#notifications)
   - [Buildings](#buildings)
       - [Building creation](#building-creation)
-      - [Add building](#add-building)
+          - [Custom shapes](#custom-shapes)
+          - [Draw shape](#draw-shape)
+      - [Select building](#select-building)
       - [Edit building](#edit-building)
+      - [Roof editor](#roof-editor)
+          - [Pent and pergola](#pent-and-pergola)
+          - [Pyramid](#pyramid)
+          - [Gabled](#gabled)
+          - [Hipped](#hipped)
+          - [Mansard](#mansard)
   - [Areas](#areas)
       - [Edit area](#edit-area)
   - [Subareas](#subareas)
@@ -37,6 +45,7 @@
         keepouts](#vertical-and-inclined-keepouts)
   - [Trees](#trees)
   - [Drawing with Snaps](#drawing-with-snaps)
+      - [Without Snap](#without-snap)
       - [Guide lines](#guide-lines)
       - [Grid](#grid)
       - [Context panel](#context-panel)
@@ -50,29 +59,35 @@
   - [Shortcuts](#shortcuts)
   - [Progress bar](#progress-bar)
   - [Changelog](#changelog)
-      - [v3.23.0 (20/11/2019)](#v3230-20112019)
+      - [v3.25.0 (24/03/2020)](#v3250-24032020)
           - [Features](#features)
           - [Fixes](#fixes)
-      - [v3.21.0 (00/09/2019)](#v3210-00092019)
+      - [v3.24.0 (10/02/2020)](#v3240-10022020)
           - [Features](#features-1)
           - [Fixes](#fixes-1)
-      - [v3.20.0 (29/08/2019)](#v3200-29082019)
+      - [v3.23.0 (20/11/2019)](#v3230-20112019)
           - [Features](#features-2)
           - [Fixes](#fixes-2)
-      - [v3.19.0 (09/08/2019)](#v3190-09082019)
+      - [v3.21.0 (23/09/2019)](#v3210-23092019)
           - [Features](#features-3)
           - [Fixes](#fixes-3)
-      - [v3.18.0 (03/06/2019)](#v3180-03062019)
+      - [v3.20.0 (29/08/2019)](#v3200-29082019)
           - [Features](#features-4)
           - [Fixes](#fixes-4)
-      - [v3.17.1 (29/05/2019)](#v3171-29052019)
-          - [Fixes](#fixes-5)
-      - [v3.17.0 (13/05/2019)](#v3170-13052019)
+      - [v3.19.0 (09/08/2019)](#v3190-09082019)
           - [Features](#features-5)
-          - [Fixes](#fixes-6)
-      - [v3.16.0 (30/04/2019)](#v3160-30042019)
+          - [Fixes](#fixes-5)
+      - [v3.18.0 (03/06/2019)](#v3180-03062019)
           - [Features](#features-6)
+          - [Fixes](#fixes-6)
+      - [v3.17.1 (29/05/2019)](#v3171-29052019)
           - [Fixes](#fixes-7)
+      - [v3.17.0 (13/05/2019)](#v3170-13052019)
+          - [Features](#features-7)
+          - [Fixes](#fixes-8)
+      - [v3.16.0 (30/04/2019)](#v3160-30042019)
+          - [Features](#features-8)
+          - [Fixes](#fixes-9)
 
 # Introduction
 
@@ -238,8 +253,82 @@ the type of notification:
 
 ## Building creation
 
-To start using the tool you need to create your first building. You will
-be able to customize its shape, name or height (from gutter or ridge).
+To start using the tool you need to create your first building. To do so
+you can either click on the start button in the aside panel or in the
+'+' icon, in the top left corner inside the canvas area. There is no
+limit on the number of buildings to create.
+
+![Create Building
+Button](./layout-doc-imgs/building/building-create-button.png)
+
+Since v3.24.0, once you click to create a new building, you will be
+prompted to choose which mode to use, there are available two ways of
+creating buildings:
+
+![Building Creation
+Modes](./layout-doc-imgs/building/building-creation-mode.png)
+
+### Custom shapes
+
+Custon Shapes lets you quickly create a building from a predefined set.
+This mode is designed to quickly add buidings to the project with common
+shapes. The current ones are:
+
+![Custom Shapes
+(Types)](./layout-doc-imgs/building/custom-shape-types.png)
+
+Once you select one it will be created in the project center. You can
+tweak this custom shape from the aside panel (note that the cavas points
+can't be edited as they're grayed out). You can config in the panel the
+size of the edges and the building rotation. When you're ready, click
+*Finish* in the panel, and you will proceed to edit the building as
+regular one (see *Draw Shapes* option below). Once the building is
+created you can move it like any other building to the desired place.
+
+Special mention to the *Step by step* type. This powerful option lets
+you define a bulding wall by wall:
+
+![Building Creation
+Modes](./layout-doc-imgs/building/custom-shapes-stepbystep.png)
+
+In the example above you can see that the user has configured the
+settings of 4 walls with their respective lengths and angles, plus a
+closing wall from the first to the last point. The closing wall is
+calculated automatically so you don´t have to worry about it.
+
+To add a new wall you only need to click the *Add Step* button in the
+panel, the new wall will be listed below the ones already there and you
+can set it up as you wish.
+
+### Draw shape
+
+Draw shape: the conventional way of creating buildings, in this mode you
+have to click on the canvas tu add each of the points that will define
+the shape of your building.
+
+> Please, visit the section [Drawing with Snaps](#drawing-with-snaps) to
+> learn how to draw.
+
+Keep in mind that the different parts of the user interface serve
+different purposes:
+
+  - In the canvas area, you will be able to customize the shape of the
+    building by clicking in the desired places.
+  - In the aside panel, you will be able to change options such as
+    'Populate with modules' and 'Building height'.
+
+The 'Building Height' input can be configured to:
+
+  - Gutter: the height will be measured from the floor to the lowest
+    point of the roof.
+  - Ridge: the height will be measured from the floor to the peak of the
+    roof. Is the place where usually two (or more) opposing planes meet.
+
+![Building Height
+toggle](./layout-doc-imgs/building/building-height.png)
+
+> Change height units clicking on the current units to the right of the
+> height number.
 
 The 'Populated with modules' option determines if the building will be
 created with or without modules. It is useful to deactivate it for
@@ -262,21 +351,21 @@ pent).
 
 These are all the types of roof (available on regular buildings):
 
-![Roof types](./layout-doc-imgs/building/roof-types.png)
+![Roof types](./layout-doc-imgs/building/roof-types-v.3.25.png)
 
 Each roof is composed of a determined number of areas that are
 automatically created.
 
 You can also choose a roof material despite it is only informative. The
 material options are common for all roof types (tiled, trapezoidal, and
-corrugated) except for the flat ones (gravel, bitumen, membrane, and
-concrete):
+corrugated):
 
-![Roof materials](./layout-doc-imgs/building/roof-materials.png)
+![Rest of Roof
+materials](./layout-doc-imgs/building/roof-materials-1.png)
 
-<div class="page-break">
+Except for the flat roof type (gravel, bitumen, membrane, and concrete):
 
-</div>
+![Flat Roof materials](./layout-doc-imgs/building/roof-materials-2.png)
 
 When the operation is finished, the textures of the building are
 generated using the mapper tool and the modules appear in a default
@@ -293,10 +382,14 @@ Once the building is created, you will be able to:
   - Clone (it will be cloned with the same settings)
   - Paint
 
-## Add building
+## Select building
 
-By clicking the '+' button at the top-left of the canvas you enter in
-the building creation process. There is no limit on buildings to create.
+By clicking in the buildings indexes, below the add building button ('+'
+icon), you can select them. The selected building will become the active
+one and the canvas will be centered on that building. This is very
+useful when you are on a projects with several buildings and you want to
+focus your view on one. After selecting a building, the aside panel will
+show the properties of the building.
 
 ## Edit building
 
@@ -307,6 +400,85 @@ steps of the building creation. If you edit the roof you can select any
 type of roof and it will be recalculated.
 
 ![Building edit](./layout-doc-imgs/building/building-edit.png)
+
+## Roof editor
+
+You can edit a roof by clicking in the pencil icon in the roof section:
+
+![Roof edit](./layout-doc-imgs/building/roof-editor.png)
+
+There you can change the roof type in a similar way as you did when
+creating the building. To know the interactions available in each roof
+type, you should read the draggable help window that displays the
+interactions with each roof:
+
+![Roof editor helper](./layout-doc-imgs/building/roof-editor-helper.png)
+
+> You can click on the upper right corner to minimize the helper if you
+> need more available space to work.
+
+### Pent and pergola
+
+![Pent & Pergola Editor](./layout-doc-imgs/building/pent-editor.png)
+
+Lets you modify the angle of inclination by clicking somewhere inside
+the roof and changing the angle. You can change the orientation of the
+roof by clicking one of the roof edges and selecting "Change
+Orientation".
+
+### Pyramid
+
+![Pyramid Editor](./layout-doc-imgs/building/pyramid-editor.png)
+
+Similar to pents but this roof has four faces instead of one and you can
+move the top vertex (the peak of the pyramid) to adjust to the desired
+shape.
+
+### Gabled
+
+![Gabled Editor](./layout-doc-imgs/building/gabled-editor.png)
+
+Gabled roofs lets you move the edge of the ridge along the whole roof
+base. You can also change the inclination of the planes as with previous
+roofs. To change the orientation of the ridge you can click on the
+different edges, like in pent roofs or click in the option in the aside
+panel East/West or South/North.
+
+### Hipped
+
+![Hipped Editor](./layout-doc-imgs/building/hipped-editor.png)
+
+Similar in options to a gabled roof, but slightly more complex. The main
+differences are that hipped roofs have four faces, and you have two
+vertex that define the ridge of the roof (the edge at the peak).
+Important to note that you have a switch in the aside panel to force the
+symmetry of the ridge.
+
+### Mansard
+
+![Mansard Editor](./layout-doc-imgs/building/mansard-editor.png)
+
+The first time you convert a roof to a mansard you'll see that a basic
+mansards is a roof like a piramid that has a section on what would be
+the top of a pyramid.
+
+Besides the inclination settings you can change in other roof types,
+when you create a mansard it has a four-sided ridge where you can move
+each point. If the symmetric ridge switch is on, the ridge will have a
+perfect square ratio.
+
+After you click finish, you can check that now there are two roofs in
+the aside panel:
+
+![Mansard Editor](./layout-doc-imgs/building/mansard-second-roof-A.png)
+
+Clicking on the edit the new roof (Roof 2 in the previous image) you can
+change the default flat roof on top of the mansard to other type of
+roof. The image below shows a mansard with a pent roof on top as an
+example:
+
+![Mansard Compound
+Roof](./layout-doc-imgs/building/mansard-second-roof-B.png)
 
 <div class="page-break">
 
@@ -517,8 +689,15 @@ of these values.
 
 The snap is a helpful tool for drawing buildings, subareas and keepouts.
 
-There are two ways for drawing points: using **guide lines** or a
-**grid**.
+There are three ways for drawing points: without snap, using **guide
+lines** or a **grid**.
+
+## Without Snap
+
+You can draw unassisted disabling both snap options. With this option
+you can put a point anywhere.
+
+![Snap disabled](./layout-doc-imgs/snaps/snap-without-options.png)
 
 ## Guide lines
 
@@ -718,6 +897,45 @@ bar](./layout-doc-imgs/general/progress-bar-textures.jpg)
 
 # Changelog
 
+## v3.25.0 (24/03/2020)
+
+### Features
+
+  - Read-only mode.
+  - New roof type: mansard.
+  - Navbar (Building/Areas/Object/Map/...) located at the very top:
+    better visualization of panel options\!
+  - Enhanced undo/redo feature. We've got you covered\!
+  - Map snapshots.
+
+### Fixes
+
+  - Fix bug due to users ommiting modals messages while changing
+    attributes.
+  - Performance boost.
+  - Stability improvements.
+  - Other minor fixes.
+
+## v3.24.0 (10/02/2020)
+
+### Features
+
+  - Building Shapes: you can use common predesigned building shapes.
+    Let's skyrocket that productivity\!
+  - Improved roof geometries.
+  - New roof type: pergola.
+  - You can move roof points symmetrically (hipped roofs).
+  - Turkish translations: Selam\!
+
+### Fixes
+
+  - Fix default module height was displayed in millimeters (instead of
+    meters).
+  - Labels displaying wrong when dilatation lines were added.
+  - Snap to grid now behaves correctly.
+  - Now modules being dragged show their right color.
+  - Other minor fixes.
+
 ## v3.23.0 (20/11/2019)
 
 ### Features
@@ -734,7 +952,7 @@ bar](./layout-doc-imgs/general/progress-bar-textures.jpg)
     validated.
   - Drawing alignment when switching perspective mode from 3D to 2D.
 
-## v3.21.0 (00/09/2019)
+## v3.21.0 (23/09/2019)
 
 ### Features
 
@@ -788,7 +1006,7 @@ bar](./layout-doc-imgs/general/progress-bar-textures.jpg)
   - Fixed an error when creating a building after editing another one.
   - Json editor buttons click work properly.
   - It is now controlled when buildings have to be rendered.
-  - Fixed ‘Invalid Lat, Lng’ console error.
+  - Fixed 'Invalid Lat, Lng' console error.
   - Fixed resize listener related to bootstrap error.
 
 ## v3.18.0 (03/06/2019)

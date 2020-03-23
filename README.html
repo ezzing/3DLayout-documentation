@@ -5,11 +5,13 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>3DLayout Documentation</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
   </style>
   <link rel="stylesheet" href="./doc_templates/pandoc.css" />
   <!--[if lt IE 9]>
@@ -30,57 +32,79 @@
   <body>
       <h1>ezzing3DLayout</h1>
       <h2>PV planning tool - API Documentation</h2>
-  
+
       <img id="cover" class="w100" src="./doc_templates/portada.jpg" alt="ezzing3DLayout Documentation" />
-  
+
       <h1>Table of contents</h1>
   </body>
   </html>
 </head>
 <body>
-<header>
+<header id="title-block-header">
 <h1 class="title">3DLayout Documentation</h1>
 </header>
-<nav id="TOC">
+<nav id="TOC" role="doc-toc">
 <ul>
 <li><a href="#introduction">Introduction</a></li>
 <li><a href="#screenshots">Screenshots</a></li>
-<li><a href="#3dlayout-interface">3DLayout Interface</a><ul>
+<li><a href="#3dlayout-interface">3DLayout Interface</a>
+<ul>
 <li><a href="#aside-panel">Aside Panel</a></li>
-<li><a href="#canvas-area">Canvas Area</a><ul>
+<li><a href="#canvas-area">Canvas Area</a>
+<ul>
 <li><a href="#buildings-index">Buildings Index</a></li>
 <li><a href="#main-options">Main Options</a></li>
 <li><a href="#control-buttons">Control Buttons</a></li>
 <li><a href="#notifications">Notifications</a></li>
 </ul></li>
 </ul></li>
-<li><a href="#buildings">Buildings</a><ul>
-<li><a href="#building-creation">Building creation</a></li>
-<li><a href="#add-building">Add building</a></li>
-<li><a href="#edit-building">Edit building</a></li>
+<li><a href="#buildings">Buildings</a>
+<ul>
+<li><a href="#building-creation">Building creation</a>
+<ul>
+<li><a href="#custom-shapes">Custom shapes</a></li>
+<li><a href="#draw-shape">Draw shape</a></li>
 </ul></li>
-<li><a href="#areas">Areas</a><ul>
+<li><a href="#select-building">Select building</a></li>
+<li><a href="#edit-building">Edit building</a></li>
+<li><a href="#roof-editor">Roof editor</a>
+<ul>
+<li><a href="#pent-and-pergola">Pent and pergola</a></li>
+<li><a href="#pyramid">Pyramid</a></li>
+<li><a href="#gabled">Gabled</a></li>
+<li><a href="#hipped">Hipped</a></li>
+<li><a href="#mansard">Mansard</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#areas">Areas</a>
+<ul>
 <li><a href="#edit-area">Edit area</a></li>
 </ul></li>
-<li><a href="#subareas">Subareas</a><ul>
+<li><a href="#subareas">Subareas</a>
+<ul>
 <li><a href="#subarea-creation">Subarea creation</a></li>
-<li><a href="#add-subarea">Add subarea</a><ul>
+<li><a href="#add-subarea">Add subarea</a>
+<ul>
 <li><a href="#crop-subarea-to-the-area-shape">Crop subarea to the area shape</a></li>
 <li><a href="#edit-subarea-vertices">Edit subarea vertices</a></li>
 </ul></li>
 <li><a href="#edit-subarea">Edit subarea</a></li>
 <li><a href="#remove-subarea">Remove subarea</a></li>
 </ul></li>
-<li><a href="#keepouts">Keepouts</a><ul>
+<li><a href="#keepouts">Keepouts</a>
+<ul>
 <li><a href="#invisible-keepouts">Invisible keepouts</a></li>
 <li><a href="#crop-keepout-to-the-building-shape">Crop keepout to the building shape</a></li>
 <li><a href="#vertical-and-inclined-keepouts">Vertical and inclined keepouts</a></li>
 </ul></li>
 <li><a href="#trees">Trees</a></li>
-<li><a href="#drawing-with-snaps">Drawing with Snaps</a><ul>
+<li><a href="#drawing-with-snaps">Drawing with Snaps</a>
+<ul>
+<li><a href="#without-snap">Without Snap</a></li>
 <li><a href="#guide-lines">Guide lines</a></li>
 <li><a href="#grid">Grid</a></li>
-<li><a href="#context-panel">Context panel</a><ul>
+<li><a href="#context-panel">Context panel</a>
+<ul>
 <li><a href="#on-a-point">On a point</a></li>
 <li><a href="#on-an-edge">On an edge</a></li>
 <li><a href="#on-a-module">On a module</a></li>
@@ -91,29 +115,35 @@
 <li><a href="#textures">Textures</a></li>
 <li><a href="#shortcuts">Shortcuts</a></li>
 <li><a href="#progress-bar">Progress bar</a></li>
-<li><a href="#layout-coordinate-systems">Layout Coordinate Systems</a><ul>
+<li><a href="#layout-coordinate-systems">Layout Coordinate Systems</a>
+<ul>
 <li><a href="#world-coordinate-system">World Coordinate System</a></li>
 <li><a href="#scene-coordinate-system">Scene Coordinate System</a></li>
 <li><a href="#building-coordinate-system">Building Coordinate System</a></li>
 <li><a href="#area-coordinate-system">Area Coordinate System</a></li>
 </ul></li>
-<li><a href="#how-to-use">How to use</a><ul>
+<li><a href="#how-to-use">How to use</a>
+<ul>
 <li><a href="#api-key-and-autentication">API key and autentication</a></li>
 <li><a href="#dom-element">DOM element</a></li>
-<li><a href="#basic-functions">Basic functions</a><ul>
+<li><a href="#basic-functions">Basic functions</a>
+<ul>
 <li><a href="#getlayout">getLayout</a></li>
 <li><a href="#createlayout">createLayout</a></li>
 <li><a href="#listlayouts">listLayouts</a></li>
 <li><a href="#loadlayout">loadLayout</a></li>
 </ul></li>
-<li><a href="#showcase-mode">Showcase mode</a><ul>
+<li><a href="#showcase-mode">Showcase mode</a>
+<ul>
 <li><a href="#showcase-without-camera-spin">Showcase without camera spin</a></li>
 <li><a href="#showcase-with-camera-spin">Showcase with camera spin</a></li>
 </ul></li>
 </ul></li>
-<li><a href="#3dlayout-communication-system">3DLayout Communication System</a><ul>
+<li><a href="#3dlayout-communication-system">3DLayout Communication System</a>
+<ul>
 <li><a href="#info-events-sent-by-3dlayout">Info Events sent by 3DLayout</a></li>
-<li><a href="#functions-to-retrieve-info-from-3dlayout">Functions to retrieve info from 3DLayout</a><ul>
+<li><a href="#functions-to-retrieve-info-from-3dlayout">Functions to retrieve info from 3DLayout</a>
+<ul>
 <li><a href="#general-functions">General functions</a></li>
 <li><a href="#panels-functions">Panels functions</a></li>
 <li><a href="#buildings-functions">Buildings functions</a></li>
@@ -123,18 +153,22 @@
 <li><a href="#functions-to-send-info-to-the-3dlayout">Functions to send info to the 3DLayout</a></li>
 </ul></li>
 <li><a href="#alert-widgets">Alert widgets</a></li>
-<li><a href="#progress-bar-customization">Progress bar customization</a><ul>
+<li><a href="#progress-bar-customization">Progress bar customization</a>
+<ul>
 <li><a href="#show-progress-bar">Show progress bar</a></li>
 <li><a href="#reset-progress-bar">Reset progress bar</a></li>
 <li><a href="#update-progress-bar">Update progress bar</a></li>
 <li><a href="#hide-progress-bar">Hide progress bar</a></li>
 <li><a href="#cancel-button-events">Cancel button events</a></li>
 </ul></li>
-<li><a href="#custom-panels">Custom panels</a><ul>
+<li><a href="#custom-panels">Custom panels</a>
+<ul>
 <li><a href="#panel-blocks">Panel blocks</a></li>
 </ul></li>
-<li><a href="#layout-rules">Layout Rules</a><ul>
-<li><a href="#scene-preferences">Scene preferences</a><ul>
+<li><a href="#layout-rules">Layout Rules</a>
+<ul>
+<li><a href="#scene-preferences">Scene preferences</a>
+<ul>
 <li><a href="#project">Project</a></li>
 <li><a href="#development">Development</a></li>
 <li><a href="#3d-canvas">3D canvas</a></li>
@@ -143,7 +177,8 @@
 </ul></li>
 <li><a href="#default-buttons">Default buttons</a></li>
 <li><a href="#default-languages">Default languages</a></li>
-<li><a href="#default-colors">Default colors</a><ul>
+<li><a href="#default-colors">Default colors</a>
+<ul>
 <li><a href="#css-colors">Css colors</a></li>
 <li><a href="#building-and-roof-colors">Building and roof colors</a></li>
 <li><a href="#keepout-colors">Keepout colors</a></li>
@@ -155,7 +190,8 @@
 </ul></li>
 <li><a href="#default-modules">Default modules</a></li>
 <li><a href="#default-providers">Default providers</a></li>
-<li><a href="#default-model-values">Default model values</a><ul>
+<li><a href="#default-model-values">Default model values</a>
+<ul>
 <li><a href="#default-model-area-values">Default model area values</a></li>
 <li><a href="#default-model-building-values">Default model building values</a></li>
 <li><a href="#default-model-keepout-values">Default model keepout values</a></li>
@@ -166,43 +202,62 @@
 <li><a href="#default-model-tree-values">Default model tree values</a></li>
 </ul></li>
 </ul></li>
-<li><a href="#changelog">Changelog</a><ul>
-<li><a href="#v3230-20112019">v3.23.0 (20/11/2019)</a><ul>
+<li><a href="#changelog">Changelog</a>
+<ul>
+<li><a href="#v3250-24032020">v3.25.0 (24/03/2020)</a>
+<ul>
 <li><a href="#features">Features</a></li>
 <li><a href="#fixes">Fixes</a></li>
 </ul></li>
-<li><a href="#v3210-00092019">v3.21.0 (00/09/2019)</a><ul>
+<li><a href="#v3240-10022020">v3.24.0 (10/02/2020)</a>
+<ul>
 <li><a href="#features-1">Features</a></li>
 <li><a href="#fixes-1">Fixes</a></li>
 </ul></li>
-<li><a href="#v3200-29082019">v3.20.0 (29/08/2019)</a><ul>
+<li><a href="#v3230-20112019">v3.23.0 (20/11/2019)</a>
+<ul>
 <li><a href="#features-2">Features</a></li>
 <li><a href="#fixes-2">Fixes</a></li>
 </ul></li>
-<li><a href="#v3190-09082019">v3.19.0 (09/08/2019)</a><ul>
+<li><a href="#v3210-23092019">v3.21.0 (23/09/2019)</a>
+<ul>
 <li><a href="#features-3">Features</a></li>
 <li><a href="#fixes-3">Fixes</a></li>
 </ul></li>
-<li><a href="#v3180-03062019">v3.18.0 (03/06/2019)</a><ul>
+<li><a href="#v3200-29082019">v3.20.0 (29/08/2019)</a>
+<ul>
 <li><a href="#features-4">Features</a></li>
 <li><a href="#fixes-4">Fixes</a></li>
 </ul></li>
-<li><a href="#v3171-29052019">v3.17.1 (29/05/2019)</a><ul>
+<li><a href="#v3190-09082019">v3.19.0 (09/08/2019)</a>
+<ul>
+<li><a href="#features-5">Features</a></li>
 <li><a href="#fixes-5">Fixes</a></li>
 </ul></li>
-<li><a href="#v3170-13052019">v3.17.0 (13/05/2019)</a><ul>
-<li><a href="#features-5">Features</a></li>
+<li><a href="#v3180-03062019">v3.18.0 (03/06/2019)</a>
+<ul>
+<li><a href="#features-6">Features</a></li>
 <li><a href="#fixes-6">Fixes</a></li>
 </ul></li>
-<li><a href="#v3160-30042019">v3.16.0 (30/04/2019)</a><ul>
-<li><a href="#features-6">Features</a></li>
+<li><a href="#v3171-29052019">v3.17.1 (29/05/2019)</a>
+<ul>
 <li><a href="#fixes-7">Fixes</a></li>
+</ul></li>
+<li><a href="#v3170-13052019">v3.17.0 (13/05/2019)</a>
+<ul>
+<li><a href="#features-7">Features</a></li>
+<li><a href="#fixes-8">Fixes</a></li>
+</ul></li>
+<li><a href="#v3160-30042019">v3.16.0 (30/04/2019)</a>
+<ul>
+<li><a href="#features-8">Features</a></li>
+<li><a href="#fixes-9">Fixes</a></li>
 </ul></li>
 </ul></li>
 </ul>
 </nav>
 <h1 id="introduction">Introduction</h1>
-<p>Ezzing 3DLayout is a PV planning tool that allows you to generate a 3d model of a building based on a satellite image. You can model any number of buildings, select between up to five different type of roofs, define keepouts and trees with custom heights...</p>
+<p>Ezzing 3DLayout is a PV planning tool that allows you to generate a 3d model of a building based on a satellite image. You can model any number of buildings, select between up to five different type of roofs, define keepouts and trees with custom heights…</p>
 <p>Inside each roof area you can customize different structures, select module models and get automated previews of your setup.</p>
 <p>It also provides you with a perspective view and a sun simulator to determine where the shadows will be in your installation.</p>
 <p>Ezzing 3DLayout is an embebible webapp. You can integrate it inside your own system and customize many elements inside, from module models to prefered default settings for each roof type.</p>
@@ -211,7 +266,7 @@
 <br>
 
 <p>You can test the app by visiting this link:</p>
-<p><a href="https://layout.ezzing.com/#/demo"><a href="https://layout.ezzing.com/#/demo" class="uri">https://layout.ezzing.com/#/demo</a></a></li></p>
+<p><a href="https://layout.ezzing.com/#/demo"><a href="https://layout.ezzing.com/#/demo">https://layout.ezzing.com/#/demo</a></a></li></p>
 <div class="page-break"></div>
 
 <h1 id="screenshots">Screenshots</h1>
@@ -231,13 +286,13 @@
 <img class="w100" src="./layout-doc-imgs/tabs/tab-building.jpg" alt="Tab building" />
 <br><br>
 <img class="w100" src="./layout-doc-imgs/tabs/tab-areas-1.jpg" alt="Tab areas 1" />
-
+<br><br>
 <img class="w100" src="./layout-doc-imgs/tabs/tab-areas-2.jpg" alt="Tab areas 2" />
 <br><br>
 <img class="w100" src="./layout-doc-imgs/tabs/tab-keepouts.jpg" alt="Tab keepouts" />
 <br><br>
 <img class="w100" src="./layout-doc-imgs/tabs/tab-trees.jpg" alt="Tab trees" />
-
+<br><br>
 <img class="w100" src="./layout-doc-imgs/tabs/tab-preferences.jpg" alt="Tab preferences" />
 
 <div class="page-break"></div>
@@ -311,21 +366,59 @@
 
 <h1 id="buildings">Buildings</h1>
 <h2 id="building-creation">Building creation</h2>
-<p>To start using the tool you need to create your first building. You will be able to customize its shape, name or height (from gutter or ridge).</p>
-<p>The 'Populated with modules' option determines if the building will be created with or without modules. It is useful to deactivate it for simulating the shadows of the buildings.</p>
+<p>To start using the tool you need to create your first building. To do so you can either click on the start button in the aside panel or in the ‘+’ icon, in the top left corner inside the canvas area. There is no limit on the number of buildings to create.</p>
+<img class="w300px" src="./layout-doc-imgs/building/building-create-button.png" alt="Create Building Button">
+
+<p>Since v3.24.0, once you click to create a new building, you will be prompted to choose which mode to use, there are available two ways of creating buildings:</p>
+<img class="w200" src="./layout-doc-imgs/building/building-creation-mode.png" alt="Building Creation Modes">
+
+<h3 id="custom-shapes">Custom shapes</h3>
+<p>Custon Shapes lets you quickly create a building from a predefined set. This mode is designed to quickly add buidings to the project with common shapes. The current ones are:</p>
+<img class="w200" src="./layout-doc-imgs/building/custom-shape-types.png" alt="Custom Shapes (Types)">
+
+<p>Once you select one it will be created in the project center. You can tweak this custom shape from the aside panel (note that the cavas points can’t be edited as they’re grayed out). You can config in the panel the size of the edges and the building rotation. When you’re ready, click <em>Finish</em> in the panel, and you will proceed to edit the building as regular one (see <em>Draw Shapes</em> option below). Once the building is created you can move it like any other building to the desired place.</p>
+<p>Special mention to the <em>Step by step</em> type. This powerful option lets you define a bulding wall by wall:</p>
+<img class="w200" src="./layout-doc-imgs/building/custom-shapes-stepbystep.png" alt="Building Creation Modes">
+
+<p>In the example above you can see that the user has configured the settings of 4 walls with their respective lengths and angles, plus a closing wall from the first to the last point. The closing wall is calculated automatically so you don´t have to worry about it.</p>
+<p>To add a new wall you only need to click the <em>Add Step</em> button in the panel, the new wall will be listed below the ones already there and you can set it up as you wish.</p>
+<h3 id="draw-shape">Draw shape</h3>
+<p>Draw shape: the conventional way of creating buildings, in this mode you have to click on the canvas tu add each of the points that will define the shape of your building.</p>
+<blockquote>
+<p>Please, visit the section <a href="#drawing-with-snaps">Drawing with Snaps</a> to learn how to draw.</p>
+</blockquote>
+<p>Keep in mind that the different parts of the user interface serve different purposes:</p>
+<ul>
+<li>In the canvas area, you will be able to customize the shape of the building by clicking in the desired places.</li>
+<li>In the aside panel, you will be able to change options such as ‘Populate with modules’ and ‘Building height’.</li>
+</ul>
+<p>The ‘Building Height’ input can be configured to:</p>
+<ul>
+<li>Gutter: the height will be measured from the floor to the lowest point of the roof.</li>
+<li>Ridge: the height will be measured from the floor to the peak of the roof. Is the place where usually two (or more) opposing planes meet.</li>
+</ul>
+<img class="w300px" src="./layout-doc-imgs/building/building-height.png" alt="Building Height toggle" />
+
+<blockquote>
+<p>Change height units clicking on the current units to the right of the height number.</p>
+</blockquote>
+<p>The ‘Populated with modules’ option determines if the building will be created with or without modules. It is useful to deactivate it for simulating the shadows of the buildings.</p>
 <p>You can activate the modules in the building edition (this configuration will be shown everytime the layout is loaded) or enabling the corresponding area in the area section.</p>
-<img class="w200px" src="./layout-doc-imgs/building/populated-with-modules-toggle.png" alt="Populated with modules toggle" />
+<img class="w300px" src="./layout-doc-imgs/building/populated-with-modules-toggle.png" alt="Populated with modules toggle" />
 
 <blockquote>
 <p>Please, visit the section <a href="#drawing-with-snaps">Drawing with Snaps</a> to learn how to draw.</p>
 </blockquote>
 <p>The next step once you have drawn the building is configurating the roof. There are different types of roofs depending on the shape of the building (if the building is irregular, the roof can only be flat or pent).</p>
 <p>These are all the types of roof (available on regular buildings):</p>
-<img class="w200px" src="./layout-doc-imgs/building/roof-types.png" alt="Roof types" />
+<img class="w300px" src="./layout-doc-imgs/building/roof-types-v.3.25.png" alt="Roof types" />
 
 <p>Each roof is composed of a determined number of areas that are automatically created.</p>
-<p>You can also choose a roof material despite it is only informative. The material options are common for all roof types (tiled, trapezoidal, and corrugated) except for the flat ones (gravel, bitumen, membrane, and concrete):</p>
-<img class="w200px" src="./layout-doc-imgs/building/roof-materials.png" alt="Roof materials" />
+<p>You can also choose a roof material despite it is only informative. The material options are common for all roof types (tiled, trapezoidal, and corrugated):</p>
+<img class="w200px" src="./layout-doc-imgs/building/roof-materials-1.png" alt="Rest of Roof materials" />
+
+<p>Except for the flat roof type (gravel, bitumen, membrane, and concrete):</p>
+<img class="w200px" src="./layout-doc-imgs/building/roof-materials-2.png" alt="Flat Roof materials" />
 
 <p>When the operation is finished, the textures of the building are generated using the mapper tool and the modules appear in a default subarea.</p>
 <blockquote>
@@ -339,12 +432,49 @@
 <li>Clone (it will be cloned with the same settings)</li>
 <li>Paint</li>
 </ul>
-<h2 id="add-building">Add building</h2>
-<p>By clicking the '+' button at the top-left of the canvas you enter in the building creation process. There is no limit on buildings to create.</p>
+<h2 id="select-building">Select building</h2>
+<p>By clicking in the buildings indexes, below the add building button (’+’ icon), you can select them. The selected building will become the active one and the canvas will be centered on that building. This is very useful when you are on a projects with several buildings and you want to focus your view on one. After selecting a building, the aside panel will show the properties of the building.</p>
 <h2 id="edit-building">Edit building</h2>
 <p>You can select between editing the building or editing the roof.</p>
 <p>In the first option you can modify the building vertices following the steps of the building creation. If you edit the roof you can select any type of roof and it will be recalculated.</p>
-<img class="w200px" src="./layout-doc-imgs/building/building-edit.png" alt="Building edit" />
+<img class="w300px" src="./layout-doc-imgs/building/building-edit.png" alt="Building edit" />
+
+<h2 id="roof-editor">Roof editor</h2>
+<p>You can edit a roof by clicking in the pencil icon in the roof section:</p>
+<img class="w300px" src="./layout-doc-imgs/building/roof-editor.png" alt="Roof edit" />
+
+<p>There you can change the roof type in a similar way as you did when creating the building. To know the interactions available in each roof type, you should read the draggable help window that displays the interactions with each roof:</p>
+<img class="w200px" src="./layout-doc-imgs/building/roof-editor-helper.png" alt="Roof editor helper" />
+
+<blockquote>
+<p>You can click on the upper right corner to minimize the helper if you need more available space to work.</p>
+</blockquote>
+<h3 id="pent-and-pergola">Pent and pergola</h3>
+<img class="w200px" src="./layout-doc-imgs/building/pent-editor.png" alt="Pent & Pergola Editor" />
+
+<p>Lets you modify the angle of inclination by clicking somewhere inside the roof and changing the angle. You can change the orientation of the roof by clicking one of the roof edges and selecting “Change Orientation”.</p>
+<h3 id="pyramid">Pyramid</h3>
+<img class="w200px" src="./layout-doc-imgs/building/pyramid-editor.png" alt="Pyramid Editor" />
+
+<p>Similar to pents but this roof has four faces instead of one and you can move the top vertex (the peak of the pyramid) to adjust to the desired shape.</p>
+<h3 id="gabled">Gabled</h3>
+<img class="w200px" src="./layout-doc-imgs/building/gabled-editor.png" alt="Gabled Editor" />
+
+<p>Gabled roofs lets you move the edge of the ridge along the whole roof base. You can also change the inclination of the planes as with previous roofs. To change the orientation of the ridge you can click on the different edges, like in pent roofs or click in the option in the aside panel East/West or South/North.</p>
+<h3 id="hipped">Hipped</h3>
+<img class="w200px" src="./layout-doc-imgs/building/hipped-editor.png" alt="Hipped Editor" />
+
+<p>Similar in options to a gabled roof, but slightly more complex. The main differences are that hipped roofs have four faces, and you have two vertex that define the ridge of the roof (the edge at the peak). Important to note that you have a switch in the aside panel to force the symmetry of the ridge.</p>
+<h3 id="mansard">Mansard</h3>
+<img class="w200px" src="./layout-doc-imgs/building/mansard-editor.png" alt="Mansard Editor" />
+
+<p>The first time you convert a roof to a mansard you’ll see that a basic mansards is a roof like a piramid that has a section on what would be the top of a pyramid.</p>
+<p>Besides the inclination settings you can change in other roof types, when you create a mansard it has a four-sided ridge where you can move each point. If the symmetric ridge switch is on, the ridge will have a perfect square ratio.</p>
+<p>After you click finish, you can check that now there are two roofs in the aside panel:</p>
+<img class="w300px" src="./layout-doc-imgs/building/mansard-second-roof-A.png" alt="Mansard Editor" />
+
+<p>Clicking on the edit the new roof (Roof 2 in the previous image) you can change the default flat roof on top of the mansard to other type of roof. The image below shows a mansard with a pent roof on top as an example:</p>
+<img class="w40center" src="./layout-doc-imgs/building/mansard-second-roof-B.png" alt="Mansard Compound Roof" />
 
 <div class="page-break"></div>
 
@@ -361,14 +491,14 @@
 <h1 id="subareas">Subareas</h1>
 <p>A subarea is a region inside an area that allows you to define a modules installation just in a section of the area.</p>
 <p>By clicking on a subarea, two views will appear: the project view (top) and the subarea view (bottom).</p>
-<p>The subarea view is hidden by default. To toggle its view, you have to click on the button 'Open subarea view' or 'Close subarea view' at the bottom of the canvas.</p>
+<p>The subarea view is hidden by default. To toggle its view, you have to click on the button ‘Open subarea view’ or ‘Close subarea view’ at the bottom of the canvas.</p>
 <img class="w75" src="./layout-doc-imgs/subarea/edit-subarea.jpg" alt="Subarea view" />
 
 <blockquote>
-<p>Note that when moving the subarea or changing its azimuth the subarea view will be opened. This is because this view hasn't got any deformation.</p>
+<p>Note that when moving the subarea or changing its azimuth the subarea view will be opened. This is because this view hasn’t got any deformation.</p>
 </blockquote>
 <h2 id="subarea-creation">Subarea creation</h2>
-<p>To create a subarea click on the 'Create subarea' button.</p>
+<p>To create a subarea click on the ‘Create subarea’ button.</p>
 <img class="w200px" src="./layout-doc-imgs/subarea/subarea-creation-button.png" alt="Subarea creation button" />
 
 <p>Once the subarea is created, you will be able to:</p>
@@ -385,12 +515,12 @@
 <div class="page-break"></div>
 
 <h2 id="add-subarea">Add subarea</h2>
-<p>By clicking the 'Create subarea' button you enter in the subarea creation process.</p>
+<p>By clicking the ‘Create subarea’ button you enter in the subarea creation process.</p>
 <p>If you create the first subarea it will replace the default one.</p>
 <img class="w75" src="./layout-doc-imgs/subarea/add-subarea.jpg" alt="Add subarea" />
 
 <h3 id="crop-subarea-to-the-area-shape">Crop subarea to the area shape</h3>
-<p>When editing the vertices of a subarea you can check the 'Crop' option. This helps you to draw subareas that extends to the border of the building with more precision.</p>
+<p>When editing the vertices of a subarea you can check the ‘Crop’ option. This helps you to draw subareas that extends to the border of the building with more precision.</p>
 <img class="w200px" src="./layout-doc-imgs/subarea/crop-shape-building-toggle.png" alt="Crop shape building toggle" />
 
 <p>If you uncheck this option then the subarea can extend outside the area, following the area plane.</p>
@@ -408,8 +538,8 @@
 <p>These are all the subarea edition options:</p>
 <ul>
 <li>Module model: there are different module models available that have different size, weight and watt peak capacity</li>
-<li>Module orientation: you can choose between 'landscape' and 'portrait'</li>
-<li>Panels orientation: you can choose between 'south' and 'east/west'</li>
+<li>Module orientation: you can choose between ‘landscape’ and ‘portrait’</li>
+<li>Panels orientation: you can choose between ‘south’ and ‘east/west’</li>
 <li>Module inclination</li>
 <li>Distance between modules</li>
 <li>Distance between rows</li>
@@ -427,7 +557,7 @@
 
 <h1 id="keepouts">Keepouts</h1>
 <p>Keepouts are created for simulating any obstacle that might interrupt the installation of modules.</p>
-<p>When a keepout is created, there can't be any module that occupies the same position.</p>
+<p>When a keepout is created, there can’t be any module that occupies the same position.</p>
 <p>You can customize them by changing their height, offset and type (vertical or inclined).</p>
 <!-- FIX
 
@@ -449,11 +579,11 @@ In keepout 2, A is also the desired height, but the keepout can't be drawn corre
 <p>Note that for flat roofs it is posible to create 0 height keepouts, but for inclinated roofs you need to use the invisible keepouts feature to allow keepouts at roof surface level.</p>
 </blockquote>
 <h2 id="invisible-keepouts">Invisible keepouts</h2>
-<p>If you want to simulate a skylight or any keepout object without drawing the 3D volume you can check the 'Invisible keepout' option to hide the 3D volume but still taking the obstacle into account.</p>
+<p>If you want to simulate a skylight or any keepout object without drawing the 3D volume you can check the ‘Invisible keepout’ option to hide the 3D volume but still taking the obstacle into account.</p>
 <img class="w200px" src="./layout-doc-imgs/keepout/invisible-keepout-toggle.png" alt="Invisible keepout toggle" />
 
 <h2 id="crop-keepout-to-the-building-shape">Crop keepout to the building shape</h2>
-<p>When editing the vertices of a keepout you can check the 'Crop shape to building limits' option. This helps you to draw keepouts that extends to the border of the building with more precision.</p>
+<p>When editing the vertices of a keepout you can check the ‘Crop shape to building limits’ option. This helps you to draw keepouts that extends to the border of the building with more precision.</p>
 <img class="w200px" src="./layout-doc-imgs/keepout/crop-shape-keepout-toggle.png" alt="Crop shape keepout toggle" />
 
 <p>If you uncheck this option then the keepout can be floating outside the building limits. At least one vertex of the keepout should be inside the building limits to be created.</p>
@@ -470,13 +600,17 @@ In keepout 2, A is also the desired height, but the keepout can't be drawn corre
 
 <h1 id="drawing-with-snaps">Drawing with Snaps</h1>
 <p>The snap is a helpful tool for drawing buildings, subareas and keepouts.</p>
-<p>There are two ways for drawing points: using <strong>guide lines</strong> or a <strong>grid</strong>.</p>
+<p>There are three ways for drawing points: without snap, using <strong>guide lines</strong> or a <strong>grid</strong>.</p>
+<h2 id="without-snap">Without Snap</h2>
+<p>You can draw unassisted disabling both snap options. With this option you can put a point anywhere.</p>
+<img class="w100px" src="./layout-doc-imgs/snaps/snap-without-options.png" alt="Snap disabled" />
+
 <h2 id="guide-lines">Guide lines</h2>
-<p>'Guide lines' is the default option when drawing. There are two ways for drawing points that can be combined to make the process easier: lines and vertices.</p>
+<p>‘Guide lines’ is the default option when drawing. There are two ways for drawing points that can be combined to make the process easier: lines and vertices.</p>
 <img class="w100px" src="./layout-doc-imgs/snaps/snap-guide-lines.png" alt="Snap guide lines" />
 
 <p>To use them, you need first to draw two points. Once you have drawn them, there will appear parallel and perpendicular guide lines to the last drawn point. This way you can create regular shapes with right angles (it is also possible to move points along these guide lines).</p>
-<p>Switching to the 'Vertices' option allows you to draw points at the intersections of the guide lines and the vertices of the buildings.</p>
+<p>Switching to the ‘Vertices’ option allows you to draw points at the intersections of the guide lines and the vertices of the buildings.</p>
 <blockquote>
 <p>Please, visit the section <a href="#context-panel">Context panel</a> to see more drawing features.</p>
 </blockquote>
@@ -496,8 +630,8 @@ In keepout 2, A is also the desired height, but the keepout can't be drawn corre
 
 <p>When right clicking a point, you can:</p>
 <ul>
-<li>Draw guides here (only in 'Guide lines' option): draws parallel and perpendicular guide lines to this point in relation to the selected edge</li>
-<li>Remove all guides (only in 'Guide lines' option): removes all guide lines except the ones to the selected point</li>
+<li>Draw guides here (only in ‘Guide lines’ option): draws parallel and perpendicular guide lines to this point in relation to the selected edge</li>
+<li>Remove all guides (only in ‘Guide lines’ option): removes all guide lines except the ones to the selected point</li>
 <li>Select/deselect point: this is useful for moving many points along a guide line at once</li>
 <li>Deselect all points: deselects all points except the last selected one</li>
 <li>Delete point</li>
@@ -505,7 +639,7 @@ In keepout 2, A is also the desired height, but the keepout can't be drawn corre
 <h3 id="on-an-edge">On an edge</h3>
 <img class="w100px" src="./layout-doc-imgs/snaps/context-panel-edge.jpg" alt="Context panel edge" />
 
-<p>When right clicking an edge (only in 'Guide lines' option), you can:</p>
+<p>When right clicking an edge (only in ‘Guide lines’ option), you can:</p>
 <ul>
 <li>Select/deselect edge as guide: redraws the parallel and its perpendicular guide lines to the selected edge</li>
 <li>Select/deselect all edges as guide</li>
@@ -546,7 +680,7 @@ In keepout 2, A is also the desired height, but the keepout can't be drawn corre
 
 <p>In the building panel you can see the different options for the satellite image textures:</p>
 <ul>
-<li>'+' : adds satellite texture for the active building</li>
+<li>‘+’ : adds satellite texture for the active building</li>
 <li>Refresh (available when the active building has textures)</li>
 <li>Remove (available when the active building has textures)</li>
 <li>Generate for all buildings</li>
@@ -561,30 +695,30 @@ In keepout 2, A is also the desired height, but the keepout can't be drawn corre
 <p>The shortcuts can be used in the following cases:</p>
 <ul>
 <li>To navigate between tabs, press 1, 2, 3 or 4</li>
-<li>To execute undo press 'Ctrl + Z', and to execute redo press 'Ctrl + Y'</li>
+<li>To execute undo press ‘Ctrl + Z’, and to execute redo press ‘Ctrl + Y’</li>
 <li>When drawing:
 <ul>
-<li>To enable/disable snap to guides, press 'S'</li>
-<li>To toggle between guide lines and vertices you can hold 'Ctrl' / '⌘'</li>
-<li>To select/deselect vertices, click on them while pressing 'Shift'</li>
+<li>To enable/disable snap to guides, press ‘S’</li>
+<li>To toggle between guide lines and vertices you can hold ‘Ctrl’ / ‘⌘’</li>
+<li>To select/deselect vertices, click on them while pressing ‘Shift’</li>
 </ul></li>
 <li>Editing a subarea:
 <ul>
-<li>Hold 'Shift' for selecting the hole row</li>
-<li>Hold 'Ctrl' / '⌘' for selecting the hole column</li>
+<li>Hold ‘Shift’ for selecting the hole row</li>
+<li>Hold ‘Ctrl’ / ‘⌘’ for selecting the hole column</li>
 </ul></li>
 <li>Moving a building, subarea or keepout:
 <ul>
-<li>Down: Numpad 1, 2, 3 | 'End' | 'Down arrow' | 'Page down'</li>
-<li>Left: Numpad 1, 4, 7 | 'End' | 'Left arrow' | 'Home'</li>
-<li>Right: Numpad 3, 6, 9 | 'Page down' | 'Right arrow' | 'Page up'</li>
-<li>Center: Numpad 5 | 'Clear'</li>
+<li>Down: Numpad 1, 2, 3 | ‘End’ | ‘Down arrow’ | ‘Page down’</li>
+<li>Left: Numpad 1, 4, 7 | ‘End’ | ‘Left arrow’ | ‘Home’</li>
+<li>Right: Numpad 3, 6, 9 | ‘Page down’ | ‘Right arrow’ | ‘Page up’</li>
+<li>Center: Numpad 5 | ‘Clear’</li>
 </ul></li>
-<li>Save: for saving the project in crm you can press 'Ctrl + Shift + S' / '⌘ + Shift + S'</li>
+<li>Save: for saving the project in crm you can press ‘Ctrl + Shift + S’ / ‘⌘ + Shift + S’</li>
 <li>Widgets:
 <ul>
-<li>To cancel the operation or close the widget, press 'Esc'</li>
-<li>To confirm the operation, press 'Enter'</li>
+<li>To cancel the operation or close the widget, press ‘Esc’</li>
+<li>To confirm the operation, press ‘Enter’</li>
 </ul></li>
 </ul>
 <p>Anyways, these shortcuts will be displayed on a widget, so you can consult them when necessary.</p>
@@ -597,13 +731,13 @@ In keepout 2, A is also the desired height, but the keepout can't be drawn corre
 
 <h1 id="progress-bar">Progress bar</h1>
 <p>Everytime a long operation is being executed, it will be displayed a progress bar to inform the user.</p>
-<p>The progress bar it's composed of:</p>
+<p>The progress bar it’s composed of:</p>
 <ul>
 <li>Title: name of the operation being executed</li>
 <li>Label 1: function withing the operation</li>
 <li>Label 2: step of the funcion</li>
 <li>Bar: if there is a determinate number of steps it will be increasing its value, if not, it will be shown as an animation</li>
-<li>Cancel button: only visible on 'Waiting for satellite tiles' generating textures step</li>
+<li>Cancel button: only visible on ‘Waiting for satellite tiles’ generating textures step</li>
 </ul>
 <img class="w75" src="./layout-doc-imgs/general/progress-bar-textures.jpg" alt="Generating textures progress bar" />
 
@@ -660,12 +794,12 @@ In keepout 2, A is also the desired height, but the keepout can't be drawn corre
 <h1 id="how-to-use">How to use</h1>
 <h2 id="api-key-and-autentication">API key and autentication</h2>
 <p>The 3DLayout allows you to provide Google and Bing API keys.</p>
-<p>In case these API keys don't exist, the default provider will be Open Street Maps.</p>
+<p>In case these API keys don’t exist, the default provider will be Open Street Maps.</p>
 <p>To add them as layout rules, please visit the <a href="#scene-preferences">Scene preferences</a> section within the <a href="#layout-rules">Layout Rules</a> section.</p>
 <h2 id="dom-element">DOM element</h2>
 <p>You need an element in the body of your html page, a div where <strong>the 3DLayout will fit inside this element</strong>.</p>
 <blockquote>
-<p>This div can't be bigger than the view size, and <strong>no scroll</strong> has to be applied to the html page.</p>
+<p>This div can’t be bigger than the view size, and <strong>no scroll</strong> has to be applied to the html page.</p>
 </blockquote>
 <p>You should not change the ezzing3d element size (width or height) but change the size of this container div.</p>
 <pre><code>&lt;div style=&#39;height:100vh; width: 100vw&#39;&gt;
@@ -828,7 +962,7 @@ container.addEventListener(&#39;buildingSelected&#39;, function(event, data){
 <li>roofChanged</li>
 <li>sceneChanged</li>
 </ul>
-<p>Delete object: triggered every time any of these objects is deleted. The event sends the <strong>object.id</strong> (after this operation this object won't longer exist in the project).</p>
+<p>Delete object: triggered every time any of these objects is deleted. The event sends the <strong>object.id</strong> (after this operation this object won’t longer exist in the project).</p>
 <ul>
 <li>buildingRemoved</li>
 <li>areaRemoved</li>
@@ -836,7 +970,7 @@ container.addEventListener(&#39;buildingSelected&#39;, function(event, data){
 <li>treeRemoved</li>
 <li>keepoutRemoved</li>
 </ul>
-<p>Change tab: triggered every time the aside panel navigation tab changes. It sends a string with the current tab name ('building', 'areas', 'keepouts', 'trees', 'keepout-info' or 'tree-info').</p>
+<p>Change tab: triggered every time the aside panel navigation tab changes. It sends a string with the current tab name (‘building’, ‘areas’, ‘keepouts’, ‘trees’, ‘keepout-info’ or ‘tree-info’).</p>
 <ul>
 <li>tabChangedApi</li>
 </ul>
@@ -904,7 +1038,7 @@ container.addEventListener(&#39;buildingSelected&#39;, function(event, data){
 <h3 id="panels-functions">Panels functions</h3>
 <ul>
 <li>setCustomPanel(customPanelData, callback): creates a new panel</li>
-<li>setUnits(unitToChange, callback): set a new unit (m, cm, mm, ...)</li>
+<li>setUnits(unitToChange, callback): set a new unit (m, cm, mm, …)</li>
 </ul>
 <h3 id="buildings-functions">Buildings functions</h3>
 <p>Set of functions to retrieve buildings information from the layout. The <strong>callback</strong> argument is always needed.</p>
@@ -1100,7 +1234,7 @@ container.addEventListener(&#39;buildingSelected&#39;, function(event, data){
 
 <h1 id="alert-widgets">Alert widgets</h1>
 <p>It is important to notify the user when a change is going to be made or an error has appeared. You can create new customizable widgets on any panel element when its value is going to be changed.</p>
-<p>To create a widget, you have to add two json properties on the json of the element whose value is being modified: 'confirmation' and 'confirmationWidget'.</p>
+<p>To create a widget, you have to add two json properties on the json of the element whose value is being modified: ‘confirmation’ and ‘confirmationWidget’.</p>
 <pre><code>paint: {
     type: &#39;button&#39;,
     tooltip: &#39;paint&#39;,
@@ -1114,8 +1248,8 @@ container.addEventListener(&#39;buildingSelected&#39;, function(event, data){
     }
 }
 </code></pre>
-<p>The 'confirmation' property is a boolean that determines if the widget will be shown or not. It can be a raw value (true/false) or a function that returns a boolean value.</p>
-<p>The 'confirmationWidget' property is an object composed of:</p>
+<p>The ‘confirmation’ property is a boolean that determines if the widget will be shown or not. It can be a raw value (true/false) or a function that returns a boolean value.</p>
+<p>The ‘confirmationWidget’ property is an object composed of:</p>
 <pre><code>confirmationWidget: {
     &#39;name&#39;: widget id,
     &#39;title&#39;: title displayed on the header,
@@ -1125,9 +1259,9 @@ container.addEventListener(&#39;buildingSelected&#39;, function(event, data){
     &#39;eventCancel&#39;: [optional] the changed value won&#39;t be applied and the panels will update
 }
 </code></pre>
-<p>If the widget is going to be only informative, there must be an 'eventOk' property so that the changes are applied.</p>
+<p>If the widget is going to be only informative, there must be an ‘eventOk’ property so that the changes are applied.</p>
 <blockquote>
-<p>Notice that both 'content' and 'functionOnCreation' properties create the content of the widget but in different ways, therefore you can only use one of these.</p>
+<p>Notice that both ‘content’ and ‘functionOnCreation’ properties create the content of the widget but in different ways, therefore you can only use one of these.</p>
 </blockquote>
 <div class="page-break"></div>
 
@@ -1149,7 +1283,7 @@ container.addEventListener(&#39;buildingSelected&#39;, function(event, data){
 <pre><code>ee.emitEvent(&#39;resetProgressBar&#39;);
 </code></pre>
 <h2 id="update-progress-bar">Update progress bar</h2>
-<p>To update the progress bar it is important to first open it by emitting the event 'showProgressBar'. The values will be sent as an object this way:</p>
+<p>To update the progress bar it is important to first open it by emitting the event ‘showProgressBar’. The values will be sent as an object this way:</p>
 <pre><code>ee.emitEvent(&#39;updateProgressBar&#39;, [{
     title: &#39;Title of the operation&#39;,
     label1: &#39;Name of function&#39;,
@@ -1159,10 +1293,10 @@ container.addEventListener(&#39;buildingSelected&#39;, function(event, data){
 </code></pre>
 <p>There are some cases that need to be mentioned when sending these parameters:</p>
 <ul>
-<li>If 'title' is undefined, it will keep its last value. If it's different than the current one, the progress bar will reset</li>
-<li>If 'label1' is undefined, it will keep its last value. If title has changed, it won't have a value</li>
-<li>If 'label2' is undefined it won't have a value</li>
-<li>If 'value' is undefined it will be displayed the animation in the bar. Otherwise, it's value will be added to the width of the bar.</li>
+<li>If ‘title’ is undefined, it will keep its last value. If it’s different than the current one, the progress bar will reset</li>
+<li>If ‘label1’ is undefined, it will keep its last value. If title has changed, it won’t have a value</li>
+<li>If ‘label2’ is undefined it won’t have a value</li>
+<li>If ‘value’ is undefined it will be displayed the animation in the bar. Otherwise, it’s value will be added to the width of the bar.</li>
 </ul>
 <blockquote>
 <p>The simplest example is generating all the textures. If the project has 3 bulidings, you will have to divide 100 by number of buildings, so that the bar width will increase a 33.3% each time the event is emitted.</p>
@@ -1173,7 +1307,7 @@ container.addEventListener(&#39;buildingSelected&#39;, function(event, data){
 </code></pre>
 <h2 id="cancel-button-events">Cancel button events</h2>
 <p>The cancel button is hidden by default. You can display it by sending a boolean parameter on the emitted event.</p>
-<p>Keep in mind that this event has to be emitted before executing an operator or within it. Also, there has to be a listener 'cancelProgressBar' that is going to be executed when clicking on this button.</p>
+<p>Keep in mind that this event has to be emitted before executing an operator or within it. Also, there has to be a listener ‘cancelProgressBar’ that is going to be executed when clicking on this button.</p>
 <pre><code>ee.emitEvent(&#39;showProgressBarCancelBtn&#39;, [boolean]);
 </code></pre>
 <blockquote>
@@ -1187,7 +1321,7 @@ container.addEventListener(&#39;buildingSelected&#39;, function(event, data){
 <h1 id="custom-panels">Custom panels</h1>
 <p>You can customize all of the panels by changing their content.</p>
 <p>There is a function in the API called setCustomPanel that receives as parameter a json that contains the panel info, content, functions and listeners.</p>
-<p>To create a new panel, the panel elements must be in a 'json' property and a 'populate' property must be valued with 'updatePanel'.</p>
+<p>To create a new panel, the panel elements must be in a ‘json’ property and a ‘populate’ property must be valued with ‘updatePanel’.</p>
 <pre><code>var newPanel = {
     name: &#39;panel-name&#39;,
     model: &#39;EZModelKeepout&#39;,
@@ -1233,7 +1367,7 @@ container.addEventListener(&#39;buildingSelected&#39;, function(event, data){
 <pre><code>nameOfProperty: [&#39;eventToListen&#39;, &#39;nameOfTheGUIMethod&#39;]
 </code></pre>
 <h2 id="panel-blocks">Panel blocks</h2>
-<p>To create different blocks, each element must have a 'type' property. These are the available types:</p>
+<p>To create different blocks, each element must have a ‘type’ property. These are the available types:</p>
 <ul>
 <li>string</li>
 <li>float / integer</li>
@@ -1265,7 +1399,7 @@ container.addEventListener(&#39;buildingSelected&#39;, function(event, data){
 <li>navigator</li>
 </ul>
 <h1 id="layout-rules">Layout Rules</h1>
-<p>The user can customize many options in the 3DLayout. By passing a 'rules' attribute to the 3DLayout instance with a collection of objects, you can define the default values, add special behaviours to the 3DLayout and customize the interface.</p>
+<p>The user can customize many options in the 3DLayout. By passing a ‘rules’ attribute to the 3DLayout instance with a collection of objects, you can define the default values, add special behaviours to the 3DLayout and customize the interface.</p>
 <p>Example of rules object:</p>
 <pre><code>var rules = {
     &#39;display&#39;: true,
@@ -1459,6 +1593,8 @@ container.addEventListener(&#39;buildingSelected&#39;, function(event, data){
 <li>6: simple mode</li>
 <li>7: documentation</li>
 <li>8: autocad export</li>
+<li>9: simple mode invisible</li>
+<li>11: read only</li>
 </ul>
 <div class="page-break"></div>
 
@@ -1483,8 +1619,8 @@ container.addEventListener(&#39;buildingSelected&#39;, function(event, data){
     }
 }
 </code></pre>
-<p>To create a button panel you must specify its type ('groupBlock').</p>
-<p>The 'elements' property within 'buttonsPanel' contains all the buttons that exist in that button panel. For example, to create the 'Snapshot' and 'Fullscreen' buttons at the right-top of the canvas:</p>
+<p>To create a button panel you must specify its type (‘groupBlock’).</p>
+<p>The ‘elements’ property within ‘buttonsPanel’ contains all the buttons that exist in that button panel. For example, to create the ‘Snapshot’ and ‘Fullscreen’ buttons at the right-top of the canvas:</p>
 <pre><code>elements: {
     classed: &#39;ez3d-panel-buttons ez3d-flex-start-wrap-row viewport_left_controls_left&#39;,
     snapshot: {
@@ -1507,7 +1643,7 @@ container.addEventListener(&#39;buildingSelected&#39;, function(event, data){
     },
 }
 </code></pre>
-<p>The 'elements' property is composed of a 'classed' property to position the buttons, and the buttons by their name.</p>
+<p>The ‘elements’ property is composed of a ‘classed’ property to position the buttons, and the buttons by their name.</p>
 <p>All the properties that a button can have are:</p>
 <pre><code>buttonName: {
     type: &#39;button&#39;,
@@ -1534,12 +1670,12 @@ container.addEventListener(&#39;buildingSelected&#39;, function(event, data){
     eventOnClick: event sent when clicking on the button
 }
 </code></pre>
-<p>It is very important to specify the type of element (in this case 'button') for creating correctly these elements.</p>
-<p>These buttons will be created following the order of the 'buttonsPanel.elements' object.</p>
+<p>It is very important to specify the type of element (in this case ‘button’) for creating correctly these elements.</p>
+<p>These buttons will be created following the order of the ‘buttonsPanel.elements’ object.</p>
 <div class="page-break"></div>
 
 <h2 id="default-languages">Default languages</h2>
-<p>To customize the existing languages or add new ones, you have to edit them or create a new json property with the name of that language abbreviation ('EN', 'FR', 'ES', etc).</p>
+<p>To customize the existing languages or add new ones, you have to edit them or create a new json property with the name of that language abbreviation (‘EN’, ‘FR’, ‘ES’, etc).</p>
 <pre><code>var defaultLanguages = {
     &#39;EN&#39;: {
         &#39;key&#39;: &#39;english key value&#39;
@@ -1550,7 +1686,7 @@ container.addEventListener(&#39;buildingSelected&#39;, function(event, data){
 }
 </code></pre>
 <h2 id="default-colors">Default colors</h2>
-<p>All the customizable colors can be also edited in the Preferences menu selecting the 'Default values editor' on the viewport mode. These are:</p>
+<p>All the customizable colors can be also edited in the Preferences menu selecting the ‘Default values editor’ on the viewport mode. These are:</p>
 <pre><code>var defaultColors = {
     cssColors: { },
     buildingColors: { },
@@ -1590,7 +1726,7 @@ container.addEventListener(&#39;buildingSelected&#39;, function(event, data){
     strokeDasharray: 0
 }
 </code></pre>
-<p>These attributes can belong to different properties. For example 'standard', 'hover', 'active', 'vertices', etc.</p>
+<p>These attributes can belong to different properties. For example ‘standard’, ‘hover’, ‘active’, ‘vertices’, etc.</p>
 <blockquote>
 <p>Note that every time it appears an empty object ({ }) in the examples, these main attributes exist in them.</p>
 </blockquote>
@@ -1617,7 +1753,7 @@ container.addEventListener(&#39;buildingSelected&#39;, function(event, data){
 </code></pre>
 <div class="page-break"></div>
 
-<p>Also, in 'roofPointsColors' and 'roofRidgeColors' properties there's a new property called 'radius' on each property.</p>
+<p>Also, in ‘roofPointsColors’ and ‘roofRidgeColors’ properties there’s a new property called ‘radius’ on each property.</p>
 <pre><code>roofPointsColors: {
     standard: {
         fill: &#39;#008000&#39;,
@@ -1636,7 +1772,7 @@ roofRidgeColors: {
 }
 </code></pre>
 <h3 id="keepout-colors">Keepout colors</h3>
-<p>In keepout colors property there are two new properties called 'offsettedPath' and 'autocad':</p>
+<p>In keepout colors property there are two new properties called ‘offsettedPath’ and ‘autocad’:</p>
 <pre><code>keepoutColors: {
     path: {
         standard: { },
@@ -1650,7 +1786,7 @@ roofRidgeColors: {
 <div class="page-break"></div>
 
 <h3 id="area-colors">Area colors</h3>
-<p>Areas and subareas have the same properties except for 'autocad' property, which is only available in areaColors.</p>
+<p>Areas and subareas have the same properties except for ‘autocad’ property, which is only available in areaColors.</p>
 <pre><code>areaColors: {
     path: {
         standard: { },
@@ -1800,46 +1936,11 @@ roofRidgeColors: {
 
 <h3 id="default-model-roof-by-type-values">Default model roof by type values</h3>
 <p>Sample values:</p>
-<pre><code>var roofByTypeDefaultValues = {
-    flat: {
-        material: &#39;bitumen&#39;,
-        availableMaterial: {
-            gravel: {
-                value: &#39;gravel&#39;,
-                image: &#39;gravel&#39;,
-                label: &#39;gravel&#39;
-            },
-            bitumen: { },
-            membrane: { },
-            concrete: { }
-        },
-        availableOrientation: [ ],
-        inclination: 0,
-        offset: [1],
-        orientation: &#39;&#39;,
-        hidden: [ ],
-        locked: [ ]
-    },
-    gabled: { },
-    hipped: { },
-    pyramid { },
-    mansard { },
-    pent: {
-        material: &#39;tiled&#39;,
-        availableMaterial: [
-            &#39;tiled&#39;,
-            &#39;trapezoidal&#39;,
-            &#39;corrugated&#39;
-        ],
-        offset: [0.4],
-        orientation: &#39;S&#39;,
-        availableOrientation: [&#39;E&#39;, &#39;W&#39;, &#39;N&#39;, &#39;S&#39;],
-        inclination: 30,
-        hidden: [ ],
-        locked: [ ]
-    }
-}
-</code></pre>
+<ol>
+<li><p>Adds new available materials to list: var roofByTypeDefaultValues = { flat: { material: ‘bitumen’, availableMaterial: { gravel: { value: ‘gravel’, image: ‘gravel’, label: ‘gravel’ }, bitumen: { }, membrane: { }, concrete: { } }, availableOrientation: [ ], inclination: 0, offset: [1], orientation: ‘’, hidden: [ ], locked: [ ] }, gabled: { }, hipped: { }, pyramid { }, mansard { }, }</p></li>
+<li><p>Overwrites available materials with default values: var roofByTypeDefaultValues = { pent: { material: ‘tiled’, availableMaterial: [ ‘tiled’, ‘trapezoidal’, ‘corrugated’ ], offset: [0.4], orientation: ‘S’, availableOrientation: [‘E’, ‘W’, ‘N’, ‘S’], inclination: 30, hidden: [ ], locked: [ ] }, gabled: { }, hipped: { }, pyramid { }, mansard { }, }</p></li>
+<li><p>Overwrites available materials with custom values: var roofByTypeDefaultValues = { flat: { material: ‘bitumen’, availableMaterial: [ [ ‘tiled’, ‘tiled’, ‘tiledImage’, ‘tiledLabel’], [],…. ], availableOrientation: [ ], inclination: 0, offset: [1], orientation: ‘’, hidden: [ ], locked: [ ] }, gabled: { }, hipped: { }, pyramid { }, mansard { }, } the format of the array is following: [ ID, value, image, label]</p></li>
+</ol>
 <div class="page-break"></div>
 
 <h3 id="default-model-roof-values">Default model roof values</h3>
@@ -1920,37 +2021,70 @@ roofRidgeColors: {
 <div class="page-break"></div>
 
 <h1 id="changelog">Changelog</h1>
-<h2 id="v3230-20112019">v3.23.0 (20/11/2019)</h2>
+<h2 id="v3250-24032020">v3.25.0 (24/03/2020)</h2>
 <h3 id="features">Features</h3>
+<ul>
+<li>Read-only mode.</li>
+<li>New roof type: mansard.</li>
+<li>Navbar (Building/Areas/Object/Map/…) located at the very top: better visualization of panel options!</li>
+<li>Enhanced undo/redo feature. We’ve got you covered!</li>
+<li>Map snapshots.</li>
+</ul>
+<h3 id="fixes">Fixes</h3>
+<ul>
+<li>Fix bug due to users ommiting modals messages while changing attributes.</li>
+<li>Performance boost.</li>
+<li>Stability improvements.</li>
+<li>Other minor fixes.</li>
+</ul>
+<h2 id="v3240-10022020">v3.24.0 (10/02/2020)</h2>
+<h3 id="features-1">Features</h3>
+<ul>
+<li>Building Shapes: you can use common predesigned building shapes. Let’s skyrocket that productivity!</li>
+<li>Improved roof geometries.</li>
+<li>New roof type: pergola. <!-- Hey! Review translation the translation for: 'pergola' --></li>
+<li>You can move roof points symmetrically (hipped roofs).</li>
+<li>Turkish translations: Selam!</li>
+</ul>
+<h3 id="fixes-1">Fixes</h3>
+<ul>
+<li>Fix default module height was displayed in millimeters (instead of meters).</li>
+<li>Labels displaying wrong when dilatation lines were added.</li>
+<li>Snap to grid now behaves correctly.</li>
+<li>Now modules being dragged show their right color.</li>
+<li>Other minor fixes.</li>
+</ul>
+<h2 id="v3230-20112019">v3.23.0 (20/11/2019)</h2>
+<h3 id="features-2">Features</h3>
 <ul>
 <li>Improved drawing speed.</li>
 <li>New context panel buttons (by right-clicking on buildings, areas, subares, etc. from canvas).</li>
-<li>When moving an object, other objects don't interfere.</li>
+<li>When moving an object, other objects don’t interfere.</li>
 <li>Subareas can be moved with keyboard shortcuts.</li>
 </ul>
-<h3 id="fixes">Fixes</h3>
+<h3 id="fixes-2">Fixes</h3>
 <ul>
 <li>Finish panels button is locked when the operation has not been validated.</li>
 <li>Drawing alignment when switching perspective mode from 3D to 2D.</li>
 </ul>
-<h2 id="v3210-00092019">v3.21.0 (00/09/2019)</h2>
-<h3 id="features-1">Features</h3>
+<h2 id="v3210-23092019">v3.21.0 (23/09/2019)</h2>
+<h3 id="features-3">Features</h3>
 <ul>
 <li>New drawing in svgProject.</li>
 <li>New cancel button on progress bar when generating textures.</li>
 <li>Manage area habilitation from context menu (by right clicking on an area in svgProject).</li>
 </ul>
-<h3 id="fixes-1">Fixes</h3>
+<h3 id="fixes-3">Fixes</h3>
 <ul>
 <li>Deprecated layoutRules on aside header creation refactor.</li>
 </ul>
 <h2 id="v3200-29082019">v3.20.0 (29/08/2019)</h2>
-<h3 id="features-2">Features</h3>
+<h3 id="features-4">Features</h3>
 <ul>
 <li>Undo/redo feature.</li>
 <li>New module sails (available in subarea info panel).</li>
 </ul>
-<h3 id="fixes-2">Fixes</h3>
+<h3 id="fixes-4">Fixes</h3>
 <ul>
 <li>Implemented compass rotation in the subarea view.</li>
 <li>Fixed autocad export error.</li>
@@ -1962,14 +2096,14 @@ roofRidgeColors: {
 <li>Error on zoom when Player is disabled.</li>
 </ul>
 <h2 id="v3190-09082019">v3.19.0 (09/08/2019)</h2>
-<h3 id="features-3">Features</h3>
+<h3 id="features-5">Features</h3>
 <ul>
 <li>Compass and Center view buttons have been added in Showcase mode.</li>
 <li>New benchmarks with 1000 and 100000 modules for performance testing.</li>
 <li>New layoutRule to include inset in dilatation lines.</li>
 <li>Path editor is now created as a json.</li>
 </ul>
-<h3 id="fixes-3">Fixes</h3>
+<h3 id="fixes-5">Fixes</h3>
 <ul>
 <li>The Showcase widget has been removed and the old shortcuts have been restored (camera traslation and rotation).</li>
 <li>Removed Mapper flickering when redrawing buttons.</li>
@@ -1984,27 +2118,27 @@ roofRidgeColors: {
 <li>Fixed resize listener related to bootstrap error.</li>
 </ul>
 <h2 id="v3180-03062019">v3.18.0 (03/06/2019)</h2>
-<h3 id="features-4">Features</h3>
+<h3 id="features-6">Features</h3>
 <ul>
 <li>Created new tree shapes.</li>
 <li>Changed cancel widget button background color to gray.</li>
-<li>Logo and attributions aren't displayed when Mapper is deactivated.</li>
+<li>Logo and attributions aren’t displayed when Mapper is deactivated.</li>
 <li>Recovered sun and flares in the sky.</li>
 <li>Change project center depending on first building vertex distance from original center.</li>
 </ul>
-<h3 id="fixes-4">Fixes</h3>
+<h3 id="fixes-6">Fixes</h3>
 <ul>
 <li>Perspective widget is displayed at the left side of the canvas.</li>
 <li>Changed providers selector style.</li>
 <li>Fixed bottom buttons interruption on canvas drag.</li>
 </ul>
 <h2 id="v3171-29052019">v3.17.1 (29/05/2019)</h2>
-<h3 id="fixes-5">Fixes</h3>
+<h3 id="fixes-7">Fixes</h3>
 <ul>
 <li>Change initial perspective widget position.</li>
 </ul>
 <h2 id="v3170-13052019">v3.17.0 (13/05/2019)</h2>
-<h3 id="features-5">Features</h3>
+<h3 id="features-7">Features</h3>
 <ul>
 <li>New alert: the layout blocks when browser is not Chrome.</li>
 <li>New features in sun simulation widget. Now you can set the date with the shortest or longest shadow, and reset the date to its default value. A new layoutRule has been defined to modify the default date of the simulator.</li>
@@ -2012,13 +2146,13 @@ roofRidgeColors: {
 <li>There are new shortcuts to navigate between the main tabs. By pressing keys 1, 2, 3 and 4 you can navigate between Building, Areas, Objects and Preferences panels, respectively.</li>
 <li>New alternative of using Command key instead of Ctrl in computers with mac OS operating system.</li>
 </ul>
-<h3 id="fixes-6">Fixes</h3>
+<h3 id="fixes-8">Fixes</h3>
 <ul>
 <li>Fixed a bug related to the subarea clone.</li>
 <li>Fixed the translation and rotation in perspective mode and changed shortcuts.</li>
 </ul>
 <h2 id="v3160-30042019">v3.16.0 (30/04/2019)</h2>
-<h3 id="features-6">Features</h3>
+<h3 id="features-8">Features</h3>
 <ul>
 <li>Context panel improvements on hover.</li>
 <li>New button to show and hide subarea view.</li>
@@ -2026,7 +2160,7 @@ roofRidgeColors: {
 <li>Snap to vertices shortcuts improvements in Windows and Mac.</li>
 <li>Created browser check.</li>
 </ul>
-<h3 id="fixes-7">Fixes</h3>
+<h3 id="fixes-9">Fixes</h3>
 <ul>
 <li>Reset modules when changing orientation.</li>
 <li>Fixed unnecessary console warning.</li>
