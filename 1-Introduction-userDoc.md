@@ -141,7 +141,7 @@ Custon Shapes lets you quickly create a building from a predefined set. This mod
 
 <img class="w200" src="./layout-doc-imgs/building/custom-shape-types.png" alt="Custom Shapes (Types)">
 
-Once you select one it will be created in the project center. You can tweak this custom shape from the aside panel (note that the cavas points can't be edited as they're grayed out). You can config in the panel the size of the edges and the building rotation. When you're ready you click *Finish* in the panel will proceed to edit the building as regular one (created with *Draw Shapes* option). Once the building is created you can move it like any other building to their correct place.
+Once you select one it will be created in the project center. You can tweak this custom shape from the aside panel (note that the cavas points can't be edited as they're grayed out). You can config in the panel the size of the edges and the building rotation. When you're ready, click *Finish* in the panel, and you will proceed to edit the building as regular one (see *Draw Shapes* option below). Once the building is created you can move it like any other building to the desired place.
 
 Special mention to the *Step by step* type. This powerful option lets you define a bulding wall by wall:
 
