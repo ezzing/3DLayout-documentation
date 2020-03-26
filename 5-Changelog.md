@@ -256,7 +256,7 @@
 
 
 
-## v3.9.1 (2018/12/05)
+## v3.9.1 (2018-12-05)
 
 ### Fixes
 - System appears shifted after azimuth change.

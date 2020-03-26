@@ -130,35 +130,57 @@
             values](#default-model-subarea-values)
           - [Default model tree values](#default-model-tree-values)
   - [Changelog](#changelog)
-      - [v3.25.0 (24/03/2020)](#v3250-24032020)
+      - [v3.25.0 (2020-03-24)](#v3250-2020-03-24)
           - [Features](#features)
           - [Fixes](#fixes)
-      - [v3.24.0 (10/02/2020)](#v3240-10022020)
+      - [v3.24.0 (2020-02-10)](#v3240-2020-02-10)
           - [Features](#features-1)
           - [Fixes](#fixes-1)
-      - [v3.23.0 (20/11/2019)](#v3230-20112019)
+      - [v3.23.0 (2019-11-20)](#v3230-2019-11-20)
           - [Features](#features-2)
           - [Fixes](#fixes-2)
-      - [v3.21.0 (23/09/2019)](#v3210-23092019)
+      - [v3.21.0 (2019-09-23)](#v3210-2019-09-23)
           - [Features](#features-3)
           - [Fixes](#fixes-3)
-      - [v3.20.0 (29/08/2019)](#v3200-29082019)
+      - [v3.20.0 (2019-08-29)](#v3200-2019-08-29)
           - [Features](#features-4)
           - [Fixes](#fixes-4)
-      - [v3.19.0 (09/08/2019)](#v3190-09082019)
+      - [v3.19.0 (2019-08-09)](#v3190-2019-08-09)
           - [Features](#features-5)
           - [Fixes](#fixes-5)
-      - [v3.18.0 (03/06/2019)](#v3180-03062019)
+      - [v3.18.0 (2019-06-03)](#v3180-2019-06-03)
           - [Features](#features-6)
           - [Fixes](#fixes-6)
-      - [v3.17.1 (29/05/2019)](#v3171-29052019)
+      - [v3.17.1 (2019-05-29)](#v3171-2019-05-29)
           - [Fixes](#fixes-7)
-      - [v3.17.0 (13/05/2019)](#v3170-13052019)
+      - [v3.17.0 (2019-05-13)](#v3170-2019-05-13)
           - [Features](#features-7)
           - [Fixes](#fixes-8)
-      - [v3.16.0 (30/04/2019)](#v3160-30042019)
+      - [v3.16.0 (2019-04-30)](#v3160-2019-04-30)
           - [Features](#features-8)
           - [Fixes](#fixes-9)
+      - [v3.15.0 (2019-04-02)](#v3150-2019-04-02)
+          - [Features](#features-9)
+          - [Fixes](#fixes-10)
+      - [v3.14.0 (2019-03-11)](#v3140-2019-03-11)
+          - [Features](#features-10)
+          - [Fixes](#fixes-11)
+      - [v3.13.0 (2019-02-13)](#v3130-2019-02-13)
+          - [Features](#features-11)
+          - [Fixes](#fixes-12)
+      - [v3.12.0 (2019-02-07)](#v3120-2019-02-07)
+          - [Features](#features-12)
+          - [Fixes](#fixes-13)
+      - [v3.11.0 (2019-01-17)](#v3110-2019-01-17)
+          - [Features](#features-13)
+          - [Fixes](#fixes-14)
+      - [v3.10.0 (2019-01-08)](#v3100-2019-01-08)
+          - [Features](#features-14)
+          - [Fixes](#fixes-15)
+      - [v3.9.2 (2018-12-11)](#v392-2018-12-11)
+          - [Fixes](#fixes-16)
+      - [v3.9.1 (2018-12-05)](#v391-2018-12-05)
+          - [Fixes](#fixes-17)
 
 # Introduction
 
@@ -2593,7 +2615,7 @@ Sample values:
 
 # Changelog
 
-## v3.25.0 (24/03/2020)
+## v3.25.0 (2020-03-24)
 
 ### Features
 
@@ -2612,7 +2634,9 @@ Sample values:
   - Stability improvements.
   - Other minor fixes.
 
-## v3.24.0 (10/02/2020)
+-----
+
+## v3.24.0 (2020-02-10)
 
 ### Features
 
@@ -2632,7 +2656,9 @@ Sample values:
   - Now modules being dragged show their right color.
   - Other minor fixes.
 
-## v3.23.0 (20/11/2019)
+-----
+
+## v3.23.0 (2019-11-20)
 
 ### Features
 
@@ -2648,7 +2674,9 @@ Sample values:
     validated.
   - Drawing alignment when switching perspective mode from 3D to 2D.
 
-## v3.21.0 (23/09/2019)
+-----
+
+## v3.21.0 (2019-09-23)
 
 ### Features
 
@@ -2661,7 +2689,9 @@ Sample values:
 
   - Deprecated layoutRules on aside header creation refactor.
 
-## v3.20.0 (29/08/2019)
+-----
+
+## v3.20.0 (2019-08-29)
 
 ### Features
 
@@ -2679,7 +2709,9 @@ Sample values:
   - Bug when switching perspective mode with an active subarea.
   - Error on zoom when Player is disabled.
 
-## v3.19.0 (09/08/2019)
+-----
+
+## v3.19.0 (2019-08-09)
 
 ### Features
 
@@ -2705,7 +2737,9 @@ Sample values:
   - Fixed 'Invalid Lat, Lng' console error.
   - Fixed resize listener related to bootstrap error.
 
-## v3.18.0 (03/06/2019)
+-----
+
+## v3.18.0 (2019-06-03)
 
 ### Features
 
@@ -2722,13 +2756,15 @@ Sample values:
   - Changed providers selector style.
   - Fixed bottom buttons interruption on canvas drag.
 
-## v3.17.1 (29/05/2019)
+-----
+
+## v3.17.1 (2019-05-29)
 
 ### Fixes
 
   - Change initial perspective widget position.
 
-## v3.17.0 (13/05/2019)
+## v3.17.0 (2019-05-13)
 
 ### Features
 
@@ -2750,7 +2786,9 @@ Sample values:
   - Fixed the translation and rotation in perspective mode and changed
     shortcuts.
 
-## v3.16.0 (30/04/2019)
+-----
+
+## v3.16.0 (2019-04-30)
 
 ### Features
 
@@ -2766,3 +2804,125 @@ Sample values:
   - Reset modules when changing orientation.
   - Fixed unnecessary console warning.
   - Check modules number before deleting them.
+
+-----
+
+## v3.15.0 (2019-04-02)
+
+### Features
+
+  - Better tracking of the layout events.
+  - Areas/subareas now show surfaces in square meters (m²).
+  - Added benchmarking for the model.
+  - Extended capabilities in operators.
+  - Add possibility of delays to event execution.
+  - Improved movement in the player (now using ratios).
+  - Improved mouse wheel event handling (D3.js).
+  - Save option available in modal when generating all textures.
+  - Create shortcuts for widgets and control over the active one.
+
+### Fixes
+
+  - Fix modules that randomly misaligned in some cases.
+  - Reduced the number event listeners used.
+  - Module count not working as expected with disabled subareas.
+  - Other minor fixes.
+
+-----
+
+## v3.14.0 (2019-03-11)
+
+### Features
+
+  - Improved draw and behaviour of path editor and locations.
+  - Better draw of trees.
+  - New favicon.
+  - Widget shortcuts when moving objects.
+  - More modular panels now with blocks.
+
+### Fixes
+
+  - Now when language is changed, widgets are updated.
+  - Fixed: hover disabled eye in areas and subareas.
+  - Fixed widgets minimize in Firefox.
+  - Replaced mansard icon with the correct resolution.
+
+-----
+
+## v3.13.0 (2019-02-13)
+
+### Features
+
+  - Improved path editor.
+  - UI/UX: Less eyestrain with the new default building color.
+
+### Fixes
+
+  - Fixed some issues when adjusting dilatation lines.
+  - Other minor fixes.
+
+-----
+
+## v3.12.0 (2019-02-07)
+
+### Features
+
+  - UI/UX: More informative widget titles.
+  - UI/UX: More coherent flows (removed buttons that weren't supossed to
+    appear).
+  - Internal improvements related to operators, navigation panels, and
+    more.
+
+### Fixes
+
+  - Fixed some button behaviours.
+  - Fixed mapper button margin.
+  - Other minor fixes.
+
+-----
+
+## v3.11.0 (2019-01-17)
+
+### Features
+
+  - UI/UX: Building color visible in building index buttons.
+  - Improved the change of a provider on the Mapper button.
+
+### Fixes
+
+  - Fix system draws not happening sometimes.
+  - Fix some zoom issues when drawing modules.
+  - Other minor fixes.
+
+-----
+
+## v3.10.0 (2019-01-08)
+
+### Features
+
+  - Snap to vertices now works with roof points.
+  - Improved voronoi implementation.
+
+### Fixes
+
+  - Documentation reviewed and updated.
+  - Fixed error drawing keepouts when user is editing a roof.
+  - Fix issue with render update in perspective mode.
+  - Other minor fixes.
+
+-----
+
+## v3.9.2 (2018-12-11)
+
+### Fixes
+
+  - Some code cleanup (temporal locations).
+
+## v3.9.1 (2018-12-05)
+
+### Fixes
+
+  - System appears shifted after azimuth change.
+  - Fix bug when getting all textures.
+
+-----
