@@ -2,7 +2,7 @@
 
 # Changelog
 
-## v3.25.0 (24/03/2020)
+## v3.25.0 (2020-03-24)
 
 ### Features
 - Read-only mode.
@@ -19,7 +19,7 @@
 
 ---
 
-## v3.24.0 (10/02/2020)
+## v3.24.0 (2020-02-10)
 
 ### Features
 - Building Shapes: you can use common predesigned building shapes. Let's skyrocket that productivity!
@@ -37,7 +37,7 @@
 
 ---
 
-## v3.23.0 (20/11/2019)
+## v3.23.0 (2019-11-20)
 
 ### Features
 - Improved drawing speed.
@@ -51,7 +51,7 @@
 
 ---
 
-## v3.21.0 (23/09/2019)
+## v3.21.0 (2019-09-23)
 
 ### Features
 - New drawing in svgProject.
@@ -63,7 +63,7 @@
 
 ---
 
-## v3.20.0 (29/08/2019)
+## v3.20.0 (2019-08-29)
 
 ### Features
 - Undo/redo feature.
@@ -81,7 +81,7 @@
 
 ---
 
-## v3.19.0 (09/08/2019)
+## v3.19.0 (2019-08-09)
 
 ### Features
 - Compass and Center view buttons have been added in Showcase mode.
@@ -104,7 +104,7 @@
 
 ---
 
-## v3.18.0 (03/06/2019)
+## v3.18.0 (2019-06-03)
 
 ### Features
 - Created new tree shapes.
@@ -120,14 +120,14 @@
 
 ---
 
-## v3.17.1 (29/05/2019)
+## v3.17.1 (2019-05-29)
 
 ### Fixes
 - Change initial perspective widget position.
 
 
 
-## v3.17.0 (13/05/2019)
+## v3.17.0 (2019-05-13)
 
 ### Features
 - New alert: the layout blocks when browser is not Chrome.
@@ -142,7 +142,7 @@
 
 ---
 
-## v3.16.0 (30/04/2019)
+## v3.16.0 (2019-04-30)
 
 ### Features
 - Context panel improvements on hover.
@@ -158,7 +158,7 @@
 
 ---
 
-## 3.15.0 (2019/04/02)
+## v3.15.0 (2019-04-02)
 
 ### Features
 - Better tracking of the layout events.
@@ -179,7 +179,7 @@
 
 ---
 
-## 3.14.0 (2019/03/11)
+## v3.14.0 (2019-03-11)
 
 ### Features
 - Improved draw and behaviour of path editor and locations.
@@ -196,7 +196,7 @@
 
 ---
 
-## 3.13.0 (2019/02/13)
+## v3.13.0 (2019-02-13)
 
 ### Features
 - Improved path editor.
@@ -208,7 +208,7 @@
 
 ---
 
-## 3.12.0 (2019/02/07)
+## v3.12.0 (2019-02-07)
 
 ### Features
 - UI/UX: More informative widget titles.
@@ -222,7 +222,7 @@
 
 ---
 
-## 3.11.0 (2019/01/17)
+## v3.11.0 (2019-01-17)
 
 ### Features
 - UI/UX: Building color visible in building index buttons.
@@ -235,7 +235,7 @@
 
 ---
 
-## 3.10.0 (2019/01/08)
+## v3.10.0 (2019-01-08)
 
 ### Features
 - Snap to vertices now works with roof points.
@@ -249,14 +249,14 @@
 
 ---
 
-## 3.9.2 (2018/12/11)
+## v3.9.2 (2018-12-11)
 
 ### Fixes
 - Some code cleanup (temporal locations).
 
 
 
-## 3.9.1 (2018/12/05)
+## v3.9.1 (2018/12/05)
 
 ### Fixes
 - System appears shifted after azimuth change.
